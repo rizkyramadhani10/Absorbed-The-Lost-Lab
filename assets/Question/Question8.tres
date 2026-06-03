@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://4f65jsmnn02l"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://scripts/QuizQuestion.gd" id="1_dg62a"]
+
+[resource]
+script = ExtResource("1_dg62a")
+question_text = "Dikibas-kibas menggunakan buku laporan praktikum"
+choices = Array[String](["Dibuang langsung ke bak cuci piring (wastafel) dan dibilas air sedikit", "Dimasukkan ke dalam botol wadah limbah khusus (jerigen limbah asam/basa) yang telah disediakan", "Dikembalikan lagi ke dalam botol reagen utama agar bisa menghemat bahan", "Dibuang ke tempat sampah organik bersama sisa kertas saring"])
+correct_choice_index = 1
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"

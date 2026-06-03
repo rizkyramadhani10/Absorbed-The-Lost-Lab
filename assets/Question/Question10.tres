@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://dpji2mgyaq2ex"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://scripts/QuizQuestion.gd" id="1_jt37m"]
+
+[resource]
+script = ExtResource("1_jt37m")
+question_text = "Mengapa zat kimia organik berbahaya (seperti kloroform atau benzena) mutlak tidak boleh dibuang ke saluran air umum/wastafel?"
+choices = Array[String](["Karena zat tersebut dapat menguap dan membuat saluran air menjadi wangi", "Karena dapat merusak pipa saluran serta mencemari lingkungan dan ekosistem air dengan racun persisten", "Karena zat tersebut bisa membeku dan menyumbat total aliran air wastafel", "Karena zat organik akan bereaksi dengan air dan berubah menjadi emas cair"])
+correct_choice_index = 1
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"

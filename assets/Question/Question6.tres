@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://ciib875rv1hv"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://scripts/QuizQuestion.gd" id="1_fekkn"]
+
+[resource]
+script = ExtResource("1_fekkn")
+question_text = "Tangan kosong yang sudah dilapisi tisu kering"
+choices = Array[String](["Agar larutan tidak terlalu cepat dingin saat diangkat dari api", "Tangan kosong yang sudah dilapisi tisu kering", "Supaya tabung reaksi tidak pecah karena terlalu berat menampung beban cairan", "Agar warna larutan tidak memudar akibat panas yang berlebihan"])
+correct_choice_index = 1
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"

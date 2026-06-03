@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://c3e5u6cqj8vun"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://scripts/QuizQuestion.gd" id="1_q72jp"]
+
+[resource]
+script = ExtResource("1_q72jp")
+question_text = "Saat menangani larutan asam pekat, jenis sarung tangan apa yang paling tepat digunakan?"
+choices = Array[String](["Sarung tangan kain benang", "Sarung tangan plastik tipis sekali pakai", "Sarung tangan bahan nitril atau karet tebal", "Sarung tangan kulit untuk las"])
+correct_choice_index = 2
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"

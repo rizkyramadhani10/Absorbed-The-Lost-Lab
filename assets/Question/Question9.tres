@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://btjutdskodx2h"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://scripts/QuizQuestion.gd" id="1_bsg8t"]
+
+[resource]
+script = ExtResource("1_bsg8t")
+question_text = "Bagaimana penanganan yang tepat untuk limbah padat seperti pecahan kaca tabung reaksi atau pipet yang rusak?"
+choices = Array[String](["Dibuang langsung ke tempat sampah plastik biasa bersama bungkus makanan", "Dikumpulkan di wadah khusus limbah tajam/pecahan kaca (sharps container) agar tidak melukai orang lain", "Dicuci bersih lalu disimpan kembali di dalam laci meja praktikum", "Dilempar ke luar jendela laboratorium agar bersih dari meja kerja"])
+correct_choice_index = 1
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"

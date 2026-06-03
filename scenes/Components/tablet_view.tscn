@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c0riynqiwfhcb"]
+
+[ext_resource type="Texture2D" uid="uid://b3kfsb1yscxyn" path="res://assets/Tablet(Quiz)/Tablet Xeno (ATL).png" id="1_beswv"]
+[ext_resource type="Script" uid="uid://cbqtlkjglq40e" path="res://scripts/tablet_view.gd" id="1_uffnx"]
+[ext_resource type="PackedScene" uid="uid://c4pnfgw80myl5" path="res://scenes/Components/quiz_manager.tscn" id="3_yo8ol"]
+
+[node name="tablet_view" type="CanvasLayer" unique_id=6813796]
+script = ExtResource("1_uffnx")
+is_quiz_tablet = true
+
+[node name="Panel" type="Panel" parent="." unique_id=814159345]
+offset_left = 215.0
+offset_top = 100.0
+offset_right = 1058.0
+offset_bottom = 633.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=519117040]
+position = Vector2(423.00006, 264)
+scale = Vector2(0.7037037, 0.7037037)
+texture = ExtResource("1_beswv")
+
+[node name="TxtDisplay" type="RichTextLabel" parent="Panel" unique_id=1011863226]
+z_index = 1
+layout_mode = 0
+offset_left = 724.0
+offset_top = 471.0
+offset_right = 811.0
+offset_bottom = 497.0
+text = "Close"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuizManager" parent="." unique_id=194335897 instance=ExtResource("3_yo8ol")]
+offset_left = 228.0
+offset_top = 114.0
+offset_right = -233.0
+offset_bottom = -93.0
+
+[node name="CloseBtn" type="Button" parent="." unique_id=2105180973]
+offset_left = 939.0
+offset_top = 564.0
+offset_right = 1026.0
+offset_bottom = 604.0
+metadata/_edit_lock_ = true

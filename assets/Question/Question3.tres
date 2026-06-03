@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://bhd33cxwqkpnx"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://scripts/QuizQuestion.gd" id="1_u4xa4"]
+
+[resource]
+script = ExtResource("1_u4xa4")
+question_text = "Kapan kacamata pelindung (goggles) WAJIB digunakan di laboratorium?"
+choices = Array[String](["Hanya saat membersihkan meja lab setelah selesai praktikum", "Sepanjang waktu praktikum, terutama saat mereaksikan bahan kimia berbahaya atau memanaskan larutan", "Hanya saat menulis laporan praktikum di pojok ruangan", "Saat mata terasa perih terkena debu dari luar ruangan"])
+correct_choice_index = 1
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"
