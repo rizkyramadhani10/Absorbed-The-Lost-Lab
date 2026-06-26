@@ -26,14 +26,14 @@ Terbangun dengan amnesia parsial di dunia purba dan reaktor mesin waktu yang rus
 
 ---
 
-## 🎯 Target Market:
+##  Target Market:
 1. **Student:** Membantu pelajar mengatasi kebosanan belajar sains konvensional melalui metode petualangan interaktif.
 2. **Chem Student:** Menjadi media simulasi digital praktikum K3 industri nyata untuk persiapan masuk laboratorium dan ujian sertifikasi kompetensi.
 3. **Gamers:** Menyukai tantangan teka-teki logika, alur cerita misteri fiksi ilmiah, dan sistem *multiple endings*.
 
 ---
 
-## 🛠️ Tech Stack & Tools:
+##  Tech Stack & Tools:
 * **Engine:** Godot Engine (Desktop Target)
 * **Languages:** GDScript
 * **Design & UI:** Figma & Canva
@@ -51,18 +51,6 @@ Struktur folder *repository* ini dirancang menggunakan pendekatan berbasis fitur
 
 ---
 
-## Progres Pengembangan:
-
-* **v0.1.0 (Juni 2026):**
-  * Refaktorisasi besar-besaran repositori ke struktur folder berbasis fitur.
-  * Optimalisasi berkas `.gitignore` untuk menyaring berkas *cache* dan *build artifacts*.
-  * Implementasi logika dasar pergerakan karakter (idle, walking, interact) dan stasiun penggantian APD.
-  * Penyusunan kerangka awal sistem kuis berbasis tablet, komponen Bunsen burner, dan tata letak laboratorium utama.
-* **[Tahapan Selanjutnya]:**
-  * Pengembangan sistem *Gathering* bahan alam prasejarah.
-  * Implementasi perhitungan persentase kepatuhan K3 untuk kalkulasi kelulusan Sertifikasi Kompetensi.
-
----
 
 ##  Cara Menjalankan Projek:
 
