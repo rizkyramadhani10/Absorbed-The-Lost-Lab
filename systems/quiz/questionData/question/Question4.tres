@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://cxt8nprfwldxo"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://systems/quiz/QuizQuestion.gd" id="1_sjhy8"]
+
+[resource]
+script = ExtResource("1_sjhy8")
+question_text = "Saat memanaskan cairan di dalam tabung reaksi menggunakan pembakar spiritus, ke mana arah mulut tabung reaksi harus dihadapkan?"
+choices = Array[String](["Menghadap langsung ke wajah sendiri agar bisa mengamati perubahan warna dengan jelas", "Menghadap ke arah teman kelompok di sebelah agar mereka bisa melihatnya", "Menghadap ke arah area kosong yang tidak ada orang atau fasilitas sensitif", "Menghadap ke bawah lantai tepat di dekat kaki praktikan"])
+correct_choice_index = 2
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"

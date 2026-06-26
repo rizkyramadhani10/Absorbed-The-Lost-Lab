@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dqe8nybq0cmeh"]
+
+[ext_resource type="Texture2D" uid="uid://3s5hbjdmghjk" path="res://ASSETS/apibesar.png" id="1_m11l2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8xx"]
+size = Vector2(289, 441.5)
+
+[node name="InteractingComponent" type="Node2D" unique_id=2085968208]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=397282350]
+collision_layer = 0
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1325247081]
+position = Vector2(2233, -164)
+scale = Vector2(0.78255206, 0.78255206)
+texture = ExtResource("1_m11l2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=932069438]
+position = Vector2(2668, -327)
+shape = SubResource("RectangleShape2D_4q8xx")

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b6li2y8rhyn80"]
+
+[ext_resource type="Script" uid="uid://bwufwkm80m44w" path="res://levels/minigames/tabungReaksi/bunsenBurner/bunsen.gd" id="1_uxuwb"]
+[ext_resource type="Texture2D" uid="uid://dke3hd2pmick" path="res://assets/images/itemProps/interactableProps/bunsen/BUNSEN/Bunsen.png" id="2_15gfv"]
+[ext_resource type="Texture2D" uid="uid://beu22lums6idm" path="res://assets/images/itemProps/interactableProps/bunsen/BUNSEN/bunsenAnimation/animasiapi1.png" id="3_hmano"]
+[ext_resource type="Texture2D" uid="uid://ddmtvcmn5182m" path="res://assets/images/itemProps/interactableProps/bunsen/BUNSEN/bunsenAnimation/animasiapi2.png" id="4_gh7xa"]
+[ext_resource type="Texture2D" uid="uid://liwdro3usous" path="res://assets/images/itemProps/interactableProps/bunsen/BUNSEN/bunsenAnimation/animasiapi3.png" id="5_kispr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynauy"]
+size = Vector2(83.5, 33)
+
+[node name="Bunsen" type="Node2D" unique_id=126850541]
+script = ExtResource("1_uxuwb")
+texture_mati = ExtResource("2_15gfv")
+texture_kecil = ExtResource("3_hmano")
+texture_sedang = ExtResource("4_gh7xa")
+texture_besar = ExtResource("5_kispr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1988852530]
+scale = Vector2(0.24479166, 0.24479166)
+texture = ExtResource("2_15gfv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=744435844]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1870048543]
+position = Vector2(-36, -94)
+shape = SubResource("RectangleShape2D_ynauy")
+
+[node name="Button" type="Button" parent="." unique_id=1078483144]
+offset_left = 46.0
+offset_top = 126.0
+offset_right = 71.0
+offset_bottom = 150.0
+
+[node name="VSlider" type="VSlider" parent="." unique_id=2059509691]
+offset_left = 58.0
+offset_top = 41.0
+offset_right = 89.0
+offset_bottom = 117.0
+ticks_on_borders = true

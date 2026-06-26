@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://oitrr2pk8aa"]
+
+[ext_resource type="Texture2D" uid="uid://2xhrb017huyd" path="res://assets/images/background/chapterOneBackground/Background/Outfits.png" id="1_dficu"]
+[ext_resource type="Script" uid="uid://bhoed4ymr7yps" path="res://entities/interactables/outfitChapterOne/outfits.gd" id="1_tx1v5"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="2_xhi5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxef1"]
+size = Vector2(218, 415)
+
+[node name="Outfits" type="Area2D" unique_id=1092045416]
+script = ExtResource("1_tx1v5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1604466630]
+position = Vector2(626, 397)
+scale = Vector2(0.8716708, 0.8716707)
+texture = ExtResource("1_dficu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=628727742]
+position = Vector2(662, 407.5)
+shape = SubResource("RectangleShape2D_yxef1")
+
+[node name="InteractPrompt" type="Label" parent="." unique_id=1620695969]
+offset_left = 689.0
+offset_top = 183.0
+offset_right = 824.0
+offset_bottom = 206.0
+theme_override_fonts/font = ExtResource("2_xhi5t")
+text = "Press Y Button!"

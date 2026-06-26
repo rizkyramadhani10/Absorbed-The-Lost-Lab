@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d35vhujuluuxk"]
+
+[ext_resource type="Script" uid="uid://d03baph8xk55o" path="res://scenes/pencapit.gd" id="1_4q8ni"]
+[ext_resource type="Texture2D" uid="uid://cfd68adfvg68g" path="res://ASSETS/cpt.png" id="1_8cdkc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8ni"]
+size = Vector2(280, 134)
+
+[node name="Pencapit" type="Area2D" unique_id=281424737]
+script = ExtResource("1_4q8ni")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1848973731]
+position = Vector2(-2.9999084, 9.1552734e-05)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_8cdkc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1049356612]
+position = Vector2(3, -7)
+shape = SubResource("RectangleShape2D_4q8ni")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

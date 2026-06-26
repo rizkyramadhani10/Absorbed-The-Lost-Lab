@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ccqx8wqaqijkc"]
+
+[ext_resource type="Script" uid="uid://funaslmvefmh" path="res://levels/minigames/tabungReaksi/game.gd" id="1_iywne"]
+[ext_resource type="Texture2D" uid="uid://cyg5v6lcabsom" path="res://assets/images/background/chapterOneBackground/Background/background.png" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://d35vhujuluuxk" path="res://levels/minigames/tabungReaksi/tubeReaction/pencapit.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://b6li2y8rhyn80" path="res://levels/minigames/tabungReaksi/bunsenBurner/bunsen.tscn" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://btm4h3gef7ntj" path="res://levels/minigames/tabungReaksi/tubeReaction/tabung_ambil.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cbgb547x0ye42" path="res://levels/minigames/tabungReaksi/tubeReaction/tabung_reaksi.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://n2b75rlyyl5f" path="res://levels/minigames/tabungReaksi/progress_bar.tscn" id="6_p57ef"]
+
+[node name="Game" type="Node2D" unique_id=1574727584]
+script = ExtResource("1_iywne")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1571283318]
+position = Vector2(629, 361)
+scale = Vector2(1, 1.008)
+texture = ExtResource("1_lbhrr")
+
+[node name="Bunsen" parent="." unique_id=126850541 instance=ExtResource("3_gee14")]
+position = Vector2(626, 420)
+
+[node name="Pencapit" parent="." unique_id=281424737 instance=ExtResource("2_lnu2h")]
+position = Vector2(194, 518)
+
+[node name="Tabung Ambil" parent="." unique_id=787896471 instance=ExtResource("3_lbhrr")]
+position = Vector2(1010, 507)
+
+[node name="Tabung Reaksi" parent="." unique_id=1224968502 instance=ExtResource("3_lnu2h")]
+position = Vector2(835, 526)
+
+[node name="ProgressBar" parent="." unique_id=1133125305 instance=ExtResource("6_p57ef")]
+offset_left = -148.0
+offset_top = 123.0
+offset_right = 296.0
+offset_bottom = 567.0
+max_value = 2000.0
+metadata/_edit_lock_ = true

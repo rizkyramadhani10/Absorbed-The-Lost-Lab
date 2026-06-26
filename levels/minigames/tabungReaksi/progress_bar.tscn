@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://n2b75rlyyl5f"]
+
+[ext_resource type="Texture2D" uid="uid://di6275sjm7k7y" path="res://assets/images/itemProps/interactableProps/bunsen/hytamm.png" id="1_1iuoo"]
+[ext_resource type="Texture2D" uid="uid://1hwwykqqlxhf" path="res://assets/images/itemProps/interactableProps/bunsen/outline.png" id="2_auvk6"]
+[ext_resource type="Texture2D" uid="uid://fvuedf4n2nv1" path="res://assets/images/itemProps/interactableProps/bunsen/bar progres.png" id="3_tumid"]
+
+[node name="ProgressBar" type="TextureProgressBar" unique_id=1133125305]
+offset_right = 1536.0
+offset_bottom = 1536.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("1_1iuoo")
+texture_over = ExtResource("2_auvk6")
+texture_progress = ExtResource("3_tumid")

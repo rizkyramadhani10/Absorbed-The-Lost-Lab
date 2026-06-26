@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://btm4h3gef7ntj"]
+
+[ext_resource type="Texture2D" uid="uid://t6y3epvevdek" path="res://ASSETS/t_blm_ambil.png" id="1_fhqtx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3qmw"]
+size = Vector2(220.25, 158)
+
+[node name="Tabung Ambil" type="Area2D" unique_id=787896471]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1299824780]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fhqtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288632531]
+position = Vector2(-2.125, 13)
+shape = SubResource("RectangleShape2D_i3qmw")

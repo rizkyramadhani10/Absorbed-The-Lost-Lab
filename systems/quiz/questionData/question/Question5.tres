@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://c8k8eqmkp6jw1"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://systems/quiz/QuizQuestion.gd" id="1_dixmy"]
+
+[resource]
+script = ExtResource("1_dixmy")
+question_text = "Alat laboratorium apa yang wajib digunakan untuk memegang tabung reaksi yang sedang dipanaskan?"
+choices = Array[String](["Tang besi pemotong kawat", "Kain lap basah yang tebal", "Penjepit tabung reaksi (tang kayu atau stainless logam)", "Tangan kosong yang sudah dilapisi tisu kering"])
+correct_choice_index = 2
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"

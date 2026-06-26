@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d35vhujuluuxk"]
+
+[ext_resource type="Script" uid="uid://d03baph8xk55o" path="res://levels/minigames/tabungReaksi/tubeReaction/pencapit.gd" id="1_4q8ni"]
+[ext_resource type="Texture2D" uid="uid://cfd68adfvg68g" path="res://assets/images/itemProps/interactableProps/bunsen/cpt.png" id="1_8cdkc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8ni"]
+size = Vector2(331, 259)
+
+[node name="Pencapit" type="Node2D" unique_id=102879356]
+script = ExtResource("1_4q8ni")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1848973731]
+position = Vector2(-2.9999084, 9.1552734e-05)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_8cdkc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1318206922]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1049356612]
+position = Vector2(-9.5, -9.5)
+shape = SubResource("RectangleShape2D_4q8ni")

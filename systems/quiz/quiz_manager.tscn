@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://c4pnfgw80myl5"]
+
+[ext_resource type="Script" uid="uid://cigooelqg3syw" path="res://systems/quiz/quiz_manager.gd" id="1_roqmb"]
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://systems/quiz/QuizQuestion.gd" id="2_lu5i8"]
+[ext_resource type="Resource" uid="uid://jus04da4hc0j" path="res://systems/quiz/questionData/question/Question1.tres" id="3_s2msw"]
+[ext_resource type="Resource" uid="uid://c3e5u6cqj8vun" path="res://systems/quiz/questionData/question/Question2.tres" id="4_vqchs"]
+[ext_resource type="Resource" uid="uid://bhd33cxwqkpnx" path="res://systems/quiz/questionData/question/Question3.tres" id="5_4av75"]
+[ext_resource type="Resource" uid="uid://cxt8nprfwldxo" path="res://systems/quiz/questionData/question/Question4.tres" id="6_88sml"]
+[ext_resource type="Resource" uid="uid://c8k8eqmkp6jw1" path="res://systems/quiz/questionData/question/Question5.tres" id="7_h7oq2"]
+[ext_resource type="Resource" uid="uid://ciib875rv1hv" path="res://systems/quiz/questionData/question/Question6.tres" id="8_b3ypm"]
+[ext_resource type="Resource" uid="uid://bkxa2sf507tqa" path="res://systems/quiz/questionData/question/Question7.tres" id="9_e8y2x"]
+[ext_resource type="Resource" uid="uid://4f65jsmnn02l" path="res://systems/quiz/questionData/question/Question8.tres" id="10_6mgqw"]
+[ext_resource type="Resource" uid="uid://btjutdskodx2h" path="res://systems/quiz/questionData/question/Question9.tres" id="11_6yy2x"]
+[ext_resource type="Resource" uid="uid://dpji2mgyaq2ex" path="res://systems/quiz/questionData/question/Question10.tres" id="12_q01p4"]
+[ext_resource type="Texture2D" uid="uid://mlaipg1srgjm" path="res://assets/images/icons/healthIcons/1.png" id="13_li327"]
+[ext_resource type="Texture2D" uid="uid://ybhveh3ypbhw" path="res://assets/images/icons/healthIcons/2.png" id="14_hjwtj"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="15_2lamh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ng4ws"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0.20392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02mcb"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="QuizManager" type="Control" unique_id=194335897]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_roqmb")
+questions = Array[ExtResource("2_lu5i8")]([ExtResource("3_s2msw"), ExtResource("4_vqchs"), ExtResource("5_4av75"), ExtResource("6_88sml"), ExtResource("7_h7oq2"), ExtResource("8_b3ypm"), ExtResource("9_e8y2x"), ExtResource("10_6mgqw"), ExtResource("11_6yy2x"), ExtResource("12_q01p4")])
+full_heart_texture = ExtResource("13_li327")
+empty_heart_texture = ExtResource("14_hjwtj")
+
+[node name="QuestionDisplay" type="RichTextLabel" parent="." unique_id=1252523297]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 41.0
+offset_top = 66.0
+offset_right = -41.0
+offset_bottom = 246.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("15_2lamh")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+
+[node name="HealthDisplay" type="HBoxContainer" parent="." unique_id=807756351]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 33.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="Heart3" type="TextureRect" parent="HealthDisplay" unique_id=1615134336]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("13_li327")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Heart2" type="TextureRect" parent="HealthDisplay" unique_id=20649063]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("13_li327")
+expand_mode = 1
+
+[node name="Heart1" type="TextureRect" parent="HealthDisplay" unique_id=155309145]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("13_li327")
+expand_mode = 1
+
+[node name="OptionsContainer" type="VBoxContainer" parent="." unique_id=1567050343]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = -81.0
+offset_right = -39.0
+offset_bottom = 182.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnswerButtonD" type="Button" parent="OptionsContainer" unique_id=383231437]
+custom_minimum_size = Vector2(1, 25)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_2lamh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ng4ws")
+alignment = 0
+autowrap_mode = 2
+
+[node name="AnswerButtonC" type="Button" parent="OptionsContainer" unique_id=377484773]
+custom_minimum_size = Vector2(1, 25)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_2lamh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ng4ws")
+alignment = 0
+autowrap_mode = 2
+
+[node name="AnswerButtonB" type="Button" parent="OptionsContainer" unique_id=879668879]
+custom_minimum_size = Vector2(1, 25)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_2lamh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ng4ws")
+alignment = 0
+autowrap_mode = 2
+
+[node name="AnswerButtonA" type="Button" parent="OptionsContainer" unique_id=2062569894]
+custom_minimum_size = Vector2(1, 25)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15_2lamh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ng4ws")
+alignment = 0
+autowrap_mode = 2
+
+[node name="FeedbackPanel" type="Panel" parent="." unique_id=355839715]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FeedbackDisplay" type="Label" parent="FeedbackPanel" unique_id=1358040813]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("15_2lamh")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultsPanel" type="Panel" parent="." unique_id=1176568169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_02mcb")
+
+[node name="ResultLabel" type="Label" parent="ResultsPanel" unique_id=1717419825]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("15_2lamh")
+theme_override_font_sizes/font_size = 30

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://jus04da4hc0j"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://systems/quiz/QuizQuestion.gd" id="1_54no2"]
+
+[resource]
+script = ExtResource("1_54no2")
+question_text = "Manakah kombinasi APD standar yang wajib digunakan sebelum memasuki laboratorium kimia?"
+choices = Array[String](["Jas lab, sandal jepit, dan masker", "Jas lab, sepatu tertutup, dan masker/kacamata pelindung", "Kaos oblong, celana pendek, dan sarung tangan", "Celemek memasak, sepatu roda, dan kacamata hitam"])
+correct_choice_index = 1
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"

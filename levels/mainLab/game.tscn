@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://c5xbxr7nq1xj0"]
+
+[ext_resource type="Script" uid="uid://ccagvc4ekqb2y" path="res://levels/mainLab/game.gd" id="1_06lne"]
+[ext_resource type="Texture2D" uid="uid://6fr3s5msxw5d" path="res://assets/images/background/chapterOneBackground/Background/wallfloor.png" id="2_exmcm"]
+[ext_resource type="Texture2D" uid="uid://cvh0xavbaqjow" path="res://assets/images/background/chapterOneBackground/Background/desk.png" id="3_gcd8o"]
+[ext_resource type="Texture2D" uid="uid://ddcajvkle7v3g" path="res://assets/images/background/chapterOneBackground/Background/drawer.png" id="4_5uc7w"]
+[ext_resource type="Texture2D" uid="uid://br0ttb7fputmp" path="res://assets/images/background/chapterOneBackground/Background/emptyhanger.png" id="5_3gdwc"]
+[ext_resource type="Texture2D" uid="uid://pipdr2ecnh1t" path="res://assets/images/background/chapterOneBackground/Background/trashcan.png" id="6_8usc1"]
+[ext_resource type="PackedScene" uid="uid://btaimbw5vf0n4" path="res://entities/interactables/chemToolsChapterOne/chem_tools.tscn" id="7_g7csg"]
+[ext_resource type="PackedScene" uid="uid://b2rrblkdxawyf" path="res://entities/interactables/tabletChapterOne/tablet.tscn" id="8_jxnki"]
+[ext_resource type="PackedScene" uid="uid://oitrr2pk8aa" path="res://entities/interactables/outfitChapterOne/outfits.tscn" id="9_kws1m"]
+[ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="10_akkc4"]
+[ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="11_ful07"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
+distance = -149.0
+
+[node name="Game" type="Node2D" unique_id=248848940]
+script = ExtResource("1_06lne")
+
+[node name="MainBackground" type="Sprite2D" parent="." unique_id=227776439]
+position = Vector2(634, 408)
+texture = ExtResource("2_exmcm")
+metadata/_edit_lock_ = true
+
+[node name="EnvironmentProps" type="Node2D" parent="." unique_id=985696646]
+
+[node name="Table" type="Sprite2D" parent="EnvironmentProps" unique_id=1822658653]
+position = Vector2(610, 451.00003)
+scale = Vector2(0.7375, 0.7375)
+texture = ExtResource("3_gcd8o")
+metadata/_edit_lock_ = true
+
+[node name="Drawer" type="Sprite2D" parent="EnvironmentProps" unique_id=1554271420]
+position = Vector2(726, 449)
+scale = Vector2(0.7434344, 0.74343455)
+skew = -0.045378562
+texture = ExtResource("4_5uc7w")
+metadata/_edit_lock_ = true
+
+[node name="Dresser" type="Sprite2D" parent="EnvironmentProps" unique_id=393791621]
+position = Vector2(770.0001, 417.99997)
+scale = Vector2(0.746953, 0.74695307)
+texture = ExtResource("5_3gdwc")
+
+[node name="Trashcan" type="Sprite2D" parent="EnvironmentProps" unique_id=1145291289]
+position = Vector2(788, 364.99997)
+scale = Vector2(1.1122308, 1.1122309)
+texture = ExtResource("6_8usc1")
+metadata/_edit_lock_ = true
+
+[node name="Interactables" type="Node2D" parent="." unique_id=910932370]
+
+[node name="ChemTools" parent="Interactables" unique_id=73848177 instance=ExtResource("7_g7csg")]
+position = Vector2(-195, -16)
+metadata/_edit_lock_ = true
+
+[node name="Tablet" parent="Interactables" unique_id=719770974 node_paths=PackedStringArray("game_world") instance=ExtResource("8_jxnki")]
+position = Vector2(494, 123)
+game_world = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="Outfits" parent="Interactables" unique_id=1092045416 instance=ExtResource("9_kws1m")]
+position = Vector2(680, 59)
+
+[node name="Player" parent="." unique_id=1835406881 instance=ExtResource("10_akkc4")]
+position = Vector2(484, 738)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
+position = Vector2(112, -346)
+position_smoothing_enabled = true
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
+position = Vector2(711, 499)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=166184859]
+position = Vector2(-114, 56)
+shape = SubResource("WorldBoundaryShape2D_lnu2h")
+
+[node name="Control" type="Control" parent="." unique_id=1598504702]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("11_ful07")]

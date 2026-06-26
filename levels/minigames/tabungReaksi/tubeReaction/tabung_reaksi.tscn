@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cbgb547x0ye42"]
+
+[ext_resource type="Texture2D" uid="uid://b5u4sqmypfg20" path="res://ASSETS/treaksi.png" id="1_g1mmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0vau"]
+size = Vector2(40, 172)
+
+[node name="Tabung Reaksi" type="Area2D" unique_id=930029696]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=444267957]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_g1mmp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1116966261]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_k0vau")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuizQuestion" format=3 uid="uid://bkxa2sf507tqa"]
+
+[ext_resource type="Script" uid="uid://dri7lpxdy57jv" path="res://systems/quiz/QuizQuestion.gd" id="1_6c8pm"]
+
+[resource]
+script = ExtResource("1_6c8pm")
+question_text = "Bagaimana cara yang benar untuk mematikan api pada pembakar spiritus (bunsen) setelah selesai digunakan?"
+choices = Array[String](["Ditiup sekencang mungkin sampai apinya padam", "Ditiup sekencang mungkin sampai apinya padam", "Ditutup langsung menggunakan penutup bunsennya dengan cepat dan rapat", "Dikibas-kibas menggunakan buku laporan praktikum"])
+correct_choice_index = 2
+metadata/_custom_type_script = "uid://dri7lpxdy57jv"
