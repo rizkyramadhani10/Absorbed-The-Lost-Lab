@@ -1,3 +1,28 @@
-# Godot 4+ specific ignores
+# Godot-specific ignores
 .godot/
-/android/
+modules/
+
+# Imported assets cache (Godot automatically regenerates these)
+*.import
+
+# Build and export artifacts
+android/
+build/
+bin/
+dist/
+
+# Keystores and certificates (Crucial for security)
+*.keystore
+*.pubkey
+
+# Mono/C# specific ignores (if you ever use it later)
+.mono/
+data_mono/
+mono_crash_release.json
+*.csproj
+*.sln
+
+# System & Editor specific ignores
+.DS_Store
+.Thumbs.db
+*.tmp
