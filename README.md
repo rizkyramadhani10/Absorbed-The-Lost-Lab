@@ -68,7 +68,7 @@ Struktur folder *repository* ini dirancang menggunakan pendekatan berbasis fitur
 
 1. Clone repositori ini:
    ```bash
-   git clone [https://github.com/rizkyramadhani10/absorbed-the-lost-lab.git](https://github.com/rizkyramadhani10/absorbed-the-lost-lab.git)
+   git clone https://github.com/rizkyramadhani10/absorbed-the-lost-lab.git
 
 2. Buka Godot Engine (v4.x).
 3. Pilih Import, arahkan ke folder hasil klon, lalu pilih berkas project.godot.
