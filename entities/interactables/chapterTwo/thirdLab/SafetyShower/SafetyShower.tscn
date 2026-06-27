@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_2iw3n"]
 [ext_resource type="Texture2D" uid="uid://ybgbcxjqs27u" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/SafetyShower.png" id="2_k3pg6"]
-[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_pn51y"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_k3pg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(77, 335)
@@ -22,11 +22,5 @@ position = Vector2(753.5, 428.5)
 shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1292633338]
-offset_left = 667.0
-offset_top = 150.0
-offset_right = 847.0
-offset_bottom = 173.0
-theme_override_fonts/font = ExtResource("3_pn51y")
-text = "Press Y To Interact!"
-metadata/_edit_use_anchors_ = true
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_k3pg6")]
+position = Vector2(24, -94)

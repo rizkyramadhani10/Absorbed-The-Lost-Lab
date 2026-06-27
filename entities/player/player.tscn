@@ -187,7 +187,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oprun"]
-size = Vector2(112.5, 401)
+size = Vector2(72, 401)
 
 [node name="Player" type="CharacterBody2D" unique_id=1835406881]
 script = ExtResource("1_hk2ix")
@@ -201,7 +201,6 @@ autoplay = "idle"
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=643738085]
-visible = false
 position = Vector2(5, -250)
 shape = SubResource("RectangleShape2D_oprun")
 metadata/_edit_lock_ = true

@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_play_button_pressed() -> void:
 	# This calls our global manager, fades out, switches the scene, and fades back in!
-	TransitionScreen.transition_to_scene("res://levels/mainLab/game.tscn")
+	TransitionScreen.transition_to_scene("res://levels/secondLab/game.tscn")
 
 
 func _on_setting_button_pressed() -> void:

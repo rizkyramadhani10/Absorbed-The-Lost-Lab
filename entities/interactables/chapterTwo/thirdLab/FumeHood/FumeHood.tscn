@@ -1,32 +1,26 @@
-[gd_scene format=3 uid="uid://bxc3kgrkyvlwo"]
+[gd_scene format=3 uid="uid://c5e7xhhlax6v1"]
 
-[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_tkavu"]
-[ext_resource type="Texture2D" uid="uid://cinkxefvck2rr" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/ExitDoor.png" id="2_ae85j"]
-[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_k0i0w"]
+[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_g5wj4"]
+[ext_resource type="Texture2D" uid="uid://dklfyawcxfjun" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/FumeHood.png" id="2_cd08e"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_uc4g1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
-size = Vector2(117, 558)
+size = Vector2(313, 496)
 
-[node name="ExitDoor" type="Area2D" unique_id=73848177]
-script = ExtResource("1_tkavu")
+[node name="FumeHood" type="Area2D" unique_id=73848177]
+script = ExtResource("1_g5wj4")
 
-[node name="ExitDoor" type="Sprite2D" parent="." unique_id=1728040727]
-position = Vector2(746, 393)
-scale = Vector2(1.1349206, 1.1349207)
-texture = ExtResource("2_ae85j")
+[node name="FumeHood" type="Sprite2D" parent="." unique_id=1728040727]
+position = Vector2(752, 431)
+scale = Vector2(1.1961415, 1.1961415)
+texture = ExtResource("2_cd08e")
 region_enabled = true
-region_rect = Rect2(0.20783997, 190.4427, 126.221146, 560.30865)
+region_rect = Rect2(116.147156, 238.31248, 311.21826, 433.63818)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
-position = Vector2(743.5, 431)
+position = Vector2(762.5, 428)
 shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1292633338]
-offset_left = 651.0
-offset_top = 118.0
-offset_right = 831.0
-offset_bottom = 141.0
-theme_override_fonts/font = ExtResource("3_k0i0w")
-text = "Press Y To Interact!"
-metadata/_edit_use_anchors_ = true
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_uc4g1")]
+position = Vector2(41, -120)

@@ -22,8 +22,12 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -149.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g64m1"]
+size = Vector2(141, 849)
+
 [node name="Game" type="Node2D" unique_id=248848940]
 script = ExtResource("1_lo62r")
+metadata/_edit_vertical_guides_ = [1761.0, -780.0]
 
 [node name="MainBackground" type="Sprite2D" parent="." unique_id=227776439]
 position = Vector2(490.5, 331.5)
@@ -38,6 +42,7 @@ texture = ExtResource("3_f02wl")
 metadata/_edit_lock_ = true
 
 [node name="Props" type="Node2D" parent="." unique_id=1351274371]
+metadata/_edit_lock_ = true
 
 [node name="labBench" type="Sprite2D" parent="Props" unique_id=483595461]
 position = Vector2(251.00002, 426)
@@ -48,42 +53,55 @@ region_rect = Rect2(397.41498, 268.39407, 946.01447, 403.9163)
 metadata/_edit_lock_ = true
 
 [node name="InteractablesProps" type="Node2D" parent="." unique_id=985696646]
+metadata/_edit_lock_ = true
 
 [node name="incubator" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("4_oiucg")]
 position = Vector2(574, 107)
+metadata/_edit_lock_ = true
 
 [node name="autoclave" parent="InteractablesProps" unique_id=918846950 instance=ExtResource("5_g64m1")]
 position = Vector2(795, 74)
+metadata/_edit_lock_ = true
 
 [node name="buretteCabinet" parent="InteractablesProps" unique_id=1177742635 instance=ExtResource("6_f02wl")]
 position = Vector2(146, 83)
+metadata/_edit_lock_ = true
 
 [node name="cabinet" parent="InteractablesProps" unique_id=1977682416 instance=ExtResource("7_rt68v")]
-position = Vector2(-1251, 38)
+position = Vector2(-1270, 47)
+metadata/_edit_lock_ = true
 
 [node name="door" parent="InteractablesProps" unique_id=1608627627 instance=ExtResource("8_38yin")]
 position = Vector2(977, 76)
+metadata/_edit_lock_ = true
 
 [node name="laboratoryRefrigerator" parent="InteractablesProps" unique_id=1406534579 instance=ExtResource("9_0jv7s")]
 position = Vector2(376, 19)
+metadata/_edit_lock_ = true
 
 [node name="microscope" parent="InteractablesProps" unique_id=946652581 instance=ExtResource("10_gm554")]
 position = Vector2(-772, -44)
+metadata/_edit_lock_ = true
 
 [node name="pHMeter" parent="InteractablesProps" unique_id=179970093 instance=ExtResource("11_o4l4k")]
 position = Vector2(-885, -23)
+metadata/_edit_lock_ = true
 
 [node name="sink" parent="InteractablesProps" unique_id=1501939334 instance=ExtResource("12_5ijdf")]
 position = Vector2(-1137, 15)
+metadata/_edit_lock_ = true
 
 [node name="sonicator" parent="InteractablesProps" unique_id=17263967 instance=ExtResource("13_7glu2")]
 position = Vector2(-617, -41)
+metadata/_edit_lock_ = true
 
 [node name="spectrophotometer" parent="InteractablesProps" unique_id=487762066 instance=ExtResource("14_uroih")]
 position = Vector2(-375, -37)
+metadata/_edit_lock_ = true
 
 [node name="thermoScientific" parent="InteractablesProps" unique_id=341283593 instance=ExtResource("15_b0aiw")]
 position = Vector2(-509, -57)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("10_rt68v")]
 position = Vector2(484, 738)
@@ -91,14 +109,18 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
 position = Vector2(112, -357)
+limit_left = -780
+limit_right = 1761
 position_smoothing_enabled = true
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
 position = Vector2(711, 499)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=166184859]
 position = Vector2(-114, 56)
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
+metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="." unique_id=1598504702]
 layout_mode = 3
@@ -108,3 +130,16 @@ offset_bottom = 40.0
 metadata/_edit_lock_ = true
 
 [node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("11_38yin")]
+
+[node name="InvisibleWalls" type="StaticBody2D" parent="." unique_id=304055917]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWalls" unique_id=276247570]
+position = Vector2(-637.5, 337)
+shape = SubResource("RectangleShape2D_g64m1")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1875079298]
+position = Vector2(1737, 329)
+shape = SubResource("RectangleShape2D_g64m1")
+metadata/_edit_lock_ = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_ghoae"]
 [ext_resource type="Texture2D" uid="uid://bvw7a0gsx1kh6" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/TimeMachineComputer.png" id="2_765rf"]
-[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_dva60"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_ghoae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(113, 226)
@@ -22,11 +22,5 @@ position = Vector2(752.5, 433)
 shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1292633338]
-offset_left = 668.0
-offset_top = 248.0
-offset_right = 848.0
-offset_bottom = 271.0
-theme_override_fonts/font = ExtResource("3_dva60")
-text = "Press Y To Interact!"
-metadata/_edit_use_anchors_ = true
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_ghoae")]
+position = Vector2(38, -8)

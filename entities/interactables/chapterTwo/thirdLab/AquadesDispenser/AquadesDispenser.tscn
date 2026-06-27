@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://cldpbdjk0ps24"]
+[gd_scene format=3 uid="uid://7w36ecxxxocl"]
 
 [ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_deg5y"]
 [ext_resource type="Texture2D" uid="uid://ckyrbj1lvm6vx" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/AquadesDispenser.png" id="2_22mfl"]
-[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_kjkl6"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_deg5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(104, 118)
@@ -21,11 +21,5 @@ position = Vector2(745, 450)
 shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1292633338]
-offset_left = 652.0
-offset_top = 369.0
-offset_right = 832.0
-offset_bottom = 392.0
-theme_override_fonts/font = ExtResource("3_kjkl6")
-text = "Press Y To Interact!"
-metadata/_edit_use_anchors_ = true
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_deg5y")]
+position = Vector2(28, 99)

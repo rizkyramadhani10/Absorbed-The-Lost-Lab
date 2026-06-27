@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_vnieq"]
 [ext_resource type="Texture2D" uid="uid://cse7773804f2q" path="res://levels/secondLab/sprites/interactablesProps/Sink.png" id="2_q7urv"]
-[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_scjvc"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_ah2xl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
-size = Vector2(121, 139)
+size = Vector2(59, 139)
 
 [node name="sink" type="Area2D" unique_id=73848177]
 script = ExtResource("1_vnieq")
@@ -21,11 +21,5 @@ position = Vector2(739.5, 404.5)
 shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1292633338]
-offset_left = 644.0
-offset_top = 275.0
-offset_right = 824.0
-offset_bottom = 298.0
-theme_override_fonts/font = ExtResource("3_scjvc")
-text = "Press Y To Interact!"
-metadata/_edit_use_anchors_ = true
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_ah2xl")]
+position = Vector2(27, 21)

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_wer0q"]
 [ext_resource type="Texture2D" uid="uid://cif40wnilxir5" path="res://levels/secondLab/sprites/interactablesProps/Incubator.png" id="2_1l4fv"]
-[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_1eceq"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_tck78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
-size = Vector2(185, 202)
+size = Vector2(71, 173)
 
 [node name="incubator" type="Area2D" unique_id=73848177]
 script = ExtResource("1_wer0q")
@@ -18,15 +18,9 @@ region_enabled = true
 region_rect = Rect2(196.63977, 473.7692, 175.20676, 182.64474)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
-position = Vector2(730.5, 444)
+position = Vector2(725.5, 440.5)
 shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1292633338]
-offset_left = 640.0
-offset_top = 289.0
-offset_right = 820.0
-offset_bottom = 312.0
-theme_override_fonts/font = ExtResource("3_1eceq")
-text = "Press Y To Interact!"
-metadata/_edit_use_anchors_ = true
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_tck78")]
+position = Vector2(8, 30)

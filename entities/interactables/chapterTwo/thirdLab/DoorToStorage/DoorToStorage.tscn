@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_plk7a"]
 [ext_resource type="Texture2D" uid="uid://bqi556t1liri1" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/DoorToStorage.png" id="2_s64a4"]
-[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_54c64"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_s64a4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(78, 433)
@@ -11,7 +11,8 @@ size = Vector2(78, 433)
 script = ExtResource("1_plk7a")
 
 [node name="DoorToStorage" type="Sprite2D" parent="." unique_id=1728040727]
-position = Vector2(743, 435)
+position = Vector2(737.75, 408.0862)
+scale = Vector2(1.1206896, 1.1206896)
 texture = ExtResource("2_s64a4")
 region_enabled = true
 region_rect = Rect2(474.51035, 303.90033, 87.09085, 446.1723)
@@ -21,11 +22,5 @@ position = Vector2(750, 445.5)
 shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1292633338]
-offset_left = 662.0
-offset_top = 180.0
-offset_right = 842.0
-offset_bottom = 203.0
-theme_override_fonts/font = ExtResource("3_54c64")
-text = "Press Y To Interact!"
-metadata/_edit_use_anchors_ = true
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_s64a4")]
+position = Vector2(37, -131)

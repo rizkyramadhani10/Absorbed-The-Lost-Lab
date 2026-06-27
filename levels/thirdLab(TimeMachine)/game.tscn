@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://dc8xao51u4nfi" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
 [ext_resource type="Texture2D" uid="uid://bx2vcloeiy16k" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
 [ext_resource type="PackedScene" uid="uid://brfnqssdfhahy" path="res://entities/interactables/chapterTwo/thirdLab/AnalyticalBalance/AnalyticalBalance.tscn" id="6_i8mc3"]
-[ext_resource type="PackedScene" uid="uid://cldpbdjk0ps24" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
+[ext_resource type="PackedScene" uid="uid://7w36ecxxxocl" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
 [ext_resource type="Texture2D" uid="uid://b15uvydb6ayqx" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://q3uvh2bli0ur" path="res://entities/interactables/chapterTwo/thirdLab/BuretteClamp/BuretteClamp.tscn" id="8_neng1"]
-[ext_resource type="PackedScene" uid="uid://b11ukfhipm6fs" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
+[ext_resource type="PackedScene" uid="uid://773gtuxtmlly" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://c323g67d1tibd" path="res://entities/interactables/chapterTwo/thirdLab/DoorToStorage/DoorToStorage.tscn" id="10_afeaw"]
-[ext_resource type="PackedScene" uid="uid://c5e7xhhlax6v1" path="res://entities/interactables/chapterTwo/thirdLab/ExitDoor/ExitDoor.tscn" id="11_yac7y"]
-[ext_resource type="PackedScene" uid="uid://bxc3kgrkyvlwo" path="res://entities/interactables/chapterTwo/thirdLab/FumeHood/FumeHood.tscn" id="12_3s7m7"]
+[ext_resource type="PackedScene" uid="uid://c5e7xhhlax6v1" path="res://entities/interactables/chapterTwo/thirdLab/FumeHood/FumeHood.tscn" id="11_yac7y"]
+[ext_resource type="PackedScene" uid="uid://bxc3kgrkyvlwo" path="res://entities/interactables/chapterTwo/thirdLab/ExitDoor/ExitDoor.tscn" id="12_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://dbegpj0xpqx1c" path="res://entities/interactables/chapterTwo/thirdLab/SafetyShower/SafetyShower.tscn" id="13_nq5ue"]
 [ext_resource type="PackedScene" uid="uid://w6835da51i8n" path="res://entities/interactables/chapterTwo/thirdLab/SinknVent/SinknVent.tscn" id="14_bok5e"]
 [ext_resource type="PackedScene" uid="uid://dlxkc4hbxft86" path="res://entities/interactables/chapterTwo/thirdLab/TimeMachineComputer/TimeMachineComputer.tscn" id="15_dhfjv"]
@@ -25,8 +25,12 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -149.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neng1"]
+size = Vector2(104, 849)
+
 [node name="Game" type="Node2D" unique_id=248848940]
 script = ExtResource("1_488wy")
+metadata/_edit_vertical_guides_ = [2184.0, -1203.0]
 
 [node name="MainBackground" type="Sprite2D" parent="." unique_id=227776439]
 position = Vector2(490.5, 331.5)
@@ -41,6 +45,7 @@ texture = ExtResource("3_hdadk")
 metadata/_edit_lock_ = true
 
 [node name="Props" type="Node2D" parent="." unique_id=1351274371]
+metadata/_edit_lock_ = true
 
 [node name="labBench" type="Sprite2D" parent="Props" unique_id=483595461]
 position = Vector2(725, 441)
@@ -83,15 +88,19 @@ region_rect = Rect2(216, 16, 688, 664)
 metadata/_edit_lock_ = true
 
 [node name="InteractablesProps" type="Node2D" parent="." unique_id=985696646]
+metadata/_edit_lock_ = true
 
 [node name="AnalyticalBalance" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("6_i8mc3")]
 position = Vector2(79, -32)
+metadata/_edit_lock_ = true
 
 [node name="AquadesDispenser" parent="InteractablesProps" unique_id=1382667527 instance=ExtResource("7_i6bjx")]
 position = Vector2(-81, -55)
+metadata/_edit_lock_ = true
 
 [node name="BuretteClamp" parent="InteractablesProps" unique_id=918866829 instance=ExtResource("8_neng1")]
 position = Vector2(167, -69)
+metadata/_edit_lock_ = true
 
 [node name="DoorToLab1" parent="InteractablesProps" unique_id=1277454971 instance=ExtResource("9_rk8vc")]
 position = Vector2(-1490, -73)
@@ -99,9 +108,11 @@ metadata/_edit_lock_ = true
 
 [node name="DoorToStorage" parent="InteractablesProps" unique_id=2113043938 instance=ExtResource("10_afeaw")]
 position = Vector2(1398, 83)
+metadata/_edit_lock_ = true
 
 [node name="FumeHood" parent="InteractablesProps" unique_id=2049360832 instance=ExtResource("11_yac7y")]
 position = Vector2(-894, -39)
+metadata/_edit_lock_ = true
 
 [node name="ExitDoor" parent="InteractablesProps" unique_id=537372239 instance=ExtResource("12_3s7m7")]
 position = Vector2(-1877, 34)
@@ -129,14 +140,18 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
 position = Vector2(112, -355)
+limit_left = -1203
+limit_right = 2184
 position_smoothing_enabled = true
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
 position = Vector2(711, 499)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=166184859]
 position = Vector2(-114, 56)
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
+metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="." unique_id=1598504702]
 layout_mode = 3
@@ -146,3 +161,16 @@ offset_bottom = 40.0
 metadata/_edit_lock_ = true
 
 [node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("17_v0inv")]
+
+[node name="InvisibleWalls" type="StaticBody2D" parent="." unique_id=1896727508]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1805763351]
+position = Vector2(-1156, 331.5)
+shape = SubResource("RectangleShape2D_neng1")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisibleWalls" unique_id=605108285]
+position = Vector2(2185, 331)
+shape = SubResource("RectangleShape2D_neng1")
+metadata/_edit_lock_ = true

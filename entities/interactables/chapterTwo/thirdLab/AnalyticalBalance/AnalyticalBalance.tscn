@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_nvlsn"]
 [ext_resource type="Texture2D" uid="uid://k2jsfhogbnxa" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/AnalyticalBalance.png" id="2_8gai0"]
-[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_s1ve6"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_nvlsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
-size = Vector2(65, 76)
+size = Vector2(31, 76)
 
 [node name="AnalyticalBalance" type="Area2D" unique_id=73848177]
 script = ExtResource("1_nvlsn")
@@ -21,11 +21,5 @@ position = Vector2(743.5, 451)
 shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1292633338]
-offset_left = 655.0
-offset_top = 379.0
-offset_right = 835.0
-offset_bottom = 402.0
-theme_override_fonts/font = ExtResource("3_s1ve6")
-text = "Press Y To Interact!"
-metadata/_edit_use_anchors_ = true
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_nvlsn")]
+position = Vector2(28, 99)

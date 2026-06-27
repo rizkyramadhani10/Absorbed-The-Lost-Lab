@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 TransitionScreen="*uid://dhqpak6najqh3"
 SubtitleUi="*uid://bjf3cj6cgbxmd"
 Global="*uid://y66fh1n1bir6"
-_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+DialogueManager="*uid://c3rodes2l3gxb"
 
 [display]
 
@@ -29,7 +29,7 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 
