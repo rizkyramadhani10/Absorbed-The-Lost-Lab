@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://dljufsmrudfbq"]
+
+[ext_resource type="Script" uid="uid://ccagvc4ekqb2y" path="res://levels/mainLab/game.gd" id="1_488wy"]
+[ext_resource type="Texture2D" uid="uid://c7510230rp4i2" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgWallnFloor.png" id="2_hdadk"]
+[ext_resource type="Texture2D" uid="uid://bjpwerel1jvfa" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgLighting.png" id="3_hdadk"]
+[ext_resource type="Texture2D" uid="uid://cob1frcs33wb0" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/LabBench.png" id="3_i8mc3"]
+[ext_resource type="Texture2D" uid="uid://c874nbl3ka0o2" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/TimeMachine.png" id="5_hdadk"]
+[ext_resource type="Texture2D" uid="uid://dc8xao51u4nfi" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
+[ext_resource type="Texture2D" uid="uid://bx2vcloeiy16k" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
+[ext_resource type="PackedScene" uid="uid://brfnqssdfhahy" path="res://entities/interactables/chapterTwo/thirdLab/AnalyticalBalance/AnalyticalBalance.tscn" id="6_i8mc3"]
+[ext_resource type="PackedScene" uid="uid://cldpbdjk0ps24" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
+[ext_resource type="Texture2D" uid="uid://b15uvydb6ayqx" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
+[ext_resource type="PackedScene" uid="uid://q3uvh2bli0ur" path="res://entities/interactables/chapterTwo/thirdLab/BuretteClamp/BuretteClamp.tscn" id="8_neng1"]
+[ext_resource type="PackedScene" uid="uid://b11ukfhipm6fs" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
+[ext_resource type="PackedScene" uid="uid://c323g67d1tibd" path="res://entities/interactables/chapterTwo/thirdLab/DoorToStorage/DoorToStorage.tscn" id="10_afeaw"]
+[ext_resource type="PackedScene" uid="uid://c5e7xhhlax6v1" path="res://entities/interactables/chapterTwo/thirdLab/ExitDoor/ExitDoor.tscn" id="11_yac7y"]
+[ext_resource type="PackedScene" uid="uid://bxc3kgrkyvlwo" path="res://entities/interactables/chapterTwo/thirdLab/FumeHood/FumeHood.tscn" id="12_3s7m7"]
+[ext_resource type="PackedScene" uid="uid://dbegpj0xpqx1c" path="res://entities/interactables/chapterTwo/thirdLab/SafetyShower/SafetyShower.tscn" id="13_nq5ue"]
+[ext_resource type="PackedScene" uid="uid://w6835da51i8n" path="res://entities/interactables/chapterTwo/thirdLab/SinknVent/SinknVent.tscn" id="14_bok5e"]
+[ext_resource type="PackedScene" uid="uid://dlxkc4hbxft86" path="res://entities/interactables/chapterTwo/thirdLab/TimeMachineComputer/TimeMachineComputer.tscn" id="15_dhfjv"]
+[ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="16_e4qak"]
+[ext_resource type="PackedScene" uid="uid://bi18r0egwryqf" path="res://entities/interactables/chapterTwo/thirdLab/TimeMachineSpiralPortal/TimeMachineSpiralPortal.tscn" id="16_lau1m"]
+[ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="17_v0inv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
+distance = -149.0
+
+[node name="Game" type="Node2D" unique_id=248848940]
+script = ExtResource("1_488wy")
+
+[node name="MainBackground" type="Sprite2D" parent="." unique_id=227776439]
+position = Vector2(490.5, 331.5)
+scale = Vector2(1.1293334, 1.1293334)
+texture = ExtResource("2_hdadk")
+metadata/_edit_lock_ = true
+
+[node name="Lighting" type="Sprite2D" parent="." unique_id=1961706913]
+position = Vector2(490.5, 331.5)
+scale = Vector2(1.1293334, 1.1293334)
+texture = ExtResource("3_hdadk")
+metadata/_edit_lock_ = true
+
+[node name="Props" type="Node2D" parent="." unique_id=1351274371]
+
+[node name="labBench" type="Sprite2D" parent="Props" unique_id=483595461]
+position = Vector2(725, 441)
+scale = Vector2(1.0490456, 1.0490453)
+texture = ExtResource("3_i8mc3")
+region_enabled = true
+region_rect = Rect2(1312, 272, 824, 392)
+metadata/_edit_lock_ = true
+
+[node name="fireExtinguisher" type="Sprite2D" parent="Props" unique_id=505723726]
+position = Vector2(-950.9509, 242.46704)
+scale = Vector2(1.2797174, 1.2797167)
+texture = ExtResource("5_neng1")
+region_enabled = true
+region_rect = Rect2(240, 232, 64, 120)
+metadata/_edit_lock_ = true
+
+[node name="chair" type="Sprite2D" parent="Props" unique_id=1210203559]
+position = Vector2(907, 598)
+scale = Vector2(1.1219337, 1.1219332)
+texture = ExtResource("6_i6bjx")
+region_enabled = true
+region_rect = Rect2(256, 544, 112, 120)
+metadata/_edit_lock_ = true
+
+[node name="cable" type="Sprite2D" parent="Props" unique_id=1076857549]
+position = Vector2(1660.3303, 634.78845)
+scale = Vector2(1.1112328, 1.1112319)
+texture = ExtResource("7_rk8vc")
+region_enabled = true
+region_rect = Rect2(2128, 560, 784, 176)
+metadata/_edit_lock_ = true
+
+[node name="timeMachine" type="Sprite2D" parent="Props" unique_id=2131289638]
+position = Vector2(1649, 308.00003)
+scale = Vector2(1.1010103, 1.1010101)
+texture = ExtResource("5_hdadk")
+region_enabled = true
+region_rect = Rect2(216, 16, 688, 664)
+metadata/_edit_lock_ = true
+
+[node name="InteractablesProps" type="Node2D" parent="." unique_id=985696646]
+
+[node name="AnalyticalBalance" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("6_i8mc3")]
+position = Vector2(79, -32)
+
+[node name="AquadesDispenser" parent="InteractablesProps" unique_id=1382667527 instance=ExtResource("7_i6bjx")]
+position = Vector2(-81, -55)
+
+[node name="BuretteClamp" parent="InteractablesProps" unique_id=918866829 instance=ExtResource("8_neng1")]
+position = Vector2(167, -69)
+
+[node name="DoorToLab1" parent="InteractablesProps" unique_id=1277454971 instance=ExtResource("9_rk8vc")]
+position = Vector2(-1490, -73)
+metadata/_edit_lock_ = true
+
+[node name="DoorToStorage" parent="InteractablesProps" unique_id=2113043938 instance=ExtResource("10_afeaw")]
+position = Vector2(1398, 83)
+
+[node name="FumeHood" parent="InteractablesProps" unique_id=2049360832 instance=ExtResource("11_yac7y")]
+position = Vector2(-894, -39)
+
+[node name="ExitDoor" parent="InteractablesProps" unique_id=537372239 instance=ExtResource("12_3s7m7")]
+position = Vector2(-1877, 34)
+metadata/_edit_lock_ = true
+
+[node name="SafetyShower" parent="InteractablesProps" unique_id=1304059719 instance=ExtResource("13_nq5ue")]
+position = Vector2(-1183, 18)
+metadata/_edit_lock_ = true
+
+[node name="SinknVent" parent="InteractablesProps" unique_id=1972405008 instance=ExtResource("14_bok5e")]
+position = Vector2(-583, -122)
+metadata/_edit_lock_ = true
+
+[node name="TimeMachineComputer" parent="InteractablesProps" unique_id=2000579499 instance=ExtResource("15_dhfjv")]
+position = Vector2(1168, 109)
+metadata/_edit_lock_ = true
+
+[node name="TimeMachineSpiralPortal" parent="InteractablesProps" unique_id=1805250088 instance=ExtResource("16_lau1m")]
+position = Vector2(736, 0)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1835406881 instance=ExtResource("16_e4qak")]
+position = Vector2(484, 738)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
+position = Vector2(112, -355)
+position_smoothing_enabled = true
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
+position = Vector2(711, 499)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=166184859]
+position = Vector2(-114, 56)
+shape = SubResource("WorldBoundaryShape2D_lnu2h")
+
+[node name="Control" type="Control" parent="." unique_id=1598504702]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("17_v0inv")]

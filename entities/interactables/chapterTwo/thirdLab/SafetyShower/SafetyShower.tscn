@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dbegpj0xpqx1c"]
+
+[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_2iw3n"]
+[ext_resource type="Texture2D" uid="uid://ybgbcxjqs27u" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/SafetyShower.png" id="2_k3pg6"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_pn51y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(77, 335)
+
+[node name="SafetyShower" type="Area2D" unique_id=73848177]
+script = ExtResource("1_2iw3n")
+
+[node name="SafetyShower" type="Sprite2D" parent="." unique_id=1728040727]
+position = Vector2(751, 403)
+scale = Vector2(1.1666666, 1.1666666)
+texture = ExtResource("2_k3pg6")
+region_enabled = true
+region_rect = Rect2(228.0011, 287.00037, 99.000244, 336.55023)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(753.5, 428.5)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1292633338]
+offset_left = 667.0
+offset_top = 150.0
+offset_right = 847.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("3_pn51y")
+text = "Press Y To Interact!"
+metadata/_edit_use_anchors_ = true

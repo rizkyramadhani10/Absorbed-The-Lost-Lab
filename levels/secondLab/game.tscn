@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://7yag4ajp7ggw"]
+
+[ext_resource type="Script" uid="uid://ccagvc4ekqb2y" path="res://levels/mainLab/game.gd" id="1_lo62r"]
+[ext_resource type="Texture2D" uid="uid://cweinyi6caifi" path="res://levels/secondLab/sprites/environments/bgWallnFloor.png" id="2_oiucg"]
+[ext_resource type="Texture2D" uid="uid://dcdpjftei2r87" path="res://levels/secondLab/sprites/environments/bgLighting.png" id="3_f02wl"]
+[ext_resource type="Texture2D" uid="uid://dd5yo5b3ff2df" path="res://levels/secondLab/sprites/interactablesProps/LabBench.png" id="3_g64m1"]
+[ext_resource type="PackedScene" uid="uid://di5ahk2nstwex" path="res://entities/interactables/chapterTwo/secondLab/IncubatorInteractables/incubator.tscn" id="4_oiucg"]
+[ext_resource type="PackedScene" uid="uid://chasooqh6darb" path="res://entities/interactables/chapterTwo/secondLab/autoclaveInteractables/autoclave.tscn" id="5_g64m1"]
+[ext_resource type="PackedScene" uid="uid://dckoo7sa6neoy" path="res://entities/interactables/chapterTwo/secondLab/buretteCabinetInteractables/buretteCabinet.tscn" id="6_f02wl"]
+[ext_resource type="PackedScene" uid="uid://b7l6lj6itqq4v" path="res://entities/interactables/chapterTwo/secondLab/CabinetInteractables/cabinet.tscn" id="7_rt68v"]
+[ext_resource type="PackedScene" uid="uid://dh42hmkjn62h" path="res://entities/interactables/chapterTwo/secondLab/DoorInteractables/door.tscn" id="8_38yin"]
+[ext_resource type="PackedScene" uid="uid://d0pwrxxi3euko" path="res://entities/interactables/chapterTwo/secondLab/laboratoryRefrigeratorInteractables/laboratoryRefrigerator.tscn" id="9_0jv7s"]
+[ext_resource type="PackedScene" uid="uid://b5vk2ndxv5y16" path="res://entities/interactables/chapterTwo/secondLab/microscopeInteractables/microscope.tscn" id="10_gm554"]
+[ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="10_rt68v"]
+[ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="11_38yin"]
+[ext_resource type="PackedScene" uid="uid://bede56j8catuj" path="res://entities/interactables/chapterTwo/secondLab/pHMeterInteractables/pHMeter.tscn" id="11_o4l4k"]
+[ext_resource type="PackedScene" uid="uid://d3pxnayc7dvas" path="res://entities/interactables/chapterTwo/secondLab/sinkInteractables/sink.tscn" id="12_5ijdf"]
+[ext_resource type="PackedScene" uid="uid://bohpmrvdt415t" path="res://entities/interactables/chapterTwo/secondLab/sonicatorInteractables/sonicator.tscn" id="13_7glu2"]
+[ext_resource type="PackedScene" uid="uid://dec7t22klq34a" path="res://entities/interactables/chapterTwo/secondLab/spectrophotometerInteractables/spectrophotometer.tscn" id="14_uroih"]
+[ext_resource type="PackedScene" uid="uid://bm6jd88mykli4" path="res://entities/interactables/chapterTwo/secondLab/thermoScientificInteractables/thermoScientific.tscn" id="15_b0aiw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
+distance = -149.0
+
+[node name="Game" type="Node2D" unique_id=248848940]
+script = ExtResource("1_lo62r")
+
+[node name="MainBackground" type="Sprite2D" parent="." unique_id=227776439]
+position = Vector2(490.5, 331.5)
+scale = Vector2(1.1293334, 1.1293334)
+texture = ExtResource("2_oiucg")
+metadata/_edit_lock_ = true
+
+[node name="Lighting" type="Sprite2D" parent="." unique_id=857323587]
+position = Vector2(490.5, 331.5)
+scale = Vector2(1.1293334, 1.1293334)
+texture = ExtResource("3_f02wl")
+metadata/_edit_lock_ = true
+
+[node name="Props" type="Node2D" parent="." unique_id=1351274371]
+
+[node name="labBench" type="Sprite2D" parent="Props" unique_id=483595461]
+position = Vector2(251.00002, 426)
+scale = Vector2(1.1451614, 1.1451613)
+texture = ExtResource("3_g64m1")
+region_enabled = true
+region_rect = Rect2(397.41498, 268.39407, 946.01447, 403.9163)
+metadata/_edit_lock_ = true
+
+[node name="InteractablesProps" type="Node2D" parent="." unique_id=985696646]
+
+[node name="incubator" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("4_oiucg")]
+position = Vector2(574, 107)
+
+[node name="autoclave" parent="InteractablesProps" unique_id=918846950 instance=ExtResource("5_g64m1")]
+position = Vector2(795, 74)
+
+[node name="buretteCabinet" parent="InteractablesProps" unique_id=1177742635 instance=ExtResource("6_f02wl")]
+position = Vector2(146, 83)
+
+[node name="cabinet" parent="InteractablesProps" unique_id=1977682416 instance=ExtResource("7_rt68v")]
+position = Vector2(-1251, 38)
+
+[node name="door" parent="InteractablesProps" unique_id=1608627627 instance=ExtResource("8_38yin")]
+position = Vector2(977, 76)
+
+[node name="laboratoryRefrigerator" parent="InteractablesProps" unique_id=1406534579 instance=ExtResource("9_0jv7s")]
+position = Vector2(376, 19)
+
+[node name="microscope" parent="InteractablesProps" unique_id=946652581 instance=ExtResource("10_gm554")]
+position = Vector2(-772, -44)
+
+[node name="pHMeter" parent="InteractablesProps" unique_id=179970093 instance=ExtResource("11_o4l4k")]
+position = Vector2(-885, -23)
+
+[node name="sink" parent="InteractablesProps" unique_id=1501939334 instance=ExtResource("12_5ijdf")]
+position = Vector2(-1137, 15)
+
+[node name="sonicator" parent="InteractablesProps" unique_id=17263967 instance=ExtResource("13_7glu2")]
+position = Vector2(-617, -41)
+
+[node name="spectrophotometer" parent="InteractablesProps" unique_id=487762066 instance=ExtResource("14_uroih")]
+position = Vector2(-375, -37)
+
+[node name="thermoScientific" parent="InteractablesProps" unique_id=341283593 instance=ExtResource("15_b0aiw")]
+position = Vector2(-509, -57)
+
+[node name="Player" parent="." unique_id=1835406881 instance=ExtResource("10_rt68v")]
+position = Vector2(484, 738)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
+position = Vector2(112, -357)
+position_smoothing_enabled = true
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
+position = Vector2(711, 499)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=166184859]
+position = Vector2(-114, 56)
+shape = SubResource("WorldBoundaryShape2D_lnu2h")
+
+[node name="Control" type="Control" parent="." unique_id=1598504702]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("11_38yin")]

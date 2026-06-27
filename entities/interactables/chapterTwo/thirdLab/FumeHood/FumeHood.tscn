@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bxc3kgrkyvlwo"]
+
+[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_tkavu"]
+[ext_resource type="Texture2D" uid="uid://cinkxefvck2rr" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/ExitDoor.png" id="2_ae85j"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_k0i0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(117, 558)
+
+[node name="ExitDoor" type="Area2D" unique_id=73848177]
+script = ExtResource("1_tkavu")
+
+[node name="ExitDoor" type="Sprite2D" parent="." unique_id=1728040727]
+position = Vector2(746, 393)
+scale = Vector2(1.1349206, 1.1349207)
+texture = ExtResource("2_ae85j")
+region_enabled = true
+region_rect = Rect2(0.20783997, 190.4427, 126.221146, 560.30865)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(743.5, 431)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1292633338]
+offset_left = 651.0
+offset_top = 118.0
+offset_right = 831.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("3_k0i0w")
+text = "Press Y To Interact!"
+metadata/_edit_use_anchors_ = true

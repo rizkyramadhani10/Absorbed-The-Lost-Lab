@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://di5ahk2nstwex"]
+
+[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_wer0q"]
+[ext_resource type="Texture2D" uid="uid://cif40wnilxir5" path="res://levels/secondLab/sprites/interactablesProps/Incubator.png" id="2_1l4fv"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_1eceq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(185, 202)
+
+[node name="incubator" type="Area2D" unique_id=73848177]
+script = ExtResource("1_wer0q")
+
+[node name="incubator" type="Sprite2D" parent="." unique_id=572318396]
+position = Vector2(732, 444.00003)
+scale = Vector2(1.1457143, 1.1457143)
+texture = ExtResource("2_1l4fv")
+region_enabled = true
+region_rect = Rect2(196.63977, 473.7692, 175.20676, 182.64474)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(730.5, 444)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1292633338]
+offset_left = 640.0
+offset_top = 289.0
+offset_right = 820.0
+offset_bottom = 312.0
+theme_override_fonts/font = ExtResource("3_1eceq")
+text = "Press Y To Interact!"
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bohpmrvdt415t"]
+
+[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_vhbi5"]
+[ext_resource type="Texture2D" uid="uid://cv3p2t2d8oa51" path="res://levels/secondLab/sprites/interactablesProps/Sonicator.png" id="2_vhbi5"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_0w8vu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(65, 92)
+
+[node name="sonicator" type="Area2D" unique_id=73848177]
+script = ExtResource("1_vhbi5")
+
+[node name="sonicator" type="Sprite2D" parent="." unique_id=596225825]
+position = Vector2(729, 444)
+texture = ExtResource("2_vhbi5")
+region_enabled = true
+region_rect = Rect2(247.94218, 418.3885, 68.59505, 71.90085)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(731.5, 443)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1292633338]
+offset_left = 640.0
+offset_top = 353.0
+offset_right = 820.0
+offset_bottom = 376.0
+theme_override_fonts/font = ExtResource("3_0w8vu")
+text = "Press Y To Interact!"
+metadata/_edit_use_anchors_ = true

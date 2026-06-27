@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dckoo7sa6neoy"]
+
+[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_jpcp1"]
+[ext_resource type="Texture2D" uid="uid://bgqkoltp8v4lj" path="res://levels/secondLab/sprites/interactablesProps/BuretteCabinet.png" id="2_jpcp1"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_356bb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(239, 232)
+
+[node name="buretteCabinet" type="Area2D" unique_id=73848177]
+script = ExtResource("1_jpcp1")
+
+[node name="buretteCabinet" type="Sprite2D" parent="." unique_id=1117249784]
+position = Vector2(730.99994, 442.00006)
+scale = Vector2(1.2569062, 1.256906)
+texture = ExtResource("2_jpcp1")
+region_enabled = true
+region_rect = Rect2(169.6452, 465.93195, 200.33142, 181.40729)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(730.5, 444)
+shape = SubResource("RectangleShape2D_g8jgx")
+
+[node name="Label" type="Label" parent="." unique_id=1292633338]
+offset_left = 634.0
+offset_top = 265.0
+offset_right = 814.0
+offset_bottom = 288.0
+theme_override_fonts/font = ExtResource("3_356bb")
+text = "Press Y To Interact!"
+metadata/_edit_use_anchors_ = true

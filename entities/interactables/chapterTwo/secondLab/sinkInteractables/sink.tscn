@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d3pxnayc7dvas"]
+
+[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_vnieq"]
+[ext_resource type="Texture2D" uid="uid://cse7773804f2q" path="res://levels/secondLab/sprites/interactablesProps/Sink.png" id="2_q7urv"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_scjvc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(121, 139)
+
+[node name="sink" type="Area2D" unique_id=73848177]
+script = ExtResource("1_vnieq")
+
+[node name="sink" type="Sprite2D" parent="." unique_id=564775025]
+position = Vector2(741, 408)
+texture = ExtResource("2_q7urv")
+region_enabled = true
+region_rect = Rect2(226.45454, 394.4215, 116.52898, 117.35544)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(739.5, 404.5)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1292633338]
+offset_left = 644.0
+offset_top = 275.0
+offset_right = 824.0
+offset_bottom = 298.0
+theme_override_fonts/font = ExtResource("3_scjvc")
+text = "Press Y To Interact!"
+metadata/_edit_use_anchors_ = true

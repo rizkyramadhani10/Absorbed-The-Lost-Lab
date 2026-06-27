@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://btaimbw5vf0n4"]
 
 [ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_ljksc"]
-[ext_resource type="Texture2D" uid="uid://mpvyot068f1e" path="res://assets/images/itemProps/chemToolsDesk/Chemtools.png" id="1_lx1xq"]
+[ext_resource type="Shader" uid="uid://b4xwigvnyjy5p" path="res://assets/shader/drop_shadow.gdshader" id="2_f7div"]
 [ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="2_ka6rm"]
+[ext_resource type="Texture2D" uid="uid://mpvyot068f1e" path="res://assets/images/itemProps/chemToolsDesk/Chemtools.png" id="3_emvjs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxlup"]
+shader = ExtResource("2_f7div")
+shader_parameter/shadow_color = Color(0, 0, 0, 0.6)
+shader_parameter/shadow_intensity = 0.33999999240032
+shader_parameter/shadow_distance = 32.5
+shader_parameter/shadow_angle = 314.22001492545
+shader_parameter/shadow_softness = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(475, 527)
@@ -12,12 +21,14 @@ script = ExtResource("1_ljksc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=831191769]
 texture_filter = 1
+material = SubResource("ShaderMaterial_mxlup")
 position = Vector2(670, 416)
 scale = Vector2(0.43819442, 0.43819442)
-texture = ExtResource("1_lx1xq")
+texture = ExtResource("3_emvjs")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+visible = false
 position = Vector2(730.5, 444)
 shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true

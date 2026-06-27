@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bede56j8catuj"]
+
+[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_y1o0k"]
+[ext_resource type="Texture2D" uid="uid://b3bdbqrfvf7s4" path="res://levels/secondLab/sprites/interactablesProps/pHMeter.png" id="2_m61o4"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_hq65c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(86, 59)
+
+[node name="pHMeter" type="Area2D" unique_id=73848177]
+script = ExtResource("1_y1o0k")
+
+[node name="pHMeter" type="Sprite2D" parent="." unique_id=1779334600]
+position = Vector2(734, 449)
+texture = ExtResource("2_m61o4")
+region_enabled = true
+region_rect = Rect2(230.58678, 447.31412, 70.248, 44.628113)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(738, 447.5)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1292633338]
+offset_left = 654.0
+offset_top = 388.0
+offset_right = 834.0
+offset_bottom = 411.0
+theme_override_fonts/font = ExtResource("3_hq65c")
+text = "Press Y To Interact!"
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c5e7xhhlax6v1"]
+
+[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_g5wj4"]
+[ext_resource type="Texture2D" uid="uid://dklfyawcxfjun" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/FumeHood.png" id="2_cd08e"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_kh1mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(313, 496)
+
+[node name="FumeHood" type="Area2D" unique_id=73848177]
+script = ExtResource("1_g5wj4")
+
+[node name="FumeHood" type="Sprite2D" parent="." unique_id=1728040727]
+position = Vector2(752, 431)
+scale = Vector2(1.1961415, 1.1961415)
+texture = ExtResource("2_cd08e")
+region_enabled = true
+region_rect = Rect2(116.147156, 238.31248, 311.21826, 433.63818)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(762.5, 428)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1292633338]
+offset_left = 666.0
+offset_top = 135.0
+offset_right = 846.0
+offset_bottom = 158.0
+theme_override_fonts/font = ExtResource("3_kh1mj")
+text = "Press Y To Interact!"
+metadata/_edit_use_anchors_ = true

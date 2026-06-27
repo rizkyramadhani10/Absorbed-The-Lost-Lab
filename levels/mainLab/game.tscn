@@ -68,7 +68,7 @@ position = Vector2(484, 738)
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
-position = Vector2(112, -346)
+position = Vector2(112, -344)
 position_smoothing_enabled = true
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
