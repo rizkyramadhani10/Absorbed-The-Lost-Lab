@@ -13,6 +13,7 @@ var pending_apd_suit: bool = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var base_shadow_scale = $shadow.scale
+@onready var walk_sfx = $WalkSFX # 1. Added reference to your walking sound node
 
 func _ready():
 	add_to_group("player")
@@ -33,7 +34,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		move_and_slide()
 		_handle_interaction_input()
-		_update_shadow() # Updates the shadow while interacting/stationary
+		_update_shadow() 
+		
+		# Stop walking sound if player suddenly starts interacting
+		if walk_sfx.playing:
+			walk_sfx.stop()
 		return 
 
 	var direction := Input.get_axis("move_left", "move_right")
@@ -60,8 +65,17 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	# 2. SFX LOGIC: Play sound if moving on the floor, stop if stationary or airborne
+	if direction != 0 and is_on_floor():
+		if not walk_sfx.playing:
+			walk_sfx.play()
+	else:
+		if walk_sfx.playing:
+			walk_sfx.stop()
+
 	_handle_interaction_input()
-	_update_shadow() # Updates the shadow during regular movement
+	_update_shadow() 
 
 func _handle_interaction_input():
 	if Input.is_action_just_pressed("interact") and nearby_interactable != null:

@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="10_rt68v"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="11_38yin"]
 [ext_resource type="PackedScene" uid="uid://bede56j8catuj" path="res://entities/interactables/chapterTwo/secondLab/pHMeterInteractables/pHMeter.tscn" id="11_o4l4k"]
-[ext_resource type="PackedScene" uid="uid://d3pxnayc7dvas" path="res://entities/interactables/chapterTwo/secondLab/sinkInteractables/sink.tscn" id="12_5ijdf"]
 [ext_resource type="PackedScene" uid="uid://bohpmrvdt415t" path="res://entities/interactables/chapterTwo/secondLab/sonicatorInteractables/sonicator.tscn" id="13_7glu2"]
 [ext_resource type="PackedScene" uid="uid://dec7t22klq34a" path="res://entities/interactables/chapterTwo/secondLab/spectrophotometerInteractables/spectrophotometer.tscn" id="14_uroih"]
 [ext_resource type="PackedScene" uid="uid://bm6jd88mykli4" path="res://entities/interactables/chapterTwo/secondLab/thermoScientificInteractables/thermoScientific.tscn" id="15_b0aiw"]
+[ext_resource type="PackedScene" uid="uid://vw0yduhnd3cx" path="res://entities/interactables/chapterTwo/secondLab/DoorToLab2/DoorToLab2.tscn" id="17_f02wl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -149.0
@@ -87,10 +87,6 @@ metadata/_edit_lock_ = true
 position = Vector2(-885, -23)
 metadata/_edit_lock_ = true
 
-[node name="sink" parent="InteractablesProps" unique_id=1501939334 instance=ExtResource("12_5ijdf")]
-position = Vector2(-1137, 15)
-metadata/_edit_lock_ = true
-
 [node name="sonicator" parent="InteractablesProps" unique_id=17263967 instance=ExtResource("13_7glu2")]
 position = Vector2(-617, -41)
 metadata/_edit_lock_ = true
@@ -103,8 +99,14 @@ metadata/_edit_lock_ = true
 position = Vector2(-509, -57)
 metadata/_edit_lock_ = true
 
+[node name="DoorToLab1" parent="InteractablesProps" unique_id=955163524 instance=ExtResource("17_f02wl")]
+position = Vector2(-1219, 27.999998)
+scale = Vector2(1.1, 1.1)
+target_scene_path = "uid://dljufsmrudfbq"
+metadata/_edit_lock_ = true
+
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("10_rt68v")]
-position = Vector2(484, 738)
+position = Vector2(-393, 722)
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]

@@ -20,16 +20,11 @@ config/icon="res://icon.svg"
 TransitionScreen="*uid://dhqpak6najqh3"
 SubtitleUi="*uid://bjf3cj6cgbxmd"
 Global="*uid://y66fh1n1bir6"
-DialogueManager="*uid://c3rodes2l3gxb"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 

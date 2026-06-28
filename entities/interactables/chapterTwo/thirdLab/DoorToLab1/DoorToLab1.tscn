@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://773gtuxtmlly"]
 
-[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_sctyh"]
+[ext_resource type="Script" uid="uid://chbpp2gnavmhh" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/door_to_lab_1.gd" id="1_sctyh"]
 [ext_resource type="Texture2D" uid="uid://cn2i8t7haef1r" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/DoorToLab1.png" id="2_h0beo"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_sctyh"]
+[ext_resource type="AudioStream" uid="uid://ce4mr74jg023y" path="res://assets/audio/sfx/soundreality-opening-door-411632.mp3" id="4_h0beo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
-size = Vector2(200, 398)
+size = Vector2(178, 398)
 
 [node name="DoorToLab1" type="Area2D" unique_id=73848177]
 script = ExtResource("1_sctyh")
@@ -24,3 +25,7 @@ metadata/_edit_lock_ = true
 
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_sctyh")]
 position = Vector2(28, -70)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=585106777]
+stream = ExtResource("4_h0beo")
+volume_db = -15.376
