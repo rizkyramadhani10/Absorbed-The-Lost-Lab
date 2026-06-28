@@ -104,7 +104,7 @@ metadata/_edit_lock_ = true
 
 [node name="DoorToLab1" parent="InteractablesProps" unique_id=1277454971 instance=ExtResource("9_rk8vc")]
 position = Vector2(-1490, -73)
-metadata/_edit_lock_ = true
+target_scene_path = "uid://7yag4ajp7ggw"
 
 [node name="DoorToStorage" parent="InteractablesProps" unique_id=2113043938 instance=ExtResource("10_afeaw")]
 position = Vector2(1398, 83)
@@ -135,8 +135,7 @@ position = Vector2(736, 0)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("16_e4qak")]
-position = Vector2(484, 738)
-metadata/_edit_lock_ = true
+position = Vector2(-768, 722)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
 position = Vector2(112, -355)

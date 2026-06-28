@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://vw0yduhnd3cx"]
+
+[ext_resource type="Script" uid="uid://y2k56pahxxy6" path="res://entities/interactables/chapterTwo/secondLab/DoorToLab2/door_to_lab_2.gd" id="1_v81wx"]
+[ext_resource type="Texture2D" uid="uid://cn2i8t7haef1r" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/DoorToLab1.png" id="2_kh7er"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_0gfoj"]
+[ext_resource type="AudioStream" uid="uid://ce4mr74jg023y" path="res://assets/audio/sfx/soundreality-opening-door-411632.mp3" id="4_vbc72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(358, 398)
+
+[node name="DoorToLab2" type="Area2D" unique_id=73848177]
+script = ExtResource("1_v81wx")
+
+[node name="DoorToLab2" type="Sprite2D" parent="." unique_id=1728040727]
+z_index = 11
+position = Vector2(743, 451)
+scale = Vector2(1.1659193, 1.1659192)
+texture = ExtResource("2_kh7er")
+region_enabled = true
+region_rect = Rect2(160.87529, 212.84232, 223.4275, 400.87466)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(742, 459)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_0gfoj")]
+z_index = 12
+position = Vector2(28, -70)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=585106777]
+stream = ExtResource("4_vbc72")
+volume_db = -15.376
+
+[node name="DimOverlay" type="ColorRect" parent="." unique_id=779548045]
+z_index = 10
+custom_minimum_size = Vector2(100, 750)
+offset_left = 271.0
+offset_top = -194.0
+offset_right = 2785.0
+offset_bottom = 750.0
+color = Color(0, 0, 0, 1)

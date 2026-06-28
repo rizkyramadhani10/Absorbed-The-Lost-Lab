@@ -218,6 +218,7 @@ animations = [{
 }]
 
 [node name="TransitionScreen" type="CanvasLayer" unique_id=1141199985]
+layer = 100
 script = ExtResource("1_hixo3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1076103811]

@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://bu07avghhxyvb" path="res://entities/player/APD/WALK/walk07.png" id="17_a2brg"]
 [ext_resource type="Texture2D" uid="uid://b01qn6ghkpr3k" path="res://entities/player/APD/WALK/walk08.png" id="18_arp52"]
 [ext_resource type="Texture2D" uid="uid://c3svx4ms4hjw7" path="res://assets/images/player/art_atlas.png" id="38_13wue"]
+[ext_resource type="AudioStream" uid="uid://d0hwyc0h1if0o" path="res://assets/audio/sfx/walk.mp3" id="39_wy7bt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f1ej7"]
 animations = [{
@@ -111,7 +112,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"apdWalking",
-"speed": 5.0
+"speed": 8.7
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,7 +184,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking",
-"speed": 8.7
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oprun"]
@@ -196,11 +197,13 @@ script = ExtResource("1_hk2ix")
 position = Vector2(1, -253)
 scale = Vector2(0.634375, 0.634375)
 sprite_frames = SubResource("SpriteFrames_f1ej7")
-animation = &"idle"
+animation = &"walking"
 autoplay = "idle"
+frame_progress = 0.13984312
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=643738085]
+visible = false
 position = Vector2(5, -250)
 shape = SubResource("RectangleShape2D_oprun")
 metadata/_edit_lock_ = true
@@ -216,3 +219,7 @@ region_rect = Rect2(112, 16, 16, 16)
 position = Vector2(-1, -95)
 target_position = Vector2(0, 54)
 hit_from_inside = true
+
+[node name="WalkSFX" type="AudioStreamPlayer2D" parent="." unique_id=316212707]
+stream = ExtResource("39_wy7bt")
+volume_db = -27.802
