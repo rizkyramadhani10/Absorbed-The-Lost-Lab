@@ -1,0 +1,285 @@
+[gd_scene format=3 uid="uid://mtfhuq01yrqb"]
+
+[ext_resource type="Texture2D" uid="uid://cceai0b5ix86n" path="res://levels/minigames/klasifikasiLimbah/background/baground zoom.png" id="1_hhl5b"]
+[ext_resource type="Script" uid="uid://cgx0fg8su4yuj" path="res://levels/minigames/klasifikasiLimbah/minigame_limbah.gd" id="1_vhuwl"]
+[ext_resource type="PackedScene" uid="uid://doi2h5627cmxa" path="res://levels/minigames/klasifikasiLimbah/wadahIntake/WadahIntake.tscn" id="3_epoqs"]
+[ext_resource type="AudioStream" uid="uid://c12mlt2ko5vp7" path="res://assets/audio/minigameLimbah/toss.mp3" id="4_1qex7"]
+[ext_resource type="PackedScene" uid="uid://ck1dhtcpy7h0b" path="res://levels/minigames/klasifikasiLimbah/itemLimbah/ItemLimbah.tscn" id="4_oy03m"]
+[ext_resource type="AudioStream" uid="uid://brkodh31ahlub" path="res://assets/audio/sfx/wronganswer.mp3" id="4_ptscd"]
+[ext_resource type="Texture2D" uid="uid://cvwntfu6qar0d" path="res://levels/minigames/klasifikasiLimbah/itemLimbah/spriteTray/trayWaste.png" id="5_5w38f"]
+[ext_resource type="AudioStream" uid="uid://dr6hbee7t2yhd" path="res://assets/audio/minigameLimbah/placeSticker.mp3" id="5_bqqxv"]
+[ext_resource type="PackedScene" uid="uid://c45bkvp0jhluy" path="res://levels/minigames/klasifikasiLimbah/itemStiker/ItemStiker.tscn" id="5_km75h"]
+[ext_resource type="Texture2D" uid="uid://b7dsed4ucptd" path="res://levels/minigames/klasifikasiLimbah/itemStiker/spriteStiker/beracun.png" id="7_5w38f"]
+[ext_resource type="Texture2D" uid="uid://b4hqh610b85n8" path="res://levels/minigames/klasifikasiLimbah/itemStiker/spriteTray/traySimbol.png" id="7_fpo1h"]
+[ext_resource type="Texture2D" uid="uid://dyspomg8yte8g" path="res://levels/minigames/klasifikasiLimbah/itemStiker/spriteStiker/flammable.png" id="8_2ouq7"]
+[ext_resource type="Texture2D" uid="uid://bf3ha64ncmgnv" path="res://levels/minigames/klasifikasiLimbah/itemStiker/spriteStiker/korosif.png" id="9_taj31"]
+[ext_resource type="Texture2D" uid="uid://3ktn6tn37icu" path="res://levels/minigames/klasifikasiLimbah/itemStiker/spriteStiker/infeksius.png" id="10_std4b"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="12_std4b"]
+[ext_resource type="AudioStream" uid="uid://dpcukrh1ofaaw" path="res://assets/audio/sfx/winner.mp3" id="14_m6dws"]
+[ext_resource type="Texture2D" uid="uid://wd7yc6p2uedf" path="res://levels/minigames/klasifikasiLimbah/background/Placeholder.png" id="15_bqqxv"]
+[ext_resource type="AudioStream" uid="uid://dfi81fp1atojk" path="res://assets/audio/minigameLimbah/kave_msri-timer-ticks-314055.mp3" id="16_1qex7"]
+
+[node name="MinigameLimbah" type="Control" unique_id=1361289289]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vhuwl")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1915139070]
+layout_mode = 1
+offset_right = 2560.0
+offset_bottom = 1440.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("1_hhl5b")
+
+[node name="WadahIntake" parent="." unique_id=1501526910 instance=ExtResource("3_epoqs")]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 160.00002
+offset_right = 1442.0
+offset_bottom = 880.0
+scale = Vector2(0.7, 0.7)
+mouse_filter = 1
+
+[node name="SFXToss" type="AudioStreamPlayer2D" parent="WadahIntake" unique_id=553211573]
+position = Vector2(-231.42856, -228.57144)
+scale = Vector2(1.4285713, 1.4285713)
+stream = ExtResource("4_1qex7")
+
+[node name="SFXStickerPlace" type="AudioStreamPlayer2D" parent="WadahIntake" unique_id=1492678302]
+position = Vector2(-231.42856, -228.57144)
+scale = Vector2(1.4285713, 1.4285713)
+stream = ExtResource("5_bqqxv")
+
+[node name="SFXStickerWrong" type="AudioStreamPlayer2D" parent="WadahIntake" unique_id=412472533]
+position = Vector2(-231.42856, -228.57144)
+scale = Vector2(1.4285713, 1.4285713)
+stream = ExtResource("4_ptscd")
+volume_db = -10.651
+
+[node name="wasteTray" type="TextureRect" parent="." unique_id=1478547220]
+layout_mode = 0
+offset_left = 786.0
+offset_top = 6.0
+offset_right = 1386.0
+offset_bottom = 406.0
+texture = ExtResource("5_5w38f")
+metadata/_edit_lock_ = true
+
+[node name="stickerTray" type="TextureRect" parent="." unique_id=652820105]
+layout_mode = 0
+offset_left = -109.0
+offset_top = 23.0
+offset_right = 432.5
+offset_bottom = 384.0
+texture = ExtResource("7_fpo1h")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="HoldingArea_Limbah" type="Control" parent="." unique_id=1204369259]
+anchors_preset = 0
+offset_right = 110.0
+offset_bottom = 93.0
+mouse_filter = 2
+
+[node name="ItemLimbah" parent="HoldingArea_Limbah" unique_id=174511798 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 1080.0
+offset_top = 42.5
+offset_right = 1144.0
+offset_bottom = 106.5
+expand_mode = 1
+nama_item = "Adsorben/kertas saring terkontaminasi bahan kimia"
+simbol_k3 = "infeksius"
+
+[node name="ItemLimbah2" parent="HoldingArea_Limbah" unique_id=1966407458 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 1001.0
+offset_top = 43.5
+offset_right = 1065.0
+offset_bottom = 107.5
+expand_mode = 1
+nama_item = "Limbah radioaktif padat"
+simbol_k3 = "infeksius"
+
+[node name="ItemLimbah3" parent="HoldingArea_Limbah" unique_id=139347780 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 919.0
+offset_top = 43.5
+offset_right = 983.0
+offset_bottom = 107.5
+expand_mode = 1
+nama_item = "Sarung tangan terkontaminasi"
+simbol_k3 = "infeksius"
+
+[node name="ItemLimbah4" parent="HoldingArea_Limbah" unique_id=789943568 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 918.0
+offset_top = 127.5
+offset_right = 982.0
+offset_bottom = 191.5
+expand_mode = 1
+nama_item = "Limbah biologis"
+simbol_k3 = "infeksius"
+
+[node name="ItemLimbah5" parent="HoldingArea_Limbah" unique_id=1975686496 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 999.0
+offset_top = 127.5
+offset_right = 1063.0
+offset_bottom = 191.5
+expand_mode = 1
+nama_item = "Natrium Sianida (NaCN) bekas"
+wujud_limbah = "cair"
+simbol_k3 = "beracun"
+
+[node name="ItemLimbah6" parent="HoldingArea_Limbah" unique_id=56551045 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 1077.0
+offset_top = 126.5
+offset_right = 1141.0
+offset_bottom = 190.5
+expand_mode = 1
+nama_item = "Larutan Merkuri (Hg²⁺) bekas"
+wujud_limbah = "cair"
+simbol_k3 = "beracun"
+
+[node name="ItemLimbah7" parent="HoldingArea_Limbah" unique_id=2102424631 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 1080.0
+offset_top = 209.5
+offset_right = 1144.0
+offset_bottom = 273.5
+expand_mode = 1
+nama_item = "Limbah radioaktif cair"
+wujud_limbah = "cair"
+simbol_k3 = "beracun"
+
+[node name="ItemLimbah8" parent="HoldingArea_Limbah" unique_id=405293467 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 1000.0
+offset_top = 208.5
+offset_right = 1064.0
+offset_bottom = 272.5
+expand_mode = 1
+wujud_limbah = "cair"
+simbol_k3 = "beracun"
+
+[node name="ItemLimbah9" parent="HoldingArea_Limbah" unique_id=109292658 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 917.0
+offset_top = 208.5
+offset_right = 981.0
+offset_bottom = 272.5
+expand_mode = 1
+nama_item = "Etanol bekas"
+wujud_limbah = "cair"
+simbol_k3 = "beracun"
+
+[node name="Laci_Stiker" type="Control" parent="." unique_id=795590925]
+anchors_preset = 0
+offset_right = 59.0
+offset_bottom = 54.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ItemStiker" parent="Laci_Stiker" unique_id=232066288 instance=ExtResource("5_km75h")]
+layout_mode = 1
+offset_left = 23.5
+offset_top = 73.0
+offset_right = 123.5
+offset_bottom = 173.0
+texture = ExtResource("7_5w38f")
+expand_mode = 1
+nama_item = "beracun"
+
+[node name="ItemStiker4" parent="Laci_Stiker" unique_id=602570266 instance=ExtResource("5_km75h")]
+layout_mode = 1
+offset_left = 25.5
+offset_top = 186.0
+offset_right = 125.5
+offset_bottom = 286.0
+texture = ExtResource("8_2ouq7")
+expand_mode = 1
+nama_item = "flammable"
+simbol_k3 = "flammable"
+
+[node name="ItemStiker2" parent="Laci_Stiker" unique_id=1029726182 instance=ExtResource("5_km75h")]
+layout_mode = 1
+offset_left = 135.5
+offset_top = 72.0
+offset_right = 235.5
+offset_bottom = 172.0
+texture = ExtResource("9_taj31")
+expand_mode = 1
+nama_item = "korosif"
+simbol_k3 = "korosif"
+
+[node name="ItemStiker3" parent="Laci_Stiker" unique_id=151604669 instance=ExtResource("5_km75h")]
+layout_mode = 1
+offset_left = 136.5
+offset_top = 186.0
+offset_right = 236.5
+offset_bottom = 286.0
+texture = ExtResource("10_std4b")
+expand_mode = 1
+nama_item = "infeksius"
+simbol_k3 = "infeksius"
+
+[node name="placeholder" type="TextureRect" parent="." unique_id=1000643595]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 17.0
+offset_right = 716.0
+offset_bottom = 92.0
+texture = ExtResource("15_bqqxv")
+expand_mode = 1
+
+[node name="HUD_Timer" type="Label" parent="." unique_id=337137902]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 548.5
+offset_top = 47.0
+offset_right = 683.5
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_std4b")
+
+[node name="SFXTimerWarning" type="AudioStreamPlayer2D" parent="." unique_id=40512959]
+stream = ExtResource("16_1qex7")
+volume_db = -8.771
+
+[node name="labelLimbah" type="Label" parent="." unique_id=551831542]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 38.0
+offset_right = 243.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("12_std4b")
+theme_override_font_sizes/font_size = 24
+text = "Label Limbah"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="limbahKimia" type="Label" parent="." unique_id=1513958174]
+layout_mode = 0
+offset_left = 1006.0
+offset_top = 23.0
+offset_right = 1169.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("12_std4b")
+theme_override_font_sizes/font_size = 24
+text = "Limbah Kimia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="." unique_id=961871921]
+
+[node name="SFXWin" type="AudioStreamPlayer2D" parent="." unique_id=1871190296]
+stream = ExtResource("14_m6dws")
+volume_db = -7.518

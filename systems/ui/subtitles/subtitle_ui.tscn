@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bjf3cj6cgbxmd"]
 
 [ext_resource type="Script" uid="uid://dj6xvt5tt23x5" path="res://systems/ui/subtitles/subtitle_ui.gd" id="1_d226d"]
-[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="2_6ddmg"]
 [ext_resource type="Script" uid="uid://51t5e7pj6js6" path="res://systems/ui/subtitles/subtitle_text.gd" id="2_ta6w6"]
+[ext_resource type="FontFile" uid="uid://b1u0l0n3ck6v4" path="res://systems/ui/theme/fonts/Easy Pixel.ttf" id="2_x453m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ta6w6"]
 content_margin_left = 8.0
@@ -35,7 +35,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ta6w6")
 
 [node name="SubtitleText" type="RichTextLabel" parent="MarginContainer/PanelContainer" unique_id=633479995]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_6ddmg")
+theme_override_fonts/normal_font = ExtResource("2_x453m")
 bbcode_enabled = true
 fit_content = true
 scroll_active = false

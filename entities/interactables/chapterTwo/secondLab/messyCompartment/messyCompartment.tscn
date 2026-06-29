@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dwuwtpdbrgbuq"]
+
+[ext_resource type="Script" uid="uid://dwk6x4oqcrqie" path="res://core/autoloads/interactable_teleport.gd" id="1_2thwm"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_kqibe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(217, 253)
+
+[node name="messyCompartment" type="Area2D" unique_id=73848177]
+script = ExtResource("1_2thwm")
+
+[node name="messyComparment" type="Sprite2D" parent="." unique_id=1623610717]
+position = Vector2(732, 441)
+scale = Vector2(1.1344086, 1.1344086)
+region_enabled = true
+region_rect = Rect2(200.00826, 317.56198, 186.71669, 339.43863)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(736.5, 465)
+shape = SubResource("RectangleShape2D_g8jgx")
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_kqibe")]
+position = Vector2(20, 66)

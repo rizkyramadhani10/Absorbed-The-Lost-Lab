@@ -1,4 +1,5 @@
 extends Node2D
+@onready var player = $Player
 
 # 2 Baris pertama yang muncul otomatis di awal game (Format: Dictionary)
 var intro_monologues: Array[Dictionary] = [
