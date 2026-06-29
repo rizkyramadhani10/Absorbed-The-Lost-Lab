@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dec7t22klq34a" path="res://entities/interactables/chapterTwo/secondLab/spectrophotometerInteractables/spectrophotometer.tscn" id="14_uroih"]
 [ext_resource type="PackedScene" uid="uid://bm6jd88mykli4" path="res://entities/interactables/chapterTwo/secondLab/thermoScientificInteractables/thermoScientific.tscn" id="15_b0aiw"]
 [ext_resource type="PackedScene" uid="uid://vw0yduhnd3cx" path="res://entities/interactables/chapterTwo/secondLab/DoorToLab2/DoorToLab2.tscn" id="17_f02wl"]
+[ext_resource type="PackedScene" uid="uid://dwuwtpdbrgbuq" path="res://entities/interactables/chapterTwo/secondLab/messyCompartment/messyCompartment.tscn" id="17_rt68v"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -149.0
@@ -100,10 +101,15 @@ position = Vector2(-509, -57)
 metadata/_edit_lock_ = true
 
 [node name="DoorToLab1" parent="InteractablesProps" unique_id=955163524 instance=ExtResource("17_f02wl")]
+visible = false
 position = Vector2(-1219, 27.999998)
 scale = Vector2(1.1, 1.1)
 target_scene_path = "uid://dljufsmrudfbq"
 metadata/_edit_lock_ = true
+
+[node name="messyCompartment" parent="InteractablesProps" unique_id=1733444930 instance=ExtResource("17_rt68v")]
+position = Vector2(-150, -134)
+target_scene_path = "uid://mtfhuq01yrqb"
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("10_rt68v")]
 position = Vector2(-393, 722)

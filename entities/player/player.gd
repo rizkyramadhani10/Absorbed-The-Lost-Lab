@@ -25,6 +25,8 @@ func _ready():
 	# Jika saat masuk scene player ternyata sudah pakai APD, langsung putar animasi APD
 	if has_apd:
 		animated_sprite.play("apdIdle")
+	
+	call_deferred("kembalikan_posisi_setelah_minigame")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -151,3 +153,12 @@ func _update_shadow() -> void:
 		$shadow.scale = base_shadow_scale * shadow_scale
 	else:
 		$shadow.visible = false
+
+func kembalikan_posisi_setelah_minigame() -> void:
+	if Global.player_last_position != Vector2.ZERO:
+		# Paksa koordinat global player pindah ke posisi meja lab terakhir
+		global_position = Global.player_last_position
+		print("PLAYER SCRIPT: Berhasil memaksa Xeno kembali ke posisi: ", global_position)
+		
+		# Reset data di Global agar tidak teleport terus-menerus setiap ganti map
+		Global.player_last_position = Vector2.ZERO
