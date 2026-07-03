@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var anim_player = $AnimationPlayer
 @onready var color_rect = $ColorRect
-@onready var clock_loading = $ClockLoading
+@onready var clock_loading = $Animation/ClockLoading
 
 # Track whether the game is currently switching scenes
 var is_loading: bool = false

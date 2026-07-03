@@ -235,8 +235,19 @@ color = Color(0.051970966, 0.051970966, 0.051970936, 1)
 root_node = NodePath("../ColorRect")
 libraries/ = SubResource("AnimationLibrary_8adi8")
 
-[node name="ClockLoading" type="AnimatedSprite2D" parent="." unique_id=774857188]
-position = Vector2(1230, 671.99994)
+[node name="Animation" type="Control" parent="." unique_id=113214079]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ClockLoading" type="AnimatedSprite2D" parent="Animation" unique_id=774857188]
 scale = Vector2(0.120779224, 0.12077921)
 sprite_frames = SubResource("SpriteFrames_atr83")
 autoplay = "default"

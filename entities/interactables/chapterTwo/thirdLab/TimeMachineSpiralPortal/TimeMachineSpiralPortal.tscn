@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_yuvfo"]
 [ext_resource type="Texture2D" uid="uid://dh5gjrw0n5y1a" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/TimeMachineSpiralPortal.png" id="2_5d4ua"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_5d4ua"]
+[ext_resource type="AudioStream" uid="uid://ceswnqnm7t08v" path="res://assets/audio/bgm/portalHum.mp3" id="4_8uobs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8uobs"]
 radius = 148.0304
@@ -23,3 +24,10 @@ metadata/_edit_lock_ = true
 
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_5d4ua")]
 position = Vector2(85, -49)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1068464298]
+position = Vector2(804, 436)
+stream = ExtResource("4_8uobs")
+autoplay = true
+max_distance = 887.0
+attenuation = 0.8122525

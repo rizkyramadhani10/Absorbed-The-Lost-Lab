@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dsaqc6fcw75dx"]
+
+[ext_resource type="Texture2D" uid="uid://ccdk6vj8ox8ai" path="res://levels/secondLab/sprites/interactablesProps/EmptyLabBench.png" id="1_6ywiv"]
+[ext_resource type="Script" uid="uid://7v8se5bgm2cq" path="res://entities/interactables/chapterTwo/secondLab/labBench/lab_bench.gd" id="1_736m4"]
+[ext_resource type="Texture2D" uid="uid://cjc4t82ldatvy" path="res://levels/secondLab/sprites/environments/MessyChem.png" id="2_736m4"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="4_yop3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awj5u"]
+size = Vector2(265, 469.5)
+
+[node name="LabBench" type="Area2D" unique_id=2039602915]
+script = ExtResource("1_736m4")
+
+[node name="labBench" type="Sprite2D" parent="." unique_id=148622528]
+position = Vector2(251.00002, 426)
+scale = Vector2(1.1451614, 1.1451613)
+texture = ExtResource("1_6ywiv")
+region_enabled = true
+region_rect = Rect2(397.41498, 268.39407, 946.01447, 403.9163)
+metadata/_edit_lock_ = true
+
+[node name="chemTools" type="Sprite2D" parent="." unique_id=1288297453]
+position = Vector2(251.00002, 426)
+scale = Vector2(1.1451614, 1.1451613)
+texture = ExtResource("2_736m4")
+region_enabled = true
+region_rect = Rect2(397.41498, 268.39407, 946.01447, 403.9163)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=744906881]
+visible = false
+position = Vector2(586.5, 436.25)
+shape = SubResource("RectangleShape2D_awj5u")
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("4_yop3g")]
+position = Vector2(-135, -83)

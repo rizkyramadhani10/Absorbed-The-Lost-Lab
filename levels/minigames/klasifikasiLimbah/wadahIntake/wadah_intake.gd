@@ -8,14 +8,25 @@ extends Control
 @onready var sfx_sticker_place = $SFXStickerPlace
 @onready var sfx_sticker_wrong = $SFXStickerWrong
 
+# VARIABEL UNTUK MENAMPUNG SKRIP UTAMA SECARA AMAN
+var main_script : Node = null
+
 var memori_mesin = {
 	"padat": {"daftar_limbah": [], "stiker_simbol": ""},
 	"cair": {"daftar_limbah": [], "stiker_simbol": ""}
 }
 
+func _ready() -> void:
+	# PENCALONAN DINAMIS: Manjat ke atas sampai ketemu root skrip yang benar
+	var parent_sekarang = get_parent()
+	while parent_sekarang != null:
+		if parent_sekarang.has_method("cek_apakah_baki_limbah_habis"):
+			main_script = parent_sekarang
+			break
+		parent_sekarang = parent_sekarang.get_parent()
+
 func validasi_can_drop_terpisah(lubang: String, data: Variant, nama_node_pengirim: String) -> bool:
 	var nama_node_lowered = nama_node_pengirim.to_lower()
-	var main_script = get_parent()
 	
 	if data["jenis"] == "limbah":
 		if "intake" in nama_node_lowered:
@@ -24,7 +35,8 @@ func validasi_can_drop_terpisah(lubang: String, data: Variant, nama_node_pengiri
 		
 	if data["jenis"] == "stiker":
 		if "slot" in nama_node_lowered:
-			if main_script.has_method("cek_apakah_baki_limbah_habis"):
+			# Ganti get_parent() dengan main_script yang sudah aman
+			if main_script and main_script.has_method("cek_apakah_baki_limbah_habis"):
 				return main_script.cek_apakah_baki_limbah_habis()
 		return false
 		
@@ -81,14 +93,16 @@ func evaluasi_jawaban_kolektif():
 		print("SEMPURNA! Kedua klasifikasi stiker kloter cocok!")
 		tempel_gambar_stiker("padat", null)
 		tempel_gambar_stiker("cair", null)
-		get_parent().pemicu_menang()
+		# Ganti get_parent() jadi main_script
+		if main_script: main_script.pemicu_menang()
 	else:
 		print("EVALUASI GAGAL: Ada stiker yang tidak sesuai dengan jenis isi limbah!")
 		
 		# SFX: Mainkan suara salah/gagal K3LH
 		if sfx_sticker_wrong: sfx_sticker_wrong.play()
 		
-		get_parent().kurangi_hp(1)
+		# Ganti get_parent() jadi main_script
+		if main_script: main_script.kurangi_hp(1)
 		
 		memori_mesin["padat"]["stiker_simbol"] = ""
 		memori_mesin["cair"]["stiker_simbol"] = ""

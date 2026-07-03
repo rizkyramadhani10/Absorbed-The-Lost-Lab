@@ -41,3 +41,5 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_ta6w6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1985697259]

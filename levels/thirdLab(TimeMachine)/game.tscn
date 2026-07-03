@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dljufsmrudfbq"]
 
-[ext_resource type="Script" uid="uid://ccagvc4ekqb2y" path="res://levels/mainLab/game.gd" id="1_488wy"]
+[ext_resource type="Script" uid="uid://b7buruhau3arx" path="res://levels/thirdLab(TimeMachine)/game.gd" id="1_neng1"]
 [ext_resource type="Texture2D" uid="uid://c7510230rp4i2" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgWallnFloor.png" id="2_hdadk"]
 [ext_resource type="Texture2D" uid="uid://bjpwerel1jvfa" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgLighting.png" id="3_hdadk"]
 [ext_resource type="Texture2D" uid="uid://cob1frcs33wb0" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/LabBench.png" id="3_i8mc3"]
@@ -29,7 +29,7 @@ distance = -149.0
 size = Vector2(104, 849)
 
 [node name="Game" type="Node2D" unique_id=248848940]
-script = ExtResource("1_488wy")
+script = ExtResource("1_neng1")
 metadata/_edit_vertical_guides_ = [2184.0, -1203.0]
 
 [node name="MainBackground" type="Sprite2D" parent="." unique_id=227776439]
