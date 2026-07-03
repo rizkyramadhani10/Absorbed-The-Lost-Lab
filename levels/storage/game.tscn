@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cx58xkjfxairt"]
+
+[ext_resource type="Script" uid="uid://ccagvc4ekqb2y" path="res://levels/mainLab/game.gd" id="1_488wy"]
+[ext_resource type="Texture2D" uid="uid://b08wlu0i2i7it" path="res://levels/storage/sprites/bgExample.png" id="1_kkcls"]
+[ext_resource type="Texture2D" uid="uid://bymlnyi14ja6q" path="res://levels/storage/sprites/LockersnBins.png" id="2_bgs80"]
+[ext_resource type="PackedScene" uid="uid://eep8vxhs78i1" path="res://entities/interactables/chapterTwo/storage/DoorToLab/DoorToLab.tscn" id="3_yyafp"]
+[ext_resource type="PackedScene" uid="uid://bgynxuvespo6n" path="res://entities/interactables/chapterTwo/storage/ChemicalRack/ChemicalRack.tscn" id="4_02aew"]
+[ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="16_e4qak"]
+[ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="17_v0inv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ogap6"]
+distance = -624.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bddg5"]
+size = Vector2(104, 849)
+
+[node name="Game" type="Node2D" unique_id=2041136512]
+script = ExtResource("1_488wy")
+
+[node name="MainBackground" type="Sprite2D" parent="." unique_id=316562924]
+position = Vector2(660.85004, 332.75003)
+scale = Vector2(1.1393331, 1.1393332)
+texture = ExtResource("1_kkcls")
+
+[node name="Props" type="Node2D" parent="." unique_id=1298904189]
+
+[node name="LockersnBins" type="Sprite2D" parent="Props" unique_id=1731022379]
+position = Vector2(642.5501, 333.25003)
+scale = Vector2(1.178, 1.1780001)
+texture = ExtResource("2_bgs80")
+
+[node name="InteractablesProps" type="Node2D" parent="." unique_id=1314743830]
+
+[node name="DoorToLab" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("3_yyafp")]
+position = Vector2(-619, 3)
+target_scene_path = "uid://dljufsmrudfbq"
+target_spawn = "SpawnFromStorage"
+
+[node name="ChemicalRack" parent="InteractablesProps" unique_id=902684052 instance=ExtResource("4_02aew")]
+position = Vector2(-219, -17)
+target_scene_path = "uid://bn7p3rh24hvf6"
+
+[node name="Player" parent="." unique_id=1835406881 instance=ExtResource("16_e4qak")]
+position = Vector2(315, 701)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1740646371]
+position = Vector2(391, -351)
+limit_left = 140
+limit_right = 1153
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1491258129]
+position = Vector2(523, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1182004278]
+position = Vector2(0, 56)
+shape = SubResource("WorldBoundaryShape2D_ogap6")
+
+[node name="Control" type="Control" parent="." unique_id=1559057370]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("17_v0inv")]
+
+[node name="InvisibleWalls" type="StaticBody2D" parent="." unique_id=653390809]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1121351237]
+position = Vector2(55, 363)
+shape = SubResource("RectangleShape2D_bddg5")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1009635219]
+position = Vector2(1103, 356)
+shape = SubResource("RectangleShape2D_bddg5")
+metadata/_edit_lock_ = true
+
+[node name="SpawnFromThirdLab" type="Marker2D" parent="." unique_id=391251159]
+position = Vector2(241, 712)

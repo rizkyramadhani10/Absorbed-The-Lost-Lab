@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bn7p3rh24hvf6"]
+
+[ext_resource type="Script" uid="uid://djfxdvcphkx00" path="res://levels/minigames/chemicalStorage/minigame_penyimpanan.gd" id="1_jeslw"]
+[ext_resource type="Texture2D" uid="uid://cyyri25nbggus" path="res://levels/minigames/chemicalStorage/sprites/Background.png" id="1_lh8ki"]
+[ext_resource type="PackedScene" uid="uid://uvpsuw7rh21y" path="res://levels/minigames/chemicalStorage/rack/rack.tscn" id="2_1ftqw"]
+[ext_resource type="PackedScene" uid="uid://c10ie6ff003nn" path="res://levels/minigames/chemicalStorage/item/bahan.tscn" id="3_ahi2t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahi2t"]
+font_size = 20
+
+[node name="MinigamePenyimpanan" type="Control" unique_id=2060123038]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jeslw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1176510927]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_lh8ki")
+
+[node name="Rack" parent="." unique_id=334481621 instance=ExtResource("2_1ftqw")]
+layout_mode = 0
+
+[node name="Bahan" type="Control" parent="." unique_id=1186088515]
+anchors_preset = 0
+
+[node name="Bahan" parent="Bahan" unique_id=826671379 instance=ExtResource("3_ahi2t")]
+position = Vector2(1123, 175)
+chemical_id = "asam_sulfat"
+
+[node name="Bahan2" parent="Bahan" unique_id=72505717 instance=ExtResource("3_ahi2t")]
+position = Vector2(1001, 300)
+chemical_id = "etanol"
+
+[node name="Bahan3" parent="Bahan" unique_id=586287391 instance=ExtResource("3_ahi2t")]
+position = Vector2(1119, 304)
+chemical_id = "kalium_permanganat"
+
+[node name="Bahan4" parent="Bahan" unique_id=1436561336 instance=ExtResource("3_ahi2t")]
+position = Vector2(1001, 174)
+chemical_id = "merkuri"
+
+[node name="Panel" type="Panel" parent="." unique_id=1636527566]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 441.0
+offset_right = 1245.0
+offset_bottom = 682.0
+
+[node name="Info" type="Label" parent="Panel" unique_id=1960998049]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 19.0
+offset_right = 155.0
+offset_bottom = 42.0
+text = "Informasi bahan"
+label_settings = SubResource("LabelSettings_ahi2t")
+
+[node name="Nama" type="Label" parent="Panel" unique_id=641378047]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 74.0
+offset_right = 161.0
+offset_bottom = 102.0
+text = "Nama:"
+label_settings = SubResource("LabelSettings_ahi2t")
+
+[node name="Kategori" type="Label" parent="Panel" unique_id=775176931]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 122.0
+offset_right = 189.0
+offset_bottom = 150.0
+text = "Kategori:"
+label_settings = SubResource("LabelSettings_ahi2t")
+
+[node name="Sifat" type="Label" parent="Panel" unique_id=1854010524]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 164.0
+offset_right = 187.0
+offset_bottom = 192.0
+text = "Sifat:"
+label_settings = SubResource("LabelSettings_ahi2t")

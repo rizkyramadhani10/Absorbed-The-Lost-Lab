@@ -37,6 +37,12 @@ var apd_monologues: Array[Dictionary] = [
 ]
 
 func _ready():
+	if Global.spawn_point == "SpawnFromThirdLab":
+		$Player.global_position = $SpawnFromThirdLab.global_position
+	
+	if Global.spawn_point == "SpawnFromStorage":
+		$Player.global_position = $SpawnFromStorage.global_position
+	
 	add_to_group("game")
 	
 	# 1. Tunggu 1 detik setelah scene game masuk

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://eep8vxhs78i1"]
+
+[ext_resource type="Script" uid="uid://of165uafysjo" path="res://entities/interactables/chapterTwo/storage/DoorToLab/door_to_lab.gd" id="1_bigi7"]
+[ext_resource type="Texture2D" uid="uid://dwufrrdextgpk" path="res://levels/storage/sprites/Door.png" id="2_gxn3v"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_vadv2"]
+[ext_resource type="AudioStream" uid="uid://ce4mr74jg023y" path="res://assets/audio/sfx/soundreality-opening-door-411632.mp3" id="4_b5tni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(108, 333)
+
+[node name="DoorToLab" type="Area2D" unique_id=73848177]
+script = ExtResource("1_bigi7")
+
+[node name="DoorToLab" type="Sprite2D" parent="." unique_id=477680745]
+position = Vector2(1307, 307.00003)
+scale = Vector2(1.192, 1.192)
+texture = ExtResource("2_gxn3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(761, 445.5)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_vadv2")]
+position = Vector2(28, -70)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=585106777]
+stream = ExtResource("4_b5tni")
+volume_db = -15.376

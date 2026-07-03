@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://didhv2de4ch42"]
+
+[ext_resource type="Script" uid="uid://26fm00cyxd1k" path="res://levels/minigames/klasifikasiLimbah/Tutorial/ui_tutorial.gd" id="1_36ip5"]
+[ext_resource type="Texture2D" uid="uid://baucj3xtx8b5q" path="res://assets/images/itemProps/tablet/Tablet Xeno (ATL) (1).png" id="1_wrbm2"]
+[ext_resource type="FontFile" uid="uid://b1u0l0n3ck6v4" path="res://systems/ui/theme/fonts/Easy Pixel.ttf" id="2_36ip5"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_4vx1h"]
+[ext_resource type="Texture2D" uid="uid://diog8mo7jpui2" path="res://systems/ui/touch_controls/buttonIcons/rightBtn/silver-!arrowright.png" id="4_hj35d"]
+[ext_resource type="Texture2D" uid="uid://doqgwq4yhr8x5" path="res://systems/ui/touch_controls/buttonIcons/rightBtn/silver-!arrowright-pushed.png" id="5_jenxp"]
+
+[node name="UiTutorial" type="ColorRect" unique_id=1662750556]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(640, 360)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.54901963)
+script = ExtResource("1_36ip5")
+
+[node name="TabletFrame" type="TextureRect" parent="." unique_id=978454197]
+custom_minimum_size = Vector2(720, 650)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -499.0
+offset_top = -439.0
+offset_right = 499.0
+offset_bottom = 439.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wrbm2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Judul" type="RichTextLabel" parent="TabletFrame" unique_id=1947161649]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 214.0
+offset_right = 882.0
+offset_bottom = 294.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = ExtResource("2_36ip5")
+theme_override_fonts/bold_font = ExtResource("3_4vx1h")
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[center][b][font_size=44][color=#1a233a]TUTORIAL MINIGAMES PENATAAN[/color][/font_size][/b]
+[font_size=22][color=#7f8c8d]Penataan & Penyimpanan Bahan Kimia[/color][/font_size][/center]"
+
+[node name="KontenTutorial" type="RichTextLabel" parent="TabletFrame" unique_id=630405108]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 291.0
+offset_right = 816.0
+offset_bottom = 703.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 1
+theme_override_fonts/normal_font = ExtResource("2_36ip5")
+bbcode_enabled = true
+text = "[color=#d35400][b]Step 1: IDENTIFIKASI BAHAN[/b][/color]
+- Kenali [b][color=#1a233a]4 bahan kimia[/color][/b] yang ada di rak kiri.
+- Setiap bahan memiliki [b]kategori[/b] dan [b]sifat[/b] yang berbeda.
+- Klik bahan untuk melihat [b]informasi detail[/b] di panel sebelah kanan.
+
+[color=#d35400][b]Step 2: PENYIMPANAN BAHAN[/b][/color]
+- [b][color=#2980b9]Seret[/color][/b] bahan kimia ke [b]rak penyimpanan[/b] yang sesuai.
+- [color=#27ae60][b]Korosif:[/b][/color] Untuk bahan bersifat [b]korosif[/b] (Asam Sulfat).
+- [color=#e67e22][b]Organik:[/b][/color] Untuk bahan bersifat [b]organik[/b] (Etanol).
+- [color=#8e44ad][b]Oksidator:[/b][/color] Untuk bahan bersifat [b]oksidator[/b] (Kalium Permanganat).
+- [color=#c0392b][b]Beracun:[/b][/color] Untuk bahan bersifat [b]beracun[/b] (Merkuri).
+
+[color=#d35400][b]Step 3: VALIDASI PENYIMPANAN[/b][/color]
+- Sistem akan [b][color=#2c3e50]memeriksa[/color][/b] setiap bahan yang kamu tempatkan.
+- [color=#27ae60][b]Benar:[/b][/color] Bahan akan menempel di rak.
+- [color=#c0392b][b]Salah:[/b][/color] Bahan akan kembali ke rak kiri.
+[center][color=#d35400][b]Tempatkan semua bahan dengan benar untuk menyelesaikan minigame![/b][/color][/center]"
+
+[node name="TombolMulai" type="TextureButton" parent="TabletFrame" unique_id=1194602490]
+texture_filter = 1
+layout_mode = 0
+offset_left = 757.0
+offset_top = 609.0
+offset_right = 844.0
+offset_bottom = 671.0
+texture_normal = ExtResource("4_hj35d")
+texture_pressed = ExtResource("5_jenxp")
+stretch_mode = 5

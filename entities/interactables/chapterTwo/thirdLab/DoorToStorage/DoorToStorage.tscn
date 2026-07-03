@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://c323g67d1tibd"]
 
-[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_plk7a"]
+[ext_resource type="Script" uid="uid://de2wtk1hd4sy4" path="res://entities/interactables/chapterTwo/thirdLab/DoorToStorage/door_to_storage.gd" id="1_s64a4"]
 [ext_resource type="Texture2D" uid="uid://bqi556t1liri1" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/DoorToStorage.png" id="2_s64a4"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_s64a4"]
+[ext_resource type="AudioStream" uid="uid://ce4mr74jg023y" path="res://assets/audio/sfx/soundreality-opening-door-411632.mp3" id="4_xp38j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(78, 433)
 
 [node name="DoorToStorage" type="Area2D" unique_id=73848177]
-script = ExtResource("1_plk7a")
+script = ExtResource("1_s64a4")
+target_scene_path = "uid://cx58xkjfxairt"
 
 [node name="DoorToStorage" type="Sprite2D" parent="." unique_id=1728040727]
 position = Vector2(737.75, 408.0862)
@@ -24,3 +26,7 @@ metadata/_edit_lock_ = true
 
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_s64a4")]
 position = Vector2(37, -131)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=198960252]
+stream = ExtResource("4_xp38j")
+volume_db = -15.376

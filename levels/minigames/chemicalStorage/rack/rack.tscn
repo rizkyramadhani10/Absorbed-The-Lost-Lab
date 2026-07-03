@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://uvpsuw7rh21y"]
+
+[ext_resource type="Texture2D" uid="uid://b8jgiv7qr7fgi" path="res://levels/minigames/chemicalStorage/rack/Rack.png" id="1_3xci8"]
+[ext_resource type="Script" uid="uid://cv6ilsgjwv4ts" path="res://levels/minigames/chemicalStorage/rack/rack_slot.gd" id="2_xe07i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xe07i"]
+size = Vector2(85, 101.5)
+
+[node name="Rack" type="Control" unique_id=443388832]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1836008770]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_3xci8")
+
+[node name="Korosif" type="Area2D" parent="." unique_id=803658299]
+script = ExtResource("2_xe07i")
+category = "Korosif"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Korosif" unique_id=1727152542]
+position = Vector2(116.5, 155.5)
+shape = SubResource("RectangleShape2D_xe07i")
+
+[node name="SnapPoint" type="Marker2D" parent="Korosif" unique_id=9185380]
+position = Vector2(116, 154)
+
+[node name="Oksidator" type="Area2D" parent="." unique_id=324952247]
+script = ExtResource("2_xe07i")
+category = "Oksidator"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oksidator" unique_id=1858527667]
+position = Vector2(772, 316)
+shape = SubResource("RectangleShape2D_xe07i")
+
+[node name="SnapPoint" type="Marker2D" parent="Oksidator" unique_id=1576140318]
+position = Vector2(771, 322)
+
+[node name="Organik" type="Area2D" parent="." unique_id=191491936]
+script = ExtResource("2_xe07i")
+category = "Organik"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Organik" unique_id=232653911]
+position = Vector2(401, 452)
+shape = SubResource("RectangleShape2D_xe07i")
+
+[node name="SnapPoint" type="Marker2D" parent="Organik" unique_id=1462362523]
+position = Vector2(400, 448)
+
+[node name="Beracun" type="Area2D" parent="." unique_id=772583624]
+script = ExtResource("2_xe07i")
+category = "Beracun"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beracun" unique_id=164472385]
+position = Vector2(504.5, 591.75)
+shape = SubResource("RectangleShape2D_xe07i")
+
+[node name="SnapPoint" type="Marker2D" parent="Beracun" unique_id=258328546]
+position = Vector2(504, 595)

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bgynxuvespo6n"]
+
+[ext_resource type="Script" uid="uid://b544ofnkc26sy" path="res://entities/interactables/chapterTwo/storage/ChemicalRack/chemical_rack.gd" id="1_8vrwl"]
+[ext_resource type="Texture2D" uid="uid://b10cna5wp1qfq" path="res://entities/interactables/chapterTwo/storage/ChemicalRack/Rack.png" id="2_8vrwl"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_y6vux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(287.97192, 414.39862)
+
+[node name="ChemicalRack" type="Area2D" unique_id=73848177]
+script = ExtResource("1_8vrwl")
+
+[node name="ChemicalRack" type="Sprite2D" parent="." unique_id=2018969321]
+position = Vector2(879, 401)
+scale = Vector2(0.87362504, 0.87362504)
+texture = ExtResource("2_8vrwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(780, 399)
+scale = Vector2(1.139, 1.139)
+shape = SubResource("RectangleShape2D_g8jgx")
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_y6vux")]
+position = Vector2(41, -120)
