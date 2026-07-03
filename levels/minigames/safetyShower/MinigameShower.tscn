@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://44cgo64pm6bk"]
+
+[ext_resource type="Texture2D" uid="uid://wa8pfsf083n2" path="res://levels/minigames/safetyShower/background/bgWall.png" id="1_vrv61"]
+[ext_resource type="Texture2D" uid="uid://c366drlw8xrwu" path="res://levels/minigames/safetyShower/safetyShowerPuller/SafetyShower.png" id="2_45cg4"]
+[ext_resource type="Texture2D" uid="uid://cyiejlnqrva2e" path="res://levels/minigames/safetyShower/safetyShowerPuller/SafetyShowerPuller.png" id="2_ffjdt"]
+[ext_resource type="PackedScene" uid="uid://n2b75rlyyl5f" path="res://levels/minigames/tabungReaksi/progress_bar.tscn" id="4_lk0uw"]
+[ext_resource type="Script" uid="uid://bqbwkkakokjyo" path="res://levels/minigames/safetyShower/safety_shower_puller.gd" id="4_mr530"]
+[ext_resource type="VideoStream" uid="uid://crq24f1by0ir4" path="res://levels/minigames/safetyShower/overlay/overlayShower.ogv" id="5_8oqqo"]
+[ext_resource type="AudioStream" uid="uid://mhl46jmsbpds" path="res://assets/audio/minigameShower/engyclick-shower-sound-354090.mp3" id="7_8oqqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk0uw"]
+size = Vector2(287.52905, 148.96057)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mr530"]
+blend_mode = 1
+
+[node name="MinigameShower" type="Control" unique_id=981468246]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=784916033]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -31.0
+offset_right = 1282.0
+offset_bottom = 719.0
+mouse_filter = 2
+texture = ExtResource("1_vrv61")
+metadata/_edit_lock_ = true
+
+[node name="SafetyShowerPuller" type="Sprite2D" parent="." unique_id=1596527312]
+position = Vector2(621, 213.00003)
+scale = Vector2(0.57733333, 0.57733333)
+texture = ExtResource("2_ffjdt")
+script = ExtResource("4_mr530")
+
+[node name="Area2D" type="Area2D" parent="SafetyShowerPuller" unique_id=5396214]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafetyShowerPuller/Area2D" unique_id=1717284339]
+position = Vector2(0.00012207031, 223.44098)
+shape = SubResource("RectangleShape2D_lk0uw")
+
+[node name="SafetyShower" type="Sprite2D" parent="." unique_id=1243286665]
+position = Vector2(625.60004, 70.99999)
+scale = Vector2(0.20866665, 0.23733331)
+texture = ExtResource("2_45cg4")
+metadata/_edit_lock_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2028611542]
+material = SubResource("CanvasItemMaterial_mr530")
+layout_mode = 0
+offset_left = 13.0
+offset_top = -13.0
+offset_right = 1303.0
+offset_bottom = 729.0
+mouse_filter = 2
+stream = ExtResource("5_8oqqo")
+expand = true
+loop = true
+
+[node name="ProgressBar" parent="." unique_id=1196607322 instance=ExtResource("4_lk0uw")]
+layout_mode = 0
+offset_left = -251.0
+offset_top = 13.0
+offset_right = 377.0
+offset_bottom = 641.0
+max_value = 1000.0
+metadata/_edit_lock_ = true
+
+[node name="SFXShower" type="AudioStreamPlayer2D" parent="." unique_id=610875661]
+stream = ExtResource("7_8oqqo")

@@ -5,7 +5,7 @@ extends Node2D
 @onready var pencapit = $Pencapit # TAMBAHAN: Ambil referensi ke script Pencapit
 
 # PERBAIKAN: Jalur file disesuaikan dengan folder ASSETS
-var tekstur_rak_baru = preload("res://assets/images/itemProps/interactableProps/bunsen/t_sdh_ambil.png")
+var tekstur_rak_baru = preload("res://assets/images/itemProps/interactableProps/bunsen/tabungReaksi/t_sdh_ambil.png")
 
 func _ready():
 	# Sembunyikan tabung reaksi tunggal saat game baru mulai

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbgb547x0ye42"]
 
-[ext_resource type="Texture2D" uid="uid://b5u4sqmypfg20" path="res://ASSETS/treaksi.png" id="1_g1mmp"]
+[ext_resource type="Texture2D" uid="uid://b5u4sqmypfg20" path="res://assets/images/itemProps/interactableProps/bunsen/tabungReaksi/treaksi.png" id="1_g1mmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0vau"]
 size = Vector2(40, 172)
