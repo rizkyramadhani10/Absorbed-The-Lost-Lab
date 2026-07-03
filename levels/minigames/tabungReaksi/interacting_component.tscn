@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqe8nybq0cmeh"]
 
-[ext_resource type="Texture2D" uid="uid://3s5hbjdmghjk" path="res://ASSETS/apibesar.png" id="1_m11l2"]
+[ext_resource type="Texture2D" uid="uid://b7irko2irvd8g" path="res://assets/images/itemProps/interactableProps/bunsen/bunsenAnimation/apibesar.png" id="1_m11l2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8xx"]
 size = Vector2(289, 441.5)

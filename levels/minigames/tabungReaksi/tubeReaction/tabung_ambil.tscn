@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btm4h3gef7ntj"]
 
-[ext_resource type="Texture2D" uid="uid://t6y3epvevdek" path="res://ASSETS/t_blm_ambil.png" id="1_fhqtx"]
+[ext_resource type="Texture2D" uid="uid://t6y3epvevdek" path="res://assets/images/itemProps/interactableProps/bunsen/tabungReaksi/t_blm_ambil.png" id="1_fhqtx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3qmw"]
 size = Vector2(220.25, 158)

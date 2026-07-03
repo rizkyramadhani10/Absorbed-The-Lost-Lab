@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d35vhujuluuxk"]
 
 [ext_resource type="Script" uid="uid://d03baph8xk55o" path="res://levels/minigames/tabungReaksi/tubeReaction/pencapit.gd" id="1_4q8ni"]
-[ext_resource type="Texture2D" uid="uid://cfd68adfvg68g" path="res://assets/images/itemProps/interactableProps/bunsen/cpt.png" id="1_8cdkc"]
+[ext_resource type="Texture2D" uid="uid://cfd68adfvg68g" path="res://assets/images/itemProps/interactableProps/bunsen/capitan/cpt.png" id="1_8cdkc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q8ni"]
 size = Vector2(331, 259)
