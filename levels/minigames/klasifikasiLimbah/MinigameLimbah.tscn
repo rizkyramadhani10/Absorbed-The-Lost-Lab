@@ -21,265 +21,324 @@
 
 [node name="MinigameLimbah" type="Control" unique_id=1361289289]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_vhuwl")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1915139070]
+[node name="GameBoard" type="Control" parent="." unique_id=1421144409]
+custom_minimum_size = Vector2(1080, 720)
 layout_mode = 1
-offset_right = 2560.0
-offset_bottom = 1440.0
-scale = Vector2(0.5, 0.5)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameBoard" unique_id=1915139070]
+custom_minimum_size = Vector2(1080, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("1_hhl5b")
+expand_mode = 1
 
-[node name="WadahIntake" parent="." unique_id=1501526910 instance=ExtResource("3_epoqs")]
-layout_mode = 0
-offset_left = 162.0
-offset_top = 160.00002
-offset_right = 1442.0
-offset_bottom = 880.0
+[node name="WadahIntake" parent="GameBoard" unique_id=1501526910 instance=ExtResource("3_epoqs")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -449.0
+offset_top = -570.0
+offset_right = 831.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.7, 0.7)
 mouse_filter = 1
 
-[node name="SFXToss" type="AudioStreamPlayer2D" parent="WadahIntake" unique_id=553211573]
+[node name="SFXToss" type="AudioStreamPlayer2D" parent="GameBoard/WadahIntake" unique_id=553211573]
 position = Vector2(-231.42856, -228.57144)
 scale = Vector2(1.4285713, 1.4285713)
 stream = ExtResource("4_1qex7")
 
-[node name="SFXStickerPlace" type="AudioStreamPlayer2D" parent="WadahIntake" unique_id=1492678302]
+[node name="SFXStickerPlace" type="AudioStreamPlayer2D" parent="GameBoard/WadahIntake" unique_id=1492678302]
 position = Vector2(-231.42856, -228.57144)
 scale = Vector2(1.4285713, 1.4285713)
 stream = ExtResource("5_bqqxv")
 
-[node name="SFXStickerWrong" type="AudioStreamPlayer2D" parent="WadahIntake" unique_id=412472533]
+[node name="SFXStickerWrong" type="AudioStreamPlayer2D" parent="GameBoard/WadahIntake" unique_id=412472533]
 position = Vector2(-231.42856, -228.57144)
 scale = Vector2(1.4285713, 1.4285713)
 stream = ExtResource("4_ptscd")
 volume_db = -10.651
 
-[node name="wasteTray" type="TextureRect" parent="." unique_id=1478547220]
-layout_mode = 0
-offset_left = 786.0
-offset_top = 6.0
-offset_right = 1386.0
-offset_bottom = 406.0
-texture = ExtResource("5_5w38f")
-metadata/_edit_lock_ = true
-
-[node name="stickerTray" type="TextureRect" parent="." unique_id=652820105]
-layout_mode = 0
-offset_left = -109.0
-offset_top = 23.0
-offset_right = 432.5
-offset_bottom = 384.0
-texture = ExtResource("7_fpo1h")
-expand_mode = 1
-metadata/_edit_lock_ = true
-
-[node name="HoldingArea_Limbah" type="Control" parent="." unique_id=1204369259]
-anchors_preset = 0
-offset_right = 110.0
-offset_bottom = 93.0
-mouse_filter = 2
-
-[node name="ItemLimbah" parent="HoldingArea_Limbah" unique_id=174511798 instance=ExtResource("4_oy03m")]
+[node name="wasteTray" type="TextureRect" parent="GameBoard" unique_id=1478547220]
 layout_mode = 1
-offset_left = 1080.0
-offset_top = 42.5
-offset_right = 1144.0
-offset_bottom = 106.5
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -471.0
+offset_top = 23.0
+offset_right = 129.0
+offset_bottom = 423.0
+grow_horizontal = 0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_5w38f")
+metadata/_edit_group_ = true
+
+[node name="HoldingArea_Limbah" type="Control" parent="GameBoard" unique_id=1204369259]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
+offset_top = 204.0
+offset_right = -202.0
+offset_bottom = 204.0
+grow_horizontal = 0
+scale = Vector2(0.9, 0.9)
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="ItemLimbah" parent="GameBoard/HoldingArea_Limbah" unique_id=174511798 instance=ExtResource("4_oy03m")]
+layout_mode = 1
+offset_left = 47.285675
+offset_top = -115.714294
+offset_right = 111.285675
+offset_bottom = -51.7143
 expand_mode = 1
 nama_item = "Adsorben/kertas saring terkontaminasi bahan kimia"
 simbol_k3 = "infeksius"
 
-[node name="ItemLimbah2" parent="HoldingArea_Limbah" unique_id=1966407458 instance=ExtResource("4_oy03m")]
+[node name="ItemLimbah2" parent="GameBoard/HoldingArea_Limbah" unique_id=1966407458 instance=ExtResource("4_oy03m")]
 layout_mode = 1
-offset_left = 1001.0
-offset_top = 43.5
-offset_right = 1065.0
-offset_bottom = 107.5
+offset_left = -28.85714
+offset_top = -116.14287
+offset_right = 35.142883
+offset_bottom = -52.142868
 expand_mode = 1
 nama_item = "Limbah radioaktif padat"
 simbol_k3 = "infeksius"
 
-[node name="ItemLimbah3" parent="HoldingArea_Limbah" unique_id=139347780 instance=ExtResource("4_oy03m")]
+[node name="ItemLimbah3" parent="GameBoard/HoldingArea_Limbah" unique_id=139347780 instance=ExtResource("4_oy03m")]
 layout_mode = 1
-offset_left = 919.0
-offset_top = 43.5
-offset_right = 983.0
-offset_bottom = 107.5
+offset_left = -110.85714
+offset_top = -116.14287
+offset_right = -46.85714
+offset_bottom = -52.142868
 expand_mode = 1
 nama_item = "Sarung tangan terkontaminasi"
 simbol_k3 = "infeksius"
 
-[node name="ItemLimbah4" parent="HoldingArea_Limbah" unique_id=789943568 instance=ExtResource("4_oy03m")]
+[node name="ItemLimbah4" parent="GameBoard/HoldingArea_Limbah" unique_id=789943568 instance=ExtResource("4_oy03m")]
 layout_mode = 1
-offset_left = 918.0
-offset_top = 127.5
-offset_right = 982.0
-offset_bottom = 191.5
+offset_left = -111.85715
+offset_top = -32.142845
+offset_right = -47.857147
+offset_bottom = 31.857178
 expand_mode = 1
 nama_item = "Limbah biologis"
 simbol_k3 = "infeksius"
 
-[node name="ItemLimbah5" parent="HoldingArea_Limbah" unique_id=1975686496 instance=ExtResource("4_oy03m")]
+[node name="ItemLimbah5" parent="GameBoard/HoldingArea_Limbah" unique_id=1975686496 instance=ExtResource("4_oy03m")]
 layout_mode = 1
-offset_left = 999.0
-offset_top = 127.5
-offset_right = 1063.0
-offset_bottom = 191.5
+offset_left = -30.857147
+offset_top = -32.142845
+offset_right = 33.142868
+offset_bottom = 31.857178
 expand_mode = 1
 nama_item = "Natrium Sianida (NaCN) bekas"
 wujud_limbah = "cair"
 simbol_k3 = "beracun"
 
-[node name="ItemLimbah6" parent="HoldingArea_Limbah" unique_id=56551045 instance=ExtResource("4_oy03m")]
+[node name="ItemLimbah6" parent="GameBoard/HoldingArea_Limbah" unique_id=56551045 instance=ExtResource("4_oy03m")]
 layout_mode = 1
-offset_left = 1077.0
-offset_top = 126.5
-offset_right = 1141.0
-offset_bottom = 190.5
+offset_left = 47.142853
+offset_top = -33.142853
+offset_right = 111.14285
+offset_bottom = 30.857147
 expand_mode = 1
 nama_item = "Larutan Merkuri (Hg²⁺) bekas"
 wujud_limbah = "cair"
 simbol_k3 = "beracun"
 
-[node name="ItemLimbah7" parent="HoldingArea_Limbah" unique_id=2102424631 instance=ExtResource("4_oy03m")]
+[node name="ItemLimbah7" parent="GameBoard/HoldingArea_Limbah" unique_id=2102424631 instance=ExtResource("4_oy03m")]
 layout_mode = 1
-offset_left = 1080.0
-offset_top = 209.5
-offset_right = 1144.0
-offset_bottom = 273.5
+offset_left = 47.285675
+offset_top = 49.857132
+offset_right = 111.285675
+offset_bottom = 113.85713
 expand_mode = 1
 nama_item = "Limbah radioaktif cair"
 wujud_limbah = "cair"
 simbol_k3 = "beracun"
 
-[node name="ItemLimbah8" parent="HoldingArea_Limbah" unique_id=405293467 instance=ExtResource("4_oy03m")]
+[node name="ItemLimbah8" parent="GameBoard/HoldingArea_Limbah" unique_id=405293467 instance=ExtResource("4_oy03m")]
 layout_mode = 1
-offset_left = 1000.0
-offset_top = 208.5
-offset_right = 1064.0
-offset_bottom = 272.5
+offset_left = -29.857132
+offset_top = 50.28569
+offset_right = 34.142883
+offset_bottom = 114.28569
 expand_mode = 1
 wujud_limbah = "cair"
 simbol_k3 = "beracun"
 
-[node name="ItemLimbah9" parent="HoldingArea_Limbah" unique_id=109292658 instance=ExtResource("4_oy03m")]
+[node name="ItemLimbah9" parent="GameBoard/HoldingArea_Limbah" unique_id=109292658 instance=ExtResource("4_oy03m")]
 layout_mode = 1
-offset_left = 917.0
-offset_top = 208.5
-offset_right = 981.0
-offset_bottom = 272.5
+offset_left = -111.428566
+offset_top = 50.28569
+offset_right = -47.428566
+offset_bottom = 114.28569
 expand_mode = 1
 nama_item = "Etanol bekas"
 wujud_limbah = "cair"
 simbol_k3 = "beracun"
 
-[node name="Laci_Stiker" type="Control" parent="." unique_id=795590925]
-anchors_preset = 0
-offset_right = 59.0
-offset_bottom = 54.0
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
-[node name="ItemStiker" parent="Laci_Stiker" unique_id=232066288 instance=ExtResource("5_km75h")]
+[node name="limbahKimia" type="Label" parent="GameBoard" unique_id=1513958174]
 layout_mode = 1
-offset_left = 23.5
-offset_top = 73.0
-offset_right = 123.5
-offset_bottom = 173.0
-texture = ExtResource("7_5w38f")
-expand_mode = 1
-nama_item = "beracun"
-
-[node name="ItemStiker4" parent="Laci_Stiker" unique_id=602570266 instance=ExtResource("5_km75h")]
-layout_mode = 1
-offset_left = 25.5
-offset_top = 186.0
-offset_right = 125.5
-offset_bottom = 286.0
-texture = ExtResource("8_2ouq7")
-expand_mode = 1
-nama_item = "flammable"
-simbol_k3 = "flammable"
-
-[node name="ItemStiker2" parent="Laci_Stiker" unique_id=1029726182 instance=ExtResource("5_km75h")]
-layout_mode = 1
-offset_left = 135.5
-offset_top = 72.0
-offset_right = 235.5
-offset_bottom = 172.0
-texture = ExtResource("9_taj31")
-expand_mode = 1
-nama_item = "korosif"
-simbol_k3 = "korosif"
-
-[node name="ItemStiker3" parent="Laci_Stiker" unique_id=151604669 instance=ExtResource("5_km75h")]
-layout_mode = 1
-offset_left = 136.5
-offset_top = 186.0
-offset_right = 236.5
-offset_bottom = 286.0
-texture = ExtResource("10_std4b")
-expand_mode = 1
-nama_item = "infeksius"
-simbol_k3 = "infeksius"
-
-[node name="placeholder" type="TextureRect" parent="." unique_id=1000643595]
-layout_mode = 0
-offset_left = 515.0
-offset_top = 17.0
-offset_right = 716.0
-offset_bottom = 92.0
-texture = ExtResource("15_bqqxv")
-expand_mode = 1
-
-[node name="HUD_Timer" type="Label" parent="." unique_id=337137902]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 548.5
-offset_top = 47.0
-offset_right = 683.5
-offset_bottom = 70.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("12_std4b")
-
-[node name="SFXTimerWarning" type="AudioStreamPlayer2D" parent="." unique_id=40512959]
-stream = ExtResource("16_1qex7")
-volume_db = -8.771
-
-[node name="labelLimbah" type="Label" parent="." unique_id=551831542]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 38.0
-offset_right = 243.0
-offset_bottom = 62.0
-theme_override_fonts/font = ExtResource("12_std4b")
-theme_override_font_sizes/font_size = 24
-text = "Label Limbah"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="limbahKimia" type="Label" parent="." unique_id=1513958174]
-layout_mode = 0
-offset_left = 1006.0
-offset_top = 23.0
-offset_right = 1169.0
-offset_bottom = 47.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -274.0
+offset_top = 38.000004
+offset_right = -112.0
+offset_bottom = 62.000004
+grow_horizontal = 0
+scale = Vector2(0.9, 0.9)
 theme_override_fonts/font = ExtResource("12_std4b")
 theme_override_font_sizes/font_size = 24
 text = "Limbah Kimia"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_group_ = true
 
-[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="." unique_id=961871921]
+[node name="stickerTray" type="TextureRect" parent="GameBoard" unique_id=652820105]
+layout_mode = 1
+offset_left = -64.0
+offset_top = 24.0
+offset_right = 477.5
+offset_bottom = 385.0
+texture = ExtResource("7_fpo1h")
+expand_mode = 1
+metadata/_edit_group_ = true
 
-[node name="SFXWin" type="AudioStreamPlayer2D" parent="." unique_id=1871190296]
+[node name="Laci_Stiker" type="Control" parent="GameBoard" unique_id=795590925]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 15.0
+offset_right = 119.0
+offset_bottom = 69.0
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="ItemStiker" parent="GameBoard/Laci_Stiker" unique_id=232066288 instance=ExtResource("5_km75h")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+offset_left = 23.5
+offset_top = 73.0
+offset_right = 123.5
+offset_bottom = 173.0
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("7_5w38f")
+expand_mode = 1
+nama_item = "beracun"
+
+[node name="ItemStiker4" parent="GameBoard/Laci_Stiker" unique_id=602570266 instance=ExtResource("5_km75h")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+offset_left = 25.5
+offset_top = 186.0
+offset_right = 125.5
+offset_bottom = 286.0
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("8_2ouq7")
+expand_mode = 1
+nama_item = "flammable"
+simbol_k3 = "flammable"
+
+[node name="ItemStiker2" parent="GameBoard/Laci_Stiker" unique_id=1029726182 instance=ExtResource("5_km75h")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+offset_left = 135.5
+offset_top = 72.0
+offset_right = 235.5
+offset_bottom = 172.0
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("9_taj31")
+expand_mode = 1
+nama_item = "korosif"
+simbol_k3 = "korosif"
+
+[node name="ItemStiker3" parent="GameBoard/Laci_Stiker" unique_id=151604669 instance=ExtResource("5_km75h")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+offset_left = 136.5
+offset_top = 186.0
+offset_right = 236.5
+offset_bottom = 286.0
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("10_std4b")
+expand_mode = 1
+nama_item = "infeksius"
+simbol_k3 = "infeksius"
+
+[node name="labelLimbah" type="Label" parent="GameBoard" unique_id=551831542]
+layout_mode = 1
+offset_left = 125.0
+offset_top = 39.0
+offset_right = 288.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("12_std4b")
+theme_override_font_sizes/font_size = 24
+text = "Label Limbah"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="placeholder" type="TextureRect" parent="GameBoard" unique_id=1000643595]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.5
+offset_top = 34.0
+offset_right = 100.5
+offset_bottom = 109.0
+grow_horizontal = 2
+texture = ExtResource("15_bqqxv")
+expand_mode = 1
+
+[node name="HUD_Timer" type="Label" parent="GameBoard" unique_id=337137902]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 63.0
+offset_right = 69.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_std4b")
+
+[node name="SFXTimerWarning" type="AudioStreamPlayer2D" parent="GameBoard" unique_id=40512959]
+position = Vector2(-20, -20)
+stream = ExtResource("16_1qex7")
+volume_db = -8.771
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="GameBoard" unique_id=961871921]
+position = Vector2(-20, -20)
+
+[node name="SFXWin" type="AudioStreamPlayer2D" parent="GameBoard" unique_id=1871190296]
+position = Vector2(-20, -20)
 stream = ExtResource("14_m6dws")
 volume_db = -7.518

@@ -9,26 +9,64 @@
 
 [node name="TouchControl" type="CanvasLayer" unique_id=741419393]
 
-[node name="Left" type="TouchScreenButton" parent="." unique_id=812925543]
+[node name="LeftAnchor" type="Control" parent="." unique_id=1655190610]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = -174.0
+offset_right = 88.0
+offset_bottom = -142.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+
+[node name="Left" type="TouchScreenButton" parent="LeftAnchor" unique_id=812925543]
 texture_filter = 1
-position = Vector2(29, 603)
-scale = Vector2(2.7, 2.7)
 texture_normal = ExtResource("1_hhggc")
 texture_pressed = ExtResource("2_wewfe")
 action = "move_left"
 
-[node name="Right" type="TouchScreenButton" parent="." unique_id=1138390268]
+[node name="RightAnchor" type="Control" parent="." unique_id=740153529]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = -174.0
+offset_right = 224.0
+offset_bottom = -142.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+
+[node name="Right" type="TouchScreenButton" parent="RightAnchor" unique_id=1138390268]
 texture_filter = 1
-position = Vector2(131, 603)
-scale = Vector2(2.7, 2.7)
 texture_normal = ExtResource("3_y2r3r")
 texture_pressed = ExtResource("4_1jqu5")
 action = "move_right"
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=1487671252]
+[node name="YAnchor" type="Control" parent="." unique_id=1465208370]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -179.0
+offset_right = -74.0
+offset_bottom = -51.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="YAnchor" unique_id=1487671252]
 texture_filter = 1
-position = Vector2(1156, 609)
-scale = Vector2(2.7, 2.7)
+scale = Vector2(4, 4)
 texture_normal = ExtResource("5_y2r3r")
 texture_pressed = ExtResource("6_1jqu5")
 action = "interact"

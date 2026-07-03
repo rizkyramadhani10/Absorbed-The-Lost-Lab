@@ -23,8 +23,10 @@ Global="*uid://y66fh1n1bir6"
 
 [display]
 
-window/size/viewport_width=1280
+window/size/viewport_width=1080
 window/size/viewport_height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 
@@ -50,7 +52,6 @@ interact={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
-pointing/emulate_mouse_from_touch=false
 
 [physics]
 
@@ -60,3 +61,4 @@ pointing/emulate_mouse_from_touch=false
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

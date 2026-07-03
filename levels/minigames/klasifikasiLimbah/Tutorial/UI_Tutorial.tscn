@@ -9,8 +9,11 @@
 
 [node name="UiTutorial" type="ColorRect" unique_id=1662750556]
 custom_minimum_size = Vector2(1280, 720)
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(640, 360)
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -20,15 +23,9 @@ script = ExtResource("1_36ip5")
 [node name="TabletFrame" type="TextureRect" parent="." unique_id=978454197]
 custom_minimum_size = Vector2(720, 650)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -499.0
-offset_top = -439.0
-offset_right = 499.0
-offset_bottom = 439.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_wrbm2")
@@ -36,11 +33,18 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Judul" type="RichTextLabel" parent="TabletFrame" unique_id=1947161649]
-layout_mode = 0
-offset_left = 102.0
-offset_top = 228.0
-offset_right = 884.0
-offset_bottom = 308.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -391.0
+offset_top = -213.0
+offset_right = 391.0
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = 5
 theme_override_fonts/normal_font = ExtResource("2_36ip5")
@@ -52,11 +56,18 @@ text = "[center][b][font_size=44][color=#1a233a]TUTORIAL MINIGAMES LIMBAH[/color
 [font_size=22][color=#7f8c8d]Identifikasi & Klasifikasi Limbah[/color][/font_size][/center]"
 
 [node name="KontenTutorial" type="RichTextLabel" parent="TabletFrame" unique_id=630405108]
-layout_mode = 0
-offset_left = 143.0
-offset_top = 338.0
-offset_right = 822.0
-offset_bottom = 697.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -339.0
+offset_top = -108.0
+offset_right = 340.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = 1
 theme_override_fonts/normal_font = ExtResource("2_36ip5")
@@ -77,11 +88,18 @@ text = "[color=#d35400][b]Step 1: PEMBUANGAN LIMBAH[/b][/color]
 
 [node name="TombolMulai" type="TextureButton" parent="TabletFrame" unique_id=1194602490]
 texture_filter = 1
-layout_mode = 0
-offset_left = 757.0
-offset_top = 609.0
-offset_right = 844.0
-offset_bottom = 671.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 267.0
+offset_top = 167.0
+offset_right = 354.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("4_hj35d")
 texture_pressed = ExtResource("5_jenxp")
 stretch_mode = 5

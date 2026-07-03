@@ -3,14 +3,14 @@ extends Control
 # Preload file scene tutorial agar siap dipanggil kapan saja
 var tutorial_scene = preload("res://levels/minigames/klasifikasiLimbah/Tutorial/UI_Tutorial.tscn") # <-- Sesuaikan path ini dengan letak file .tscn tutorialmu
 
-@onready var tumpukan_limbah_node = $HoldingArea_Limbah # Mengikuti nama node terbaru di scene treemu
-@onready var label_timer = $HUD_Timer
-@onready var wadah_intake = $WadahIntake
+@onready var tumpukan_limbah_node = $GameBoard/HoldingArea_Limbah# Mengikuti nama node terbaru di scene treemu
+@onready var label_timer = $GameBoard/HUD_Timer
+@onready var wadah_intake = $GameBoard/WadahIntake
 
 # NODE AUDIO
-@onready var bgm_player = $BGMPlayer
-@onready var sfx_win = $SFXWin
-@onready var sfx_timer_warning = $SFXTimerWarning
+@onready var bgm_player = $GameBoard/BGMPlayer
+@onready var sfx_win = $GameBoard/SFXWin
+@onready var sfx_timer_warning = $GameBoard/SFXTimerWarning
 
 @export var batas_waktu: float = 60.0
 var waktu_aktif: bool = false # Wajib false agar timer membeku saat tutorial muncul
@@ -82,8 +82,10 @@ func assign_data_ke_node_limbah():
 		node_limbah.visible = true
 
 func cek_apakah_baki_limbah_habis() -> bool:
+	print("--- MEMULAI PENGECEKAN BAKI ---")
 	for limbah in tumpukan_limbah_node.get_children():
-		if limbah.visible:
+		print("Node: ", limbah.name, " | Visible: ", limbah.visible, " | Queued Delete: ", limbah.is_queued_for_deletion())
+		if limbah.visible and not limbah.is_queued_for_deletion():
 			return false
 	return true
 
