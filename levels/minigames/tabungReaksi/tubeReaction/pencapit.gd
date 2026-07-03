@@ -5,7 +5,7 @@ extends Node2D
 @onready var progress_bar = $"../ProgressBar"
 @onready var bunsen = $"../Bunsen"
 
-var tekstur_gabungan = preload("res://assets/images/itemProps/interactableProps/bunsen/cpt_holding_tube.png")
+var tekstur_gabungan = preload("res://assets/images/itemProps/interactableProps/bunsen/capitan/cpt_holding_tube.png")
 
 # 📄 PATH SCENE: Target scene setelah pemanasan selesai (bisa diubah via Inspector)
 @export_file("*.tscn") var main_game_scene: String = "res://levels/mainLab/game.tscn"
