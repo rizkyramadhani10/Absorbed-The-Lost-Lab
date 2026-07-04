@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://jqogp66geq5w" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
 [ext_resource type="Texture2D" uid="uid://babo1rnjmqgvy" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
 [ext_resource type="PackedScene" uid="uid://brfnqssdfhahy" path="res://entities/interactables/chapterTwo/thirdLab/AnalyticalBalance/AnalyticalBalance.tscn" id="6_i8mc3"]
-[ext_resource type="PackedScene" uid="uid://7w36ecxxxocl" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
+[ext_resource type="PackedScene" uid="uid://cldpbdjk0ps24" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
 [ext_resource type="Texture2D" uid="uid://bt04e03aic7hh" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://q3uvh2bli0ur" path="res://entities/interactables/chapterTwo/thirdLab/BuretteClamp/BuretteClamp.tscn" id="8_neng1"]
-[ext_resource type="PackedScene" uid="uid://773gtuxtmlly" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
+[ext_resource type="PackedScene" uid="uid://b11ukfhipm6fs" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://c323g67d1tibd" path="res://entities/interactables/chapterTwo/thirdLab/DoorToStorage/DoorToStorage.tscn" id="10_afeaw"]
-[ext_resource type="PackedScene" uid="uid://c5e7xhhlax6v1" path="res://entities/interactables/chapterTwo/thirdLab/FumeHood/FumeHood.tscn" id="11_yac7y"]
-[ext_resource type="PackedScene" uid="uid://bxc3kgrkyvlwo" path="res://entities/interactables/chapterTwo/thirdLab/ExitDoor/ExitDoor.tscn" id="12_3s7m7"]
+[ext_resource type="PackedScene" uid="uid://c5e7xhhlax6v1" path="res://entities/interactables/chapterTwo/thirdLab/ExitDoor/ExitDoor.tscn" id="11_yac7y"]
+[ext_resource type="PackedScene" uid="uid://bxc3kgrkyvlwo" path="res://entities/interactables/chapterTwo/thirdLab/FumeHood/FumeHood.tscn" id="12_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://dbegpj0xpqx1c" path="res://entities/interactables/chapterTwo/thirdLab/SafetyShower/SafetyShower.tscn" id="13_nq5ue"]
 [ext_resource type="PackedScene" uid="uid://w6835da51i8n" path="res://entities/interactables/chapterTwo/thirdLab/SinknVent/SinknVent.tscn" id="14_bok5e"]
 [ext_resource type="PackedScene" uid="uid://dlxkc4hbxft86" path="res://entities/interactables/chapterTwo/thirdLab/TimeMachineComputer/TimeMachineComputer.tscn" id="15_dhfjv"]
@@ -112,16 +112,19 @@ position = Vector2(1398, 83)
 target_spawn = "SpawnFromLab"
 metadata/_edit_lock_ = true
 
-[node name="FumeHood" parent="InteractablesProps" unique_id=2049360832 instance=ExtResource("11_yac7y")]
-position = Vector2(-894, -39)
+[node name="ExitDoor" parent="InteractablesProps" unique_id=2049360832 instance=ExtResource("11_yac7y")]
+position = Vector2(-1877, 34)
+target_scene_path = "uid://ccqx8wqaqijkc"
 metadata/_edit_lock_ = true
 
-[node name="ExitDoor" parent="InteractablesProps" unique_id=537372239 instance=ExtResource("12_3s7m7")]
-position = Vector2(-1877, 34)
+[node name="FumeHood" parent="InteractablesProps" unique_id=537372239 instance=ExtResource("12_3s7m7")]
+position = Vector2(-894, -39)
 metadata/_edit_lock_ = true
 
 [node name="SafetyShower" parent="InteractablesProps" unique_id=1304059719 instance=ExtResource("13_nq5ue")]
 position = Vector2(-1183, 18)
+target_scene_path = "uid://44cgo64pm6bk"
+completion_flag = "is_shower_completed"
 metadata/_edit_lock_ = true
 
 [node name="SinknVent" parent="InteractablesProps" unique_id=1972405008 instance=ExtResource("14_bok5e")]

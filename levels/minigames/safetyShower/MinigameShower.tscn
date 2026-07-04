@@ -33,6 +33,7 @@ position = Vector2(621, 213.00003)
 scale = Vector2(0.57733333, 0.57733333)
 texture = ExtResource("2_ffjdt")
 script = ExtResource("4_mr530")
+scene_tujuan = "uid://dljufsmrudfbq"
 
 [node name="Area2D" type="Area2D" parent="SafetyShowerPuller" unique_id=5396214]
 

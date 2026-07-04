@@ -15,15 +15,20 @@ var volume_asli = 0.0
 var is_shower_active = false 
 
 @export var batas_tarik_bawah = 90.0 
-@export var kecepatan_isi = 50.0 
+@export var kecepatan_isi = 500.0 
 @export var batas_trigger_air = 70.0 
 
 # ==========================================
-# 🧪 [TAMBAHAN FISIKA] Variabel buat pegas
+# 🧪 [FISIKA] Variabel buat pegas
 # ==========================================
 var kecepatan_y = 0.0
 @export var kekuatan_per = 350.0 
 @export var kelenturan = 12.0 
+
+# ==========================================
+# 🏁 [TAMBAHAN] Variabel buat Menang & Pindah Scene
+# ==========================================
+var is_finished = false
 
 func _ready():
 	posisi_awal_y = global_position.y
@@ -40,9 +45,7 @@ func _ready():
 		area_interaksi.input_event.connect(_on_input_event)
 
 func _process(delta):
-	# ==========================================
-	# 1. LOGIKA PERGERAKAN TUAS (Mouse & Fisika)
-	# ==========================================
+	# 1. LOGIKA PERGERAKAN TUAS
 	if is_pulling:
 		var current_mouse_y = get_global_mouse_position().y
 		var delta_y = current_mouse_y - last_mouse_y
@@ -63,56 +66,40 @@ func _process(delta):
 			global_position.y = posisi_awal_y + batas_tarik_bawah
 			kecepatan_y *= -0.5 
 
-	# ==========================================
-	# 2. LOGIKA TRIGGER AIR & BAR (Berdasarkan Posisi)
-	# ==========================================
+	# 2. LOGIKA TRIGGER AIR & BAR
 	if global_position.y > posisi_awal_y + batas_trigger_air:
-		# --- FADE IN & ISI BAR ---
 		if not is_shower_active:
 			is_shower_active = true 
-			
-			if video_overlay and not video_overlay.is_playing(): 
-				video_overlay.play()
-			
+			if video_overlay and not video_overlay.is_playing(): video_overlay.play()
 			if sfx_air: 
 				if tween_sfx: tween_sfx.kill() 
 				sfx_air.volume_db = volume_asli 
-				if not sfx_air.playing:
-					sfx_air.play()
+				if not sfx_air.playing: sfx_air.play()
 			
-			# [DIUBAH] Transisi Sine In-Out biar munculnya elegan
 			if tween_overlay: tween_overlay.kill()
 			tween_overlay = create_tween()
-			tween_overlay.tween_property(video_overlay, "modulate:a", 1.0, 0.5)\
-				.set_trans(Tween.TRANS_SINE)\
-				.set_ease(Tween.EASE_IN_OUT)
+			tween_overlay.tween_property(video_overlay, "modulate:a", 1.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		
 		if progress_bar:
 			progress_bar.value += kecepatan_isi * delta
-			
+			if progress_bar.value >= progress_bar.max_value and not is_finished:
+				game_finished()
 	else:
-		# --- FADE OUT & STOP BAR ---
 		if is_shower_active:
 			is_shower_active = false 
-			
-			# [DIUBAH] Transisi Sine Out biar ilangnya gak ngagetin
 			if tween_overlay: tween_overlay.kill()
 			tween_overlay = create_tween()
-			tween_overlay.tween_property(video_overlay, "modulate:a", 0.0, 0.3)\
-				.set_trans(Tween.TRANS_SINE)\
-				.set_ease(Tween.EASE_OUT)
+			tween_overlay.tween_property(video_overlay, "modulate:a", 0.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 			tween_overlay.tween_callback(video_overlay.stop)
 			
-			# [DIUBAH] Transisi Expo Out buat audio biar suaranya mereda kayak di dunia nyata
 			if sfx_air:
 				if tween_sfx: tween_sfx.kill()
 				tween_sfx = create_tween()
-				tween_sfx.tween_property(sfx_air, "volume_db", -60.0, 0.5)\
-					.set_trans(Tween.TRANS_EXPO)\
-					.set_ease(Tween.EASE_OUT)
+				tween_sfx.tween_property(sfx_air, "volume_db", -60.0, 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 				tween_sfx.tween_callback(sfx_air.stop)
 
 func _on_input_event(viewport, event, shape_idx):
+	if is_finished: return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			is_pulling = true
@@ -121,3 +108,32 @@ func _on_input_event(viewport, event, shape_idx):
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		is_pulling = false
+
+# ==========================================
+# 3. LOGIKA TAMAT & LOADING SCREEN
+# ==========================================
+func game_finished():
+	print("🚿 MINIGAME SAFETY SHOWER SELESAI!")
+	is_finished = true
+	is_pulling = false 
+	Global.is_shower_completed = true 
+	
+	# Tunggu sebentar biar efek visual selesai dulu
+	await get_tree().create_timer(1.0).timeout
+	pindah_ke_scene_tujuan()
+
+func pindah_ke_scene_tujuan():
+	var tujuan_final = ""
+	if Global.scene_asal_path != "":
+		tujuan_final = Global.scene_asal_path
+	else:
+		tujuan_final = "res://levels/thirdLab(TimeMachine)/game.tscn"
+		
+	print("🔄 Memulangkan player ke: ", tujuan_final)
+	
+	# PAKE LOADING SCREEN TRANSITION (DIBALIKIN LAGI SESUAI REQUEST)
+	if has_node("/root/TransitionScreen"):
+		TransitionScreen.transition_to_scene(tujuan_final)
+	else:
+		# Fallback jika TransitionScreen tidak ditemukan
+		get_tree().change_scene_to_file(tujuan_final)

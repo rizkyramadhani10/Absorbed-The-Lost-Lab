@@ -13,7 +13,7 @@ var pending_apd_suit: bool = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var base_shadow_scale = $shadow.scale
-@onready var walk_sfx = $WalkSFX # 1. Added reference to your walking sound node
+@onready var walk_sfx = $WalkSFX 
 
 func _ready():
 	add_to_group("player")
@@ -22,7 +22,6 @@ func _ready():
 	# 🔥 FIX 1: Sinkronisasi status APD saat scene dimuat ulang
 	has_apd = Global.has_apd
 	
-	# Jika saat masuk scene player ternyata sudah pakai APD, langsung putar animasi APD
 	if has_apd:
 		animated_sprite.play("apdIdle")
 	
@@ -38,7 +37,6 @@ func _physics_process(delta: float) -> void:
 		_handle_interaction_input()
 		_update_shadow() 
 		
-		# Stop walking sound if player suddenly starts interacting
 		if walk_sfx.playing:
 			walk_sfx.stop()
 		return 
@@ -68,7 +66,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	# 2. SFX LOGIC: Play sound if moving on the floor, stop if stationary or airborne
 	if direction != 0 and is_on_floor():
 		if not walk_sfx.playing:
 			walk_sfx.play()
@@ -81,6 +78,10 @@ func _physics_process(delta: float) -> void:
 
 func _handle_interaction_input():
 	if Input.is_action_just_pressed("interact") and nearby_interactable != null:
+		# 🔥 SIMPAN POSISI & ARAH HADAP SEBELUM INTERAKSI
+		Global.player_last_position = self.global_position
+		Global.player_last_flip = animated_sprite.flip_h
+		
 		is_interacting = true
 		interacting_object = nearby_interactable 
 		
@@ -102,10 +103,7 @@ func _on_animation_finished():
 		if pending_apd_suit:
 			pending_apd_suit = false
 			has_apd = true
-			
-			# 🔥 FIX 2: Simpan status pemakaian APD ke global agar permanen
 			Global.has_apd = true
-			
 			animated_sprite.play("apdIdle")
 			is_interacting = false 
 			
@@ -121,34 +119,25 @@ func _on_animation_finished():
 		is_interacting = false
 		interacting_object = null
 
-# --- Dynamic Shadow Logic via Raycasting ---
 func _update_shadow() -> void:
 	if $ShadowRAY.get_collider() == self:
 		$ShadowRAY.add_exception(self)
 		
 	if $ShadowRAY.is_colliding():
 		$shadow.visible = true
-		
-		# 1. Menempelkan posisi Y bayangan tepat di atas permukaan tanah
 		var ground_y: float = $ShadowRAY.get_collision_point().y
 		$shadow.global_position.y = ground_y
 		
-		# 2. Menghitung total jarak dari Raycast sampai ke tanah
 		var ray_start_y: float = $ShadowRAY.global_position.y
 		var total_distance: float = ground_y - ray_start_y
 		
-		# Jarak dasar saat berdiri diam
 		var standing_distance: float = 140.5
 		var air_distance: float = max(0.0, total_distance - standing_distance)
 		
-		# 3. Hitung rasio perubahan (opacity & scale)
 		var max_jump_distance: float = 150.0 
 		var height_ratio: float = clamp(1.0 - (air_distance / max_jump_distance), 0.0, 1.0)
 		
-		# Terapkan transparansi
 		$shadow.modulate.a = height_ratio
-		
-		# 🔥 FIX: Kalikan skala rasio dengan ukuran asli yang kamu buat di editor
 		var shadow_scale: float = max(height_ratio, 0.5)
 		$shadow.scale = base_shadow_scale * shadow_scale
 	else:
@@ -156,9 +145,13 @@ func _update_shadow() -> void:
 
 func kembalikan_posisi_setelah_minigame() -> void:
 	if Global.player_last_position != Vector2.ZERO:
-		# Paksa koordinat global player pindah ke posisi meja lab terakhir
 		global_position = Global.player_last_position
-		print("PLAYER SCRIPT: Berhasil memaksa Xeno kembali ke posisi: ", global_position)
 		
-		# Reset data di Global agar tidak teleport terus-menerus setiap ganti map
+		# 🔥 PULIHKAN ARAH HADAP
+		animated_sprite.flip_h = Global.player_last_flip
+		
+		print("PLAYER SCRIPT: Posisi & Arah hadap dipulihkan.")
+		
+		# Reset data agar tidak nyangkut
 		Global.player_last_position = Vector2.ZERO
+		Global.player_last_flip = false

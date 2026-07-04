@@ -25,6 +25,14 @@ var heating_rates = {
 }
 
 func _ready():
+	# 🔥 FIX: Hanya nonaktifkan jika minigame BUNSEN yang selesai, 
+	# bukan minigame lain (seperti Safety Shower)
+	if Global.is_bunsen_completed:
+		if has_node("CollisionShape2D"):
+			$CollisionShape2D.disabled = true
+		print("Bunsen sudah selesai digunakan, interaksi dikunci.")
+		return
+
 	# Setup slider
 	slider_api.min_value = 0
 	slider_api.max_value = 3
@@ -40,29 +48,22 @@ func _ready():
 	area_pemanasan.monitoring = false
 	area_pemanasan.monitorable = false
 	
-	# 🔥 TAMBAHAN DEBUG: Koneksikan signal area
 	area_pemanasan.area_entered.connect(_on_bunsen_area_entered)
 	area_pemanasan.area_exited.connect(_on_bunsen_area_exited)
 	
 	_check_textures()
-	print("✅ Bunsen siap, area_pemanasan = ", area_pemanasan.name)
 
-# 🔥 FUNGSI DEBUG BARU
 func _on_bunsen_area_entered(area):
-	print("🔥🔥🔥 AREA MASUK BUNSEN! Area yang masuk: ", area.name, " (Parent: ", area.get_parent().name, ")")
+	print("🔥🔥🔥 AREA MASUK BUNSEN! Area yang masuk: ", area.name)
 
 func _on_bunsen_area_exited(area):
 	print("❌ Area keluar dari Bunsen: ", area.name)
 
 func _check_textures():
-	if texture_mati == null:
-		print("⚠️ Peringatan: texture_mati belum diisi di Inspector!")
-	if texture_kecil == null:
-		print("⚠️ Peringatan: texture_kecil belum diisi di Inspector!")
-	if texture_sedang == null:
-		print("⚠️ Peringatan: texture_sedang belum diisi di Inspector!")
-	if texture_besar == null:
-		print("⚠️ Peringatan: texture_besar belum diisi di Inspector!")
+	if texture_mati == null: print("⚠️ Peringatan: texture_mati belum diisi!")
+	if texture_kecil == null: print("⚠️ Peringatan: texture_kecil belum diisi!")
+	if texture_sedang == null: print("⚠️ Peringatan: texture_sedang belum diisi!")
+	if texture_besar == null: print("⚠️ Peringatan: texture_besar belum diisi!")
 
 func _on_tombol_nyala_pressed():
 	if !is_on:
@@ -73,7 +74,6 @@ func _on_tombol_nyala_pressed():
 		area_pemanasan.monitoring = true
 		area_pemanasan.monitorable = true
 		update_sprite()
-		print("🔥 Bunsen dinyalakan! (Api Kecil) - Area pemanasan AKTIF")
 	else:
 		is_on = false
 		current_api = ApiSize.MATI
@@ -81,11 +81,9 @@ func _on_tombol_nyala_pressed():
 		area_pemanasan.monitoring = false
 		area_pemanasan.monitorable = false
 		update_sprite()
-		print("❌ Bunsen dimatikan - Area pemanasan NONAKTIF")
 
 func _on_slider_changed(value: float):
-	if !is_on:
-		return
+	if !is_on: return
 	
 	var new_size = int(value)
 	match new_size:
@@ -95,33 +93,18 @@ func _on_slider_changed(value: float):
 			slider_api.visible = false
 			area_pemanasan.monitoring = false
 			area_pemanasan.monitorable = false
-			print("🔥 Bunsen mati karena slider ke 0")
-		1:
-			current_api = ApiSize.KECIL
-			print("🔥 Api kecil - Kecepatan pemanasan: ", get_heating_rate())
-		2:
-			current_api = ApiSize.SEDANG
-			print("🔥 Api sedang - Kecepatan pemanasan: ", get_heating_rate())
-		3:
-			current_api = ApiSize.BESAR
-			print("🔥 Api besar - Kecepatan pemanasan: ", get_heating_rate())
+		1: current_api = ApiSize.KECIL
+		2: current_api = ApiSize.SEDANG
+		3: current_api = ApiSize.BESAR
 	
 	update_sprite()
 
 func update_sprite():
 	match current_api:
-		ApiSize.MATI:
-			if texture_mati:
-				sprite.texture = texture_mati
-		ApiSize.KECIL:
-			if texture_kecil:
-				sprite.texture = texture_kecil
-		ApiSize.SEDANG:
-			if texture_sedang:
-				sprite.texture = texture_sedang
-		ApiSize.BESAR:
-			if texture_besar:
-				sprite.texture = texture_besar
+		ApiSize.MATI: if texture_mati: sprite.texture = texture_mati
+		ApiSize.KECIL: if texture_kecil: sprite.texture = texture_kecil
+		ApiSize.SEDANG: if texture_sedang: sprite.texture = texture_sedang
+		ApiSize.BESAR: if texture_besar: sprite.texture = texture_besar
 
 func get_heating_rate() -> float:
 	if !is_on or current_api == ApiSize.MATI:
