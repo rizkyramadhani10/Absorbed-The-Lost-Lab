@@ -1,9 +1,8 @@
 extends Control
 
-# Preload file scene tutorial agar siap dipanggil kapan saja
-var tutorial_scene = preload("res://levels/minigames/klasifikasiLimbah/Tutorial/UI_Tutorial.tscn") # <-- Sesuaikan path ini dengan letak file .tscn tutorialmu
+var tutorial_scene = preload("res://levels/minigames/klasifikasiLimbah/Tutorial/UI_Tutorial.tscn")
 
-@onready var tumpukan_limbah_node = $GameBoard/HoldingArea_Limbah# Mengikuti nama node terbaru di scene treemu
+@onready var tumpukan_limbah_node = $GameBoard/HoldingArea_Limbah
 @onready var label_timer = $GameBoard/HUD_Timer
 @onready var wadah_intake = $GameBoard/WadahIntake
 
@@ -13,7 +12,7 @@ var tutorial_scene = preload("res://levels/minigames/klasifikasiLimbah/Tutorial/
 @onready var sfx_timer_warning = $GameBoard/SFXTimerWarning
 
 @export var batas_waktu: float = 60.0
-var waktu_aktif: bool = false # Wajib false agar timer membeku saat tutorial muncul
+var waktu_aktif: bool = false
 var alarm_dipicu: bool = false
 
 var daftar_limbah: Array = [
@@ -22,7 +21,6 @@ var daftar_limbah: Array = [
 	{"nama": "Etanol bekas", "wujud": "cair", "simbol": "beracun", "texture": preload("res://levels/minigames/klasifikasiLimbah/itemLimbah/spriteLimbah/cairBeracun5.png")},
 	{"nama": "Larutan Merkuri (Hg²⁺) bekas", "wujud": "cair", "simbol": "beracun", "texture": preload("res://levels/minigames/klasifikasiLimbah/itemLimbah/spriteLimbah/cairBeracun4.png")},
 	{"nama": "Natrium Sianida (NaCN) bekas", "wujud": "cair", "simbol": "beracun", "texture": preload("res://levels/minigames/klasifikasiLimbah/itemLimbah/spriteLimbah/cairBeracun2.png")},
-	
 	{"nama": "Limbah biologis", "wujud": "padat", "simbol": "infeksius", "texture": preload("res://levels/minigames/klasifikasiLimbah/itemLimbah/spriteLimbah/padatInfeksius.png")},
 	{"nama": "Adsorben/kertas saring terkontaminasi bahan kimia", "wujud": "padat", "simbol": "infeksius", "texture": preload("res://levels/minigames/klasifikasiLimbah/itemLimbah/spriteLimbah/padatInfeksius2.png")},
 	{"nama": "Limbah radioaktif padat", "wujud": "padat", "simbol": "infeksius", "texture": preload("res://levels/minigames/klasifikasiLimbah/itemLimbah/spriteLimbah/padatInfeksius3.png")},
@@ -31,27 +29,15 @@ var daftar_limbah: Array = [
 
 func _ready() -> void:
 	assign_data_ke_node_limbah()
-	
-	# MEMICU TUTORIAL MUNCUL INSTAN SAAT SCENE MASUK LOADING SCREEN / DI-RUN
 	munculkan_tutorial_langsung()
 
 func munculkan_tutorial_langsung() -> void:
-	waktu_aktif = false # Kunci pergerakan waktu minigame
-	
-	# Cetak fisik scene tutorial dari memori
+	waktu_aktif = false
 	var tutorial_instance = tutorial_scene.instantiate()
-	
-	# Masukkan ke dalam hierarchy scene utama agar muncul di layar paling depan
 	add_child(tutorial_instance)
-	
-	# Hubungkan sinyal dari anak tutorial ke skrip utama ini secara dinamis
 	tutorial_instance.tutorial_selesai.connect(_on_tutorial_game_dimulai)
 
-# Fungsi tangkapan ketika pemain memencet tombol MULAI / SILANG di tablet tutorial
 func _on_tutorial_game_dimulai() -> void:
-	print("Tombol dipencet! Tutorial menghilang, minigame dimulai!")
-	
-	# Aktifkan jalannya timer game dan putar BGM laboratorium
 	waktu_aktif = true
 	if bgm_player and not bgm_player.playing:
 		bgm_player.play()
@@ -60,11 +46,9 @@ func _process(delta: float) -> void:
 	if waktu_aktif:
 		batas_waktu -= delta
 		label_timer.text = "SISA WAKTU: " + str(int(batas_waktu)) + "s"
-		
 		if batas_waktu <= 10.0 and not alarm_dipicu:
 			alarm_dipicu = true
 			if sfx_timer_warning: sfx_timer_warning.play()
-		
 		if batas_waktu <= 0:
 			waktu_aktif = false
 			eksekusi_game_over()
@@ -82,42 +66,30 @@ func assign_data_ke_node_limbah():
 		node_limbah.visible = true
 
 func cek_apakah_baki_limbah_habis() -> bool:
-	print("--- MEMULAI PENGECEKAN BAKI ---")
 	for limbah in tumpukan_limbah_node.get_children():
-		print("Node: ", limbah.name, " | Visible: ", limbah.visible, " | Queued Delete: ", limbah.is_queued_for_deletion())
 		if limbah.visible and not limbah.is_queued_for_deletion():
 			return false
 	return true
 
-func kurangi_hp(jumlah: int):
-	print("HP Berkurang: ", jumlah)
-
-# Di dalam script: minigame_limbah.gd
-
+# 🔥 FUNGSI STICKER DAN LOGIKA KEMENANGAN BALIK LAGI
 func pemicu_menang():
 	waktu_aktif = false
 	if bgm_player: bgm_player.stop()
 	if sfx_timer_warning: sfx_timer_warning.stop()
-	
-	if sfx_win: 
-		sfx_win.play()
+	if sfx_win: sfx_win.play()
 	
 	print("MENANG! Mensterilkan ruangan...")
-	
-	# 1. Tandai di Global kalau minigame ini sudah sukses dikerjakan
 	Global.limbah_minigame_completed = true
 	
-	# 2. Beri jeda sejenak (misal 2 detik) agar pemain bisa mendengar SFX Win sampai habis
 	await get_tree().create_timer(2.0).timeout
-	
-	# 3. Pulangkan player ke map asal yang sudah dicatat tadi
-	if Global.scene_asal_path != "":
-		print("Memulangkan Xeno ke: ", Global.scene_asal_path)
-		get_tree().change_scene_to_file(Global.scene_asal_path)
+	pindah_ke_scene_tujuan()
+
+func pindah_ke_scene_tujuan():
+	var tujuan_final = Global.scene_asal_path if Global.scene_asal_path != "" else "res://levels/secondLab/game.tscn"
+	if has_node("/root/TransitionScreen"):
+		TransitionScreen.transition_to_scene(tujuan_final)
 	else:
-		# Antisipasi jika semisal kamu me-run langsung scene minigame ini dari editor (tanpa lewat map)
-		print("Peringatan: Scene asal tidak tercatat! Membuka fallback map...")
-		get_tree().change_scene_to_file("res://levels/secondLab/game.tscn") # <-- Ganti dengan path map utamamu
+		get_tree().change_scene_to_file(tujuan_final)
 
 func eksekusi_game_over():
 	if sfx_timer_warning: sfx_timer_warning.stop()
@@ -125,3 +97,6 @@ func eksekusi_game_over():
 	if wadah_intake and wadah_intake.has_node("SFXStickerWrong"):
 		wadah_intake.get_node("SFXStickerWrong").play()
 	print("GAME OVER!")
+
+func kurangi_hp(jumlah: int):
+	print("HP Berkurang: ", jumlah)
