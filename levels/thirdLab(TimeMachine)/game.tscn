@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://c7510230rp4i2" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgWallnFloor.png" id="2_hdadk"]
 [ext_resource type="Texture2D" uid="uid://bjpwerel1jvfa" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgLighting.png" id="3_hdadk"]
 [ext_resource type="Texture2D" uid="uid://cob1frcs33wb0" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/LabBench.png" id="3_i8mc3"]
-[ext_resource type="Texture2D" uid="uid://d0v5rd8mleejw" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/TimeMachine.png" id="5_hdadk"]
-[ext_resource type="Texture2D" uid="uid://jqogp66geq5w" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
-[ext_resource type="Texture2D" uid="uid://babo1rnjmqgvy" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
+[ext_resource type="Texture2D" uid="uid://c874nbl3ka0o2" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/TimeMachine.png" id="5_hdadk"]
+[ext_resource type="Texture2D" uid="uid://dc8xao51u4nfi" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
+[ext_resource type="Texture2D" uid="uid://bx2vcloeiy16k" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
 [ext_resource type="PackedScene" uid="uid://brfnqssdfhahy" path="res://entities/interactables/chapterTwo/thirdLab/AnalyticalBalance/AnalyticalBalance.tscn" id="6_i8mc3"]
 [ext_resource type="PackedScene" uid="uid://7w36ecxxxocl" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
-[ext_resource type="Texture2D" uid="uid://bt04e03aic7hh" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
+[ext_resource type="Texture2D" uid="uid://b15uvydb6ayqx" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://q3uvh2bli0ur" path="res://entities/interactables/chapterTwo/thirdLab/BuretteClamp/BuretteClamp.tscn" id="8_neng1"]
 [ext_resource type="PackedScene" uid="uid://773gtuxtmlly" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://c323g67d1tibd" path="res://entities/interactables/chapterTwo/thirdLab/DoorToStorage/DoorToStorage.tscn" id="10_afeaw"]
@@ -105,12 +105,12 @@ metadata/_edit_lock_ = true
 [node name="DoorToLab1" parent="InteractablesProps" unique_id=1277454971 instance=ExtResource("9_rk8vc")]
 position = Vector2(-1490, -73)
 target_scene_path = "uid://7yag4ajp7ggw"
+target_spawn = "SpawnFromThirdLab"
 metadata/_edit_lock_ = true
 
 [node name="DoorToStorage" parent="InteractablesProps" unique_id=2113043938 instance=ExtResource("10_afeaw")]
 position = Vector2(1398, 83)
-target_spawn = "SpawnFromLab"
-metadata/_edit_lock_ = true
+target_spawn = "SpawnFromThirdLab"
 
 [node name="FumeHood" parent="InteractablesProps" unique_id=2049360832 instance=ExtResource("11_yac7y")]
 position = Vector2(-894, -39)
@@ -177,4 +177,7 @@ shape = SubResource("RectangleShape2D_neng1")
 metadata/_edit_lock_ = true
 
 [node name="SpawnFromStorage" type="Marker2D" parent="." unique_id=11122288]
-position = Vector2(2039, 728)
+position = Vector2(2021, 701)
+
+[node name="SpawnFromSecondLab" type="Marker2D" parent="." unique_id=2083037764]
+position = Vector2(-768, 722)

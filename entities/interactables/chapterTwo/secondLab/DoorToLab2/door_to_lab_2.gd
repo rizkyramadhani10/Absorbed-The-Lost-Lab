@@ -1,6 +1,8 @@
 extends Area2D
 
 @export_file("*.tscn") var target_scene_path: String
+# 🔥 TAMBAHAN BARU: Menentukan nama Marker2D tujuan di scene berikutnya
+@export var target_spawn: String = ""
 
 @onready var door_sprite = $DoorToLab2
 @onready var dim_overlay = $DimOverlay
@@ -14,7 +16,7 @@ func _ready() -> void:
 	# Start-up conditions: Hint hidden, door barely visible, room normal
 	interaction_hint.visible = false
 	door_sprite.modulate.a = 0.15   # Lower opacity when far away
-	dim_overlay.modulate.a = 0.0    # Completely transparent overlay
+	dim_overlay.modulate.a = 0.0     # Completely transparent overlay
 	
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -24,6 +26,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if target_scene_path != "":
 			player_nearby = false 
 			interaction_hint.visible = false
+			
+			# 🔥 TAMBAHAN BARU: Kirim lokasi spawn ke sistem Autoload sebelum transisi
+			Global.spawn_point = target_spawn
 			
 			if sfx_player:
 				sfx_player.play()

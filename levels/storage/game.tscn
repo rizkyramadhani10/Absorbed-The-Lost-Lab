@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cx58xkjfxairt"]
 
-[ext_resource type="Script" uid="uid://ccagvc4ekqb2y" path="res://levels/mainLab/game.gd" id="1_488wy"]
+[ext_resource type="Script" uid="uid://lyf02b3aka0c" path="res://levels/storage/game.gd" id="1_1ldys"]
 [ext_resource type="Texture2D" uid="uid://b08wlu0i2i7it" path="res://levels/storage/sprites/bgExample.png" id="1_kkcls"]
 [ext_resource type="Texture2D" uid="uid://bymlnyi14ja6q" path="res://levels/storage/sprites/LockersnBins.png" id="2_bgs80"]
 [ext_resource type="PackedScene" uid="uid://eep8vxhs78i1" path="res://entities/interactables/chapterTwo/storage/DoorToLab/DoorToLab.tscn" id="3_yyafp"]
@@ -15,7 +15,7 @@ distance = -624.0
 size = Vector2(104, 849)
 
 [node name="Game" type="Node2D" unique_id=2041136512]
-script = ExtResource("1_488wy")
+script = ExtResource("1_1ldys")
 
 [node name="MainBackground" type="Sprite2D" parent="." unique_id=316562924]
 position = Vector2(660.85004, 332.75003)

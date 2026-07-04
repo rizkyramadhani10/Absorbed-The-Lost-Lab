@@ -69,6 +69,8 @@ metadata/_edit_lock_ = true
 
 [node name="door" parent="InteractablesProps" unique_id=1608627627 instance=ExtResource("8_38yin")]
 position = Vector2(977, 76)
+target_scene_path = "uid://ch7xgn76hjsfs"
+target_spawn = "SpawnFromSecondLab"
 metadata/_edit_lock_ = true
 
 [node name="laboratoryRefrigerator" parent="InteractablesProps" unique_id=1406534579 instance=ExtResource("9_0jv7s")]
@@ -95,11 +97,11 @@ metadata/_edit_lock_ = true
 position = Vector2(-509, -57)
 metadata/_edit_lock_ = true
 
-[node name="DoorToLab1" parent="InteractablesProps" unique_id=955163524 instance=ExtResource("17_f02wl")]
-visible = false
+[node name="DoorToLab2" parent="InteractablesProps" unique_id=955163524 instance=ExtResource("17_f02wl")]
 position = Vector2(-1219, 27.999998)
 scale = Vector2(1.1, 1.1)
 target_scene_path = "uid://dljufsmrudfbq"
+target_spawn = "SpawnFromSecondLab"
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("10_rt68v")]
@@ -142,3 +144,9 @@ metadata/_edit_lock_ = true
 position = Vector2(1737, 329)
 shape = SubResource("RectangleShape2D_g64m1")
 metadata/_edit_lock_ = true
+
+[node name="SpawnFromWorkspace" type="Marker2D" parent="." unique_id=362906794]
+position = Vector2(1518, 664)
+
+[node name="SpawnFromThirdLab" type="Marker2D" parent="." unique_id=1216571125]
+position = Vector2(-394, 664)

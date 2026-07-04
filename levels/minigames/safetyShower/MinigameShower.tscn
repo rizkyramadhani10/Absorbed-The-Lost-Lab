@@ -49,10 +49,10 @@ metadata/_edit_lock_ = true
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2028611542]
 material = SubResource("CanvasItemMaterial_mr530")
 layout_mode = 0
-offset_left = 13.0
-offset_top = -13.0
-offset_right = 1303.0
-offset_bottom = 729.0
+offset_left = -1.0
+offset_top = -18.0
+offset_right = 1289.0
+offset_bottom = 724.0
 mouse_filter = 2
 stream = ExtResource("5_8oqqo")
 expand = true

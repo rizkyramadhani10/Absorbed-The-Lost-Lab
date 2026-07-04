@@ -1,11 +1,12 @@
 extends Area2D
 
 @export_file("*.tscn") var target_scene_path: String
-# 🔥 TAMBAHAN BARU: Menentukan nama Marker2D tujuan di scene berikutnya
+
+# Tambahan baru
 @export var target_spawn: String = ""
 
 @onready var interaction_hint = $Label
-@onready var sfx_player = $AudioStreamPlayer2D # 1. Reference the audio player node
+@onready var sfx_player = $AudioStreamPlayer2D
 
 var player_nearby: bool = false
 
@@ -16,20 +17,21 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if player_nearby and event.is_action_pressed("interact"):
+
 		if target_scene_path != "":
-			player_nearby = false 
+
+			player_nearby = false
 			interaction_hint.visible = false
-			
-			# 🔥 TAMBAHAN BARU: Kirim lokasi spawn ke sistem Autoload sebelum transisi
+
+			# Simpan nama spawn yang akan dipakai di scene berikutnya
 			Global.spawn_point = target_spawn
-			
-			# 2. Play the door opening sound here!
+
 			sfx_player.play()
-			
-			# 3. Start the transition screen sequence
+
 			TransitionScreen.transition_to_scene(target_scene_path)
+
 		else:
-			print("Warning: No target scene path set for this door!")
+			print("Warning: No target scene path set!")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" or body.is_in_group("player"):
