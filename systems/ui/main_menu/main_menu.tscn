@@ -67,7 +67,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_l6cm7")
-text = "V1.0.0"
+text = "V1.2.0"
 
 [node name="Control" type="Control" parent="MarginContainer/MainVBox" unique_id=1469310115]
 layout_mode = 2
@@ -116,7 +116,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 20
-text = "@togeproductions"
+text = "@aether.team"
 
 [connection signal="pressed" from="MarginContainer/MainVBox/BottomRow/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainVBox/BottomRow/Buttons/SettingButton" to="." method="_on_setting_button_pressed"]

@@ -16,7 +16,7 @@ const ChemicalDatabase = preload("res://levels/minigames/chemicalStorage/data/ch
 # Node
 # ==============================
 
-@onready var bahan_container = $Bahan
+@onready var bahan_container = $ChemContainer/Bahan
 @onready var rack = $Rack
 
 @onready var panel = $Panel

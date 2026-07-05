@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cx58xkjfxairt"]
 
 [ext_resource type="Script" uid="uid://lyf02b3aka0c" path="res://levels/storage/game.gd" id="1_1ldys"]
-[ext_resource type="Texture2D" uid="uid://b08wlu0i2i7it" path="res://levels/storage/sprites/bgExample.png" id="1_kkcls"]
+[ext_resource type="Texture2D" uid="uid://b1qfj6ye4sd78" path="res://levels/storage/sprites/bgWallnFloor.png" id="2_1ldys"]
 [ext_resource type="Texture2D" uid="uid://bymlnyi14ja6q" path="res://levels/storage/sprites/LockersnBins.png" id="2_bgs80"]
 [ext_resource type="PackedScene" uid="uid://eep8vxhs78i1" path="res://entities/interactables/chapterTwo/storage/DoorToLab/DoorToLab.tscn" id="3_yyafp"]
 [ext_resource type="PackedScene" uid="uid://bgynxuvespo6n" path="res://entities/interactables/chapterTwo/storage/ChemicalRack/ChemicalRack.tscn" id="4_02aew"]
@@ -14,30 +14,56 @@ distance = -624.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bddg5"]
 size = Vector2(104, 849)
 
-[node name="Game" type="Node2D" unique_id=2041136512]
+[node name="Game" type="Control" unique_id=1170699491]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_1ldys")
 
-[node name="MainBackground" type="Sprite2D" parent="." unique_id=316562924]
-position = Vector2(660.85004, 332.75003)
+[node name="MainBackground" type="TextureRect" parent="." unique_id=461995142]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.1393331, 1.1393332)
-texture = ExtResource("1_kkcls")
+texture = ExtResource("2_1ldys")
+expand_mode = 1
 
-[node name="Props" type="Node2D" parent="." unique_id=1298904189]
+[node name="Props" type="Control" parent="." unique_id=686362649]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -933.0
+offset_top = 69.0
+offset_right = -933.0
+offset_bottom = 69.0
+grow_horizontal = 0
 
 [node name="LockersnBins" type="Sprite2D" parent="Props" unique_id=1731022379]
-position = Vector2(642.5501, 333.25003)
-scale = Vector2(1.178, 1.1780001)
+position = Vector2(555, 338)
 texture = ExtResource("2_bgs80")
 
-[node name="InteractablesProps" type="Node2D" parent="." unique_id=1314743830]
+[node name="InteractablesProps" type="Control" parent="." unique_id=33460081]
+layout_mode = 1
+anchors_preset = 0
+offset_top = 69.0
+offset_bottom = 69.0
 
 [node name="DoorToLab" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("3_yyafp")]
-position = Vector2(-619, 3)
+position = Vector2(-682, -29)
 target_scene_path = "uid://dljufsmrudfbq"
 target_spawn = "SpawnFromStorage"
 
 [node name="ChemicalRack" parent="InteractablesProps" unique_id=902684052 instance=ExtResource("4_02aew")]
-position = Vector2(-219, -17)
+position = Vector2(-175, -69)
 target_scene_path = "uid://bn7p3rh24hvf6"
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("16_e4qak")]
@@ -45,8 +71,8 @@ position = Vector2(315, 701)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1740646371]
 position = Vector2(391, -351)
-limit_left = 140
-limit_right = 1153
+limit_left = 1
+limit_right = 1228
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1491258129]
 position = Vector2(523, 18)
@@ -56,7 +82,6 @@ position = Vector2(0, 56)
 shape = SubResource("WorldBoundaryShape2D_ogap6")
 
 [node name="Control" type="Control" parent="." unique_id=1559057370]
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -72,9 +97,8 @@ shape = SubResource("RectangleShape2D_bddg5")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1009635219]
-position = Vector2(1103, 356)
+position = Vector2(1325, 356)
 shape = SubResource("RectangleShape2D_bddg5")
-metadata/_edit_lock_ = true
 
 [node name="SpawnFromThirdLab" type="Marker2D" parent="." unique_id=391251159]
 position = Vector2(241, 712)

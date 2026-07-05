@@ -113,7 +113,7 @@ func _input(event):
 				dragging = false
 				finger_index = -1
 				item_dropped.emit(self)
-				get_parent().get_parent().drop_item(self)
+				get_parent().get_parent().get_parent().drop_item(self)
 	
 	# =============================
 	# EDITOR / PC (Mouse)

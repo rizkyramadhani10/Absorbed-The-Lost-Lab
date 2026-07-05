@@ -1,9 +1,11 @@
 extends Node2D
 
 @onready var area_interaksi = $Area2D
-@onready var progress_bar = $"../ProgressBar"
-@onready var video_overlay = $"../VideoStreamPlayer" 
-@onready var sfx_air = $"../SFXShower" 
+@onready var progress_bar = $"../../ProgressBar"
+@onready var video_overlay = $"../../VideoStreamPlayer"
+@onready var sfx_air = $"../../SFXShower"
+
+var tutorial_scene = preload("res://levels/minigames/safetyShower/Tutorial/UI_Tutorial.tscn")
 
 var is_pulling = false
 var posisi_awal_y = 0.0
@@ -31,6 +33,8 @@ var kecepatan_y = 0.0
 var is_finished = false
 
 func _ready():
+	munculkan_tutorial_langsung()
+	
 	posisi_awal_y = global_position.y
 	if progress_bar: progress_bar.value = 0
 	
@@ -43,7 +47,12 @@ func _ready():
 	
 	if area_interaksi:
 		area_interaksi.input_event.connect(_on_input_event)
-
+	
+func munculkan_tutorial_langsung() -> void:
+	var tutorial_instance = tutorial_scene.instantiate()
+	# Masukkan langsung ke root scene tree agar terbebas dari posisi Node2D ini
+	get_tree().root.add_child.call_deferred(tutorial_instance)
+	
 func _process(delta):
 	# 1. LOGIKA PERGERAKAN TUAS
 	if is_pulling:

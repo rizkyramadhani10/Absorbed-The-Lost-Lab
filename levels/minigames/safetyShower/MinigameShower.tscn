@@ -16,55 +16,74 @@ blend_mode = 1
 
 [node name="MinigameShower" type="Control" unique_id=981468246]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=784916033]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -31.0
-offset_right = 1282.0
-offset_bottom = 719.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("1_vrv61")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="SafetyShowerPuller" type="Sprite2D" parent="." unique_id=1596527312]
-position = Vector2(621, 213.00003)
+[node name="PullerContainer" type="Control" parent="." unique_id=572710745]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="SafetyShowerPuller" type="Sprite2D" parent="PullerContainer" unique_id=1596527312]
+position = Vector2(10.400024, 221.00003)
 scale = Vector2(0.57733333, 0.57733333)
 texture = ExtResource("2_ffjdt")
 script = ExtResource("4_mr530")
-scene_tujuan = "uid://dljufsmrudfbq"
 
-[node name="Area2D" type="Area2D" parent="SafetyShowerPuller" unique_id=5396214]
+[node name="Area2D" type="Area2D" parent="PullerContainer/SafetyShowerPuller" unique_id=5396214]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SafetyShowerPuller/Area2D" unique_id=1717284339]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PullerContainer/SafetyShowerPuller/Area2D" unique_id=1717284339]
 position = Vector2(0.00012207031, 223.44098)
 shape = SubResource("RectangleShape2D_lk0uw")
 
-[node name="SafetyShower" type="Sprite2D" parent="." unique_id=1243286665]
-position = Vector2(625.60004, 70.99999)
+[node name="SafetyShower" type="Sprite2D" parent="PullerContainer" unique_id=1243286665]
+position = Vector2(16, 87)
 scale = Vector2(0.20866665, 0.23733331)
 texture = ExtResource("2_45cg4")
-metadata/_edit_lock_ = true
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2028611542]
 material = SubResource("CanvasItemMaterial_mr530")
-layout_mode = 0
-offset_left = -1.0
-offset_top = -18.0
-offset_right = 1289.0
-offset_bottom = 724.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 stream = ExtResource("5_8oqqo")
 expand = true
 loop = true
+metadata/_edit_lock_ = true
 
 [node name="ProgressBar" parent="." unique_id=1196607322 instance=ExtResource("4_lk0uw")]
-layout_mode = 0
-offset_left = -251.0
-offset_top = 13.0
-offset_right = 377.0
-offset_bottom = 641.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -314.0
+offset_right = 427.0
+offset_bottom = 314.0
+grow_vertical = 2
 max_value = 1000.0
 metadata/_edit_lock_ = true
 

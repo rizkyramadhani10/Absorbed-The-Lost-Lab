@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://uvpsuw7rh21y"]
 
 [ext_resource type="Texture2D" uid="uid://b8jgiv7qr7fgi" path="res://levels/minigames/chemicalStorage/rack/Rack.png" id="1_3xci8"]
+[ext_resource type="Texture2D" uid="uid://d0wr58he45ctf" path="res://levels/minigames/chemicalStorage/sprites/environment/ChemicalStorageRack.png" id="2_u3p78"]
 [ext_resource type="Script" uid="uid://cv6ilsgjwv4ts" path="res://levels/minigames/chemicalStorage/rack/rack_slot.gd" id="2_xe07i"]
+[ext_resource type="Texture2D" uid="uid://c4g0ehi7wbrc2" path="res://levels/minigames/chemicalStorage/sprites/environment/GolonganBasaPekat(decorative).png" id="3_4kxd3"]
+[ext_resource type="Texture2D" uid="uid://d17jja6bmkixq" path="res://levels/minigames/chemicalStorage/sprites/environment/GolonganKorosif(decorative).png" id="4_1rj1a"]
+[ext_resource type="Texture2D" uid="uid://d0mc50owkhw3h" path="res://levels/minigames/chemicalStorage/sprites/environment/GolonganOrganikFlammable(Decorative).png" id="5_n875g"]
+[ext_resource type="Texture2D" uid="uid://d1rw0hrtoil6k" path="res://levels/minigames/chemicalStorage/sprites/environment/GolonganReaktif(decorative).png" id="6_p2mmk"]
+[ext_resource type="Texture2D" uid="uid://1ivb6m8v0l7o" path="res://levels/minigames/chemicalStorage/sprites/environment/GolonganBeracun(decorative).png" id="7_ff4cb"]
+[ext_resource type="Texture2D" uid="uid://cihlmh4ngbxsb" path="res://levels/minigames/chemicalStorage/sprites/environment/GolonganSensitifthdCahaya(decorative).png" id="8_go76g"]
+[ext_resource type="Texture2D" uid="uid://hg1m4bdu3spa" path="res://levels/minigames/chemicalStorage/sprites/environment/GolonganOksidator(decorative).png" id="9_8ldgj"]
+[ext_resource type="Texture2D" uid="uid://bd4nk2hfaxdao" path="res://levels/minigames/chemicalStorage/sprites/environment/Placeholder.png" id="10_p2mmk"]
+[ext_resource type="FontFile" uid="uid://b1u0l0n3ck6v4" path="res://systems/ui/theme/fonts/Easy Pixel.ttf" id="11_ff4cb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe07i"]
 size = Vector2(85, 101.5)
@@ -11,14 +21,240 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1836008770]
+visible = false
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("1_3xci8")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="EmptyRack" type="Sprite2D" parent="." unique_id=874329283]
+position = Vector2(494.99997, 373)
+scale = Vector2(1.5, 1.514)
+texture = ExtResource("2_u3p78")
+region_enabled = true
+region_rect = Rect2(88, 200, 672, 464)
+metadata/_edit_lock_ = true
+
+[node name="Props" type="Node2D" parent="." unique_id=1366884053]
+metadata/_edit_lock_ = true
+
+[node name="Basapekat" type="Sprite2D" parent="Props" unique_id=1682843009]
+position = Vector2(719, 132)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_4kxd3")
+region_enabled = true
+region_rect = Rect2(432, 232, 280, 80)
+metadata/_edit_lock_ = true
+
+[node name="Korosif" type="Sprite2D" parent="Props" unique_id=1206874957]
+position = Vector2(272, 210)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_1rj1a")
+region_enabled = true
+region_rect = Rect2(128, 232, 296, 184)
+metadata/_edit_lock_ = true
+
+[node name="Organik" type="Sprite2D" parent="Props" unique_id=1284490456]
+position = Vector2(242.00002, 439)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_n875g")
+region_enabled = true
+region_rect = Rect2(128, 440, 256, 72)
+metadata/_edit_lock_ = true
+
+[node name="Reaktif" type="Sprite2D" parent="Props" unique_id=1266862356]
+position = Vector2(283, 596)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_p2mmk")
+region_enabled = true
+region_rect = Rect2(144, 536, 280, 80)
+metadata/_edit_lock_ = true
+
+[node name="Beracun" type="Sprite2D" parent="Props" unique_id=2021248425]
+position = Vector2(765, 593)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_ff4cb")
+region_enabled = true
+region_rect = Rect2(496, 528, 216, 96)
+metadata/_edit_lock_ = true
+
+[node name="Sensitif" type="Sprite2D" parent="Props" unique_id=68933229]
+position = Vector2(713, 448.00003)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_go76g")
+region_enabled = true
+region_rect = Rect2(432, 448, 272, 64)
+metadata/_edit_lock_ = true
+
+[node name="Oksidator" type="Sprite2D" parent="Props" unique_id=965100419]
+position = Vector2(712, 294)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_8ldgj")
+region_enabled = true
+region_rect = Rect2(432, 336, 272, 88)
+metadata/_edit_lock_ = true
+
+[node name="Placeholder" type="Node2D" parent="Props" unique_id=1395943091]
+metadata/_edit_lock_ = true
+
+[node name="Oksidator" type="Node2D" parent="Props/Placeholder" unique_id=1730543336]
+position = Vector2(440, 150)
+
+[node name="P_Oksidator" type="Sprite2D" parent="Props/Placeholder/Oksidator" unique_id=992176392]
+position = Vector2(281, 65.99999)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_p2mmk")
+region_enabled = true
+region_rect = Rect2(192, 216, 1432, 472)
+
+[node name="Label" type="Label" parent="Props/Placeholder/Oksidator" unique_id=761475235]
+offset_left = 244.0
+offset_top = 58.0
+offset_right = 318.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("11_ff4cb")
+text = "OKSIDATOR"
+
+[node name="Sensitif" type="Node2D" parent="Props/Placeholder" unique_id=271206654]
+position = Vector2(440, 303)
+
+[node name="P_Sensitif" type="Sprite2D" parent="Props/Placeholder/Sensitif" unique_id=926899448]
+position = Vector2(281, 65.99999)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_p2mmk")
+region_enabled = true
+region_rect = Rect2(192, 216, 1432, 472)
+
+[node name="Label" type="Label" parent="Props/Placeholder/Sensitif" unique_id=419768778]
+offset_left = 244.0
+offset_top = 58.0
+offset_right = 318.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("11_ff4cb")
+text = "SENSITIF"
+horizontal_alignment = 1
+
+[node name="Pekat" type="Node2D" parent="Props/Placeholder" unique_id=1054206428]
+position = Vector2(435, 0)
+
+[node name="P_Basapekat" type="Sprite2D" parent="Props/Placeholder/Pekat" unique_id=2043005707]
+position = Vector2(281, 65.99999)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_p2mmk")
+region_enabled = true
+region_rect = Rect2(192, 216, 1432, 472)
+
+[node name="Label" type="Label" parent="Props/Placeholder/Pekat" unique_id=1571090557]
+offset_left = 241.0
+offset_top = 58.0
+offset_right = 322.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("11_ff4cb")
+text = "BASA PEKAT"
+
+[node name="Beracun" type="Node2D" parent="Props/Placeholder" unique_id=1425159865]
+position = Vector2(435, 455)
+
+[node name="P_Beracun" type="Sprite2D" parent="Props/Placeholder/Beracun" unique_id=1773531676]
+position = Vector2(281, 65.99999)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_p2mmk")
+region_enabled = true
+region_rect = Rect2(192, 216, 1432, 472)
+
+[node name="Label" type="Label" parent="Props/Placeholder/Beracun" unique_id=712505102]
+offset_left = 241.0
+offset_top = 58.0
+offset_right = 322.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("11_ff4cb")
+text = "BERACUN"
+horizontal_alignment = 1
+
+[node name="Reaktif" type="Node2D" parent="Props/Placeholder" unique_id=23165382]
+position = Vector2(0, 455)
+
+[node name="P_Reaktif" type="Sprite2D" parent="Props/Placeholder/Reaktif" unique_id=1197757017]
+position = Vector2(281, 65.99999)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_p2mmk")
+region_enabled = true
+region_rect = Rect2(192, 216, 1432, 472)
+
+[node name="Label" type="Label" parent="Props/Placeholder/Reaktif" unique_id=2033399630]
+offset_left = 241.0
+offset_top = 58.0
+offset_right = 322.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("11_ff4cb")
+text = "REAKTIF"
+horizontal_alignment = 1
+
+[node name="Organik" type="Node2D" parent="Props/Placeholder" unique_id=1182727005]
+position = Vector2(0, 300)
+
+[node name="P_Organik" type="Sprite2D" parent="Props/Placeholder/Organik" unique_id=1976302427]
+position = Vector2(281, 65.99999)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_p2mmk")
+region_enabled = true
+region_rect = Rect2(192, 216, 1432, 472)
+
+[node name="Label" type="Label" parent="Props/Placeholder/Organik" unique_id=1033522718]
+offset_left = 241.0
+offset_top = 58.0
+offset_right = 322.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("11_ff4cb")
+text = "ORGANIK"
+horizontal_alignment = 1
+
+[node name="Asam" type="Node2D" parent="Props/Placeholder" unique_id=1176067384]
+position = Vector2(0, 146)
+
+[node name="P_Asampekat" type="Sprite2D" parent="Props/Placeholder/Asam" unique_id=1734476014]
+position = Vector2(281, 65.99999)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_p2mmk")
+region_enabled = true
+region_rect = Rect2(192, 216, 1432, 472)
+
+[node name="Label" type="Label" parent="Props/Placeholder/Asam" unique_id=690680919]
+offset_left = 240.0
+offset_top = 58.0
+offset_right = 324.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("11_ff4cb")
+text = "ASAM PEKAT"
+horizontal_alignment = 1
+
+[node name="Korosif" type="Node2D" parent="Props/Placeholder" unique_id=2044294379]
+position = Vector2(0, -1)
+
+[node name="P_Korosif" type="Sprite2D" parent="Props/Placeholder/Korosif" unique_id=726969863]
+position = Vector2(281, 65.99999)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_p2mmk")
+region_enabled = true
+region_rect = Rect2(192, 216, 1432, 472)
+
+[node name="Label" type="Label" parent="Props/Placeholder/Korosif" unique_id=425761831]
+offset_left = 241.0
+offset_top = 58.0
+offset_right = 322.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("11_ff4cb")
+text = "KOROSIF"
+horizontal_alignment = 1
 
 [node name="Korosif" type="Area2D" parent="." unique_id=803658299]
+position = Vector2(-9, -90.00001)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("2_xe07i")
 category = "Korosif"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Korosif" unique_id=1727152542]
 position = Vector2(116.5, 155.5)
@@ -28,8 +264,11 @@ shape = SubResource("RectangleShape2D_xe07i")
 position = Vector2(116, 154)
 
 [node name="Oksidator" type="Area2D" parent="." unique_id=324952247]
+position = Vector2(-318, -166)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("2_xe07i")
 category = "Oksidator"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Oksidator" unique_id=1858527667]
 position = Vector2(772, 316)
@@ -39,8 +278,11 @@ shape = SubResource("RectangleShape2D_xe07i")
 position = Vector2(771, 322)
 
 [node name="Organik" type="Area2D" parent="." unique_id=191491936]
+position = Vector2(-143, -232)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("2_xe07i")
 category = "Organik"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Organik" unique_id=232653911]
 position = Vector2(401, 452)
@@ -50,8 +292,11 @@ shape = SubResource("RectangleShape2D_xe07i")
 position = Vector2(400, 448)
 
 [node name="Beracun" type="Area2D" parent="." unique_id=772583624]
+position = Vector2(-189, -301)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("2_xe07i")
 category = "Beracun"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Beracun" unique_id=164472385]
 position = Vector2(504.5, 591.75)
