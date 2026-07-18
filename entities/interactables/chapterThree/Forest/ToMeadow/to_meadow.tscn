@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ipst55s3uw14"]
+
+[ext_resource type="Script" uid="uid://cqvyixbfhp1ro" path="res://entities/interactables/chapterThree/Forest/ToMeadow/to_meadow.gd" id="1_25cbn"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="1_bgni2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mw4w"]
+size = Vector2(311, 448)
+
+[node name="ToMeadow" type="Area2D" unique_id=1158575449]
+script = ExtResource("1_25cbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1989920695]
+position = Vector2(705.5, 490)
+shape = SubResource("RectangleShape2D_6mw4w")
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("1_bgni2")]
+position = Vector2(5, -45)

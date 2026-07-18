@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://plom0ba10qfn"]
+
+[ext_resource type="Script" uid="uid://blsynhag3iq5" path="res://entities/interactables/chapterThree/Forest/ToVolcanic/to_volcanic.gd" id="1_6twpi"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="1_bgni2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh8r0"]
+size = Vector2(311, 448)
+
+[node name="ToVolcanic" type="Area2D" unique_id=28159551]
+script = ExtResource("1_6twpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1319831627]
+position = Vector2(705.5, 490)
+shape = SubResource("RectangleShape2D_nh8r0")
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("1_bgni2")]
+position = Vector2(5, -45)

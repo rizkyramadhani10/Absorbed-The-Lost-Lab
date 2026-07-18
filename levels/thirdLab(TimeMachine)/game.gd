@@ -45,3 +45,10 @@ func setup_third_lab_spawns() -> void:
 			print("Level: Player berhasil dipindahkan ke SpawnFromStorage!")
 		else:
 			print("ERROR: Marker 'SpawnFromStorage' tidak ditemukan di Scene Tree!")
+	elif Global.spawn_point == "SpawnFromMeadow":
+		if has_node("SpawnFromMeadow"):
+			# Menggunakan set_deferred agar posisi diubah tepat di frame pertama tanpa delay visual
+			player.set_deferred("global_position", $SpawnFromMeadow.global_position)
+			print("Third Lab: Player berhasil dipindahkan ke SpawnFromMeadow!")
+		else:
+			print("ERROR di Meawdow: Marker 'SpawnFromMeadow' tidak ditemukan di Scene Tree!")

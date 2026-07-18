@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c0bq3ef8dm48"]
+
+[ext_resource type="Script" uid="uid://dhx4vw2mg5tlh" path="res://entities/interactables/chapterThree/Meadow/DoorToLab/door_to_lab.gd" id="1_j6ljn"]
+[ext_resource type="Texture2D" uid="uid://cyyaj7n0ofipg" path="res://levels/Meadow/sprites/interactablesProps/Lab.png" id="2_mw0ri"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_cd08e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
+size = Vector2(572, 448)
+
+[node name="DoorToLab" type="Area2D" unique_id=73848177]
+script = ExtResource("1_j6ljn")
+
+[node name="DoorToLab" type="Sprite2D" parent="." unique_id=1311697350]
+position = Vector2(-984, 404)
+scale = Vector2(1.099, 1.099)
+texture = ExtResource("2_mw0ri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
+position = Vector2(730, 490)
+shape = SubResource("RectangleShape2D_g8jgx")
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_cd08e")]
+position = Vector2(113, -31)
