@@ -21,3 +21,10 @@ func setup_meawdow_spawns() -> void:
 			print("Third Lab: Player berhasil dipindahkan ke SpawnFromMeadow!")
 		else:
 			print("ERROR di Meawdow: Marker 'SpawnFromMeadow' tidak ditemukan di Scene Tree!")
+	elif Global.spawn_point == "SpawnFromVolcanic":
+		if has_node("SpawnFromVolcanic"):
+			# Menggunakan set_deferred agar posisi diubah tepat di frame pertama tanpa delay visual
+			player.set_deferred("global_position", $SpawnFromVolcanic.global_position)
+			print("Third Lab: Player berhasil dipindahkan ke SpawnFromVolcanic!")
+		else:
+			print("ERROR di Meawdow: Marker 'SpawnFromVolcanic' tidak ditemukan di Scene Tree!")

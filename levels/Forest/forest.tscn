@@ -31,6 +31,8 @@ target_spawn = "SpawnFromForest"
 
 [node name="ToVolcanic" parent="InteractablesProps" unique_id=28159551 instance=ExtResource("3_q2qo1")]
 position = Vector2(-3116, -29)
+target_scene_path = "uid://bywk6jx3ssapw"
+target_spawn = "SpawnFromForest"
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("4_owykb")]
 position = Vector2(643, 673)
@@ -73,3 +75,9 @@ shape = SubResource("RectangleShape2D_a4qny")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisibleWalls" unique_id=919686939]
 position = Vector2(1369, 360)
 shape = SubResource("RectangleShape2D_a4qny")
+
+[node name="SpawnFromMeadow" type="Marker2D" parent="." unique_id=993154580]
+position = Vector2(990, 704)
+
+[node name="SpawnFromVolcanic" type="Marker2D" parent="." unique_id=753674882]
+position = Vector2(-2322, 679)
