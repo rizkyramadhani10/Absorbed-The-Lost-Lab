@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://diabmqx41eiss"]
 
 [ext_resource type="Script" uid="uid://bwee2gyq3hthi" path="res://levels/Forest/forest.gd" id="1_sxwwm"]
-[ext_resource type="Texture2D" uid="uid://uuk0q0kviwyv" path="res://levels/Forest/sprites/environments/Forest.png" id="1_wi8g2"]
+[ext_resource type="Texture2D" uid="uid://lgp3taxiikdk" path="res://levels/Forest/sprites/environments/Background.png" id="2_ds3kn"]
+[ext_resource type="Texture2D" uid="uid://carc705324rc7" path="res://levels/Forest/sprites/environments/TreeBack.png" id="3_a4qny"]
 [ext_resource type="PackedScene" uid="uid://plom0ba10qfn" path="res://entities/interactables/chapterThree/Forest/ToVolcanic/to_volcanic.tscn" id="3_q2qo1"]
+[ext_resource type="Texture2D" uid="uid://b06lu27cos6rj" path="res://levels/Forest/sprites/environments/Grass.png" id="4_ihq6p"]
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="4_owykb"]
 [ext_resource type="PackedScene" uid="uid://ipst55s3uw14" path="res://entities/interactables/chapterThree/Forest/ToMeadow/to_meadow.tscn" id="4_sxwwm"]
+[ext_resource type="Texture2D" uid="uid://d5byu080msc5" path="res://levels/Forest/sprites/environments/TreeFront.png" id="5_be3l3"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="5_v7bpp"]
+[ext_resource type="Texture2D" uid="uid://ce1ibruqr6lyw" path="res://levels/Forest/sprites/environments/Lighting.png" id="6_eu1au"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ds3kn"]
 distance = -149.0
@@ -19,9 +23,30 @@ script = ExtResource("1_sxwwm")
 [node name="MainBackground" type="Sprite2D" parent="." unique_id=721841857]
 position = Vector2(-690, 360)
 scale = Vector2(1.099, 1.099)
-texture = ExtResource("1_wi8g2")
+texture = ExtResource("2_ds3kn")
+
+[node name="TreeBack" type="Sprite2D" parent="." unique_id=1337822907]
+position = Vector2(-690, 360)
+scale = Vector2(1.099, 1.099)
+texture = ExtResource("3_a4qny")
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=2020364822]
+position = Vector2(-690, 360)
+scale = Vector2(1.099, 1.099)
+texture = ExtResource("4_ihq6p")
+
+[node name="TreeFront" type="Sprite2D" parent="." unique_id=1578229047]
+position = Vector2(-690, 360)
+scale = Vector2(1.099, 1.099)
+texture = ExtResource("5_be3l3")
+
+[node name="Lighting" type="Sprite2D" parent="." unique_id=105063068]
+position = Vector2(-690, 360)
+scale = Vector2(1.099, 1.099)
+texture = ExtResource("6_eu1au")
 
 [node name="InteractablesProps" type="Node2D" parent="." unique_id=129264036]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="ToMeadow" parent="InteractablesProps" unique_id=1158575449 instance=ExtResource("4_sxwwm")]
@@ -66,6 +91,7 @@ metadata/_edit_lock_ = true
 [node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("5_v7bpp")]
 
 [node name="InvisibleWalls" type="StaticBody2D" parent="." unique_id=817934724]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWalls" unique_id=624099496]

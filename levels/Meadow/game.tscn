@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cw0ahp688lj2u" path="res://levels/Meadow/game.gd" id="1_pt61c"]
 [ext_resource type="Texture2D" uid="uid://d4l2h31mxfku0" path="res://levels/Meadow/sprites/environments/SkyandMountain.png" id="3_jiims"]
+[ext_resource type="Texture2D" uid="uid://cp0ivg6nyq707" path="res://levels/Meadow/sprites/environments/GrassAndTree(fix).png" id="3_m1i47"]
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="3_v34ly"]
-[ext_resource type="Texture2D" uid="uid://cej0fpstl6uic" path="res://levels/Meadow/sprites/environments/GrassandTree.png" id="4_m4hrt"]
 [ext_resource type="PackedScene" uid="uid://c0bq3ef8dm48" path="res://entities/interactables/chapterThree/Meadow/DoorToLab/DoorToLab.tscn" id="4_pt61c"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="4_xqb55"]
 [ext_resource type="PackedScene" uid="uid://bm2epodcaoerf" path="res://entities/interactables/chapterThree/Meadow/ToForest/to_forest.tscn" id="5_m1i47"]
@@ -26,7 +26,7 @@ metadata/_edit_group_ = true
 [node name="BackgroundGrass" type="Sprite2D" parent="." unique_id=593617622]
 position = Vector2(-690, 360)
 scale = Vector2(1.099, 1.099)
-texture = ExtResource("4_m4hrt")
+texture = ExtResource("3_m1i47")
 metadata/_edit_group_ = true
 
 [node name="InteractablesProps" type="Node2D" parent="." unique_id=1410943721]
