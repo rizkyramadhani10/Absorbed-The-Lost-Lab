@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bm2epodcaoerf"]
+
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="1_bgni2"]
+[ext_resource type="Script" uid="uid://bdlmjdj8johrs" path="res://entities/interactables/chapterThree/Meadow/ToForest/to_forest.gd" id="1_giluc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giluc"]
+size = Vector2(358, 333)
+
+[node name="ToForest" type="Area2D" unique_id=1968388957]
+script = ExtResource("1_giluc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238216765]
+position = Vector2(758, 445.5)
+shape = SubResource("RectangleShape2D_giluc")
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("1_bgni2")]
+position = Vector2(44, -7)

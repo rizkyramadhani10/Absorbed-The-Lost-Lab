@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxc3kgrkyvlwo"]
 
-[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_tkavu"]
+[ext_resource type="Script" uid="uid://uiemtjc2vynj" path="res://entities/interactables/chapterTwo/thirdLab/ExitDoor/exit_door.gd" id="1_cd08e"]
 [ext_resource type="Texture2D" uid="uid://cinkxefvck2rr" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/ExitDoor.png" id="2_ae85j"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_cd08e"]
 
@@ -8,7 +8,7 @@
 size = Vector2(117, 558)
 
 [node name="ExitDoor" type="Area2D" unique_id=73848177]
-script = ExtResource("1_tkavu")
+script = ExtResource("1_cd08e")
 
 [node name="ExitDoor" type="Sprite2D" parent="." unique_id=1728040727]
 position = Vector2(746, 393)
