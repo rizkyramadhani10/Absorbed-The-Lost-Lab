@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://7t8i481oqmic"]
+
+[ext_resource type="Script" uid="uid://de4vyv7xxt6lr" path="res://dialogues/characters/portraits/xeno_portrait.gd" id="1_ph7f5"]
+[ext_resource type="Texture2D" uid="uid://n4vm1x5wknca" path="res://rigby.png" id="2_wkrvu"]
+
+[node name="XenoPortrait" type="Node2D" unique_id=757255936]
+script = ExtResource("1_ph7f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2034489341]
+texture = ExtResource("2_wkrvu")
+region_enabled = true
+region_rect = Rect2(0, 0, 405, 405)

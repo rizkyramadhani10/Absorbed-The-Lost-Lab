@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://iqs142ppcto1"]
+
+[ext_resource type="Shader" uid="uid://bliw4ksj1llyc" path="res://systems/ui/hud/Blinkeffect.gdshader" id="1_10hqf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vf3y8"]
+shader = ExtResource("1_10hqf")
+shader_parameter/blur_amount = 4.0
+
+[sub_resource type="Animation" id="Animation_10hqf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlurLayer:material:shader_parameter/blur_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackOverlay:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_vf3y8"]
+resource_name = "wake_up"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlurLayer:material:shader_parameter/blur_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 2),
+"points": PackedFloat32Array(4, -0.25, 0, 1.4333333, 0.30835485, 4.5, -0.11666667, 0.07777778, 0.38333333, -0.25555557, 3.0000002, -0.21666667, 0.23550725, 0.16666667, -0.18115942, 2, -0.5, 0.33333334, 0, 0, 0, -0.33333334, 0.33333334, 0, 0),
+"times": PackedFloat32Array(0, 0.7, 2, 3.4666667, 5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackOverlay:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(1, 0, 0, 0.13333334, -0.1013072, 0.39215687, -0.13333334, 0.1013072, 0, 0, 0.9019608, -0.050000004, 0.0065359487, 0.20000002, -0.026143795, 0.19607843, -0.16666667, 0.09803921, 0.033333343, -0.019607848, 0.7058824, -0.09999999, 0.00980392, 0.23333335, -0.02287582, 0, -0.20000002, 0.10084034, 0.033333343, -0.016806725, 0, -0.20000002, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.7, 1, 2, 2.6, 3.8, 5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hcqfq"]
+_data = {
+&"RESET": SubResource("Animation_10hqf"),
+&"wake_up": SubResource("Animation_vf3y8")
+}
+
+[node name="BlinkBlurEffect" type="CanvasLayer" unique_id=1240607883]
+layer = 15
+
+[node name="BlurLayer" type="ColorRect" parent="." unique_id=147222298]
+material = SubResource("ShaderMaterial_vf3y8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlackOverlay" type="ColorRect" parent="." unique_id=514779593]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1341587504]
+libraries/ = SubResource("AnimationLibrary_hcqfq")

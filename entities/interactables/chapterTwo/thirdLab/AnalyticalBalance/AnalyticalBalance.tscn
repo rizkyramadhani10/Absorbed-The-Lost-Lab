@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://brfnqssdfhahy"]
 
-[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_nvlsn"]
+[ext_resource type="Script" uid="uid://cn3sjrgpjqliv" path="res://core/managers/Interactableitem.gd" id="1_s1ve6"]
 [ext_resource type="Texture2D" uid="uid://k2jsfhogbnxa" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/AnalyticalBalance.png" id="2_8gai0"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_nvlsn"]
+[ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="4_s1ve6"]
+[ext_resource type="Resource" uid="uid://bdquiflilw482" path="res://dialogues/Dialogues/thirdLab/InteractableProps(ThirdLab).tres" id="5_s1ve6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(31, 76)
 
 [node name="AnalyticalBalance" type="Area2D" unique_id=73848177]
-script = ExtResource("1_nvlsn")
+script = ExtResource("1_s1ve6")
 
 [node name="AnalyticalBalance" type="Sprite2D" parent="." unique_id=1728040727]
 position = Vector2(746, 452)
@@ -23,3 +25,29 @@ metadata/_edit_lock_ = true
 
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_nvlsn")]
 position = Vector2(28, 99)
+
+[node name="Anchor" type="Control" parent="." unique_id=2023746024]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 512.0
+offset_top = 354.0
+offset_right = 512.0
+offset_bottom = 354.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogPlayer" type="Node" parent="." unique_id=1197528004 node_paths=PackedStringArray("ai_dialog_box_parent")]
+script = ExtResource("4_s1ve6")
+_dialog_data_uid = 2631246164867404817
+_dialog_file_name = "InteractableProps(ThirdLab)"
+_dialog_data = ExtResource("5_s1ve6")
+_start_id = "ANALYTICALBALANCE"
+_play_on_ready = false
+_destroy_on_end = true
+_print_debug = false
+ai_dialog_box_parent = NodePath("../Anchor")
+metadata/_custom_type_script = "uid://1mxdpoyob13n"

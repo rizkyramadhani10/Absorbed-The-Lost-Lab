@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://chasooqh6darb"]
 
-[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_2udsa"]
+[ext_resource type="Script" uid="uid://cn3sjrgpjqliv" path="res://core/managers/Interactableitem.gd" id="1_ku400"]
 [ext_resource type="Texture2D" uid="uid://br762f8fuvs74" path="res://levels/secondLab/sprites/interactablesProps/Autoclave.png" id="2_1hu0r"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_fwrf3"]
+[ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="4_7t2na"]
+[ext_resource type="Resource" uid="uid://b8s8x2mb6k6lm" path="res://dialogues/Dialogues/secondLab/interactableProps.tres" id="5_vfknh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(84, 231)
 
 [node name="autoclave" type="Area2D" unique_id=73848177]
-script = ExtResource("1_2udsa")
+script = ExtResource("1_ku400")
 
 [node name="autoclave" type="Sprite2D" parent="." unique_id=503634531]
 position = Vector2(729.99994, 443.00003)
@@ -24,3 +26,29 @@ shape = SubResource("RectangleShape2D_g8jgx")
 metadata/_edit_lock_ = true
 
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_fwrf3")]
+
+[node name="Anchor" type="Control" parent="." unique_id=723000221]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 488.0
+offset_top = 394.0
+offset_right = 488.0
+offset_bottom = 394.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogPlayer" type="Node" parent="." unique_id=570422288 node_paths=PackedStringArray("ai_dialog_box_parent")]
+script = ExtResource("4_7t2na")
+_dialog_data_uid = 4741857494097749598
+_dialog_file_name = "interactableProps"
+_dialog_data = ExtResource("5_vfknh")
+_start_id = "AUTOCLAVE"
+_play_on_ready = false
+_destroy_on_end = true
+_print_debug = false
+ai_dialog_box_parent = NodePath("../Anchor")
+metadata/_custom_type_script = "uid://1mxdpoyob13n"

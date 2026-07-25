@@ -12,3 +12,5 @@ var player_last_flip: bool = false
 var last_room = ""
 var spawn_point = ""
 var minigame_penataan_completed: bool = false
+var is_first_time_play: bool = true
+var active_dialog_player: Node = null
