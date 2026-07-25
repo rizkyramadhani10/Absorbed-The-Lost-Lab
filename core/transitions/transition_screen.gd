@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var color_rect = $ColorRect
 @onready var clock_loading = $Animation/ClockLoading
 
+var is_first_time_play: bool = true
+
 # Track whether the game is currently switching scenes
 var is_loading: bool = false
 # Adjust this to make the clock spin faster or slower

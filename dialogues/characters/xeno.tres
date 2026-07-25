@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SproutyDialogsCharacterData" format=3 uid="uid://btq1dsuldhwu1"]
+
+[ext_resource type="Script" uid="uid://kwoapf8il7ee" path="res://addons/sprouty_dialogs/resources/character_data.gd" id="1_f5ph0"]
+
+[resource]
+script = ExtResource("1_f5ph0")
+key_name = "xeno"
+display_name = {
+"default": "Xeno",
+"en": ""
+}
+dialog_box_uid = 4027898076226324863
+dialog_box_path = "res://dialogues/dialogueBoxes/xeno_dialogue_box.tscn"

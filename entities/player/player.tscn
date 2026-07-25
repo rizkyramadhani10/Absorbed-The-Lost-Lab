@@ -223,3 +223,17 @@ hit_from_inside = true
 [node name="WalkSFX" type="AudioStreamPlayer2D" parent="." unique_id=316212707]
 stream = ExtResource("39_wy7bt")
 volume_db = -27.802
+
+[node name="DialogueAnchor" type="Control" parent="." unique_id=1413131063]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 92.0
+offset_top = -417.0
+offset_right = 92.0
+offset_bottom = -417.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,334 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://b8s8x2mb6k6lm"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_ot8ga"]
+
+[resource]
+script = ExtResource("1_ot8ga")
+graph_data = {
+"AUTOCLAVE": {
+"dialogue_node_2": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "AUTOCLAVE_DIALOG_2",
+"node_index": 2,
+"node_type": "dialogue_node",
+"offset": Vector2(700, 540),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_2": {
+"node_index": 2,
+"node_type": "start_node",
+"offset": Vector2(100, 600),
+"size": Vector2(190, 46),
+"start_id": "AUTOCLAVE",
+"to_dialog": "",
+"to_node": ["dialogue_node_2"]
+}
+},
+"BURETTECABINET": {
+"dialogue_node_3": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "BURETTECABINET_DIALOG_3",
+"node_index": 3,
+"node_type": "dialogue_node",
+"offset": Vector2(1400, 980),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_3": {
+"node_index": 3,
+"node_type": "start_node",
+"offset": Vector2(1060, 1040),
+"size": Vector2(190, 46),
+"start_id": "BURETTECABINET",
+"to_dialog": "",
+"to_node": ["dialogue_node_3"]
+}
+},
+"CABINET": {
+"dialogue_node_4": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "CABINET_DIALOG_4",
+"node_index": 4,
+"node_type": "dialogue_node",
+"offset": Vector2(720, 1020),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_4": {
+"node_index": 4,
+"node_type": "start_node",
+"offset": Vector2(100, 1080),
+"size": Vector2(190, 46),
+"start_id": "CABINET",
+"to_dialog": "",
+"to_node": ["dialogue_node_4"]
+}
+},
+"INCUBATOR": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "INCUBATOR_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(1400, 460),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(1040, 520),
+"size": Vector2(190, 46),
+"start_id": "INCUBATOR",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+},
+"MICROSCOPE": {
+"dialogue_node_6": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "MICROSCOPE_DIALOG_6",
+"node_index": 6,
+"node_type": "dialogue_node",
+"offset": Vector2(720, 1480),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_6": {
+"node_index": 6,
+"node_type": "start_node",
+"offset": Vector2(140, 1540),
+"size": Vector2(190, 46),
+"start_id": "MICROSCOPE",
+"to_dialog": "",
+"to_node": ["dialogue_node_6"]
+}
+},
+"PHMETER": {
+"dialogue_node_10": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "PHMETER_DIALOG_10",
+"node_index": 10,
+"node_type": "dialogue_node",
+"offset": Vector2(2840, 600),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_10": {
+"node_index": 10,
+"node_type": "start_node",
+"offset": Vector2(2540, 660),
+"size": Vector2(190, 46),
+"start_id": "PHMETER",
+"to_dialog": "",
+"to_node": ["dialogue_node_10"]
+}
+},
+"REFRIGERATOR": {
+"dialogue_node_5": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "REFRIGERATOR_DIALOG_5",
+"node_index": 5,
+"node_type": "dialogue_node",
+"offset": Vector2(1380, 1560),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_5": {
+"node_index": 5,
+"node_type": "start_node",
+"offset": Vector2(1060, 1620),
+"size": Vector2(190, 46),
+"start_id": "REFRIGERATOR",
+"to_dialog": "",
+"to_node": ["dialogue_node_5"]
+}
+},
+"SONICATOR": {
+"dialogue_node_7": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "SONICATOR_DIALOG_7",
+"node_index": 7,
+"node_type": "dialogue_node",
+"offset": Vector2(2200, 480),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_7": {
+"node_index": 7,
+"node_type": "start_node",
+"offset": Vector2(1760, 520),
+"size": Vector2(190, 46),
+"start_id": "SONICATOR",
+"to_dialog": "",
+"to_node": ["dialogue_node_7"]
+}
+},
+"SPECTROPHOTOMETER": {
+"dialogue_node_8": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "SPECTROPHOTOMETER_DIALOG_8",
+"node_index": 8,
+"node_type": "dialogue_node",
+"offset": Vector2(2220, 1000),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_8": {
+"node_index": 8,
+"node_type": "start_node",
+"offset": Vector2(1760, 1060),
+"size": Vector2(190, 46),
+"start_id": "SPECTROPHOTOMETER",
+"to_dialog": "",
+"to_node": ["dialogue_node_8"]
+}
+},
+"THERMOSCIENTIFIC": {
+"dialogue_node_9": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "THERMOSCIENTIFIC_DIALOG_9",
+"node_index": 9,
+"node_type": "dialogue_node",
+"offset": Vector2(2220, 1560),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_9": {
+"node_index": 9,
+"node_type": "start_node",
+"offset": Vector2(1760, 1600),
+"size": Vector2(190, 46),
+"start_id": "THERMOSCIENTIFIC",
+"to_dialog": "",
+"to_node": ["dialogue_node_9"]
+}
+}
+}
+dialogs = {
+"AUTOCLAVE_DIALOG_2": {
+"": "",
+"default": "[b]Autoclave (Autoklaf)[/b]
+\"Sebuah mesin sterilisasi. Autoklaf menggunakan [b]uap panas bertekanan tinggi[/b] untuk [b]membunuh semua bentuk kehidupan mikroba[/b], termasuk spora, pada peralatan gelas dan limbah biohazard.\"",
+"en": ""
+},
+"BURETTECABINET_DIALOG_3": {
+"": "",
+"default": "[b]Burette Cabinet (Lemari Buret)[/b]
+\"Modul penyimpanan ini didesain khusus secara vertikal untuk [b]mengamankan buret kaca yang sangat rapuh[/b]. Buret di dalamnya biasanya digunakan untuk prosedur [b]titrasi presisi tinggi[/b]. Harap ambil dengan hati-hati.\"",
+"en": ""
+},
+"CABINET_DIALOG_4": {
+"": "",
+"default": "[b]Cabinet (Lemari Penyimpanan)[/b]
+\"Lemari penyimpanan standar laboratorium. Biasanya digunakan untuk mengamankan [b]bahan habis pakai, alat pelindung diri, atau reagen non-reaktif[/b]. Pastikan Anda selalu mengunci kembali pintunya setelah mengambil barang.\"",
+"en": ""
+},
+"INCUBATOR_DIALOG_1": {
+"": "",
+"default": "[b]Incubator[/b]
+Alat ini dirancang untuk [b]menjaga dan menginkubasi kultur sel mikrobiologi[/b]. Sistem pemanas internalnya menjaga suhu dan kelembapan agar tetap stabil untuk [b]pertumbuhan organisme[/b].",
+"en": ""
+},
+"MICROSCOPE_DIALOG_6": {
+"": "",
+"default": "[b]Microscope (Mikroskop)[/b]
+\"Perangkat optik esensial dengan lensa objektif perbesaran tinggi.\" 
+\"Digunakan untuk [b]mengamati spesimen mikroskopis dan struktur seluler[/b] yang tidak kasat mata.\"",
+"en": ""
+},
+"PHMETER_DIALOG_10": {
+"": "",
+"default": "[b]pH Meter (Pengukur pH)[/b]
+\"Alat ukur analitik elektronik yang digunakan untuk membaca [b]tingkat keasaman/kebasaan (alkalinitas)[/b] dari suatu larutan cair. 
+[b]Peringatan:[/b] Selalu pastikan elektroda dibilas menggunakan akuades setelah selesai digunakan agar pembacaan tetap akurat.\"",
+"en": ""
+},
+"REFRIGERATOR_DIALOG_5": {
+"": "",
+"default": "[b]Laboratory Refrigerator (Kulkas Laboratorium)[/b]
+\"Kulkas ini mempertahankan suhu konstan untuk [b]menyimpan enzim, reagen kimia sensitif, dan sampel biologis[/b] agar [b]tidak mengalami degradasi termal[/b].\"",
+"en": ""
+},
+"SONICATOR_DIALOG_7": {
+"": "",
+"default": "[b]Sonicator (Sonikator)[/b]
+\"Mesin ini memancarkan [b]gelombang suara ultrasonik berfrekuensi tinggi[/b] ke dalam cairan. Sangat efektif digunakan untuk [b]memecah membran sel (lisis)[/b], menghomogenkan campuran, atau membersihkan partikel nano.\"",
+"en": ""
+},
+"SPECTROPHOTOMETER_DIALOG_8": {
+"": "",
+"default": "[b]Spectrophotometer (Spektrofotometer)[/b]
+\"Instrumen yang sangat canggih. Ia bekerja dengan cara [b]mengukur intensitas cahaya yang diserap atau ditransmisikan oleh suatu sampel[/b]. Kita membutuhkan ini untuk menghitung [b]konsentrasi zat kimia[/b] atau DNA di dalam sebuah larutan.\"",
+"en": ""
+},
+"THERMOSCIENTIFIC_DIALOG_9": {
+"": "",
+"default": "[b]Thermo Scientific[/b]
+\"Teridentifikasi sebagai perangkat kelas atas bermerek Thermo Scientific. Berdasarkan profil dayanya, ini adalah modul [b]instrumen analitik tingkat lanjut[/b] (kemungkinan besar centrifuge kecepatan tinggi atau mesin pengkopi DNA/PCR). \\",
+"en": ""
+}
+}
+characters = {
+"AUTOCLAVE": {
+"ai": 689331708095693185
+},
+"BURETTECABINET": {
+"ai": 689331708095693185
+},
+"CABINET": {
+"ai": 689331708095693185
+},
+"INCUBATOR": {
+"ai": 689331708095693185
+},
+"MICROSCOPE": {
+"ai": 689331708095693185
+},
+"PHMETER": {
+"ai": 689331708095693185
+},
+"REFRIGERATOR": {
+"ai": 689331708095693185
+},
+"SONICATOR": {
+"ai": 689331708095693185
+},
+"SPECTROPHOTOMETER": {
+"ai": 689331708095693185
+},
+"THERMOSCIENTIFIC": {
+"ai": 689331708095693185
+}
+}

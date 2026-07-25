@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://dckoo7sa6neoy"]
 
-[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_jpcp1"]
+[ext_resource type="Script" uid="uid://cn3sjrgpjqliv" path="res://core/managers/Interactableitem.gd" id="1_efr2p"]
 [ext_resource type="Texture2D" uid="uid://bgqkoltp8v4lj" path="res://levels/secondLab/sprites/interactablesProps/BuretteCabinet.png" id="2_jpcp1"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_b8l88"]
+[ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="4_otb7j"]
+[ext_resource type="Resource" uid="uid://b8s8x2mb6k6lm" path="res://dialogues/Dialogues/secondLab/interactableProps.tres" id="5_hjrjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(104, 174)
 
 [node name="buretteCabinet" type="Area2D" unique_id=73848177]
-script = ExtResource("1_jpcp1")
+script = ExtResource("1_efr2p")
 
 [node name="buretteCabinet" type="Sprite2D" parent="." unique_id=1117249784]
 position = Vector2(730.99994, 442.00006)
@@ -23,3 +25,29 @@ shape = SubResource("RectangleShape2D_g8jgx")
 
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_b8l88")]
 position = Vector2(18, 0)
+
+[node name="Anchor" type="Control" parent="." unique_id=1395065169]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 488.0
+offset_top = 394.0
+offset_right = 488.0
+offset_bottom = 394.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogPlayer" type="Node" parent="." unique_id=645294559 node_paths=PackedStringArray("ai_dialog_box_parent")]
+script = ExtResource("4_otb7j")
+_dialog_data_uid = 4741857494097749598
+_dialog_file_name = "interactableProps"
+_dialog_data = ExtResource("5_hjrjc")
+_start_id = "BURETTECABINET"
+_play_on_ready = false
+_destroy_on_end = true
+_print_debug = false
+ai_dialog_box_parent = NodePath("../Anchor")
+metadata/_custom_type_script = "uid://1mxdpoyob13n"

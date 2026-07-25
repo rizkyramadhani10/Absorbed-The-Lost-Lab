@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 TransitionScreen="*uid://dhqpak6najqh3"
 SubtitleUi="*uid://bjf3cj6cgbxmd"
 Global="*uid://y66fh1n1bir6"
+SproutyDialogs="*uid://c8gxm75j80u8c"
 
 [display]
 
@@ -27,6 +28,10 @@ window/size/viewport_width=1080
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sprouty_dialogs/plugin.cfg")
 
 [input]
 
@@ -48,6 +53,14 @@ interact={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
+dialogs_continue_action={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+]
+}
 
 [input_devices]
 
@@ -62,3 +75,90 @@ pointing/emulate_touch_from_mouse=true
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+
+[sprouty_dialogs]
+
+general/input/continue_input_action="dialogs_continue_action"
+general/input/save_sprouty_only=true
+general/defaults/default_dialog_box=1568908516147823318
+general/defaults/default_portrait_scene=5003988533333559685
+general/canvas/dialog_box_canvas_layer=2
+general/canvas/portraits_canvas_layer=1
+general/custom/use_custom_event_nodes=false
+general/custom/custom_event_nodes_folder=""
+general/custom/custom_event_interpreter=-1
+text/default_typing_speed=0.05
+text/open_url_on_meta_tag_click=true
+text/display/new_line_as_new_dialog=true
+text/display/split_dialog_by_max_characters=false
+text/display/max_characters=0
+text/skip/allow_skip_text_reveal=true
+text/skip/can_skip_delay=0.1
+text/skip/continue_delay=0.1
+translation/enable_translations=false
+translation/csv_files/use_csv_files=false
+translation/csv_files/csv_translations_folder=""
+translation/csv_files/fallback_to_resource=true
+translation/characters/translate_character_names=false
+translation/characters/use_csv_for_character_names=false
+translation/characters/character_names_csv=-1
+translation/localization/default_locale="en"
+translation/localization/locales=["en"]
+internal/variables={}
+internal/play_dialog_path="res://dialogues/Dialogues/thirdLab/InteractableProps(ThirdLab).tres"
+internal/play_start_id="BURETTECLAMP"
+internal/last_opened_files=[{
+"path": "res://dialogues/characters/xeno.tres",
+"uid": 3754623732894806370,
+"view_state": {
+"portrait_search": "",
+"portrait_tree_state": {
+"selected_path": "",
+"tree_items": {}
+},
+"section_visibility": {
+"dialog_box_settings": true,
+"portrait_list": true,
+"portrait_settings": true
+},
+"selected_portrait_path": ""
+}
+}, {
+"path": "res://dialogues/Dialogues/secondLab/interactableProps.tres",
+"uid": 4741857494097749598,
+"view_state": {
+"scroll_offset": Vector2(1364.5183, 693.3843),
+"zoom": 0.8028879
+}
+}, {
+"path": "res://dialogues/characters/ai.tres",
+"uid": 689331708095693185,
+"view_state": {
+"portrait_search": "",
+"portrait_tree_state": {
+"selected_path": "",
+"tree_items": {}
+},
+"section_visibility": {
+"dialog_box_settings": true,
+"portrait_list": true,
+"portrait_settings": true
+},
+"selected_portrait_path": ""
+}
+}, {
+"path": "res://dialogues/Dialogues/thirdLab/InteractableProps(ThirdLab).tres",
+"uid": 2631246164867404817,
+"view_state": {
+"scroll_offset": Vector2(-38.151054, 400.28925),
+"zoom": 0.51315784
+}
+}, {
+"path": "res://dialogues/Dialogues/ChapterOne/ChapterOne.tres",
+"uid": 4251736631831781970,
+"view_state": {
+"scroll_offset": Vector2(-2.2079773, 0),
+"zoom": 1.0
+}
+}]
+internal/last_selected_file_index=4
