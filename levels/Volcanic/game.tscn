@@ -9,12 +9,47 @@
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="4_ruy8l"]
 [ext_resource type="Texture2D" uid="uid://cewwd66t2hww4" path="res://levels/Volcanic/assets/environment/GasVulkanik.png" id="5_hn6ch"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="5_kky1w"]
+[ext_resource type="PackedScene" uid="uid://3l0gdquu8fgk" path="res://entities/interactables/chapterThree/Volcanic/Mining/mining.tscn" id="6_5o7ub"]
+[ext_resource type="PackedScene" uid="uid://bw77fm5dv0h6k" path="res://levels/minigames/Mining/mining.tscn" id="7_hn6ch"]
+[ext_resource type="Script" uid="uid://cwtjiiy03ojek" path="res://levels/minigames/Mining/mining.gd" id="7_w6at4"]
+[ext_resource type="Texture2D" uid="uid://b8geqm877h6nx" path="res://levels/minigames/Mining/asset/kampak.png" id="13_0opir"]
+[ext_resource type="Texture2D" uid="uid://dakm357iklal8" path="res://levels/minigames/Mining/asset/batu.png" id="14_yg7a3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5o7ub"]
 distance = -102.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn6ch"]
 size = Vector2(155.5, 849)
+
+[sub_resource type="PackedScene" id="PackedScene_npwx0"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("game", "Node2D", "script", "BackgroundBatu", "Sprite2D", "position", "scale", "texture", "metadata/_edit_lock_", "BatuPijakan", "Sprite2D", "position", "scale", "texture", "metadata/_edit_lock_", "DanauKawah", "Sprite2D", "position", "scale", "texture", "metadata/_edit_lock_", "InteractablesProps", "Node2D", "metadata/_edit_lock_", "ToForest", "position", "target_scene_path", "target_spawn", "Mining", "position", "mining_scene", "Player", "position", "Camera2D", "Camera2D", "visible", "position", "limit_left", "limit_top", "limit_right", "position_smoothing_enabled", "metadata/_edit_lock_", "Batu", "Sprite2D", "position", "scale", "texture", "metadata/_edit_lock_", "Gas", "Sprite2D", "position", "scale", "texture", "metadata/_edit_lock_", "Ground", "StaticBody2D", "visible", "position", "CollisionShape2D", "CollisionShape2D", "visible", "position", "shape", "Control", "Control", "layout_mode", "anchors_preset", "offset_right", "offset_bottom", "metadata/_edit_lock_", "TouchControl", "InvisibleWalls", "StaticBody2D", "metadata/_edit_lock_", "CollisionShape2D", "CollisionShape2D", "position", "shape", "CollisionShape2D2", "CollisionShape2D", "position", "shape", "SpawnFromForest", "Marker2D", "position"),
+"node_count": 19,
+"node_ids": PackedInt32Array(1180724451, 2067382276, 1065689473, 1520035639, 1912000436, 1894128139, 97541659, 1835406881, 2049405172, 1631775108, 749761218, 2045632841, 894064781, 95037855, 741419393, 1940996973, 1279678608, 1431813673, 69072299),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./InteractablesProps"), NodePath("./InteractablesProps"), NodePath("."), NodePath("./Player"), NodePath("."), NodePath("."), NodePath("."), NodePath("./Ground"), NodePath("."), NodePath("./Control"), NodePath("."), NodePath("./InvisibleWalls"), NodePath("./InvisibleWalls"), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 4, 5, 1, 6, 2, 7, 3, 8, 4, 0, 1073741825, 0, 10, 9, -1, 4, 11, 5, 12, 6, 13, 7, 14, 8, 0, 1073741826, 0, 16, 15, -1, 4, 17, 9, 18, 10, 19, 11, 20, 12, 0, 1073741827, 0, 22, 21, -1, 1, 23, 13, 0, 1073741828, 0, 2147483647, 24, 14, 3, 25, 15, 26, 16, 27, 17, 0, 1073741829, 0, 2147483647, 28, 18, 2, 29, 19, 30, 20, 0, 1073741830, 0, 2147483647, 31, 21, 1, 32, 22, 0, 1073741831, 0, 34, 33, -1, 7, 35, 23, 36, 24, 37, 25, 38, 26, 39, 27, 40, 28, 41, 29, 0, 1073741832, 0, 43, 42, -1, 4, 44, 30, 45, 31, 46, 32, 47, 33, 0, 1073741833, 0, 49, 48, -1, 4, 50, 34, 51, 35, 52, 36, 53, 37, 0, 1073741834, 0, 55, 54, -1, 2, 56, 38, 57, 39, 0, 1073741835, 0, 59, 58, -1, 3, 60, 40, 61, 41, 62, 42, 0, 1073741836, 0, 64, 63, -1, 5, 65, 43, 66, 44, 67, 45, 68, 46, 69, 47, 0, 1073741837, 0, 2147483647, 70, 48, 0, 0, 1073741838, 0, 72, 71, -1, 1, 73, 49, 0, 1073741839, 0, 75, 74, -1, 2, 76, 50, 77, 51, 0, 1073741840, 0, 79, 78, -1, 2, 80, 52, 81, 53, 0, 1073741841, 0, 83, 82, -1, 1, 84, 54, 0),
+"variants": [ExtResource("1_kky1w"), Vector2(-129, 362), Vector2(1.099, 1.099), ExtResource("1_j4vnc"), true, Vector2(-129, 362), Vector2(1.099, 1.099), ExtResource("2_ruy8l"), true, Vector2(-129, 362), Vector2(1.099, 1.099), ExtResource("4_5o7ub"), true, true, ExtResource("4_kky1w"), Vector2(-124, -100), "uid://diabmqx41eiss", "SpawnFromVolcanic", ExtResource("6_5o7ub"), Vector2(-1005, -100), ExtResource("7_hn6ch"), ExtResource("4_ruy8l"), Vector2(-42, 598), false, Vector2(112, -357), -1608, -47, 1357, true, true, Vector2(-129, 362), Vector2(1.099, 1.099), ExtResource("3_kky1w"), true, Vector2(-129, 362), Vector2(1.099, 1.099), ExtResource("5_hn6ch"), true, false, Vector2(88, 475), false, Vector2(-114, 56), SubResource("WorldBoundaryShape2D_5o7ub"), 3, 0, 40.0, 40.0, true, ExtResource("5_kky1w"), true, Vector2(-491, 368), SubResource("RectangleShape2D_hn6ch"), Vector2(830, 368), SubResource("RectangleShape2D_hn6ch"), Vector2(511, 611)],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_tmtko"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("Mining", "script", "main_game_scene", "Node2D", "ColorRect", "offset_right", "offset_bottom", "color", "Kampak", "position", "scale", "texture", "Sprite2D", "Batu", "ProgressBar", "offset_left", "offset_top", "theme_override_font_sizes/font_size", "fill_mode", "TombolMining", "text", "Button", "LabelNotifikasi", "visible", "anchors_preset", "anchor_top", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "theme_override_colors/font_color", "theme_override_colors/font_outline_color", "Label"),
+"node_count": 7,
+"node_ids": PackedInt32Array(1975183853, 717773066, 1477867697, 252579999, 1703844257, 1813295696, 1659095512),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 4, 4, -1, 3, 5, 2, 6, 3, 7, 4, 0, 0, 0, 12, 8, -1, 3, 9, 5, 10, 6, 11, 7, 0, 0, 0, 12, 13, -1, 3, 9, 8, 10, 9, 11, 10, 0, 0, 0, 14, 14, -1, 6, 15, 11, 16, 11, 5, 12, 6, 13, 17, 14, 18, 15, 0, 0, 0, 21, 19, -1, 6, 15, 16, 16, 17, 5, 18, 6, 19, 17, 14, 20, 20, 0, 0, 0, 32, 22, -1, 15, 23, 21, 24, 22, 25, 23, 26, 23, 27, 23, 15, 24, 16, 25, 5, 26, 6, 27, 28, 28, 29, 29, 30, 30, 31, 31, 17, 32, 20, 33, 0),
+"variants": [ExtResource("7_w6at4"), SubResource("PackedScene_npwx0"), 1115.0, 738.0, Color(0.61960787, 0.5882353, 0.5647059, 1), Vector2(391, 366), Vector2(0.7414986, 0.7414986), ExtResource("13_0opir"), Vector2(608.00006, 367), Vector2(0.67663044, 0.67663044), ExtResource("14_yg7a3"), 33.0, 118.0, 653.0, 30, 3, 465.0, 607.0, 614.5484, 683.0, "Mining", false, 12, 1.0, 218.0, 117.0, 857.0, 186.0, 2, 0, Color(1, 0.84313726, 0, 1), Color(0, 0, 0, 1), 60, "Sulfur berhasil didapatkan"],
+"version": 3
+}
 
 [node name="game" type="Node2D" unique_id=1180724451]
 script = ExtResource("1_kky1w")
@@ -38,13 +73,16 @@ texture = ExtResource("4_5o7ub")
 metadata/_edit_lock_ = true
 
 [node name="InteractablesProps" type="Node2D" parent="." unique_id=1912000436]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="ToForest" parent="InteractablesProps" unique_id=1894128139 instance=ExtResource("4_kky1w")]
-position = Vector2(-207, -152)
+position = Vector2(-124, -100)
 target_scene_path = "uid://diabmqx41eiss"
 target_spawn = "SpawnFromVolcanic"
+
+[node name="Mining" parent="InteractablesProps" unique_id=97541659 instance=ExtResource("6_5o7ub")]
+position = Vector2(-1005, -100)
+mining_scene = SubResource("PackedScene_tmtko")
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("4_ruy8l")]
 position = Vector2(-42, 598)
@@ -89,7 +127,6 @@ metadata/_edit_lock_ = true
 [node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("5_kky1w")]
 
 [node name="InvisibleWalls" type="StaticBody2D" parent="." unique_id=1940996973]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1279678608]

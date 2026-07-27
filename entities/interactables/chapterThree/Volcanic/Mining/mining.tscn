@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://3l0gdquu8fgk"]
+
+[ext_resource type="Script" uid="uid://jyj7jr7r36bj" path="res://entities/interactables/chapterThree/Volcanic/Mining/mining.gd" id="1_2gg2b"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="1_u1ktw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gg2b"]
+size = Vector2(358, 333)
+
+[node name="Mining" type="Area2D" unique_id=97541659]
+script = ExtResource("1_2gg2b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1933121502]
+position = Vector2(758, 445.5)
+shape = SubResource("RectangleShape2D_2gg2b")
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("1_u1ktw")]
+position = Vector2(44, -7)
