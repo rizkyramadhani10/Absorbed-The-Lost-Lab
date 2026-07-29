@@ -9,9 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="4_ruy8l"]
 [ext_resource type="Texture2D" uid="uid://cewwd66t2hww4" path="res://levels/Volcanic/assets/environment/GasVulkanik.png" id="5_hn6ch"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="5_kky1w"]
+[ext_resource type="PackedScene" uid="uid://mdyxnnp6uys7" path="res://levels/Volcanic/sulphur.tscn" id="5_y183l"]
+[ext_resource type="Shader" uid="uid://g3uky0wsveo2" path="res://levels/Volcanic/gas.gdshader" id="8_5o7ub"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5o7ub"]
-distance = -102.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hn6ch"]
+shader = ExtResource("8_5o7ub")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5o7ub"]
+shader = ExtResource("8_5o7ub")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn6ch"]
 size = Vector2(155.5, 849)
@@ -38,8 +43,10 @@ texture = ExtResource("4_5o7ub")
 metadata/_edit_lock_ = true
 
 [node name="InteractablesProps" type="Node2D" parent="." unique_id=1912000436]
-visible = false
 metadata/_edit_lock_ = true
+
+[node name="sulphur" parent="InteractablesProps" unique_id=1959523763 instance=ExtResource("5_y183l")]
+position = Vector2(-1702, -116)
 
 [node name="ToForest" parent="InteractablesProps" unique_id=1894128139 instance=ExtResource("4_kky1w")]
 position = Vector2(-207, -152)
@@ -64,20 +71,45 @@ scale = Vector2(1.099, 1.099)
 texture = ExtResource("3_kky1w")
 metadata/_edit_lock_ = true
 
-[node name="Gas" type="Sprite2D" parent="." unique_id=749761218]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1270488317]
+visible = false
+scroll_scale = Vector2(0.9, 0.9)
+repeat_size = Vector2(2500, 0)
+autoscroll = Vector2(90, 0)
+metadata/_edit_lock_ = true
+
+[node name="Gas" type="Sprite2D" parent="Parallax2D" unique_id=749761218]
+texture_filter = 1
+material = SubResource("ShaderMaterial_hn6ch")
 position = Vector2(-129, 362)
 scale = Vector2(1.099, 1.099)
 texture = ExtResource("5_hn6ch")
 metadata/_edit_lock_ = true
 
-[node name="Ground" type="StaticBody2D" parent="." unique_id=2045632841]
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=993530215]
 visible = false
-position = Vector2(88, 475)
+repeat_size = Vector2(2500, 0)
+autoscroll = Vector2(60, 0)
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=894064781]
-visible = false
-position = Vector2(-114, 56)
-shape = SubResource("WorldBoundaryShape2D_5o7ub")
+[node name="Gas" type="Sprite2D" parent="Parallax2D2" unique_id=1847464540]
+self_modulate = Color(1, 1, 1, 0.5176471)
+texture_filter = 1
+material = SubResource("ShaderMaterial_5o7ub")
+position = Vector2(-129, 362)
+rotation = 3.1415927
+scale = Vector2(1.099, 1.099)
+texture = ExtResource("5_hn6ch")
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=2045632841]
+position = Vector2(88, 475)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground" unique_id=2038151160]
+position = Vector2(-88, -475)
+polygon = PackedVector2Array(1023, 669, -6, 636, -366, 537, -806, 464, -1041, 473, -1309, 467, -1479, 473, -1387, 696, -898, 685)
+metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="." unique_id=95037855]
 layout_mode = 3
@@ -89,11 +121,10 @@ metadata/_edit_lock_ = true
 [node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("5_kky1w")]
 
 [node name="InvisibleWalls" type="StaticBody2D" parent="." unique_id=1940996973]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1279678608]
-position = Vector2(-491, 368)
+position = Vector2(-1531, 368)
 shape = SubResource("RectangleShape2D_hn6ch")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1431813673]

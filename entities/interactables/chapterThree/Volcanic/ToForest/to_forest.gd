@@ -6,7 +6,6 @@ extends Area2D
 @export var target_spawn: String = ""
 
 @onready var interaction_hint = $Label
-@onready var sfx_player = $AudioStreamPlayer2D
 
 var player_nearby: bool = false
 

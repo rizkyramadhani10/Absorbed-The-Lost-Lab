@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://c7510230rp4i2" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgWallnFloor.png" id="2_hdadk"]
 [ext_resource type="Texture2D" uid="uid://bjpwerel1jvfa" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgLighting.png" id="3_hdadk"]
 [ext_resource type="Texture2D" uid="uid://cob1frcs33wb0" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/LabBench.png" id="3_i8mc3"]
-[ext_resource type="Texture2D" uid="uid://d0v5rd8mleejw" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/TimeMachine.png" id="5_hdadk"]
-[ext_resource type="Texture2D" uid="uid://jqogp66geq5w" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
-[ext_resource type="Texture2D" uid="uid://babo1rnjmqgvy" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
+[ext_resource type="Texture2D" uid="uid://c874nbl3ka0o2" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/TimeMachine.png" id="5_hdadk"]
+[ext_resource type="Texture2D" uid="uid://dc8xao51u4nfi" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
+[ext_resource type="Texture2D" uid="uid://bx2vcloeiy16k" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
 [ext_resource type="PackedScene" uid="uid://brfnqssdfhahy" path="res://entities/interactables/chapterTwo/thirdLab/AnalyticalBalance/AnalyticalBalance.tscn" id="6_i8mc3"]
 [ext_resource type="PackedScene" uid="uid://7w36ecxxxocl" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
-[ext_resource type="Texture2D" uid="uid://bt04e03aic7hh" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
+[ext_resource type="Texture2D" uid="uid://b15uvydb6ayqx" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://q3uvh2bli0ur" path="res://entities/interactables/chapterTwo/thirdLab/BuretteClamp/BuretteClamp.tscn" id="8_neng1"]
 [ext_resource type="PackedScene" uid="uid://773gtuxtmlly" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://c323g67d1tibd" path="res://entities/interactables/chapterTwo/thirdLab/DoorToStorage/DoorToStorage.tscn" id="10_afeaw"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="16_e4qak"]
 [ext_resource type="PackedScene" uid="uid://bi18r0egwryqf" path="res://entities/interactables/chapterTwo/thirdLab/TimeMachineSpiralPortal/TimeMachineSpiralPortal.tscn" id="16_lau1m"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="17_v0inv"]
+[ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="21_yac7y"]
+[ext_resource type="Resource" uid="uid://djx2ykry8l2i4" path="res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres" id="22_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://iqs142ppcto1" path="res://systems/ui/hud/Blinkeffect.tscn" id="22_rk8vc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
@@ -146,6 +148,19 @@ limit_left = -1203
 limit_right = 2184
 position_smoothing_enabled = true
 
+[node name="DialogPlayer" type="Node" parent="Player" unique_id=1007143776 node_paths=PackedStringArray("ai_dialog_box_parent", "xeno_dialog_box_parent")]
+script = ExtResource("21_yac7y")
+_dialog_data_uid = 7840125102653571137
+_dialog_file_name = "dialog_01_awake.json"
+_dialog_data = ExtResource("22_3s7m7")
+_start_id = "1"
+_play_on_ready = false
+_destroy_on_end = true
+_print_debug = false
+ai_dialog_box_parent = NodePath("../DialogueAnchor")
+xeno_dialog_box_parent = NodePath("../DialogueAnchor")
+metadata/_custom_type_script = "uid://1mxdpoyob13n"
+
 [node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
 position = Vector2(711, 499)
 metadata/_edit_lock_ = true
@@ -185,8 +200,8 @@ position = Vector2(-768, 722)
 
 [node name="SpawnFromMeadow" type="Marker2D" parent="." unique_id=805331628]
 position = Vector2(-990, 718)
+
 [node name="BlinkBlurEffect" parent="." unique_id=1240607883 instance=ExtResource("22_rk8vc")]
-visible = false
 
 [connection signal="animation_finished" from="BlinkBlurEffect/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
@@ -194,4 +209,5 @@ visible = false
 [editable path="InteractablesProps/AquadesDispenser"]
 [editable path="InteractablesProps/BuretteClamp"]
 [editable path="InteractablesProps/FumeHood"]
+[editable path="Player"]
 [editable path="BlinkBlurEffect"]

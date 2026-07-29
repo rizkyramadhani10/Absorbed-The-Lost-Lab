@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckshctjouv0i0"]
 
 [ext_resource type="Script" uid="uid://cw0ahp688lj2u" path="res://levels/Meadow/game.gd" id="1_pt61c"]
-[ext_resource type="Texture2D" uid="uid://d4l2h31mxfku0" path="res://levels/Meadow/sprites/environments/SkyandMountain.png" id="3_jiims"]
+[ext_resource type="Texture2D" uid="uid://clly24x42uvrt" path="res://levels/Meadow/sprites/environments/SkyandMountain.png" id="3_jiims"]
 [ext_resource type="Texture2D" uid="uid://cp0ivg6nyq707" path="res://levels/Meadow/sprites/environments/GrassAndTree(fix).png" id="3_m1i47"]
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="3_v34ly"]
 [ext_resource type="PackedScene" uid="uid://c0bq3ef8dm48" path="res://entities/interactables/chapterThree/Meadow/DoorToLab/DoorToLab.tscn" id="4_pt61c"]
@@ -17,13 +17,18 @@ size = Vector2(155.5, 849)
 [node name="Game" type="Node2D" unique_id=1055206584]
 script = ExtResource("1_pt61c")
 
-[node name="BackgroundMountain" type="Sprite2D" parent="." unique_id=1387819449]
-position = Vector2(-690, 360)
-scale = Vector2(1.099, 1.099)
+[node name="Parallax2D_Mountain" type="Parallax2D" parent="." unique_id=52946933]
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="BackgroundMountain" type="Sprite2D" parent="Parallax2D_Mountain" unique_id=1387819449]
+position = Vector2(-227.8125, 339.56253)
+scale = Vector2(1.1983, 1.1668333)
 texture = ExtResource("3_jiims")
 metadata/_edit_group_ = true
 
-[node name="BackgroundGrass" type="Sprite2D" parent="." unique_id=593617622]
+[node name="Parallax2D_Grass" type="Parallax2D" parent="." unique_id=1241268643]
+
+[node name="BackgroundGrass" type="Sprite2D" parent="Parallax2D_Grass" unique_id=593617622]
 position = Vector2(-690, 360)
 scale = Vector2(1.099, 1.099)
 texture = ExtResource("3_m1i47")
@@ -38,7 +43,7 @@ target_scene_path = "uid://dljufsmrudfbq"
 target_spawn = "SpawnFromMeadow"
 
 [node name="ToForest" parent="InteractablesProps" unique_id=1968388957 instance=ExtResource("5_m1i47")]
-position = Vector2(-3129, 18)
+position = Vector2(-3406, 98)
 target_scene_path = "uid://diabmqx41eiss"
 target_spawn = "SpawnFromMeadow"
 

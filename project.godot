@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GameState="*uid://cf1bcfv2ea3ec"
 TransitionScreen="*uid://dhqpak6najqh3"
 SubtitleUi="*uid://bjf3cj6cgbxmd"
 Global="*uid://y66fh1n1bir6"
@@ -105,8 +106,8 @@ translation/characters/character_names_csv=-1
 translation/localization/default_locale="en"
 translation/localization/locales=["en"]
 internal/variables={}
-internal/play_dialog_path="res://dialogues/Dialogues/thirdLab/InteractableProps(ThirdLab).tres"
-internal/play_start_id="BURETTECLAMP"
+internal/play_dialog_path="res://dialogues/Dialogues/thirdLab/locked_door_shower.tres"
+internal/play_start_id="1"
 internal/last_opened_files=[{
 "path": "res://dialogues/characters/xeno.tres",
 "uid": 3754623732894806370,
@@ -127,8 +128,8 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/secondLab/interactableProps.tres",
 "uid": 4741857494097749598,
 "view_state": {
-"scroll_offset": Vector2(1364.5183, 693.3843),
-"zoom": 0.8028879
+"scroll_offset": Vector2(186.5167, 32.3871),
+"zoom": 0.23256795
 }
 }, {
 "path": "res://dialogues/characters/ai.tres",
@@ -150,15 +151,92 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/thirdLab/InteractableProps(ThirdLab).tres",
 "uid": 2631246164867404817,
 "view_state": {
-"scroll_offset": Vector2(-38.151054, 400.28925),
-"zoom": 0.51315784
+"scroll_offset": Vector2(76.54532, 383.60126),
+"zoom": 0.75131446
 }
 }, {
 "path": "res://dialogues/Dialogues/ChapterOne/ChapterOne.tres",
 "uid": 4251736631831781970,
 "view_state": {
-"scroll_offset": Vector2(-2.2079773, 0),
+"scroll_offset": Vector2(-658.3607, -278.13385),
+"zoom": 0.34050277
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres",
+"uid": 7840125102653571137,
+"view_state": {
+"scroll_offset": Vector2(-55.506653, -55.200806),
+"zoom": 0.46650717
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_02_post_shower.json.tres",
+"uid": 2515222202568617062,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
 "zoom": 1.0
 }
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_03_enter_lab1.json.tres",
+"uid": 550351830991665520,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_04_check_workspace.json.tres",
+"uid": 6936771039459798962,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_05_check_time_machine.json.tres",
+"uid": 1127277506218443308,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_06_found_battery.json.tres",
+"uid": 2956946891499119232,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_07_outside.json.tres",
+"uid": 7387262311756266927,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_08_near_crater.json.tres",
+"uid": 2062181945624679849,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_09_got_resource.json.tres",
+"uid": 7500442434336460750,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_10_back_in_lab.json.tres",
+"uid": 7634246015503011474,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/thirdLab/locked_door_shower.tres",
+"uid": 5333900446407955801,
+"view_state": {
+"scroll_offset": Vector2(91.2782, -12.3741),
+"zoom": 0.62092125
+}
 }]
-internal/last_selected_file_index=4
+internal/last_selected_file_index=15

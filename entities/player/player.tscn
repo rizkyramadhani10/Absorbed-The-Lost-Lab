@@ -224,16 +224,6 @@ hit_from_inside = true
 stream = ExtResource("39_wy7bt")
 volume_db = -27.802
 
-[node name="DialogueAnchor" type="Control" parent="." unique_id=1413131063]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 92.0
-offset_top = -417.0
-offset_right = 92.0
-offset_bottom = -417.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="DialogueAnchor" type="Node2D" parent="." unique_id=262771412]
+z_index = 10
+position = Vector2(54, -437)

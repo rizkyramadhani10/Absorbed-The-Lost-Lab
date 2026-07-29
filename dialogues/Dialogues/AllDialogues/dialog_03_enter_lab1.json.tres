@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://h3uhjw3xijtw"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_3n27f"]
+
+[resource]
+script = ExtResource("1_3n27f")

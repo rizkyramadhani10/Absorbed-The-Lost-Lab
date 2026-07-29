@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://ch81tct5k1a8h"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_6u7kv"]
+
+[resource]
+script = ExtResource("1_6u7kv")
+graph_data = {
+"1": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "1_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(512, 182),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(268, 168),
+"size": Vector2(190, 97),
+"start_id": "1",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"1_DIALOG_1": {
+"default": "Pintu terkunci! Kamu harus sterilkan diri dulu di Safety Shower.",
+"en": ""
+}
+}
+characters = {
+"1": {
+"ai": 689331708095693185
+}
+}

@@ -1,6 +1,7 @@
 extends Node2D
+
 @onready var player = $Player
-@onready var blink_effect = $BlinkBlurEffect      # Tarik node CanvasLayer efekmu
+@onready var blink_effect = $BlinkBlurEffect        # Tarik node CanvasLayer efekmu
 @onready var anim_player = $BlinkBlurEffect/AnimationPlayer # Tarik node AnimationPlayer-nya
 
 func _ready() -> void:
@@ -21,7 +22,7 @@ func _ready() -> void:
 		# 2. Jalankan animasi mata berkedip & terbangun
 		anim_player.play("wake_up")
 		
-		# 4. Ubah status global menjadi false agar tidak keulang jika restart map/level
+		# Ubah status global menjadi false agar tidak keulang jika restart map/level
 		TransitionScreen.is_first_time_play = false
 	else:
 		# Jika bukan pertama kali main (misal ganti area lalu balik lagi), 
@@ -44,24 +45,44 @@ func setup_third_lab_spawns() -> void:
 			print("Level: Player berhasil dipindahkan ke SpawnFromStorage!")
 		else:
 			print("ERROR: Marker 'SpawnFromStorage' tidak ditemukan di Scene Tree!")
+			
 	elif Global.spawn_point == "SpawnFromMeadow":
 		if has_node("SpawnFromMeadow"):
 			# Menggunakan set_deferred agar posisi diubah tepat di frame pertama tanpa delay visual
 			player.set_deferred("global_position", $SpawnFromMeadow.global_position)
 			print("Third Lab: Player berhasil dipindahkan ke SpawnFromMeadow!")
 		else:
-			print("ERROR di Meawdow: Marker 'SpawnFromMeadow' tidak ditemukan di Scene Tree!")
+			print("ERROR di Meadow: Marker 'SpawnFromMeadow' tidak ditemukan di Scene Tree!")
 
+# 🔓 HUBUNGKAN SIGNAL ANIMATION_FINISHED DARI ANIMATIONPLAYER KE SINI
 # 🔓 HUBUNGKAN SIGNAL ANIMATION_FINISHED DARI ANIMATIONPLAYER KE SINI
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "wake_up":
-		# Kembalikan kontrol penuh kepada player setelah mata terbuka total
+		print("Animasi wake_up selesai. Memulai dialog awal...")
+		
+		# 1. Hapus efek kedipan
+		if blink_effect:
+			blink_effect.queue_free()
+			
+		# 2. Load resource dialog
+		var dialogue_resource = load("res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres")
+		
+		# 3. Jalankan dialog lewat DialogPlayer milik Player
+		if player and player.has_node("DialogPlayer"):
+			var dp = player.get_node("DialogPlayer")
+			
+			# Assign resource dialog ke properti dialogue_data
+			dp._dialog_data = dialogue_resource
+			
+			# Jalankan dialog
+			dp.start()
+			
+			# Tunggu hingga dialog selesai (menggunakan signal dialog_ended)
+			await dp.dialog_ended
+		
+		# 4. Kembalikan kontrol penuh ke player
 		if player:
 			player.set_physics_process(true)
 			player.set_process_unhandled_input(true)
 			
-		print("Player sadar sepenuhnya! Efek dihapus.")
-		
-		# Hapus efek dari memory agar bersih dan menghemat performa
-		if blink_effect:
-			blink_effect.queue_free()
+		print("Player sadar sepenuhnya dan siap bergerak!")
