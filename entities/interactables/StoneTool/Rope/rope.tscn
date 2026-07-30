@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dre6nr7ma18wl"]
+
+[ext_resource type="Script" uid="uid://bf4b4qvf2cy6o" path="res://entities/interactables/StoneTool/Rope/rope.gd" id="1_pdj7c"]
+[ext_resource type="Texture2D" uid="uid://bsmd3xuipmc3" path="res://entities/interactables/StoneTool/Rope/asset/tali.png" id="1_qcyem"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="2_pdj7c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkjcd"]
+size = Vector2(122, 83)
+
+[node name="Rope" type="Area2D" unique_id=1156903746]
+script = ExtResource("1_pdj7c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=808897429]
+position = Vector2(556, 398.00003)
+scale = Vector2(0.2435461, 0.2435461)
+texture = ExtResource("1_qcyem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049672514]
+position = Vector2(560, 393)
+shape = SubResource("RectangleShape2D_lkjcd")
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("2_pdj7c")]
+position = Vector2(-152, 46)

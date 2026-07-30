@@ -19,3 +19,9 @@ var current_stage: StoryStage = StoryStage.AWAKE
 
 # Menyimpan status quest/objektif opsional
 var has_empty_battery: bool = false
+
+# Variabel untuk crafting
+var has_wood: bool = false
+var has_rope: bool = false
+var has_stone: bool = false
+var has_hammer: bool = false

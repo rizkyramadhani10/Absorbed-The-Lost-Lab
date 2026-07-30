@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bgo1n4kgoh2py"]
+
+[ext_resource type="Script" uid="uid://dcvttmk0psd62" path="res://entities/interactables/StoneTool/Stone/stone.gd" id="1_2nxyo"]
+[ext_resource type="Texture2D" uid="uid://cgkf53y33pb1o" path="res://entities/interactables/StoneTool/Stone/asset/batu.png" id="1_cenr0"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="2_2nxyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnpr0"]
+size = Vector2(77, 72)
+
+[node name="Stone" type="Area2D" unique_id=1189614710]
+script = ExtResource("1_2nxyo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1981929847]
+position = Vector2(482.19797, 352.19803)
+scale = Vector2(0.23044024, 0.23044024)
+texture = ExtResource("1_cenr0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=84967809]
+position = Vector2(475.5, 343)
+shape = SubResource("RectangleShape2D_vnpr0")
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("2_2nxyo")]
+position = Vector2(-233, 23)

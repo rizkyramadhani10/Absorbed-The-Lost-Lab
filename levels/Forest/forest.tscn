@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://d5byu080msc5" path="res://levels/Forest/sprites/environments/TreeFront.png" id="5_be3l3"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="5_v7bpp"]
 [ext_resource type="Texture2D" uid="uid://ce1ibruqr6lyw" path="res://levels/Forest/sprites/environments/Lighting.png" id="6_eu1au"]
+[ext_resource type="PackedScene" uid="uid://de6syd07i2og5" path="res://entities/interactables/StoneTool/Wood/wood.tscn" id="9_a4qny"]
+[ext_resource type="PackedScene" uid="uid://bgo1n4kgoh2py" path="res://entities/interactables/StoneTool/Stone/stone.tscn" id="10_ihq6p"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ds3kn"]
 distance = -149.0
@@ -68,6 +70,12 @@ target_spawn = "SpawnFromForest"
 position = Vector2(-3116, -29)
 target_scene_path = "uid://bywk6jx3ssapw"
 target_spawn = "SpawnFromForest"
+
+[node name="Wood" parent="InteractablesProps" unique_id=826715938 instance=ExtResource("9_a4qny")]
+position = Vector2(-1396, 368)
+
+[node name="Stone" parent="InteractablesProps" unique_id=1189614710 instance=ExtResource("10_ihq6p")]
+position = Vector2(-2476, 341)
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("4_owykb")]
 position = Vector2(643, 673)
