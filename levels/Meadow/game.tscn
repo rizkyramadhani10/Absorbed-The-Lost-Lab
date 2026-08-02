@@ -1,12 +1,24 @@
 [gd_scene format=3 uid="uid://ckshctjouv0i0"]
 
 [ext_resource type="Script" uid="uid://cw0ahp688lj2u" path="res://levels/Meadow/game.gd" id="1_pt61c"]
+[ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_m4hrt"]
+[ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_27cwk"]
 [ext_resource type="Texture2D" uid="uid://clly24x42uvrt" path="res://levels/Meadow/sprites/environments/SkyandMountain.png" id="3_jiims"]
 [ext_resource type="Texture2D" uid="uid://cp0ivg6nyq707" path="res://levels/Meadow/sprites/environments/GrassAndTree(fix).png" id="3_m1i47"]
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="3_v34ly"]
 [ext_resource type="PackedScene" uid="uid://c0bq3ef8dm48" path="res://entities/interactables/chapterThree/Meadow/DoorToLab/DoorToLab.tscn" id="4_pt61c"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="4_xqb55"]
 [ext_resource type="PackedScene" uid="uid://bm2epodcaoerf" path="res://entities/interactables/chapterThree/Meadow/ToForest/to_forest.tscn" id="5_m1i47"]
+[ext_resource type="PackedScene" uid="uid://c1womygdw84lw" path="res://core/components/StoryBarrier.tscn" id="8_n8qte"]
+[ext_resource type="Resource" uid="uid://ddipepoedagg2" path="res://dialogues/Dialogues/AllDialogues/dialog_07_outside.json.tres" id="9_27cwk"]
+
+[sub_resource type="Resource" id="Resource_n8qte"]
+script = ExtResource("3_27cwk")
+target_stage = 9
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1qti"]
+size = Vector2(117, 360)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yg24o"]
 distance = -149.0
@@ -16,6 +28,13 @@ size = Vector2(155.5, 849)
 
 [node name="Game" type="Node2D" unique_id=1055206584]
 script = ExtResource("1_pt61c")
+advance_story_to = 9
+trigger_dialog_path = "uid://ddipepoedagg2"
+
+[node name="LevelManager" type="Node2D" parent="." unique_id=1949747332 node_paths=PackedStringArray("player")]
+script = ExtResource("2_m4hrt")
+story_dialogs = Array[ExtResource("3_27cwk")]([SubResource("Resource_n8qte")])
+player = NodePath("../Player")
 
 [node name="Parallax2D_Mountain" type="Parallax2D" parent="." unique_id=52946933]
 scroll_scale = Vector2(0.7, 0.7)
@@ -47,9 +66,33 @@ position = Vector2(-3406, 98)
 target_scene_path = "uid://diabmqx41eiss"
 target_spawn = "SpawnFromMeadow"
 
+[node name="DialogueTrigger" type="Area2D" parent="." unique_id=965870593]
+position = Vector2(456, 359)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" unique_id=2038863580]
+position = Vector2(6, 130)
+shape = SubResource("RectangleShape2D_m1qti")
+
+[node name="StoryBarrier" parent="." unique_id=611538291 instance=ExtResource("8_n8qte")]
+position = Vector2(256, 24)
+appear_stage = 9
+required_stage = 11
+locked_dialog_path = "uid://cb65625y2dk86"
+
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("3_v34ly")]
 position = Vector2(643, 673)
 metadata/_edit_lock_ = true
+
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_dialog_box_parent", "ai_dialog_box_parent")]
+_dialog_data_uid = 7387262311756266927
+_dialog_file_name = "dialog_07_outside.json"
+_dialog_data = ExtResource("9_27cwk")
+_start_id = "1"
+_play_on_ready = false
+_destroy_on_end = false
+_print_debug = false
+xeno_dialog_box_parent = NodePath("../DialogueAnchor")
+ai_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1934978669]
 position = Vector2(112, -357)
@@ -94,3 +137,5 @@ position = Vector2(1038, 700)
 
 [node name="SpawnFromForest" type="Marker2D" parent="." unique_id=1492964656]
 position = Vector2(-2077, 716)
+
+[editable path="Player"]

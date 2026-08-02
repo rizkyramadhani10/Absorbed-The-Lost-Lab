@@ -4,3 +4,71 @@
 
 [resource]
 script = ExtResource("1_6rpcl")
+graph_data = {
+"1": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "xeno",
+"dialog_key": "1_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(760, 120),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["dialogue_node_2"]
+},
+"dialogue_node_2": {
+"char_expand": true,
+"character": "xeno",
+"dialog_key": "1_DIALOG_2",
+"node_index": 2,
+"node_type": "dialogue_node",
+"offset": Vector2(1080, 120),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"dialogue_node_3": {
+"char_expand": true,
+"character": "xeno",
+"dialog_key": "1_DIALOG_3",
+"node_index": 3,
+"node_type": "dialogue_node",
+"offset": Vector2(420, 120),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(145, 163),
+"size": Vector2(190, 75),
+"start_id": "1",
+"to_dialog": "",
+"to_node": ["dialogue_node_3"]
+}
+}
+}
+dialogs = {
+"1_DIALOG_1": {
+"default": "Aku harus melaporkan guncangan ini ke kantor pusat.",
+"en": ""
+},
+"1_DIALOG_2": {
+"default": "Semoga tidak ada gempa susulan...",
+"en": ""
+},
+"1_DIALOG_3": {
+"default": "Hufftt…Untunglah. Cairannya sudah bersih.",
+"en": ""
+}
+}
+characters = {
+"1": {
+"xeno": 3754623732894806370
+}
+}

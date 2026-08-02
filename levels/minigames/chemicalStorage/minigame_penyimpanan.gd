@@ -211,6 +211,8 @@ func game_finished():
 	# Tandai di Global kalau minigame ini sudah selesai
 	Global.minigame_penataan_completed = true
 	
+	GameState.advance_to(GameState.StoryStage.MANAGE_STORAGE)
+	
 	# Tunggu sebentar agar pemain bisa mendengar SFX
 	await get_tree().create_timer(durasi_transisi).timeout
 	

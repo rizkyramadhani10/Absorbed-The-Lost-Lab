@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cewwd66t2hww4" path="res://levels/Volcanic/assets/environment/GasVulkanik.png" id="5_hn6ch"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="5_kky1w"]
 [ext_resource type="PackedScene" uid="uid://mdyxnnp6uys7" path="res://levels/Volcanic/sulphur.tscn" id="5_y183l"]
+[ext_resource type="PackedScene" uid="uid://c1womygdw84lw" path="res://core/components/StoryBarrier.tscn" id="7_248xi"]
 [ext_resource type="Shader" uid="uid://g3uky0wsveo2" path="res://levels/Volcanic/gas.gdshader" id="8_5o7ub"]
+[ext_resource type="Resource" uid="uid://4m63nw3e385j" path="res://dialogues/Dialogues/AllDialogues/dialog_08_near_crater.json.tres" id="8_y183l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hn6ch"]
 shader = ExtResource("8_5o7ub")
@@ -21,8 +23,13 @@ shader = ExtResource("8_5o7ub")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn6ch"]
 size = Vector2(155.5, 849)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y183l"]
+size = Vector2(114, 428)
+
 [node name="game" type="Node2D" unique_id=1180724451]
 script = ExtResource("1_kky1w")
+advance_story_to = 10
+trigger_dialog_path = "uid://4m63nw3e385j"
 
 [node name="BackgroundBatu" type="Sprite2D" parent="." unique_id=2067382276]
 position = Vector2(-129, 362)
@@ -53,8 +60,26 @@ position = Vector2(-207, -152)
 target_scene_path = "uid://diabmqx41eiss"
 target_spawn = "SpawnFromVolcanic"
 
+[node name="StoryBarrier" parent="." unique_id=611538291 instance=ExtResource("7_248xi")]
+position = Vector2(-33, 710)
+rotation = 3.1415927
+appear_stage = 10
+required_stage = 11
+locked_dialog_path = "uid://bh1it53qlh1q4"
+
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("4_ruy8l")]
-position = Vector2(-42, 598)
+position = Vector2(398, 621)
+
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("ai_dialog_box_parent", "xeno_dialog_box_parent")]
+_dialog_data_uid = 2062181945624679849
+_dialog_file_name = "dialog_08_near_crater.json"
+_dialog_data = ExtResource("8_y183l")
+_start_id = "1"
+_play_on_ready = false
+_destroy_on_end = false
+_print_debug = false
+ai_dialog_box_parent = NodePath("../DialogueAnchor")
+xeno_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2049405172]
 visible = false
@@ -72,7 +97,6 @@ texture = ExtResource("3_kky1w")
 metadata/_edit_lock_ = true
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1270488317]
-visible = false
 scroll_scale = Vector2(0.9, 0.9)
 repeat_size = Vector2(2500, 0)
 autoscroll = Vector2(90, 0)
@@ -87,7 +111,6 @@ texture = ExtResource("5_hn6ch")
 metadata/_edit_lock_ = true
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=993530215]
-visible = false
 repeat_size = Vector2(2500, 0)
 autoscroll = Vector2(60, 0)
 metadata/_edit_lock_ = true
@@ -133,3 +156,12 @@ shape = SubResource("RectangleShape2D_hn6ch")
 
 [node name="SpawnFromForest" type="Marker2D" parent="." unique_id=69072299]
 position = Vector2(511, 611)
+
+[node name="DialogueTrigger" type="Area2D" parent="." unique_id=1801519728]
+position = Vector2(216, 292)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" unique_id=922302798]
+position = Vector2(47, 95)
+shape = SubResource("RectangleShape2D_y183l")
+
+[editable path="Player"]
