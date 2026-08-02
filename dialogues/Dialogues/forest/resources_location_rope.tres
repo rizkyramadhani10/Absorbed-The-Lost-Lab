@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://de4jgq4vi5t23"]
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://cgcy070quirov"]
 
-[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_1ou38"]
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_8uq1o"]
 
 [resource]
-script = ExtResource("1_1ou38")
+script = ExtResource("1_8uq1o")
 graph_data = {
 "1": {
 "dialogue_node_1": {
@@ -12,7 +12,7 @@ graph_data = {
 "dialog_key": "1_DIALOG_1",
 "node_index": 1,
 "node_type": "dialogue_node",
-"offset": Vector2(73, 88),
+"offset": Vector2(408, 221),
 "portrait": "",
 "size": Vector2(250, 439),
 "to_dialog": "",
@@ -21,8 +21,8 @@ graph_data = {
 "start_node_1": {
 "node_index": 1,
 "node_type": "start_node",
-"offset": Vector2(-204, 161),
-"size": Vector2(190, 97),
+"offset": Vector2(123, 317),
+"size": Vector2(190, 75),
 "start_id": "1",
 "to_dialog": "",
 "to_node": ["dialogue_node_1"]
@@ -31,8 +31,8 @@ graph_data = {
 }
 dialogs = {
 "1_DIALOG_1": {
-"default": "Aku sudah mendapat bongkahan sulfur ini!
-Sekarang saatnya membawanya Kembali ke laboratorium.",
+"default": "Akhirnya semua barang telah terkumpul..
+Aku sekarang bisa membuat kapak",
 "en": ""
 }
 }

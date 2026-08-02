@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://diabmqx41eiss"]
 
 [ext_resource type="Script" uid="uid://bwee2gyq3hthi" path="res://levels/Forest/forest.gd" id="1_sxwwm"]
+[ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_be3l3"]
 [ext_resource type="Texture2D" uid="uid://lgp3taxiikdk" path="res://levels/Forest/sprites/environments/Background.png" id="2_ds3kn"]
 [ext_resource type="Texture2D" uid="uid://carc705324rc7" path="res://levels/Forest/sprites/environments/TreeBack.png" id="3_a4qny"]
+[ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_eu1au"]
 [ext_resource type="PackedScene" uid="uid://plom0ba10qfn" path="res://entities/interactables/chapterThree/Forest/ToVolcanic/to_volcanic.tscn" id="3_q2qo1"]
 [ext_resource type="Texture2D" uid="uid://b06lu27cos6rj" path="res://levels/Forest/sprites/environments/Grass.png" id="4_ihq6p"]
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="4_owykb"]
@@ -12,6 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://ce1ibruqr6lyw" path="res://levels/Forest/sprites/environments/Lighting.png" id="6_eu1au"]
 [ext_resource type="PackedScene" uid="uid://de6syd07i2og5" path="res://entities/interactables/StoneTool/Wood/wood.tscn" id="9_a4qny"]
 [ext_resource type="PackedScene" uid="uid://bgo1n4kgoh2py" path="res://entities/interactables/StoneTool/Stone/stone.tscn" id="10_ihq6p"]
+[ext_resource type="Resource" uid="uid://cgcy070quirov" path="res://dialogues/Dialogues/forest/resources_location_rope.tres" id="14_dks13"]
+
+[sub_resource type="Resource" id="Resource_dks13"]
+script = ExtResource("3_eu1au")
+target_stage = 11
+dialog_path = "uid://c52xdqotiostf"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
+
+[sub_resource type="Resource" id="Resource_eu1au"]
+script = ExtResource("3_eu1au")
+target_stage = 12
+dialog_path = "uid://c2ybvfhgwes8p"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ds3kn"]
 distance = -149.0
@@ -22,6 +37,11 @@ size = Vector2(155.5, 849)
 [node name="Forest" type="Node2D" unique_id=1736873030]
 script = ExtResource("1_sxwwm")
 metadata/_edit_vertical_guides_ = [901.0]
+
+[node name="LevelManager" type="Node2D" parent="." unique_id=87662225 node_paths=PackedStringArray("player")]
+script = ExtResource("2_be3l3")
+story_dialogs = Array[ExtResource("3_eu1au")]([SubResource("Resource_dks13"), SubResource("Resource_eu1au")])
+player = NodePath("../Player")
 
 [node name="Parallax2D_MB" type="Parallax2D" parent="." unique_id=1524578331]
 scroll_scale = Vector2(0.39, 0.39)
@@ -73,13 +93,27 @@ target_spawn = "SpawnFromForest"
 
 [node name="Wood" parent="InteractablesProps" unique_id=826715938 instance=ExtResource("9_a4qny")]
 position = Vector2(-1396, 368)
+required_stage = 11
+advance_story_to = 12
 
 [node name="Stone" parent="InteractablesProps" unique_id=1189614710 instance=ExtResource("10_ihq6p")]
 position = Vector2(-2476, 341)
+required_stage = 10
+advance_story_to = 11
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("4_owykb")]
 position = Vector2(643, 673)
 metadata/_edit_lock_ = true
+
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_dialog_box_parent")]
+_dialog_data_uid = 5199606757517876597
+_dialog_file_name = "resources_location_rope"
+_dialog_data = ExtResource("14_dks13")
+_start_id = "1"
+_play_on_ready = false
+_destroy_on_end = false
+_print_debug = false
+xeno_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1500608954]
 position = Vector2(112, -357)
@@ -125,3 +159,5 @@ position = Vector2(990, 704)
 
 [node name="SpawnFromVolcanic" type="Marker2D" parent="." unique_id=753674882]
 position = Vector2(-2322, 679)
+
+[editable path="Player"]

@@ -95,6 +95,8 @@ func craft_hammer():
 		# Simpan status bahwa bahan sudah diambil (untuk mencegah muncul kembali)
 		Global.materials_collected = true
 		
+		GameState.advance_to(GameState.StoryStage.MADE_AXE)
+		
 		print("Alat penghancur batu berhasil dibuat!")
 		update_ui()
 

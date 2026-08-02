@@ -1,11 +1,13 @@
 extends Node2D
 
-# 📈 PENGATURAN PROGRESS CERITA
+# 📈 PENGATURAN PROGRESS CERITA & TRIGGER
 @export_group("Trigger Settings")
 # Stage yang akan dituju saat trigger disentuh
 @export var advance_story_to: GameState.StoryStage = GameState.StoryStage.ENTERED_LAB1
 # (Opsional) Path dialog jika trigger ini juga memunculkan percakapan
 @export_file("*.tres") var trigger_dialog_path: String = ""
+# 🚩 Nama unik di Global untuk menandai bahwa trigger ini sudah pernah diselesaikan (Contoh: "storage_dialog_done")
+@export var completion_flag: String = ""
 
 @onready var player = $Player
 @onready var dialogue_trigger = $DialogueTrigger if has_node("DialogueTrigger") else null
@@ -16,6 +18,13 @@ func _ready() -> void:
 	print("Spawn point yang diterima dari Global di Third Lab: ", Global.spawn_point)
 	
 	add_to_group("game")
+	
+	# 🔥 1. CEK APAKAH TRIGGER INI PERNAH DISELESAIKAN SEBELUMNYA
+	if completion_flag != "" and Global.get(completion_flag) == true:
+		if dialogue_trigger:
+			# Hapus atau matikan trigger secara permanen agar tidak memblokir player
+			dialogue_trigger.queue_free()
+			print("Trigger '", completion_flag, "' sudah pernah dilewati. Dihapus dari scene.")
 	
 	# 🔥 Pindahkan posisi player secara instan saat scene dimuat (Tanpa delay)
 	setup_meawdow_spawns()
@@ -54,6 +63,10 @@ func setup_dialogue_trigger() -> void:
 # 🔥 Logika saat pemain menyentuh Area2D DialogueTrigger
 func _on_dialogue_trigger_body_entered(body: Node2D) -> void:
 	if (body == player or body.is_in_group("player")) and not is_dialog_playing:
+		
+		# Simpan status ke Global agar tidak muncul lagi saat kembali ke scene ini
+		if completion_flag != "":
+			Global.set(completion_flag, true)
 		
 		# Matikan pemantauan trigger agar tidak ter-trigger berkali-kali saat pemain mondar-mandir
 		dialogue_trigger.set_deferred("monitoring", false)

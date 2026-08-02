@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://df56fj1sxwhu7"]
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://c52xdqotiostf"]
 
-[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_of1a3"]
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_66gdn"]
 
 [resource]
-script = ExtResource("1_of1a3")
+script = ExtResource("1_66gdn")
 graph_data = {
 "1": {
 "dialogue_node_1": {
@@ -12,7 +12,7 @@ graph_data = {
 "dialog_key": "1_DIALOG_1",
 "node_index": 1,
 "node_type": "dialogue_node",
-"offset": Vector2(360, 60),
+"offset": Vector2(346, 117),
 "portrait": "",
 "size": Vector2(250, 439),
 "to_dialog": "",
@@ -21,7 +21,7 @@ graph_data = {
 "start_node_1": {
 "node_index": 1,
 "node_type": "start_node",
-"offset": Vector2(114, 109),
+"offset": Vector2(100, 120),
 "size": Vector2(190, 46),
 "start_id": "1",
 "to_dialog": "",
@@ -32,8 +32,9 @@ graph_data = {
 dialogs = {
 "1_DIALOG_1": {
 "": "",
-"default": "Sebelum keluar, aku harus menemukan alternatif sumber energi terlebih dahulu
-Sebaiknya aku menelusuri gudang ini..",
+"default": "Bagus.., 
+Batu ini bisa kupakai sebagai kepala kapak
+Seharusnya tidak jauh dari sini ada kayu yang bisa kupakai",
 "en": ""
 }
 }

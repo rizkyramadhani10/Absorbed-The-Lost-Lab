@@ -111,7 +111,7 @@ translation/characters/character_names_csv=-1
 translation/localization/default_locale="en"
 translation/localization/locales=["en"]
 internal/variables={}
-internal/play_dialog_path="res://dialogues/Dialogues/AllDialogues/dialog_06_found_battery.json.tres"
+internal/play_dialog_path="res://dialogues/Dialogues/thirdLab/amnesia_xeno.tres"
 internal/play_start_id="1"
 internal/last_opened_files=[{
 "path": "res://dialogues/characters/xeno.tres",
@@ -198,22 +198,22 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_05_check_time_machine.json.tres",
 "uid": 1127277506218443308,
 "view_state": {
-"scroll_offset": Vector2(-149.11633, -158.22224),
+"scroll_offset": Vector2(-776.8933, -611),
 "zoom": 0.4240975
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_06_found_battery.json.tres",
 "uid": 2956946891499119232,
 "view_state": {
-"scroll_offset": Vector2(93.11328, -182.15065),
-"zoom": 0.4665071
+"scroll_offset": Vector2(301.5185, -151.44989),
+"zoom": 0.68301314
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_07_outside.json.tres",
 "uid": 7387262311756266927,
 "view_state": {
-"scroll_offset": Vector2(-107.69226, -165),
-"zoom": 0.23939194
+"scroll_offset": Vector2(70.66562, -108.55756),
+"zoom": 0.6209211
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_08_near_crater.json.tres",
@@ -226,22 +226,22 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_09_got_resource.json.tres",
 "uid": 7500442434336460750,
 "view_state": {
-"scroll_offset": Vector2(-879, -154.70001),
-"zoom": 0.3186307
+"scroll_offset": Vector2(-246.56256, -29.064194),
+"zoom": 0.9999997
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_10_back_in_lab.json.tres",
 "uid": 7634246015503011474,
 "view_state": {
-"scroll_offset": Vector2(0, -37),
+"scroll_offset": Vector2(-31, -37),
 "zoom": 1.0
 }
 }, {
 "path": "res://dialogues/Dialogues/thirdLab/locked_door_shower.tres",
 "uid": 5333900446407955801,
 "view_state": {
-"scroll_offset": Vector2(-114.18919, -25.482346),
-"zoom": 0.5644736
+"scroll_offset": Vector2(-28.522766, 48.292023),
+"zoom": 0.75131446
 }
 }, {
 "path": "res://dialogues/Dialogues/thirdLab/hesitant_xeno_shower.tres",
@@ -261,7 +261,7 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_04b_need_check_workspace.tres",
 "uid": 1863652676040944997,
 "view_state": {
-"scroll_offset": Vector2(-18.121628, -8.91507),
+"scroll_offset": Vector2(-164.12163, -118.91507),
 "zoom": 0.75131476
 }
 }, {
@@ -312,15 +312,15 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/secondLab/time_machine_safety_barrier.tres",
 "uid": 5504459512030376531,
 "view_state": {
-"scroll_offset": Vector2(-137.9864, -165),
-"zoom": 0.3504938
+"scroll_offset": Vector2(154.01822, -81.652985),
+"zoom": 0.99999964
 }
 }, {
 "path": "res://dialogues/Dialogues/thirdLab/need_check_storage.tres",
 "uid": 819871694255837613,
 "view_state": {
-"scroll_offset": Vector2(-91.952065, -105.65883),
-"zoom": 0.62092125
+"scroll_offset": Vector2(-19.673767, -117.74831),
+"zoom": 0.9090909
 }
 }, {
 "path": "res://dialogues/Dialogues/secondLab/locked_door.tres",
@@ -333,8 +333,8 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/storage/after_cleaning_storage.tres",
 "uid": 2662643448142650843,
 "view_state": {
-"scroll_offset": Vector2(8.856354, -36.205017),
-"zoom": 1.0
+"scroll_offset": Vector2(39.99359, -155.91165),
+"zoom": 0.99999964
 }
 }, {
 "path": "res://dialogues/Dialogues/storage/need_found_battery.tres",
@@ -347,8 +347,8 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/secondLab/need_search_sulphur.tres",
 "uid": 8571341259609816103,
 "view_state": {
-"scroll_offset": Vector2(287.2793, 8.503174),
-"zoom": 0.6830134
+"scroll_offset": Vector2(12.058044, -21.202728),
+"zoom": 0.82644624
 }
 }, {
 "path": "res://dialogues/Dialogues/meadow/need_reach_crater.tres",
@@ -381,8 +381,29 @@ internal/last_opened_files=[{
 "selected_portrait_path": ""
 }
 }, {
-"path": "res://dialogues/characters/xeno_left.tres",
-"uid": 8635474252727474901,
+"path": "res://dialogues/Dialogues/forest/resources_location.tres",
+"uid": 6717583704107853113,
+"view_state": {
+"scroll_offset": Vector2(86.92871, 24.191772),
+"zoom": 0.6635437
+}
+}, {
+"path": "res://dialogues/Dialogues/forest/resources_location_stone.tres",
+"uid": 6935647586977530531,
+"view_state": {
+"scroll_offset": Vector2(-89.92407, -17.85064),
+"zoom": 0.6830134
+}
+}, {
+"path": "res://dialogues/Dialogues/forest/resources_location_rope.tres",
+"uid": 5199606757517876597,
+"view_state": {
+"scroll_offset": Vector2(288.5899, 223.84845),
+"zoom": 1.1
+}
+}, {
+"path": "res://dialogues/characters/storage/xeno.tres",
+"uid": 204035753896648417,
 "view_state": {
 "portrait_search": "",
 "portrait_tree_state": {
@@ -396,5 +417,19 @@ internal/last_opened_files=[{
 },
 "selected_portrait_path": ""
 }
+}, {
+"path": "res://dialogues/Dialogues/storage/need_craft_axe.tres",
+"uid": 7080791148744571427,
+"view_state": {
+"scroll_offset": Vector2(-213.9049, -186.87904),
+"zoom": 0.38554317
+}
+}, {
+"path": "res://dialogues/Dialogues/thirdLab/amnesia_xeno.tres",
+"uid": 3353756412423796267,
+"view_state": {
+"scroll_offset": Vector2(448.74353, 54.423416),
+"zoom": 1.1
+}
 }]
-internal/last_selected_file_index=29
+internal/last_selected_file_index=30

@@ -9,13 +9,17 @@ enum StoryStage {
 	POST_SHOWER,            # Selesai safety shower
 	ENTERED_LAB1,           # Masuk lab 1 (lockdown)
 	WASTE_MANAGEMENT,       # Minigame limbah
-	NEED_CHECK_WORKSPACE,    # Segera ke Workspace
+	NEED_CHECK_WORKSPACE,   # Segera ke Workspace
 	CHECKED_MONITOR,        # Selesai cek monitor workspace
 	CHECKED_TIME_MACHINE,   # Selesai cek mesin waktu
 	MANAGE_STORAGE,         # Selesai merapihkan gudang penyimpanan
 	FOUND_BATTERY,          # Menemukan baterai di gudang
 	REACHED_OUTSIDE,        # Sudah berada di luar (masa lalu)
 	REACHED_CRATER,         # Di dekat kawah vulkanik
+	FOUND_STONE,            # Menemukan batu
+	FOUND_WOOD,             # Menemukan kayu
+	FOUND_ROPE,             # Menemukan tali
+	MADE_AXE,               # Membuat kapak
 	OBTAINED_RESOURCE,      # Sudah mengambil bongkahan
 	BACK_TO_LAB             # Kembali ke lab untuk meracik
 }

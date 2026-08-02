@@ -118,13 +118,22 @@ func _on_interact_pressed():
 		return
 	
 	if nearby_interactable != null:
+		# Simpan referensi objek ke variabel lokal agar aman
+		var target = nearby_interactable
+		
 		# Cek apakah objek mendukung hold interaksi
-		if nearby_interactable.has_method("interact"):
-			nearby_interactable.interact()
+		if target.has_method("interact"):
+			
+			# 🔥 PERBAIKAN: Lakukan pengecekan rilis SEBELUM kita menjalankan interact()
+			# Karena interact() mungkin akan mereset variabel nearby_interactable atau menghancurkan objek
+			var has_release = target.has_method("interact_release")
+			
+			# Jalankan interaksi utama
+			target.interact()
 			is_holding_interact = true
 			
-			# Jika objek tidak memiliki metode interact_release, lakukan interaksi biasa
-			if not nearby_interactable.has_method("interact_release"):
+			# Gunakan hasil pengecekan yang sudah kita simpan tadi
+			if not has_release:
 				_do_normal_interaction()
 				is_holding_interact = false
 

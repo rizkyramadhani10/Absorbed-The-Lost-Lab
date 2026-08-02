@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://bn1t44dy7doxn"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_vj1dk"]
+
+[resource]
+script = ExtResource("1_vj1dk")
+graph_data = {
+"1": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "xeno",
+"dialog_key": "1_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(358, 72),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["dialogue_node_2"]
+},
+"dialogue_node_2": {
+"char_expand": true,
+"character": "ai",
+"dialog_key": "1_DIALOG_2",
+"node_index": 2,
+"node_type": "dialogue_node",
+"offset": Vector2(660, 80),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["dialogue_node_3"]
+},
+"dialogue_node_3": {
+"char_expand": true,
+"character": "xeno",
+"dialog_key": "1_DIALOG_3",
+"node_index": 3,
+"node_type": "dialogue_node",
+"offset": Vector2(940, 80),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(70, 108),
+"size": Vector2(190, 97),
+"start_id": "1",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"1_DIALOG_1": {
+"default": "Loh... Tadi aku mau ngapain ya? Kenapa aku mendadak lupa langkah selanjutnya...
+Duh, efek amnesia ini benar-benar membuat pusing! Aku sudah membawa bahannya tapi malah bingung harus diapakan!",
+"en": ""
+},
+"1_DIALOG_2": {
+"default": "Deteksi Gelombang Otak Abnormal / Amnesia Terdeteksi. Menampilkan kembali panduan pembuatan larutan elektrolit H₂SO₄ 35%",
+"en": ""
+},
+"1_DIALOG_3": {
+"default": "Ah, terima kasih AI! Hampir saja aku tidak tahu harus berbuat apa... 
+Baiklah, sekarang mari kita mulai reaksi kimia ini!",
+"en": ""
+}
+}
+characters = {
+"1": {
+"ai": 689331708095693185,
+"xeno": 3754623732894806370
+}
+}

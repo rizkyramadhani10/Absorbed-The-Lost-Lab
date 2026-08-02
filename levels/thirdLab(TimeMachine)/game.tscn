@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7buruhau3arx" path="res://levels/thirdLab(TimeMachine)/game.gd" id="1_neng1"]
 [ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_3s7m7"]
+[ext_resource type="Script" uid="uid://dbn41bn1j3pps" path="res://core/managers/lab_trigger_config.gd" id="2_bok5e"]
 [ext_resource type="Texture2D" uid="uid://c7510230rp4i2" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgWallnFloor.png" id="2_hdadk"]
 [ext_resource type="Texture2D" uid="uid://bjpwerel1jvfa" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgLighting.png" id="3_hdadk"]
 [ext_resource type="Texture2D" uid="uid://cob1frcs33wb0" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/LabBench.png" id="3_i8mc3"]
@@ -27,6 +28,22 @@
 [ext_resource type="Resource" uid="uid://djx2ykry8l2i4" path="res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres" id="22_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://iqs142ppcto1" path="res://systems/ui/hud/Blinkeffect.tscn" id="22_rk8vc"]
 
+[sub_resource type="Resource" id="Resource_dhfjv"]
+script = ExtResource("2_bok5e")
+trigger_node = NodePath("TrigTimeMachine")
+dialog_path = "uid://ckonv5n4vkbrn"
+completion_flag = "is_trigger_time_machine"
+metadata/_custom_type_script = "uid://dbn41bn1j3pps"
+
+[sub_resource type="Resource" id="Resource_lau1m"]
+script = ExtResource("2_bok5e")
+trigger_node = NodePath("TrigAmnesia")
+target_stage = 15
+advance_story_to = 16
+dialog_path = "uid://bn1t44dy7doxn"
+completion_flag = "is_trigger_amnesia"
+metadata/_custom_type_script = "uid://dbn41bn1j3pps"
+
 [sub_resource type="Resource" id="Resource_bok5e"]
 script = ExtResource("3_nq5ue")
 target_stage = 1
@@ -44,7 +61,7 @@ size = Vector2(223.5, 453.5)
 
 [node name="Game" type="Node2D" unique_id=248848940]
 script = ExtResource("1_neng1")
-time_machine_dialog_path = "uid://ckonv5n4vkbrn"
+triggers = Array[ExtResource("2_bok5e")]([SubResource("Resource_dhfjv"), SubResource("Resource_lau1m")])
 metadata/_edit_vertical_guides_ = [2184.0, -1203.0]
 
 [node name="LevelManager" type="Node2D" parent="." unique_id=862573954 node_paths=PackedStringArray("player")]
@@ -253,6 +270,13 @@ position = Vector2(-990, 718)
 position = Vector2(-81, -55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrigTimeMachine" unique_id=822769109]
+position = Vector2(1484, 532)
+shape = SubResource("RectangleShape2D_nq5ue")
+
+[node name="TrigAmnesia" type="Area2D" parent="." unique_id=1822584359]
+position = Vector2(-677, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrigAmnesia" unique_id=390002093]
 position = Vector2(1484, 532)
 shape = SubResource("RectangleShape2D_nq5ue")
 

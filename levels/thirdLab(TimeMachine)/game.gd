@@ -1,18 +1,12 @@
 extends Node2D
 
-# 📄 Path file resource dialog untuk Mesin Waktu (Diisi via Inspector)
-@export_file("*.tres") var time_machine_dialog_path: String = ""
-
-# 🔒 Syarat stage cerita agar dialog mesin waktu aktif
-@export var target_stage: GameState.StoryStage = GameState.StoryStage.CHECKED_MONITOR
-
-# 🔥 TAMBAHAN: Stage cerita tujuan setelah dialog mesin waktu selesai
-@export var advance_story_to: GameState.StoryStage = GameState.StoryStage.CHECKED_TIME_MACHINE
+# 📈 DAFAR MULTIPLE TRIGGERS (Diisi via Inspector)
+@export_group("Multiple Trigger Settings")
+@export var triggers: Array[LabTriggerConfig] = []
 
 @onready var player = $Player
-@onready var blink_effect = $BlinkBlurEffect
-@onready var anim_player = $BlinkBlurEffect/AnimationPlayer
-@onready var trig_time_machine = $TrigTimeMachine
+@onready var blink_effect = $BlinkBlurEffect if has_node("BlinkBlurEffect") else null
+@onready var anim_player = $BlinkBlurEffect/AnimationPlayer if has_node("BlinkBlurEffect/AnimationPlayer") else null
 
 var is_dialog_playing: bool = false
 
@@ -23,8 +17,8 @@ func _ready() -> void:
 	# 1. Atur posisi spawn player
 	setup_third_lab_spawns()
 	
-	# 2. Setup trigger Mesin Waktu
-	setup_time_machine_trigger()
+	# 2. Setup semua trigger area berdasarkan stage & status completion
+	setup_all_triggers()
 	
 	# 🎬 3. CEK APAKAH PERTAMA KALI BERMAIN (Wake Up Cutscene)
 	if TransitionScreen.is_first_time_play:
@@ -32,7 +26,8 @@ func _ready() -> void:
 			player.set_physics_process(false)
 			player.set_process_unhandled_input(false)
 		
-		anim_player.play("wake_up")
+		if anim_player:
+			anim_player.play("wake_up")
 		TransitionScreen.is_first_time_play = false
 	else:
 		if blink_effect:
@@ -61,57 +56,78 @@ func setup_third_lab_spawns() -> void:
 		else:
 			print("ERROR di Meadow: Marker 'SpawnFromMeadow' tidak ditemukan!")
 
-# --- SETUP & TRIGGER DARI TRIGTIMEMACHINE ---
+# --- SETUP SEMUA TRIGGER AREA ---
 
-func setup_time_machine_trigger() -> void:
-	if has_node("TrigTimeMachine"):
-		if not trig_time_machine.body_entered.is_connected(_on_trig_time_machine_body_entered):
-			trig_time_machine.body_entered.connect(_on_trig_time_machine_body_entered)
-		
-		# Aktifkan monitoring hanya jika stage cerita memenuhi syarat
-		if GameState.current_stage == target_stage:
-			trig_time_machine.monitoring = true
+func setup_all_triggers() -> void:
+	for config in triggers:
+		if config == null or config.trigger_node == null:
+			continue
+			
+		var trigger_area = get_node_or_null(config.trigger_node) as Area2D
+		if trigger_area == null:
+			print("ERROR: Node trigger di path '", config.trigger_node, "' tidak ditemukan!")
+			continue
+			
+		# 1. Jika trigger sudah pernah diselesaikan sebelumnya, langsung hapus dari scene
+		if config.completion_flag != "" and Global.get(config.completion_flag) == true:
+			trigger_area.queue_free()
+			print("Trigger '", config.completion_flag, "' sudah pernah dilewati. Dihapus.")
+			continue
+			
+		# 2. Atur kemunculan & aktifkan monitoring HANYA jika stage saat ini cocok
+		if GameState.current_stage == config.target_stage:
+			trigger_area.monitoring = true
+			trigger_area.visible = true
 		else:
-			trig_time_machine.monitoring = false
+			trigger_area.monitoring = false
+			trigger_area.visible = false
+			
+		# 3. Hubungkan sinyal body_entered
+		if not trigger_area.body_entered.is_connected(_on_trigger_body_entered.bind(config, trigger_area)):
+			trigger_area.body_entered.connect(_on_trigger_body_entered.bind(config, trigger_area))
 
-func _on_trig_time_machine_body_entered(body: Node2D) -> void:
+# --- HANDLER LOGIKA UNTUK SETIAP TRIGGER AREA ---
+
+func _on_trigger_body_entered(body: Node2D, config: LabTriggerConfig, trigger_area: Area2D) -> void:
 	if (body == player or body.is_in_group("player")) and not is_dialog_playing:
-		if GameState.current_stage == target_stage:
+		if GameState.current_stage == config.target_stage:
 			
-			if time_machine_dialog_path == "":
-				print("ERROR di ThirdLab: 'Time Machine Dialog Path' di Inspector masih KOSONG!")
-				return
-				
-			var dp = body.find_child("DialogPlayer", true, false)
-			if dp == null:
-				print("ERROR di ThirdLab: Node 'DialogPlayer' tidak ditemukan pada " + body.name)
-				return
-			
-			trig_time_machine.set_deferred("monitoring", false)
+			# Matikan pemantauan trigger ini agar tidak memicu ganda
+			trigger_area.set_deferred("monitoring", false)
 			is_dialog_playing = true
 			
-			# 🔥 FIX LAYOUT TERPOTONG: Beri jeda 1 frame sebelum dialog dijalankan
+			# Simpan status completion flag ke Global
+			if config.completion_flag != "":
+				Global.set(config.completion_flag, true)
+			
+			# Beri jeda 1 frame agar posisi kamera/UI stabil
 			await get_tree().process_frame
 			
-			# 1. Kunci kontrol player
+			# Kunci pergerakan player
 			body.set_physics_process(false)
 			if body.has_method("set_process_unhandled_input"):
 				body.set_process_unhandled_input(false)
 				
-			# 2. Assign resource & jalankan dialog
-			var dialogue_resource = load(time_machine_dialog_path)
-			dp._dialog_data = dialogue_resource
-			dp.start()
+			# Jalankan dialog jika path dialog diisi di Inspector
+			if config.dialog_path != "":
+				var dp = body.find_child("DialogPlayer", true, false)
+				if dp != null:
+					var dialogue_resource = load(config.dialog_path)
+					dp._dialog_data = dialogue_resource
+					dp.start()
+					await dp.dialog_ended
+				else:
+					print("ERROR: Node 'DialogPlayer' tidak ditemukan pada " + body.name)
 			
-			# 3. Tunggu sampai dialog selesai
-			await dp.dialog_ended
-			
-			# 🔥 MAJUKAN PROGRES CERITA
-			if GameState.current_stage < advance_story_to:
-				GameState.current_stage = advance_story_to
+			# Majukan progres cerita secara aman
+			if GameState.current_stage < config.advance_story_to:
+				GameState.current_stage = config.advance_story_to
 				print("Progres cerita diperbarui ke: ", GameState.current_stage)
 			
-			# 4. Kembalikan kontrol player
+			# Hapus area trigger dari scene agar tidak memblokir pemain lagi
+			trigger_area.queue_free()
+			
+			# Kembalikan kontrol player
 			body.set_physics_process(true)
 			if body.has_method("set_process_unhandled_input"):
 				body.set_process_unhandled_input(true)
@@ -127,7 +143,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		if blink_effect:
 			blink_effect.queue_free()
 			
-		# 🔥 FIX LAYOUT TERPOTONG: Beri jeda 1 frame agar posisi camera & UI pas
 		await get_tree().process_frame
 		
 		var dialogue_resource = load("res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres")
@@ -139,7 +154,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				dp.start()
 				await dp.dialog_ended
 			
-			# Kembalikan kontrol player setelah dialog awake selesai
 			player.set_physics_process(true)
 			player.set_process_unhandled_input(true)
 			

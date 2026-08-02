@@ -32,6 +32,11 @@ func trigger_dialog(dialog_path: String, start_id: int = 1) -> void:
 		
 	var dp = player.find_child("DialogPlayer", true, false)
 	if dp and dialog_path != "":
+		
+		# 🔥 PENGAMAN: Beri jeda 1 frame agar Sprouty dan Scene sempat mendaftarkan Anchor (seperti 'xeno' atau 'xeno_left')
+		# Sangat penting saat dialog dipicu tepat setelah scene load atau transisi minigame!
+		await get_tree().process_frame
+		
 		# 1. Kunci pergerakan player
 		player.set_physics_process(false)
 		if player.has_method("set_process_unhandled_input"):

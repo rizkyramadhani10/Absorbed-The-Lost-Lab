@@ -26,6 +26,12 @@ target_stage = 8
 dialog_path = "uid://biemqoxew8ccm"
 metadata/_custom_type_script = "uid://2w1cu88e6egd"
 
+[sub_resource type="Resource" id="Resource_g8nfl"]
+script = ExtResource("3_dsg7y")
+target_stage = 13
+dialog_path = "uid://cgcy070quirov"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ogap6"]
 distance = -624.0
 
@@ -43,7 +49,7 @@ script = ExtResource("1_1ldys")
 
 [node name="LevelManager" type="Node2D" parent="." unique_id=367621791 node_paths=PackedStringArray("player")]
 script = ExtResource("2_23xfd")
-story_dialogs = Array[ExtResource("3_dsg7y")]([SubResource("Resource_d0bwp"), SubResource("Resource_ljgld")])
+story_dialogs = Array[ExtResource("3_dsg7y")]([SubResource("Resource_d0bwp"), SubResource("Resource_ljgld"), SubResource("Resource_g8nfl")])
 player = NodePath("../Player")
 
 [node name="MainBackground" type="TextureRect" parent="." unique_id=461995142]
@@ -91,8 +97,11 @@ target_scene_path = "uid://bn7p3rh24hvf6"
 
 [node name="Rope" parent="InteractablesProps" unique_id=1156903746 instance=ExtResource("6_23xfd")]
 position = Vector2(378, 184)
+required_stage = 12
+advance_story_to = 13
+
 [node name="Battery" parent="InteractablesProps" unique_id=2046877714 instance=ExtResource("8_ljgld")]
-position = Vector2(145, 228)
+position = Vector2(-1, 208)
 required_stage = 7
 advance_story_to = 8
 completion_flag = "is_battery_found"
@@ -101,9 +110,9 @@ completion_flag = "is_battery_found"
 position = Vector2(315, 701)
 
 [node name="DialogueAnchor" parent="Player" index="5" unique_id=262771412]
-position = Vector2(-58, -439)
+position = Vector2(-1, -440)
 
-[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_left_dialog_box_parent", "ai_left_dialog_box_parent")]
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_dialog_box_parent", "ai_left_dialog_box_parent")]
 _dialog_data_uid = 2956946891499119232
 _dialog_file_name = "dialog_06_found_battery.json"
 _dialog_data = ExtResource("10_ljgld")
@@ -111,7 +120,7 @@ _start_id = "1"
 _play_on_ready = false
 _destroy_on_end = false
 _print_debug = false
-xeno_left_dialog_box_parent = NodePath("../DialogueAnchor")
+xeno_dialog_box_parent = NodePath("../DialogueAnchor")
 ai_left_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1740646371]
@@ -124,6 +133,13 @@ position = Vector2(775, 789)
 rotation = 3.1415927
 appear_stage = 7
 locked_dialog_path = "uid://df56fj1sxwhu7"
+
+[node name="StoryBarrier2" parent="." unique_id=1647061839 instance=ExtResource("10_4p6xe")]
+position = Vector2(777, 792)
+rotation = 3.1415927
+appear_stage = 13
+required_stage = 14
+locked_dialog_path = "uid://c748uivr0r524"
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1491258129]
 position = Vector2(523, 18)

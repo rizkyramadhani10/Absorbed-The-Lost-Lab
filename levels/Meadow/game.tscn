@@ -30,6 +30,7 @@ size = Vector2(155.5, 849)
 script = ExtResource("1_pt61c")
 advance_story_to = 9
 trigger_dialog_path = "uid://ddipepoedagg2"
+completion_flag = "is_trigger_meadow"
 
 [node name="LevelManager" type="Node2D" parent="." unique_id=1949747332 node_paths=PackedStringArray("player")]
 script = ExtResource("2_m4hrt")
