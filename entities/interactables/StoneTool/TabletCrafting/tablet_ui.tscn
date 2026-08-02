@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dv1vt47m0mhyb"]
+
+[ext_resource type="Texture2D" uid="uid://c78utnpqsxfjq" path="res://entities/interactables/StoneTool/TabletCrafting/asset/Tablet.png" id="1_3cb3m"]
+[ext_resource type="Script" uid="uid://bawg7fgnxp0wx" path="res://entities/interactables/StoneTool/TabletCrafting/tablet_ui.gd" id="1_ygqym"]
+[ext_resource type="FontFile" uid="uid://b1u0l0n3ck6v4" path="res://systems/ui/theme/fonts/Easy Pixel.ttf" id="2_jcrdy"]
+[ext_resource type="Texture2D" uid="uid://bp6lor0ikfqkg" path="res://entities/interactables/StoneTool/TabletCrafting/asset/Penghancur.png" id="4_u4jdv"]
+[ext_resource type="Texture2D" uid="uid://b1qhn3e4bjcw7" path="res://entities/interactables/StoneTool/Wood/asset/bagian depan.png" id="5_en07t"]
+[ext_resource type="Texture2D" uid="uid://bsmd3xuipmc3" path="res://entities/interactables/StoneTool/Rope/asset/tali.png" id="6_38lwu"]
+[ext_resource type="Texture2D" uid="uid://cgkf53y33pb1o" path="res://entities/interactables/StoneTool/Stone/asset/batu.png" id="7_aqk4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygqym"]
+size = Vector2(266.8786, 199.7688)
+
+[node name="TabletUI" type="CanvasLayer" unique_id=1026792843]
+script = ExtResource("1_ygqym")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=601699479]
+position = Vector2(529, 351)
+scale = Vector2(0.64074075, 0.64074075)
+texture = ExtResource("1_3cb3m")
+
+[node name="TitleLabel" type="Label" parent="Background" unique_id=667932142]
+offset_left = -237.22543
+offset_top = -329.30634
+offset_right = 204.77457
+offset_bottom = -258.30634
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jcrdy")
+theme_override_font_sizes/font_size = 70
+text = "Crafting Tablet"
+
+[node name="ToolButton" type="Button" parent="Background" unique_id=1351645556]
+offset_left = -107.68787
+offset_top = -226.30057
+offset_right = 143.5838
+offset_bottom = 8.0
+
+[node name="ToolIcon" type="TextureRect" parent="Background/ToolButton" unique_id=1399164697]
+layout_mode = 0
+offset_left = -29.653172
+offset_top = -29.653168
+offset_right = 284.04623
+offset_bottom = 284.04623
+texture = ExtResource("4_u4jdv")
+expand_mode = 1
+
+[node name="Tool" type="Sprite2D" parent="Background" unique_id=541836689]
+visible = false
+modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
+position = Vector2(-9.364176, -112.36994)
+scale = Vector2(0.46841228, 0.46841228)
+texture = ExtResource("4_u4jdv")
+
+[node name="ToolClickArea" type="Area2D" parent="Background/Tool" unique_id=844804412]
+position = Vector2(19.991333, 239.89532)
+scale = Vector2(2.1348712, 2.1348712)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Tool/ToolClickArea" unique_id=1445276895]
+position = Vector2(-19.508667, -138.90173)
+shape = SubResource("RectangleShape2D_ygqym")
+
+[node name="WoodSlot" type="Panel" parent="Background" unique_id=879085611]
+offset_left = -377.68784
+offset_top = 32.77455
+offset_right = -167.68784
+offset_bottom = 282.77454
+
+[node name="WoodIcon" type="Sprite2D" parent="Background/WoodSlot" unique_id=1776880442]
+modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
+position = Vector2(112.3699, 121.73411)
+scale = Vector2(0.29581076, 0.29581076)
+texture = ExtResource("5_en07t")
+
+[node name="RopeSlot" type="Panel" parent="Background" unique_id=60282689]
+offset_left = -90.52024
+offset_top = 29.65318
+offset_right = 119.47976
+offset_bottom = 279.65317
+
+[node name="RopeIcon" type="Sprite2D" parent="Background/RopeSlot" unique_id=1700779793]
+modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
+position = Vector2(104.56648, 126.41618)
+scale = Vector2(0.26696402, 0.26696402)
+texture = ExtResource("6_38lwu")
+
+[node name="StoneSlot" type="Panel" parent="Background" unique_id=1816839096]
+offset_left = 201.32948
+offset_top = 32.774567
+offset_right = 411.32947
+offset_bottom = 282.77457
+
+[node name="StoneIcon" type="Sprite2D" parent="Background/StoneSlot" unique_id=1630327661]
+modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
+position = Vector2(106.127174, 129.53757)
+scale = Vector2(0.3176363, 0.3176363)
+texture = ExtResource("7_aqk4l")
+
+[node name="StatusLabel" type="Label" parent="Background" unique_id=707588344]
+visible = false
+offset_left = -550.9248
+offset_top = -95.20231
+offset_right = 523.0752
+offset_bottom = 104.79769
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_fonts/font = ExtResource("2_jcrdy")
+theme_override_font_sizes/font_size = 200
+text = "Sudah Dimiliki"
+
+[node name="BackButton" type="Button" parent="." unique_id=869804393]
+offset_left = 169.0
+offset_top = 543.0
+offset_right = 257.0
+offset_bottom = 578.0
+theme_override_fonts/font = ExtResource("2_jcrdy")
+theme_override_font_sizes/font_size = 20
+text = "Kembali"

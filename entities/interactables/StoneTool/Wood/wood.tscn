@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://de6syd07i2og5"]
+
+[ext_resource type="Texture2D" uid="uid://b1qhn3e4bjcw7" path="res://entities/interactables/StoneTool/Wood/asset/bagian depan.png" id="1_8ji8t"]
+[ext_resource type="Script" uid="uid://c5u7tsw2gy2k2" path="res://entities/interactables/StoneTool/Wood/wood.gd" id="1_j5yky"]
+[ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="2_j5yky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvd6t"]
+size = Vector2(215, 26)
+
+[node name="Wood" type="Area2D" unique_id=826715938]
+script = ExtResource("1_j5yky")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1889249786]
+position = Vector2(754.00006, 307)
+rotation = 0.4886922
+scale = Vector2(0.40148926, 0.40148926)
+texture = ExtResource("1_8ji8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1419282936]
+position = Vector2(759.5, 292)
+shape = SubResource("RectangleShape2D_fvd6t")
+
+[node name="Label" parent="." unique_id=985866202 instance=ExtResource("2_j5yky")]
+position = Vector2(44, -7)

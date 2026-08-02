@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mdyxnnp6uys7"]
 
-[ext_resource type="Script" uid="uid://cn3sjrgpjqliv" path="res://core/managers/Interactableitem.gd" id="1_gb31c"]
+[ext_resource type="Script" uid="uid://detjrds25lnjf" path="res://levels/Volcanic/sulphur.gd" id="1_gb31c"]
 [ext_resource type="Texture2D" uid="uid://deha8mj41rfmr" path="res://levels/Volcanic/assets/environment/sulfur.png" id="1_iv4q3"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="2_gb31c"]
 [ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="3_gcvsv"]
@@ -27,6 +27,12 @@ metadata/_edit_lock_ = true
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("2_gb31c")]
 position = Vector2(28, 22)
 
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1164844709]
+offset_left = 553.0
+offset_top = 158.0
+offset_right = 931.0
+offset_bottom = 211.0
+
 [node name="Anchor" type="Control" parent="." unique_id=1710844316]
 layout_mode = 3
 anchors_preset = 8
@@ -41,7 +47,7 @@ offset_bottom = 354.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DialogPlayer" type="Node" parent="." unique_id=1322500947 node_paths=PackedStringArray("ai_dialog_box_parent")]
+[node name="DialogPlayer" type="Node" parent="." unique_id=1322500947]
 script = ExtResource("3_gcvsv")
 _dialog_data_uid = 2631246164867404817
 _dialog_file_name = "InteractableProps(ThirdLab)"
@@ -50,5 +56,4 @@ _start_id = "ANALYTICALBALANCE"
 _play_on_ready = false
 _destroy_on_end = true
 _print_debug = false
-ai_dialog_box_parent = NodePath("")
 metadata/_custom_type_script = "uid://1mxdpoyob13n"

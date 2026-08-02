@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_dsg7y"]
 [ext_resource type="PackedScene" uid="uid://eep8vxhs78i1" path="res://entities/interactables/chapterTwo/storage/DoorToLab/DoorToLab.tscn" id="3_yyafp"]
 [ext_resource type="PackedScene" uid="uid://bgynxuvespo6n" path="res://entities/interactables/chapterTwo/storage/ChemicalRack/ChemicalRack.tscn" id="4_02aew"]
+[ext_resource type="PackedScene" uid="uid://dre6nr7ma18wl" path="res://entities/interactables/StoneTool/Rope/rope.tscn" id="6_23xfd"]
 [ext_resource type="PackedScene" uid="uid://hratmcei8msm" path="res://entities/interactables/chapterTwo/storage/battery/Battery.tscn" id="8_ljgld"]
 [ext_resource type="PackedScene" uid="uid://c1womygdw84lw" path="res://core/components/StoryBarrier.tscn" id="10_4p6xe"]
 [ext_resource type="Resource" uid="uid://biemqoxew8ccm" path="res://dialogues/Dialogues/AllDialogues/dialog_06_found_battery.json.tres" id="10_ljgld"]
@@ -88,6 +89,8 @@ target_spawn = "SpawnFromStorage"
 position = Vector2(-175, -69)
 target_scene_path = "uid://bn7p3rh24hvf6"
 
+[node name="Rope" parent="InteractablesProps" unique_id=1156903746 instance=ExtResource("6_23xfd")]
+position = Vector2(378, 184)
 [node name="Battery" parent="InteractablesProps" unique_id=2046877714 instance=ExtResource("8_ljgld")]
 position = Vector2(145, 228)
 required_stage = 7
@@ -145,7 +148,7 @@ shape = SubResource("RectangleShape2D_bddg5")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisibleWalls" unique_id=1009635219]
-position = Vector2(1325, 356)
+position = Vector2(1074, 384)
 shape = SubResource("RectangleShape2D_bddg5")
 
 [node name="SpawnFromThirdLab" type="Marker2D" parent="." unique_id=391251159]

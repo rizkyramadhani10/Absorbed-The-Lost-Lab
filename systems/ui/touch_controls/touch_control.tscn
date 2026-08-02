@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://blwk4swmtmq15"]
 
+[ext_resource type="Script" uid="uid://dtdajs43rcc3f" path="res://systems/ui/touch_controls/touch_control.gd" id="1_a8o5c"]
 [ext_resource type="Texture2D" uid="uid://htq0x8jvlot" path="res://systems/ui/touch_controls/buttonIcons/leftBtn/silver-!arrowleft.png" id="1_hhggc"]
 [ext_resource type="Texture2D" uid="uid://b8b25r8dryknm" path="res://systems/ui/touch_controls/buttonIcons/leftBtn/silver-!arrowleft-pushed.png" id="2_wewfe"]
 [ext_resource type="Texture2D" uid="uid://diog8mo7jpui2" path="res://systems/ui/touch_controls/buttonIcons/rightBtn/silver-!arrowright.png" id="3_y2r3r"]
 [ext_resource type="Texture2D" uid="uid://doqgwq4yhr8x5" path="res://systems/ui/touch_controls/buttonIcons/rightBtn/silver-!arrowright-pushed.png" id="4_1jqu5"]
 [ext_resource type="Texture2D" uid="uid://c3igkm8jolui7" path="res://systems/ui/touch_controls/buttonIcons/interactBtn/silver-Y.png" id="5_y2r3r"]
 [ext_resource type="Texture2D" uid="uid://jpxq7mpu4ejp" path="res://systems/ui/touch_controls/buttonIcons/interactBtn/silver-Y-pushed.png" id="6_1jqu5"]
+[ext_resource type="Texture2D" uid="uid://c78utnpqsxfjq" path="res://entities/interactables/StoneTool/TabletCrafting/asset/Tablet.png" id="8_outdk"]
+[ext_resource type="PackedScene" uid="uid://dv1vt47m0mhyb" path="res://entities/interactables/StoneTool/TabletCrafting/tablet_ui.tscn" id="9_outdk"]
 
 [node name="TouchControl" type="CanvasLayer" unique_id=741419393]
+script = ExtResource("1_a8o5c")
 
 [node name="LeftAnchor" type="Control" parent="." unique_id=1655190610]
 custom_minimum_size = Vector2(32, 32)
@@ -70,3 +74,20 @@ scale = Vector2(4, 4)
 texture_normal = ExtResource("5_y2r3r")
 texture_pressed = ExtResource("6_1jqu5")
 action = "interact"
+
+[node name="Tablet" type="Control" parent="." unique_id=845443547]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 912.0
+offset_top = 37.0
+offset_right = 1056.0
+offset_bottom = 143.0
+
+[node name="OpenTablet" type="TouchScreenButton" parent="Tablet" unique_id=834610532]
+position = Vector2(6.000001, 8.000001)
+scale = Vector2(0.08333333, 0.083333336)
+texture_normal = ExtResource("8_outdk")
+passby_press = true
+
+[node name="TabletUI" parent="." unique_id=1026792843 instance=ExtResource("9_outdk")]
+visible = false
