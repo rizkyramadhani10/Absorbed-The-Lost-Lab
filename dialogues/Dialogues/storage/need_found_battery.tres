@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://df56fj1sxwhu7"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_of1a3"]
+
+[resource]
+script = ExtResource("1_of1a3")
+graph_data = {
+"1": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "xeno",
+"dialog_key": "1_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(360, 60),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(114, 109),
+"size": Vector2(190, 75),
+"start_id": "1",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"1_DIALOG_1": {
+"default": "Sebelum keluar, aku harus menemukan alternatif sumber energi terlebih dahulu
+Sebaiknya aku menelusuri gudang ini..",
+"en": ""
+}
+}
+characters = {
+"1": {
+"xeno": 3754623732894806370
+}
+}

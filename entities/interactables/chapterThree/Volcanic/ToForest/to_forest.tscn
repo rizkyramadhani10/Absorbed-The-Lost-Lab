@@ -4,15 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="1_m0sy8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ga2ey"]
-size = Vector2(358, 333)
+size = Vector2(236, 333)
 
 [node name="ToForest" type="Area2D" unique_id=1894128139]
 script = ExtResource("1_ga2ey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939687899]
-position = Vector2(758, 445.5)
+position = Vector2(819, 445.5)
 shape = SubResource("RectangleShape2D_ga2ey")
 metadata/_edit_lock_ = true
 
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("1_m0sy8")]
-position = Vector2(44, -7)
+position = Vector2(98, -7)

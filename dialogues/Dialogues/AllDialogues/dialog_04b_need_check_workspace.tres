@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://1s1c755sviuv"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_48kau"]
+
+[resource]
+script = ExtResource("1_48kau")
+graph_data = {
+"1": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "xeno",
+"dialog_key": "1_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(180, 40),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(-100, 60),
+"size": Vector2(190, 75),
+"start_id": "1",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"1_DIALOG_1": {
+"default": "Sekarang aku sudah bisa lewat.
+Aku harus segera ke workspace [b]di ujung kanan lab[/b] untuk menghubungi pusat kota ",
+"en": ""
+}
+}
+characters = {
+"1": {
+"xeno": 3754623732894806370
+}
+}

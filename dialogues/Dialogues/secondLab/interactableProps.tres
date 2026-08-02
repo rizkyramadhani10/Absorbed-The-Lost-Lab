@@ -8,13 +8,13 @@ graph_data = {
 "AUTOCLAVE": {
 "dialogue_node_2": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "AUTOCLAVE_DIALOG_2",
 "node_index": 2,
 "node_type": "dialogue_node",
 "offset": Vector2(700, 540),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -31,13 +31,13 @@ graph_data = {
 "BURETTECABINET": {
 "dialogue_node_3": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "BURETTECABINET_DIALOG_3",
 "node_index": 3,
 "node_type": "dialogue_node",
 "offset": Vector2(1400, 980),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -54,13 +54,13 @@ graph_data = {
 "CABINET": {
 "dialogue_node_4": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "CABINET_DIALOG_4",
 "node_index": 4,
 "node_type": "dialogue_node",
 "offset": Vector2(720, 1020),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -77,13 +77,13 @@ graph_data = {
 "INCUBATOR": {
 "dialogue_node_1": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "INCUBATOR_DIALOG_1",
 "node_index": 1,
 "node_type": "dialogue_node",
 "offset": Vector2(1400, 460),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -100,13 +100,13 @@ graph_data = {
 "MICROSCOPE": {
 "dialogue_node_6": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "MICROSCOPE_DIALOG_6",
 "node_index": 6,
 "node_type": "dialogue_node",
 "offset": Vector2(720, 1480),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -123,13 +123,13 @@ graph_data = {
 "PHMETER": {
 "dialogue_node_10": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "PHMETER_DIALOG_10",
 "node_index": 10,
 "node_type": "dialogue_node",
 "offset": Vector2(2840, 600),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -146,13 +146,13 @@ graph_data = {
 "REFRIGERATOR": {
 "dialogue_node_5": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "REFRIGERATOR_DIALOG_5",
 "node_index": 5,
 "node_type": "dialogue_node",
 "offset": Vector2(1380, 1560),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -169,13 +169,13 @@ graph_data = {
 "SONICATOR": {
 "dialogue_node_7": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "SONICATOR_DIALOG_7",
 "node_index": 7,
 "node_type": "dialogue_node",
 "offset": Vector2(2200, 480),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -192,13 +192,13 @@ graph_data = {
 "SPECTROPHOTOMETER": {
 "dialogue_node_8": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "SPECTROPHOTOMETER_DIALOG_8",
 "node_index": 8,
 "node_type": "dialogue_node",
 "offset": Vector2(2220, 1000),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -215,13 +215,13 @@ graph_data = {
 "THERMOSCIENTIFIC": {
 "dialogue_node_9": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "THERMOSCIENTIFIC_DIALOG_9",
 "node_index": 9,
 "node_type": "dialogue_node",
 "offset": Vector2(2220, 1560),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -302,33 +302,33 @@ Alat ini dirancang untuk [b]menjaga dan menginkubasi kultur sel mikrobiologi[/b]
 }
 characters = {
 "AUTOCLAVE": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "BURETTECABINET": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "CABINET": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "INCUBATOR": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "MICROSCOPE": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "PHMETER": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "REFRIGERATOR": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "SONICATOR": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "SPECTROPHOTOMETER": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "THERMOSCIENTIFIC": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 }
 }

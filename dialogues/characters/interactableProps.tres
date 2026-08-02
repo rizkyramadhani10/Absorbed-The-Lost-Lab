@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SproutyDialogsCharacterData" format=3 uid="uid://dsnyrf1r4137d"]
+
+[ext_resource type="Script" uid="uid://kwoapf8il7ee" path="res://addons/sprouty_dialogs/resources/character_data.gd" id="1_0gvpi"]
+
+[resource]
+script = ExtResource("1_0gvpi")
+key_name = "interactableProps"
+display_name = {
+"default": "AI SYSTEM",
+"en": ""
+}
+dialog_box_uid = 7810625456320317271
+dialog_box_path = "res://dialogues/dialogueBoxes/props_box.tscn"

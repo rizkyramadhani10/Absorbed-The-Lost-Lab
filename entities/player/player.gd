@@ -144,14 +144,15 @@ func _update_shadow() -> void:
 		$shadow.visible = false
 
 func kembalikan_posisi_setelah_minigame() -> void:
+	if Global.spawn_point != "":
+		return 
+
 	if Global.player_last_position != Vector2.ZERO:
 		global_position = Global.player_last_position
 		
-		# 🔥 PULIHKAN ARAH HADAP
 		animated_sprite.flip_h = Global.player_last_flip
 		
 		print("PLAYER SCRIPT: Posisi & Arah hadap dipulihkan.")
 		
-		# Reset data agar tidak nyangkut
 		Global.player_last_position = Vector2.ZERO
 		Global.player_last_flip = false

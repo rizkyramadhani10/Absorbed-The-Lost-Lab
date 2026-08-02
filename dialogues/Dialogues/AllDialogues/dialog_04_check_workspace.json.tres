@@ -4,3 +4,44 @@
 
 [resource]
 script = ExtResource("1_300fg")
+graph_data = {
+"1": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "xeno",
+"dialog_key": "1_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(360, 60),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(108, 164),
+"size": Vector2(190, 75),
+"start_id": "1",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"1_DIALOG_1": {
+"default": "Sial, tidak ada respons sama sekali... Bahkan sinyal darurat pun mati total
+Aku sudah mencoba menghubungi tetapi tidak berhasil
+Tunggu... Ada yang aneh..
+Mengapa tanggal pada komputerku menjadi aneh??
+Perasaanku makin tidak enak... Jangan-jangan kecerobohanku tadi malam membuat sistem penanggalan mengalami kerusakan fatal?
+Aku harus [b]memeriksa mesin waktu[/b]",
+"en": ""
+}
+}
+characters = {
+"1": {
+"xeno": 3754623732894806370
+}
+}

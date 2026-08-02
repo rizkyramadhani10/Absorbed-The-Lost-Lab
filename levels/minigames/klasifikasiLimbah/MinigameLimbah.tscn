@@ -27,6 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vhuwl")
+advance_story_to = 4
 
 [node name="GameBoard" type="Control" parent="." unique_id=1421144409]
 custom_minimum_size = Vector2(1080, 720)

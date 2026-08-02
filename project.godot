@@ -29,6 +29,7 @@ window/size/viewport_width=1080
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
@@ -106,7 +107,7 @@ translation/characters/character_names_csv=-1
 translation/localization/default_locale="en"
 translation/localization/locales=["en"]
 internal/variables={}
-internal/play_dialog_path="res://dialogues/Dialogues/thirdLab/locked_door_shower.tres"
+internal/play_dialog_path="res://dialogues/Dialogues/AllDialogues/dialog_06_found_battery.json.tres"
 internal/play_start_id="1"
 internal/last_opened_files=[{
 "path": "res://dialogues/characters/xeno.tres",
@@ -128,7 +129,7 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/secondLab/interactableProps.tres",
 "uid": 4741857494097749598,
 "view_state": {
-"scroll_offset": Vector2(186.5167, 32.3871),
+"scroll_offset": Vector2(-1.6512451, -109.41983),
 "zoom": 0.23256795
 }
 }, {
@@ -151,78 +152,78 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/thirdLab/InteractableProps(ThirdLab).tres",
 "uid": 2631246164867404817,
 "view_state": {
-"scroll_offset": Vector2(76.54532, 383.60126),
-"zoom": 0.75131446
+"scroll_offset": Vector2(54.53842, 188.63849),
+"zoom": 0.5644736
 }
 }, {
 "path": "res://dialogues/Dialogues/ChapterOne/ChapterOne.tres",
 "uid": 4251736631831781970,
 "view_state": {
-"scroll_offset": Vector2(-658.3607, -278.13385),
+"scroll_offset": Vector2(-173, -165),
 "zoom": 0.34050277
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres",
 "uid": 7840125102653571137,
 "view_state": {
-"scroll_offset": Vector2(-55.506653, -55.200806),
-"zoom": 0.46650717
+"scroll_offset": Vector2(-86.66727, -165),
+"zoom": 0.35049367
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_02_post_shower.json.tres",
 "uid": 2515222202568617062,
 "view_state": {
-"scroll_offset": Vector2(0, -37),
-"zoom": 1.0
+"scroll_offset": Vector2(207.8931, -3.054657),
+"zoom": 0.68301314
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_03_enter_lab1.json.tres",
 "uid": 550351830991665520,
 "view_state": {
-"scroll_offset": Vector2(0, -37),
-"zoom": 1.0
+"scroll_offset": Vector2(23.482132, -198.9278),
+"zoom": 0.42409736
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_04_check_workspace.json.tres",
 "uid": 6936771039459798962,
 "view_state": {
-"scroll_offset": Vector2(0, -37),
-"zoom": 1.0
+"scroll_offset": Vector2(-115.07178, -124.52548),
+"zoom": 0.6830134
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_05_check_time_machine.json.tres",
 "uid": 1127277506218443308,
 "view_state": {
-"scroll_offset": Vector2(0, -37),
-"zoom": 1.0
+"scroll_offset": Vector2(-149.11633, -158.22224),
+"zoom": 0.4240975
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_06_found_battery.json.tres",
 "uid": 2956946891499119232,
 "view_state": {
-"scroll_offset": Vector2(0, -37),
-"zoom": 1.0
+"scroll_offset": Vector2(93.11328, -182.15065),
+"zoom": 0.4665071
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_07_outside.json.tres",
 "uid": 7387262311756266927,
 "view_state": {
-"scroll_offset": Vector2(0, -37),
-"zoom": 1.0
+"scroll_offset": Vector2(-107.69226, -165),
+"zoom": 0.23939194
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_08_near_crater.json.tres",
 "uid": 2062181945624679849,
 "view_state": {
-"scroll_offset": Vector2(0, -37),
-"zoom": 1.0
+"scroll_offset": Vector2(620.3166, -25.940643),
+"zoom": 0.9999997
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_09_got_resource.json.tres",
 "uid": 7500442434336460750,
 "view_state": {
-"scroll_offset": Vector2(0, -37),
-"zoom": 1.0
+"scroll_offset": Vector2(-879, -154.70001),
+"zoom": 0.3186307
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_10_back_in_lab.json.tres",
@@ -235,8 +236,161 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/thirdLab/locked_door_shower.tres",
 "uid": 5333900446407955801,
 "view_state": {
-"scroll_offset": Vector2(91.2782, -12.3741),
+"scroll_offset": Vector2(-114.18919, -25.482346),
+"zoom": 0.5644736
+}
+}, {
+"path": "res://dialogues/Dialogues/thirdLab/hesitant_xeno_shower.tres",
+"uid": 9172266365886187834,
+"view_state": {
+"scroll_offset": Vector2(-87.605545, -140.6555),
+"zoom": 0.23256795
+}
+}, {
+"path": "res://dialogues/Dialogues/secondLab/waste_safety_barrier.tres",
+"uid": 4213658193425713154,
+"view_state": {
+"scroll_offset": Vector2(346.83362, 229.73596),
+"zoom": 0.6830132
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_04b_need_check_workspace.tres",
+"uid": 1863652676040944997,
+"view_state": {
+"scroll_offset": Vector2(-18.121628, -8.91507),
+"zoom": 0.75131476
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_04c_computer_time.tres",
+"uid": 2161695140190488347,
+"view_state": {
+"scroll_offset": Vector2(31.427887, -12.330566),
+"zoom": 0.9090909
+}
+}, {
+"path": "res://dialogues/characters/interactableProps.tres",
+"uid": 8450986017283318387,
+"view_state": {
+"portrait_search": "",
+"portrait_tree_state": {
+"selected_path": "",
+"tree_items": {}
+},
+"section_visibility": {
+"dialog_box_settings": true,
+"portrait_list": true,
+"portrait_settings": true
+},
+"selected_portrait_path": ""
+}
+}, {
+"path": "res://dialogues/Dialogues/workspace/need_check_monitor.tres",
+"uid": 4711402519736265290,
+"view_state": {
+"scroll_offset": Vector2(4.517395, -112.40808),
+"zoom": 0.9090909
+}
+}, {
+"path": "res://dialogues/Dialogues/workspace/need_wear_apd.tres",
+"uid": 8011047341601169572,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_05a_time_machine.tres",
+"uid": 3446404211250941389,
+"view_state": {
+"scroll_offset": Vector2(86.06204, -132.51468),
+"zoom": 0.6209211
+}
+}, {
+"path": "res://dialogues/Dialogues/secondLab/time_machine_safety_barrier.tres",
+"uid": 5504459512030376531,
+"view_state": {
+"scroll_offset": Vector2(-137.9864, -165),
+"zoom": 0.3504938
+}
+}, {
+"path": "res://dialogues/Dialogues/thirdLab/need_check_storage.tres",
+"uid": 819871694255837613,
+"view_state": {
+"scroll_offset": Vector2(-91.952065, -105.65883),
 "zoom": 0.62092125
 }
+}, {
+"path": "res://dialogues/Dialogues/secondLab/locked_door.tres",
+"uid": 4016933186573880916,
+"view_state": {
+"scroll_offset": Vector2(-173, -165),
+"zoom": 0.56447387
+}
+}, {
+"path": "res://dialogues/Dialogues/storage/after_cleaning_storage.tres",
+"uid": 2662643448142650843,
+"view_state": {
+"scroll_offset": Vector2(8.856354, -36.205017),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/storage/need_found_battery.tres",
+"uid": 7574029271361056196,
+"view_state": {
+"scroll_offset": Vector2(-152.9065, -127.917206),
+"zoom": 0.6830134
+}
+}, {
+"path": "res://dialogues/Dialogues/secondLab/need_search_sulphur.tres",
+"uid": 8571341259609816103,
+"view_state": {
+"scroll_offset": Vector2(287.2793, 8.503174),
+"zoom": 0.6830134
+}
+}, {
+"path": "res://dialogues/Dialogues/meadow/need_reach_crater.tres",
+"uid": 4908904256395381489,
+"view_state": {
+"scroll_offset": Vector2(-19.545837, -68.89566),
+"zoom": 0.9090909
+}
+}, {
+"path": "res://dialogues/Dialogues/volcanic/need_axe.tres",
+"uid": 2931937696488206861,
+"view_state": {
+"scroll_offset": Vector2(-93.85904, -133.77792),
+"zoom": 0.62092125
+}
+}, {
+"path": "res://dialogues/characters/ai_left.tres",
+"uid": 5450933056245122541,
+"view_state": {
+"portrait_search": "",
+"portrait_tree_state": {
+"selected_path": "",
+"tree_items": {}
+},
+"section_visibility": {
+"dialog_box_settings": true,
+"portrait_list": true,
+"portrait_settings": true
+},
+"selected_portrait_path": ""
+}
+}, {
+"path": "res://dialogues/characters/xeno_left.tres",
+"uid": 8635474252727474901,
+"view_state": {
+"portrait_search": "",
+"portrait_tree_state": {
+"selected_path": "",
+"tree_items": {}
+},
+"section_visibility": {
+"dialog_box_settings": true,
+"portrait_list": true,
+"portrait_settings": true
+},
+"selected_portrait_path": ""
+}
 }]
-internal/last_selected_file_index=15
+internal/last_selected_file_index=29
