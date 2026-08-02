@@ -64,6 +64,7 @@ metadata/_edit_lock_ = true
 [node name="autoclave" parent="InteractablesProps" unique_id=918846950 instance=ExtResource("5_g64m1")]
 position = Vector2(795, 74)
 gunakan_dialog = true
+knowledge_key = "autoclave"
 metadata/_edit_lock_ = true
 
 [node name="Anchor" parent="InteractablesProps/autoclave" index="3" unique_id=723000221]
@@ -75,6 +76,7 @@ offset_bottom = 293.0
 [node name="laboratoryRefrigerator" parent="InteractablesProps" unique_id=1406534579 instance=ExtResource("9_0jv7s")]
 position = Vector2(376, 19)
 gunakan_dialog = true
+knowledge_key = "laboratory_refrigerator"
 metadata/_edit_lock_ = true
 
 [node name="Anchor" parent="InteractablesProps/laboratoryRefrigerator" index="3" unique_id=1076186634]
@@ -89,6 +91,7 @@ _start_id = "REFRIGERATOR"
 [node name="incubator" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("4_oiucg")]
 position = Vector2(574, 107)
 gunakan_dialog = true
+knowledge_key = "incubator"
 metadata/_edit_lock_ = true
 
 [node name="Anchor" parent="InteractablesProps/incubator" index="3" unique_id=1722120568]
@@ -100,6 +103,7 @@ offset_bottom = 311.0
 [node name="buretteCabinet" parent="InteractablesProps" unique_id=1177742635 instance=ExtResource("6_f02wl")]
 position = Vector2(146, 83)
 gunakan_dialog = true
+knowledge_key = "burette_cabinet"
 metadata/_edit_lock_ = true
 
 [node name="Anchor" parent="InteractablesProps/buretteCabinet" index="3" unique_id=1395065169]
@@ -111,6 +115,7 @@ offset_bottom = 278.0
 [node name="microscope" parent="InteractablesProps" unique_id=946652581 instance=ExtResource("10_gm554")]
 position = Vector2(-746, -46)
 gunakan_dialog = true
+knowledge_key = "microscope"
 metadata/_edit_lock_ = true
 
 [node name="Anchor" parent="InteractablesProps/microscope" index="3" unique_id=583106745]
@@ -122,6 +127,7 @@ offset_bottom = 380.0
 [node name="pHMeter" parent="InteractablesProps" unique_id=179970093 instance=ExtResource("11_o4l4k")]
 position = Vector2(-895, -24)
 gunakan_dialog = true
+knowledge_key = "ph_meter"
 metadata/_edit_lock_ = true
 
 [node name="Anchor" parent="InteractablesProps/pHMeter" index="3" unique_id=1649139814]
@@ -131,6 +137,7 @@ offset_right = 471.0
 [node name="sonicator" parent="InteractablesProps" unique_id=17263967 instance=ExtResource("13_7glu2")]
 position = Vector2(-617, -41)
 gunakan_dialog = true
+knowledge_key = "sonicator"
 metadata/_edit_lock_ = true
 
 [node name="Anchor" parent="InteractablesProps/sonicator" index="3" unique_id=2028635485]
@@ -140,6 +147,7 @@ offset_right = 462.0
 [node name="spectrophotometer" parent="InteractablesProps" unique_id=487762066 instance=ExtResource("14_uroih")]
 position = Vector2(-375, -37)
 gunakan_dialog = true
+knowledge_key = "spectrophotometer"
 metadata/_edit_lock_ = true
 
 [node name="Anchor" parent="InteractablesProps/spectrophotometer" index="3" unique_id=1346340590]
@@ -151,6 +159,7 @@ offset_bottom = 377.0
 [node name="thermoScientific" parent="InteractablesProps" unique_id=341283593 instance=ExtResource("15_b0aiw")]
 position = Vector2(-509, -57)
 gunakan_dialog = true
+knowledge_key = "thermo_scientific"
 metadata/_edit_lock_ = true
 
 [node name="Anchor" parent="InteractablesProps/thermoScientific" index="3" unique_id=1284218677]

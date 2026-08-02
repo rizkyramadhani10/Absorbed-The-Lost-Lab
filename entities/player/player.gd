@@ -11,9 +11,6 @@ var has_apd: bool = false
 var is_interacting: bool = false
 var pending_apd_suit: bool = false 
 
-# --- Status Hold Interaksi ---
-var is_holding_interact: bool = false
-
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var base_shadow_scale = $shadow.scale
 @onready var walk_sfx = $WalkSFX 
@@ -21,18 +18,6 @@ var is_holding_interact: bool = false
 func _ready():
 	add_to_group("player")
 	animated_sprite.animation_finished.connect(_on_animation_finished)
-	
-	# Hubungkan signal dari TouchControl
-	var touch_control = get_tree().get_first_node_in_group("touch_control")
-	if touch_control:
-		if touch_control.has_signal("interact_pressed"):
-			touch_control.interact_pressed.connect(_on_interact_pressed)
-			print("Player: Terhubung ke signal interact_pressed")
-		if touch_control.has_signal("interact_released"):
-			touch_control.interact_released.connect(_on_interact_released)
-			print("Player: Terhubung ke signal interact_released")
-	else:
-		print("Player: TouchControl tidak ditemukan! Menggunakan input keyboard saja.")
 	
 	# 🔥 FIX 1: Sinkronisasi status APD saat scene dimuat ulang
 	has_apd = Global.has_apd
@@ -43,13 +28,6 @@ func _ready():
 	call_deferred("kembalikan_posisi_setelah_minigame")
 
 func _physics_process(delta: float) -> void:
-	# CEK: Jika tablet terbuka, hentikan semua gerakan
-	if Global.is_tablet_open:
-		velocity.x = 0
-		move_and_slide()
-		_update_shadow()
-		return
-	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -99,45 +77,7 @@ func _physics_process(delta: float) -> void:
 	_update_shadow() 
 
 func _handle_interaction_input():
-	# CEK: Jika tablet terbuka, jangan proses interaksi
-	if Global.is_tablet_open:
-		return
-	
-	# Deteksi tombol interaksi ditekan (Keyboard)
-	if Input.is_action_just_pressed("interact"):
-		_on_interact_pressed()
-	
-	# Deteksi tombol interaksi dilepas (Keyboard)
-	if Input.is_action_just_released("interact"):
-		_on_interact_released()
-
-# --- FUNGSI INTERAKSI DARI TOUCH CONTROL ---
-func _on_interact_pressed():
-	# Proses interaksi dari touch control atau keyboard
-	if Global.is_tablet_open:
-		return
-	
-	if nearby_interactable != null:
-		# Cek apakah objek mendukung hold interaksi
-		if nearby_interactable.has_method("interact"):
-			nearby_interactable.interact()
-			is_holding_interact = true
-			
-			# Jika objek tidak memiliki metode interact_release, lakukan interaksi biasa
-			if not nearby_interactable.has_method("interact_release"):
-				_do_normal_interaction()
-				is_holding_interact = false
-
-func _on_interact_released():
-	# Proses release interaksi dari touch control atau keyboard
-	if is_holding_interact and nearby_interactable != null:
-		if nearby_interactable.has_method("interact_release"):
-			nearby_interactable.interact_release()
-	is_holding_interact = false
-
-func _do_normal_interaction():
-	# Fungsi untuk interaksi biasa (seperti mengambil kayu, tali, batu)
-	if nearby_interactable != null and not is_interacting:
+	if Input.is_action_just_pressed("interact") and nearby_interactable != null:
 		# 🔥 SIMPAN POSISI & ARAH HADAP SEBELUM INTERAKSI
 		Global.player_last_position = self.global_position
 		Global.player_last_flip = animated_sprite.flip_h
@@ -150,9 +90,7 @@ func _do_normal_interaction():
 		else:
 			animated_sprite.play("interact")
 			
-		# Panggil interact lagi untuk objek yang tidak support hold
-		if nearby_interactable.has_method("interact") and not nearby_interactable.has_method("interact_release"):
-			nearby_interactable.interact()
+		nearby_interactable.interact()
 
 func wear_apd_suit():
 	pending_apd_suit = true
