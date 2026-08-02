@@ -3,18 +3,27 @@
 [ext_resource type="Script" uid="uid://dypvvqla3235p" path="res://levels/workspace/game.gd" id="1_ciyap"]
 [ext_resource type="Texture2D" uid="uid://bc3ffye4sruv8" path="res://levels/workspace/sprites/environments/bgWallnFloor.png" id="1_jkpac"]
 [ext_resource type="Texture2D" uid="uid://dcdpjftei2r87" path="res://levels/secondLab/sprites/environments/bgLighting.png" id="2_3t3ij"]
+[ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_lhnpb"]
+[ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_3ldvj"]
 [ext_resource type="PackedScene" uid="uid://diqjxd10n5qvi" path="res://entities/interactables/chapterTwo/workspace/doorToSecondLab/DoorToSecondLab.tscn" id="3_3t3ij"]
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="3_v34ly"]
 [ext_resource type="Texture2D" uid="uid://cy6nyd2j0qk2j" path="res://levels/workspace/sprites/environments/AwardFrame.png" id="3_yg24o"]
 [ext_resource type="Texture2D" uid="uid://bbem2kvcn3gn8" path="res://levels/workspace/sprites/environments/Bookshelf.png" id="4_qxsjj"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="4_xqb55"]
 [ext_resource type="Texture2D" uid="uid://cby221p2swfnj" path="res://levels/workspace/sprites/environments/Chair.png" id="5_qxsjj"]
-[ext_resource type="Texture2D" uid="uid://cknjmai37w3uu" path="res://levels/workspace/sprites/environments/Computer.png" id="6_g2d34"]
 [ext_resource type="PackedScene" uid="uid://4wiww5o06n8o" path="res://entities/interactables/chapterTwo/workspace/outfits/outfits.tscn" id="6_v22l4"]
 [ext_resource type="Texture2D" uid="uid://b2ge6dd8uunfk" path="res://levels/workspace/sprites/environments/GlovesnMask.png" id="7_3fy6w"]
 [ext_resource type="Texture2D" uid="uid://d023w0ly7tkco" path="res://levels/workspace/sprites/environments/Hanger.png" id="8_owy4v"]
 [ext_resource type="Texture2D" uid="uid://73an7ajcbqp5" path="res://levels/workspace/sprites/environments/WorkBench.png" id="9_a25p3"]
+[ext_resource type="PackedScene" uid="uid://dk0urf8ncgx0v" path="res://entities/interactables/chapterTwo/workspace/computer/Computer.tscn" id="9_ciyap"]
 [ext_resource type="Texture2D" uid="uid://polbev76jtat" path="res://levels/workspace/sprites/environments/XenoPictureFrame.png" id="10_ciyap"]
+[ext_resource type="Resource" uid="uid://c53huualsqlhy" path="res://dialogues/Dialogues/AllDialogues/dialog_04_check_workspace.json.tres" id="17_3ldvj"]
+
+[sub_resource type="Resource" id="Resource_iy67s"]
+script = ExtResource("3_3ldvj")
+target_stage = 5
+dialog_path = "uid://c53huualsqlhy"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yg24o"]
 distance = -149.0
@@ -24,6 +33,11 @@ size = Vector2(155.5, 849)
 
 [node name="Game" type="Node2D" unique_id=1055206584]
 script = ExtResource("1_ciyap")
+
+[node name="LevelManager" type="Node2D" parent="." unique_id=1298639850 node_paths=PackedStringArray("player")]
+script = ExtResource("2_lhnpb")
+story_dialogs = Array[ExtResource("3_3ldvj")]([SubResource("Resource_iy67s")])
+player = NodePath("../Player")
 
 [node name="MainBackground" type="Sprite2D" parent="." unique_id=1521891340]
 position = Vector2(355.63834, 364)
@@ -73,13 +87,6 @@ texture = ExtResource("9_a25p3")
 region_enabled = true
 region_rect = Rect2(472, 432, 552, 304)
 
-[node name="Computer" type="Sprite2D" parent="Props" unique_id=762610062]
-position = Vector2(360, 433.00003)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("6_g2d34")
-region_enabled = true
-region_rect = Rect2(288, 352, 176, 128)
-
 [node name="GlovesnMask" type="Sprite2D" parent="Props" unique_id=2027510839]
 position = Vector2(214, 475)
 scale = Vector2(0.9, 0.9)
@@ -97,18 +104,39 @@ region_rect = Rect2(280, 152, 192, 128)
 [node name="InteractablesProps" type="Node2D" parent="." unique_id=1410943721]
 metadata/_edit_lock_ = true
 
-[node name="DoorToSecondLab" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("3_3t3ij")]
+[node name="Computer" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("9_ciyap")]
+position = Vector2(-220.00002, 100)
+scale = Vector2(0.77, 0.77)
+advance_story_to = 5
+gunakan_dialog = true
+
+[node name="DoorToSecondLab" parent="InteractablesProps" unique_id=1644365263 instance=ExtResource("3_3t3ij")]
 position = Vector2(-1035, 0)
 target_scene_path = "uid://7yag4ajp7ggw"
 target_spawn = "SpawnFromWorkspace"
+locked_dialog_path = "uid://dmeu1q4d7j0cu"
 metadata/_edit_lock_ = true
 
 [node name="Outfits" parent="InteractablesProps" unique_id=1092045416 instance=ExtResource("6_v22l4")]
 position = Vector2(-721, -40)
+locked_dialog_path = "uid://b8eid1q4e2bti"
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("3_v34ly")]
 position = Vector2(-80, 722)
 metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="Player" index="1" unique_id=643738085]
+visible = true
+
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_dialog_box_parent")]
+_dialog_data_uid = 6936771039459798962
+_dialog_file_name = "dialog_04_check_workspace.json"
+_dialog_data = ExtResource("17_3ldvj")
+_start_id = "1"
+_play_on_ready = false
+_destroy_on_end = false
+_print_debug = false
+xeno_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1934978669]
 position = Vector2(112, -357)
@@ -150,4 +178,6 @@ position = Vector2(905, 329)
 shape = SubResource("RectangleShape2D_qxsjj")
 
 [node name="SpawnFromSecondLab" type="Marker2D" parent="." unique_id=1945633804]
-position = Vector2(-232, 674)
+position = Vector2(-236, 701)
+
+[editable path="Player"]

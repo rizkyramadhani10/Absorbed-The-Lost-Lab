@@ -1,14 +1,22 @@
 extends Area2D
 
 @export_file("*.tscn") var target_scene_path: String = ""
-# 🔥 TAMBAHAN: Variabel buat nentuin saklar di Global mana yang dicek
 @export var completion_flag: String = "is_heating_completed" 
-
+@export var advance_story_to: GameState.StoryStage = GameState.StoryStage.POST_SHOWER
 var player_ref: Node2D = null
 
 func _ready():
-	# 🔥 Cek variabel secara dinamis berdasarkan apa yang lu tulis di Inspector
+	# Cek variabel secara dinamis
 	if Global.get(completion_flag) == true:
+		
+		# 🔥 Tunda 1 frame agar Node lain (seperti LevelManager) selesai _ready()
+		await get_tree().process_frame
+		
+		# 🔥 Majukan progres cerita jika belum mencapai target stage
+		if GameState.current_stage < advance_story_to:
+			GameState.current_stage = advance_story_to
+			print("Progres cerita diperbarui ke: ", GameState.current_stage)
+			
 		if has_node("CollisionShape2D"):
 			$CollisionShape2D.disabled = true
 		show_interact_prompt(false)

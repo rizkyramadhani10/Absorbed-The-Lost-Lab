@@ -28,7 +28,6 @@ region_rect = Rect2(397.41498, 268.39407, 946.01447, 403.9163)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=744906881]
-visible = false
 position = Vector2(586.5, 436.25)
 shape = SubResource("RectangleShape2D_awj5u")
 

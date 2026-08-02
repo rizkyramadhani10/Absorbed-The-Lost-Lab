@@ -5,6 +5,7 @@ var tutorial_scene = preload("res://levels/minigames/klasifikasiLimbah/Tutorial/
 @onready var tumpukan_limbah_node = $GameBoard/HoldingArea_Limbah
 @onready var label_timer = $GameBoard/HUD_Timer
 @onready var wadah_intake = $GameBoard/WadahIntake
+@export var advance_story_to: GameState.StoryStage = GameState.StoryStage.POST_SHOWER
 
 # NODE AUDIO
 @onready var bgm_player = $GameBoard/BGMPlayer
@@ -87,7 +88,19 @@ func pemicu_menang():
 func pindah_ke_scene_tujuan():
 	var tujuan_final = Global.scene_asal_path if Global.scene_asal_path != "" else "res://levels/secondLab/game.tscn"
 	if has_node("/root/TransitionScreen"):
-		TransitionScreen.transition_to_scene(tujuan_final)
+		TransitionScreen.transition_to_scene(tujuan_final)# Cek variabel secara dinamis
+		
+		# 🔥 Tunda 1 frame agar Node lain (seperti LevelManager) selesai _ready()
+		await get_tree().process_frame
+		
+		# 🔥 Majukan progres cerita jika belum mencapai target stage
+		if GameState.current_stage < advance_story_to:
+			GameState.current_stage = advance_story_to
+			print("Progres cerita diperbarui ke: ", GameState.current_stage)
+			
+		if has_node("CollisionShape2D"):
+			$CollisionShape2D.disabled = true
+		return 
 	else:
 		get_tree().change_scene_to_file(tujuan_final)
 

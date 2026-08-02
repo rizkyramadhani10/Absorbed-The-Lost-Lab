@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dljufsmrudfbq"]
 
 [ext_resource type="Script" uid="uid://b7buruhau3arx" path="res://levels/thirdLab(TimeMachine)/game.gd" id="1_neng1"]
+[ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_3s7m7"]
 [ext_resource type="Texture2D" uid="uid://c7510230rp4i2" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgWallnFloor.png" id="2_hdadk"]
 [ext_resource type="Texture2D" uid="uid://bjpwerel1jvfa" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgLighting.png" id="3_hdadk"]
 [ext_resource type="Texture2D" uid="uid://cob1frcs33wb0" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/LabBench.png" id="3_i8mc3"]
+[ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_nq5ue"]
 [ext_resource type="Texture2D" uid="uid://c874nbl3ka0o2" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/TimeMachine.png" id="5_hdadk"]
 [ext_resource type="Texture2D" uid="uid://dc8xao51u4nfi" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
 [ext_resource type="Texture2D" uid="uid://bx2vcloeiy16k" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
@@ -11,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://7w36ecxxxocl" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
 [ext_resource type="Texture2D" uid="uid://b15uvydb6ayqx" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://q3uvh2bli0ur" path="res://entities/interactables/chapterTwo/thirdLab/BuretteClamp/BuretteClamp.tscn" id="8_neng1"]
+[ext_resource type="PackedScene" uid="uid://c1womygdw84lw" path="res://core/components/StoryBarrier.tscn" id="9_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://773gtuxtmlly" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://c323g67d1tibd" path="res://entities/interactables/chapterTwo/thirdLab/DoorToStorage/DoorToStorage.tscn" id="10_afeaw"]
 [ext_resource type="PackedScene" uid="uid://c5e7xhhlax6v1" path="res://entities/interactables/chapterTwo/thirdLab/FumeHood/FumeHood.tscn" id="11_yac7y"]
@@ -21,9 +24,14 @@
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="16_e4qak"]
 [ext_resource type="PackedScene" uid="uid://bi18r0egwryqf" path="res://entities/interactables/chapterTwo/thirdLab/TimeMachineSpiralPortal/TimeMachineSpiralPortal.tscn" id="16_lau1m"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="17_v0inv"]
-[ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="21_yac7y"]
 [ext_resource type="Resource" uid="uid://djx2ykry8l2i4" path="res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres" id="22_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://iqs142ppcto1" path="res://systems/ui/hud/Blinkeffect.tscn" id="22_rk8vc"]
+
+[sub_resource type="Resource" id="Resource_bok5e"]
+script = ExtResource("3_nq5ue")
+target_stage = 1
+dialog_path = "uid://bb3nlvt0frq8m"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -149.0
@@ -31,9 +39,18 @@ distance = -149.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neng1"]
 size = Vector2(104, 849)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq5ue"]
+size = Vector2(223.5, 453.5)
+
 [node name="Game" type="Node2D" unique_id=248848940]
 script = ExtResource("1_neng1")
+time_machine_dialog_path = "uid://ckonv5n4vkbrn"
 metadata/_edit_vertical_guides_ = [2184.0, -1203.0]
+
+[node name="LevelManager" type="Node2D" parent="." unique_id=862573954 node_paths=PackedStringArray("player")]
+script = ExtResource("2_3s7m7")
+story_dialogs = Array[ExtResource("3_nq5ue")]([SubResource("Resource_bok5e")])
+player = NodePath("../Player")
 
 [node name="MainBackground" type="Sprite2D" parent="." unique_id=227776439]
 position = Vector2(490.5, 331.5)
@@ -91,20 +108,31 @@ position = Vector2(79, -32)
 gunakan_dialog = true
 metadata/_edit_lock_ = true
 
+[node name="DialogPlayer" parent="InteractablesProps/AnalyticalBalance" index="4" unique_id=1197528004 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
+
 [node name="AquadesDispenser" parent="InteractablesProps" unique_id=1382667527 instance=ExtResource("7_i6bjx")]
 position = Vector2(-81, -55)
 gunakan_dialog = true
 metadata/_edit_lock_ = true
+
+[node name="DialogPlayer" parent="InteractablesProps/AquadesDispenser" index="4" unique_id=866380398 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="BuretteClamp" parent="InteractablesProps" unique_id=918866829 instance=ExtResource("8_neng1")]
 position = Vector2(167, -69)
 gunakan_dialog = true
 metadata/_edit_lock_ = true
 
+[node name="DialogPlayer" parent="InteractablesProps/BuretteClamp" index="4" unique_id=408328416 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
+
 [node name="DoorToLab1" parent="InteractablesProps" unique_id=1277454971 instance=ExtResource("9_rk8vc")]
 position = Vector2(-1490, -73)
 target_scene_path = "uid://7yag4ajp7ggw"
 target_spawn = "SpawnFromThirdLab"
+locked_dialog_path = "uid://ch81tct5k1a8h"
+change_stage_on_enter = true
 metadata/_edit_lock_ = true
 
 [node name="DoorToStorage" parent="InteractablesProps" unique_id=2113043938 instance=ExtResource("10_afeaw")]
@@ -116,10 +144,15 @@ position = Vector2(-894, -39)
 gunakan_dialog = true
 metadata/_edit_lock_ = true
 
+[node name="DialogPlayer" parent="InteractablesProps/FumeHood" index="4" unique_id=1946377352 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
+
 [node name="ExitDoor" parent="InteractablesProps" unique_id=537372239 instance=ExtResource("12_3s7m7")]
 position = Vector2(-1877, 34)
 target_scene_path = "uid://ckshctjouv0i0"
 target_spawn = "SpawnFromThirdLab"
+required_stage = 8
+locked_dialog_path = "uid://ch81tct5k1a8h"
 metadata/_edit_lock_ = true
 
 [node name="SafetyShower" parent="InteractablesProps" unique_id=1304059719 instance=ExtResource("13_nq5ue")]
@@ -137,10 +170,22 @@ position = Vector2(1168, 109)
 metadata/_edit_lock_ = true
 
 [node name="TimeMachineSpiralPortal" parent="InteractablesProps" unique_id=1805250088 instance=ExtResource("16_lau1m")]
+visible = false
 position = Vector2(737, 0)
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("16_e4qak")]
 position = Vector2(-768, 751)
+
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_dialog_box_parent", "ai_dialog_box_parent")]
+_dialog_data_uid = 7840125102653571137
+_dialog_file_name = "dialog_01_awake.json"
+_dialog_data = ExtResource("22_3s7m7")
+_start_id = "1"
+_play_on_ready = false
+_destroy_on_end = false
+_print_debug = false
+xeno_dialog_box_parent = NodePath("../DialogueAnchor")
+ai_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
 position = Vector2(112, -355)
@@ -148,18 +193,21 @@ limit_left = -1203
 limit_right = 2184
 position_smoothing_enabled = true
 
-[node name="DialogPlayer" type="Node" parent="Player" unique_id=1007143776 node_paths=PackedStringArray("ai_dialog_box_parent", "xeno_dialog_box_parent")]
-script = ExtResource("21_yac7y")
-_dialog_data_uid = 7840125102653571137
-_dialog_file_name = "dialog_01_awake.json"
-_dialog_data = ExtResource("22_3s7m7")
-_start_id = "1"
-_play_on_ready = false
-_destroy_on_end = true
-_print_debug = false
-ai_dialog_box_parent = NodePath("../DialogueAnchor")
-xeno_dialog_box_parent = NodePath("../DialogueAnchor")
-metadata/_custom_type_script = "uid://1mxdpoyob13n"
+[node name="StoryBarrier" parent="." unique_id=611538291 instance=ExtResource("9_3s7m7")]
+position = Vector2(-772, -8)
+appear_stage = 0
+required_stage = 1
+locked_dialog_path = "uid://d3xd5flei3vju"
+
+[node name="StoryBarrier2" parent="." unique_id=1441360921 instance=ExtResource("9_3s7m7")]
+position = Vector2(304, -4)
+locked_dialog_path = "uid://lxffxcsmfpcf"
+
+[node name="StoryBarrier3" parent="." unique_id=346288246 instance=ExtResource("9_3s7m7")]
+position = Vector2(-770, -8)
+appear_stage = 1
+required_stage = 4
+locked_dialog_path = "uid://b8eid1q4e2bti"
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
 position = Vector2(711, 499)
@@ -200,6 +248,13 @@ position = Vector2(-768, 722)
 
 [node name="SpawnFromMeadow" type="Marker2D" parent="." unique_id=805331628]
 position = Vector2(-990, 718)
+
+[node name="TrigTimeMachine" type="Area2D" parent="." unique_id=1016194789]
+position = Vector2(-81, -55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrigTimeMachine" unique_id=822769109]
+position = Vector2(1484, 532)
+shape = SubResource("RectangleShape2D_nq5ue")
 
 [node name="BlinkBlurEffect" parent="." unique_id=1240607883 instance=ExtResource("22_rk8vc")]
 
