@@ -22,7 +22,7 @@ graph_data = {
 "node_index": 1,
 "node_type": "start_node",
 "offset": Vector2(268, 168),
-"size": Vector2(190, 97),
+"size": Vector2(190, 75),
 "start_id": "1",
 "to_dialog": "",
 "to_node": ["dialogue_node_1"]
@@ -31,7 +31,7 @@ graph_data = {
 }
 dialogs = {
 "1_DIALOG_1": {
-"default": "Pintu terkunci! Kamu harus sterilkan diri dulu di Safety Shower.",
+"default": "Pintu terkunci! ",
 "en": ""
 }
 }

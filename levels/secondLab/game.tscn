@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://qgbgeit8ung4" path="res://levels/secondLab/game.gd" id="1_f02wl"]
 [ext_resource type="Texture2D" uid="uid://cweinyi6caifi" path="res://levels/secondLab/sprites/environments/bgWallnFloor.png" id="2_oiucg"]
+[ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_rt68v"]
+[ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_38yin"]
 [ext_resource type="Texture2D" uid="uid://dcdpjftei2r87" path="res://levels/secondLab/sprites/environments/bgLighting.png" id="3_f02wl"]
 [ext_resource type="PackedScene" uid="uid://dsaqc6fcw75dx" path="res://entities/interactables/chapterTwo/secondLab/labBench/labBench.tscn" id="4_f02wl"]
 [ext_resource type="PackedScene" uid="uid://di5ahk2nstwex" path="res://entities/interactables/chapterTwo/secondLab/IncubatorInteractables/incubator.tscn" id="4_oiucg"]
@@ -18,6 +20,20 @@
 [ext_resource type="PackedScene" uid="uid://dec7t22klq34a" path="res://entities/interactables/chapterTwo/secondLab/spectrophotometerInteractables/spectrophotometer.tscn" id="14_uroih"]
 [ext_resource type="PackedScene" uid="uid://bm6jd88mykli4" path="res://entities/interactables/chapterTwo/secondLab/thermoScientificInteractables/thermoScientific.tscn" id="15_b0aiw"]
 [ext_resource type="PackedScene" uid="uid://vw0yduhnd3cx" path="res://entities/interactables/chapterTwo/secondLab/DoorToLab2/DoorToLab2.tscn" id="17_f02wl"]
+[ext_resource type="Resource" uid="uid://h3uhjw3xijtw" path="res://dialogues/Dialogues/AllDialogues/dialog_03_enter_lab1.json.tres" id="20_38yin"]
+[ext_resource type="PackedScene" uid="uid://c1womygdw84lw" path="res://core/components/StoryBarrier.tscn" id="21_0jv7s"]
+
+[sub_resource type="Resource" id="Resource_rt68v"]
+script = ExtResource("3_38yin")
+target_stage = 2
+dialog_path = "uid://h3uhjw3xijtw"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
+
+[sub_resource type="Resource" id="Resource_0jv7s"]
+script = ExtResource("3_38yin")
+target_stage = 4
+dialog_path = "uid://1s1c755sviuv"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -149.0
@@ -25,9 +41,18 @@ distance = -149.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g64m1"]
 size = Vector2(141, 849)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jv7s"]
+size = Vector2(136, 237)
+
 [node name="Game" type="Node2D" unique_id=248848940]
 script = ExtResource("1_f02wl")
+filler_dialog_path = "uid://bpdp1ks0mgk50"
 metadata/_edit_vertical_guides_ = [1761.0, -780.0]
+
+[node name="LevelManager" type="Node2D" parent="." unique_id=1012787743 node_paths=PackedStringArray("player")]
+script = ExtResource("2_rt68v")
+story_dialogs = Array[ExtResource("3_38yin")]([SubResource("Resource_rt68v"), SubResource("Resource_0jv7s")])
+player = NodePath("../Player")
 
 [node name="MainBackground" type="Sprite2D" parent="." unique_id=227776439]
 position = Vector2(490.5, 331.5)
@@ -73,6 +98,9 @@ offset_top = 293.0
 offset_right = 447.0
 offset_bottom = 293.0
 
+[node name="DialogPlayer" parent="InteractablesProps/autoclave" index="4" unique_id=570422288 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
+
 [node name="laboratoryRefrigerator" parent="InteractablesProps" unique_id=1406534579 instance=ExtResource("9_0jv7s")]
 position = Vector2(376, 19)
 gunakan_dialog = true
@@ -85,8 +113,9 @@ offset_top = 234.0
 offset_right = 452.0
 offset_bottom = 234.0
 
-[node name="DialogPlayer" parent="InteractablesProps/laboratoryRefrigerator" index="4" unique_id=458707973]
+[node name="DialogPlayer" parent="InteractablesProps/laboratoryRefrigerator" index="4" unique_id=458707973 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
 _start_id = "REFRIGERATOR"
+interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="incubator" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("4_oiucg")]
 position = Vector2(574, 107)
@@ -100,6 +129,9 @@ offset_top = 311.0
 offset_right = 452.0
 offset_bottom = 311.0
 
+[node name="DialogPlayer" parent="InteractablesProps/incubator" index="4" unique_id=1772945373 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
+
 [node name="buretteCabinet" parent="InteractablesProps" unique_id=1177742635 instance=ExtResource("6_f02wl")]
 position = Vector2(146, 83)
 gunakan_dialog = true
@@ -111,6 +143,9 @@ offset_left = 460.0
 offset_top = 278.0
 offset_right = 460.0
 offset_bottom = 278.0
+
+[node name="DialogPlayer" parent="InteractablesProps/buretteCabinet" index="4" unique_id=645294559 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="microscope" parent="InteractablesProps" unique_id=946652581 instance=ExtResource("10_gm554")]
 position = Vector2(-746, -46)
@@ -124,6 +159,9 @@ offset_top = 380.0
 offset_right = 464.0
 offset_bottom = 380.0
 
+[node name="DialogPlayer" parent="InteractablesProps/microscope" index="4" unique_id=839930067 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
+
 [node name="pHMeter" parent="InteractablesProps" unique_id=179970093 instance=ExtResource("11_o4l4k")]
 position = Vector2(-895, -24)
 gunakan_dialog = true
@@ -134,6 +172,9 @@ metadata/_edit_lock_ = true
 offset_left = 471.0
 offset_right = 471.0
 
+[node name="DialogPlayer" parent="InteractablesProps/pHMeter" index="4" unique_id=2018201253 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
+
 [node name="sonicator" parent="InteractablesProps" unique_id=17263967 instance=ExtResource("13_7glu2")]
 position = Vector2(-617, -41)
 gunakan_dialog = true
@@ -143,6 +184,9 @@ metadata/_edit_lock_ = true
 [node name="Anchor" parent="InteractablesProps/sonicator" index="3" unique_id=2028635485]
 offset_left = 462.0
 offset_right = 462.0
+
+[node name="DialogPlayer" parent="InteractablesProps/sonicator" index="4" unique_id=118841387 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="spectrophotometer" parent="InteractablesProps" unique_id=487762066 instance=ExtResource("14_uroih")]
 position = Vector2(-375, -37)
@@ -156,6 +200,9 @@ offset_top = 377.0
 offset_right = 455.0
 offset_bottom = 377.0
 
+[node name="DialogPlayer" parent="InteractablesProps/spectrophotometer" index="4" unique_id=1443024598 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
+
 [node name="thermoScientific" parent="InteractablesProps" unique_id=341283593 instance=ExtResource("15_b0aiw")]
 position = Vector2(-509, -57)
 gunakan_dialog = true
@@ -168,22 +215,51 @@ offset_top = 351.0
 offset_right = 461.0
 offset_bottom = 351.0
 
+[node name="DialogPlayer" parent="InteractablesProps/thermoScientific" index="4" unique_id=339676162 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
+interactableProps_dialog_box_parent = NodePath("../Anchor")
+
 [node name="DoorToLab2" parent="InteractablesProps" unique_id=955163524 instance=ExtResource("17_f02wl")]
 position = Vector2(-1219, 27.999998)
 scale = Vector2(1.1, 1.1)
 target_scene_path = "uid://dljufsmrudfbq"
 target_spawn = "SpawnFromSecondLab"
+required_stage = 5
+locked_dialog_path = "uid://bxh3kj6nbasxo"
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("10_rt68v")]
 position = Vector2(-393, 722)
 metadata/_edit_lock_ = true
 
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("ai_dialog_box_parent", "xeno_dialog_box_parent")]
+_dialog_data_uid = 550351830991665520
+_dialog_file_name = "dialog_03_enter_lab1.json"
+_dialog_data = ExtResource("20_38yin")
+_start_id = "1"
+_play_on_ready = false
+_destroy_on_end = false
+_print_debug = false
+ai_dialog_box_parent = NodePath("../DialogueAnchor")
+xeno_dialog_box_parent = NodePath("../DialogueAnchor")
+
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
 position = Vector2(112, -357)
 limit_left = -780
 limit_right = 1761
 position_smoothing_enabled = true
+
+[node name="StoryBarrier" parent="." unique_id=611538291 instance=ExtResource("21_0jv7s")]
+position = Vector2(206, 0)
+appear_stage = 2
+required_stage = 3
+locked_dialog_path = "uid://b1belnb4o0nu5"
+metadata/_edit_lock_ = true
+
+[node name="StoryBarrier2" parent="." unique_id=1746847541 instance=ExtResource("21_0jv7s")]
+position = Vector2(197, 9)
+appear_stage = 8
+required_stage = 10
+locked_dialog_path = "uid://duea0dopula6r"
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
 position = Vector2(711, 499)
@@ -217,10 +293,16 @@ shape = SubResource("RectangleShape2D_g64m1")
 metadata/_edit_lock_ = true
 
 [node name="SpawnFromWorkspace" type="Marker2D" parent="." unique_id=362906794]
-position = Vector2(1518, 664)
+position = Vector2(1562, 676)
 
 [node name="SpawnFromThirdLab" type="Marker2D" parent="." unique_id=1216571125]
-position = Vector2(-394, 664)
+position = Vector2(-394, 702)
+
+[node name="TrigMiddleLab" type="Area2D" parent="." unique_id=1987214869]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrigMiddleLab" unique_id=1173642634]
+position = Vector2(272, 529)
+shape = SubResource("RectangleShape2D_0jv7s")
 
 [editable path="InteractablesProps/autoclave"]
 [editable path="InteractablesProps/laboratoryRefrigerator"]

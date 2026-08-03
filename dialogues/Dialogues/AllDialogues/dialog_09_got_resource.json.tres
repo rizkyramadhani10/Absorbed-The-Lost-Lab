@@ -4,3 +4,40 @@
 
 [resource]
 script = ExtResource("1_1ou38")
+graph_data = {
+"1": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "xeno",
+"dialog_key": "1_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(73, 88),
+"portrait": "",
+"size": Vector2(250, 439),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(-204, 161),
+"size": Vector2(190, 97),
+"start_id": "1",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+}
+}
+dialogs = {
+"1_DIALOG_1": {
+"default": "Aku sudah mendapat bongkahan sulfur ini!
+Sekarang saatnya membawanya Kembali ke laboratorium.",
+"en": ""
+}
+}
+characters = {
+"1": {
+"xeno": 3754623732894806370
+}
+}

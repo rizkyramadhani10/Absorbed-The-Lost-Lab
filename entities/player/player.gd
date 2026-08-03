@@ -10,6 +10,7 @@ var interacting_object = null
 var has_apd: bool = false
 var is_interacting: bool = false
 var pending_apd_suit: bool = false 
+var is_holding_interact: bool = false # 🔥 Ditambahkan untuk fitur hold interaction dari main branch
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var base_shadow_scale = $shadow.scale
@@ -77,7 +78,49 @@ func _physics_process(delta: float) -> void:
 	_update_shadow() 
 
 func _handle_interaction_input():
-	if Input.is_action_just_pressed("interact") and nearby_interactable != null:
+	# CEK: Jika tablet terbuka, jangan proses interaksi sama sekali
+	if Global.is_tablet_open:
+		return
+	
+	# Deteksi tombol interaksi ditekan (Keyboard/Gamepad)
+	if Input.is_action_just_pressed("interact"):
+		_on_interact_pressed()
+	
+	# Deteksi tombol interaksi dilepas (Keyboard/Gamepad)
+	if Input.is_action_just_released("interact"):
+		_on_interact_released()
+
+# --- FUNGSI INTERAKSI DARI TOUCH CONTROL & KEYBOARD ---
+func _on_interact_pressed():
+	if Global.is_tablet_open:
+		return
+	
+	if nearby_interactable != null:
+		var target = nearby_interactable
+		
+		# Cek apakah objek memiliki fungsi interact()
+		if target.has_method("interact"):
+			var has_release = target.has_method("interact_release")
+			
+			is_holding_interact = true
+			
+			# Panggil animasi interaksi dan eksekusi target.interact()
+			_do_normal_interaction()
+			
+			# Jika objek tidak membutuhkan event "dilepas" (hold), langsung set false
+			if not has_release:
+				is_holding_interact = false
+
+func _on_interact_released():
+	# Proses pelepasan tombol interaksi
+	if is_holding_interact and nearby_interactable != null:
+		if nearby_interactable.has_method("interact_release"):
+			nearby_interactable.interact_release()
+	is_holding_interact = false
+
+func _do_normal_interaction():
+	# Fungsi utama yang menangani animasi dan memicu aksi objek
+	if nearby_interactable != null and not is_interacting:
 		# 🔥 SIMPAN POSISI & ARAH HADAP SEBELUM INTERAKSI
 		Global.player_last_position = self.global_position
 		Global.player_last_flip = animated_sprite.flip_h
@@ -90,6 +133,7 @@ func _handle_interaction_input():
 		else:
 			animated_sprite.play("interact")
 			
+		# Eksekusi aksi objek HANYA SATU KALI di sini
 		nearby_interactable.interact()
 
 func wear_apd_suit():
@@ -144,14 +188,15 @@ func _update_shadow() -> void:
 		$shadow.visible = false
 
 func kembalikan_posisi_setelah_minigame() -> void:
+	if Global.spawn_point != "":
+		return 
+
 	if Global.player_last_position != Vector2.ZERO:
 		global_position = Global.player_last_position
 		
-		# 🔥 PULIHKAN ARAH HADAP
 		animated_sprite.flip_h = Global.player_last_flip
 		
 		print("PLAYER SCRIPT: Posisi & Arah hadap dipulihkan.")
 		
-		# Reset data agar tidak nyangkut
 		Global.player_last_position = Vector2.ZERO
 		Global.player_last_flip = false

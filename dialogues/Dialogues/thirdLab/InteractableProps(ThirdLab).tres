@@ -8,13 +8,13 @@ graph_data = {
 "ANALYTICALBALANCE": {
 "dialogue_node_2": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "ANALYTICALBALANCE_DIALOG_2",
 "node_index": 2,
 "node_type": "dialogue_node",
 "offset": Vector2(640, 400),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -31,13 +31,13 @@ graph_data = {
 "AQUADESDISPENSER": {
 "dialogue_node_4": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "AQUADESDISPENSER_DIALOG_4",
 "node_index": 4,
 "node_type": "dialogue_node",
 "offset": Vector2(340, 1020),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -54,13 +54,13 @@ graph_data = {
 "BURETTECLAMP": {
 "dialogue_node_3": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "BURETTECLAMP_DIALOG_3",
 "node_index": 3,
 "node_type": "dialogue_node",
 "offset": Vector2(360, 540),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -77,13 +77,13 @@ graph_data = {
 "FUMEHOOD": {
 "dialogue_node_1": {
 "char_expand": true,
-"character": "ai",
+"character": "interactableProps",
 "dialog_key": "FUMEHOOD_DIALOG_1",
 "node_index": 1,
 "node_type": "dialogue_node",
 "offset": Vector2(329, 10),
 "portrait": "",
-"size": Vector2(250, 439),
+"size": Vector2(252, 439),
 "to_dialog": "",
 "to_node": ["END"]
 },
@@ -126,15 +126,15 @@ dialogs = {
 }
 characters = {
 "ANALYTICALBALANCE": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "AQUADESDISPENSER": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "BURETTECLAMP": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 },
 "FUMEHOOD": {
-"ai": 689331708095693185
+"interactableProps": 8450986017283318387
 }
 }

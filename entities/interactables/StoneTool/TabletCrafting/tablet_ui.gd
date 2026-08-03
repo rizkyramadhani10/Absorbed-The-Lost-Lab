@@ -360,6 +360,8 @@ func craft_hammer():
 		Global.has_hammer = true
 		Global.materials_collected = true
 		
+		GameState.advance_to(GameState.StoryStage.MADE_AXE)
+		
 		print("Alat penghancur batu berhasil dibuat!")
 		update_ui()
 

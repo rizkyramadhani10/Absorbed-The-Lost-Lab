@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_cd08e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
-size = Vector2(572, 448)
+size = Vector2(361, 448)
 
 [node name="DoorToLab" type="Area2D" unique_id=73848177]
 script = ExtResource("1_j6ljn")
@@ -16,7 +16,7 @@ scale = Vector2(1.099, 1.099)
 texture = ExtResource("2_mw0ri")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1149057135]
-position = Vector2(730, 490)
+position = Vector2(835.5, 490)
 shape = SubResource("RectangleShape2D_g8jgx")
 
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_cd08e")]

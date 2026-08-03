@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://b01qn6ghkpr3k" path="res://entities/player/APD/WALK/walk08.png" id="18_arp52"]
 [ext_resource type="Texture2D" uid="uid://c3svx4ms4hjw7" path="res://assets/images/player/art_atlas.png" id="38_13wue"]
 [ext_resource type="AudioStream" uid="uid://d0hwyc0h1if0o" path="res://assets/audio/sfx/walk.mp3" id="39_wy7bt"]
+[ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="40_geky7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f1ej7"]
 animations = [{
@@ -227,3 +228,8 @@ volume_db = -27.802
 [node name="DialogueAnchor" type="Node2D" parent="." unique_id=262771412]
 z_index = 10
 position = Vector2(54, -437)
+
+[node name="DialogPlayer" type="Node" parent="." unique_id=27243135]
+script = ExtResource("40_geky7")
+_dialog_data = null
+metadata/_custom_type_script = "uid://1mxdpoyob13n"

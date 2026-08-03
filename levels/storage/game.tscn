@@ -2,12 +2,35 @@
 
 [ext_resource type="Script" uid="uid://lyf02b3aka0c" path="res://levels/storage/game.gd" id="1_1ldys"]
 [ext_resource type="Texture2D" uid="uid://b1qfj6ye4sd78" path="res://levels/storage/sprites/bgWallnFloor.png" id="2_1ldys"]
+[ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_23xfd"]
 [ext_resource type="Texture2D" uid="uid://bymlnyi14ja6q" path="res://levels/storage/sprites/LockersnBins.png" id="2_bgs80"]
+[ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_dsg7y"]
 [ext_resource type="PackedScene" uid="uid://eep8vxhs78i1" path="res://entities/interactables/chapterTwo/storage/DoorToLab/DoorToLab.tscn" id="3_yyafp"]
 [ext_resource type="PackedScene" uid="uid://bgynxuvespo6n" path="res://entities/interactables/chapterTwo/storage/ChemicalRack/ChemicalRack.tscn" id="4_02aew"]
 [ext_resource type="PackedScene" uid="uid://dre6nr7ma18wl" path="res://entities/interactables/StoneTool/Rope/rope.tscn" id="6_23xfd"]
+[ext_resource type="PackedScene" uid="uid://hratmcei8msm" path="res://entities/interactables/chapterTwo/storage/battery/Battery.tscn" id="8_ljgld"]
+[ext_resource type="PackedScene" uid="uid://c1womygdw84lw" path="res://core/components/StoryBarrier.tscn" id="10_4p6xe"]
+[ext_resource type="Resource" uid="uid://biemqoxew8ccm" path="res://dialogues/Dialogues/AllDialogues/dialog_06_found_battery.json.tres" id="10_ljgld"]
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="16_e4qak"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="17_v0inv"]
+
+[sub_resource type="Resource" id="Resource_d0bwp"]
+script = ExtResource("3_dsg7y")
+target_stage = 7
+dialog_path = "uid://bd62l37l05y2f"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
+
+[sub_resource type="Resource" id="Resource_ljgld"]
+script = ExtResource("3_dsg7y")
+target_stage = 8
+dialog_path = "uid://biemqoxew8ccm"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
+
+[sub_resource type="Resource" id="Resource_g8nfl"]
+script = ExtResource("3_dsg7y")
+target_stage = 13
+dialog_path = "uid://cgcy070quirov"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ogap6"]
 distance = -624.0
@@ -23,6 +46,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ldys")
+
+[node name="LevelManager" type="Node2D" parent="." unique_id=367621791 node_paths=PackedStringArray("player")]
+script = ExtResource("2_23xfd")
+story_dialogs = Array[ExtResource("3_dsg7y")]([SubResource("Resource_d0bwp"), SubResource("Resource_ljgld"), SubResource("Resource_g8nfl")])
+player = NodePath("../Player")
 
 [node name="MainBackground" type="TextureRect" parent="." unique_id=461995142]
 layout_mode = 1
@@ -69,14 +97,49 @@ target_scene_path = "uid://bn7p3rh24hvf6"
 
 [node name="Rope" parent="InteractablesProps" unique_id=1156903746 instance=ExtResource("6_23xfd")]
 position = Vector2(378, 184)
+required_stage = 12
+advance_story_to = 13
+
+[node name="Battery" parent="InteractablesProps" unique_id=2046877714 instance=ExtResource("8_ljgld")]
+position = Vector2(-1, 208)
+required_stage = 7
+advance_story_to = 8
+completion_flag = "is_battery_found"
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("16_e4qak")]
 position = Vector2(315, 701)
+
+[node name="DialogueAnchor" parent="Player" index="5" unique_id=262771412]
+position = Vector2(-1, -440)
+
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_dialog_box_parent", "ai_left_dialog_box_parent")]
+_dialog_data_uid = 2956946891499119232
+_dialog_file_name = "dialog_06_found_battery.json"
+_dialog_data = ExtResource("10_ljgld")
+_start_id = "1"
+_play_on_ready = false
+_destroy_on_end = false
+_print_debug = false
+xeno_dialog_box_parent = NodePath("../DialogueAnchor")
+ai_left_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1740646371]
 position = Vector2(391, -351)
 limit_left = 1
 limit_right = 1228
+
+[node name="StoryBarrier" parent="." unique_id=611538291 instance=ExtResource("10_4p6xe")]
+position = Vector2(775, 789)
+rotation = 3.1415927
+appear_stage = 7
+locked_dialog_path = "uid://df56fj1sxwhu7"
+
+[node name="StoryBarrier2" parent="." unique_id=1647061839 instance=ExtResource("10_4p6xe")]
+position = Vector2(777, 792)
+rotation = 3.1415927
+appear_stage = 13
+required_stage = 14
+locked_dialog_path = "uid://c748uivr0r524"
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1491258129]
 position = Vector2(523, 18)
@@ -106,3 +169,5 @@ shape = SubResource("RectangleShape2D_bddg5")
 
 [node name="SpawnFromThirdLab" type="Marker2D" parent="." unique_id=391251159]
 position = Vector2(241, 712)
+
+[editable path="Player"]

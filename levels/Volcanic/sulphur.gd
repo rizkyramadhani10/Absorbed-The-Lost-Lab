@@ -165,6 +165,8 @@ func _destroy_sulfur(instant: bool = false):
 	# Emit signal
 	sulfur_destroyed.emit()
 	
+	GameState.advance_to(GameState.StoryStage.OBTAINED_RESOURCE)
+	
 	print("Sulfur berhasil dihancurkan!")
 	
 	# Panggil efek atau dialog jika diperlukan
