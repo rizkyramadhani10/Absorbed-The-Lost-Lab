@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bx2vcloeiy16k" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
 [ext_resource type="PackedScene" uid="uid://brfnqssdfhahy" path="res://entities/interactables/chapterTwo/thirdLab/AnalyticalBalance/AnalyticalBalance.tscn" id="6_i8mc3"]
 [ext_resource type="PackedScene" uid="uid://7w36ecxxxocl" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
-[ext_resource type="Texture2D" uid="uid://b15uvydb6ayqx" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
+[ext_resource type="Texture2D" uid="uid://bt04e03aic7hh" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://q3uvh2bli0ur" path="res://entities/interactables/chapterTwo/thirdLab/BuretteClamp/BuretteClamp.tscn" id="8_neng1"]
 [ext_resource type="PackedScene" uid="uid://c1womygdw84lw" path="res://core/components/StoryBarrier.tscn" id="9_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://773gtuxtmlly" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
@@ -123,6 +123,7 @@ region_rect = Rect2(216, 16, 688, 664)
 [node name="AnalyticalBalance" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("6_i8mc3")]
 position = Vector2(79, -32)
 gunakan_dialog = true
+knowledge_key = "analytical_balance"
 metadata/_edit_lock_ = true
 
 [node name="DialogPlayer" parent="InteractablesProps/AnalyticalBalance" index="4" unique_id=1197528004 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
@@ -131,6 +132,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 [node name="AquadesDispenser" parent="InteractablesProps" unique_id=1382667527 instance=ExtResource("7_i6bjx")]
 position = Vector2(-81, -55)
 gunakan_dialog = true
+knowledge_key = "aquades_dispenser"
 metadata/_edit_lock_ = true
 
 [node name="DialogPlayer" parent="InteractablesProps/AquadesDispenser" index="4" unique_id=866380398 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
@@ -139,6 +141,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 [node name="BuretteClamp" parent="InteractablesProps" unique_id=918866829 instance=ExtResource("8_neng1")]
 position = Vector2(167, -69)
 gunakan_dialog = true
+knowledge_key = "burette_clamp"
 metadata/_edit_lock_ = true
 
 [node name="DialogPlayer" parent="InteractablesProps/BuretteClamp" index="4" unique_id=408328416 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
@@ -160,6 +163,7 @@ target_spawn = "SpawnFromThirdLab"
 position = Vector2(-894, -39)
 required_stage = 1
 gunakan_dialog = true
+knowledge_key = "fume_hood"
 metadata/_edit_lock_ = true
 
 [node name="DialogPlayer" parent="InteractablesProps/FumeHood" index="4" unique_id=1946377352 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
