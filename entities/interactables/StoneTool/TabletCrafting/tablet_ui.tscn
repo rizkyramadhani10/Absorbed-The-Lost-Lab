@@ -15,27 +15,49 @@ size = Vector2(266.8786, 199.7688)
 script = ExtResource("1_ygqym")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=601699479]
-position = Vector2(529, 351)
-scale = Vector2(0.64074075, 0.64074075)
+position = Vector2(550, 363.00003)
+scale = Vector2(0.6703704, 0.6703704)
 texture = ExtResource("1_3cb3m")
 
-[node name="TitleLabel" type="Label" parent="Background" unique_id=667932142]
-offset_left = -237.22543
-offset_top = -329.30634
-offset_right = 204.77457
-offset_bottom = -258.30634
+[node name="TabContainer" type="TabContainer" parent="Background" unique_id=669606153]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -565.35913
+offset_top = -363.97787
+offset_right = -1099.746
+offset_bottom = -738.7427
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1266204, 1.0389599)
+theme_override_fonts/font = ExtResource("2_jcrdy")
+theme_override_font_sizes/font_size = 30
+current_tab = 1
+
+[node name="CraftingTab" type="Control" parent="Background/TabContainer" unique_id=230346840]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="TitleLabel" type="Label" parent="Background/TabContainer/CraftingTab" unique_id=667932142]
+layout_mode = 0
+offset_left = 296.58942
+offset_top = 22.12362
+offset_right = 738.5895
+offset_bottom = 93.12362
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_jcrdy")
 theme_override_font_sizes/font_size = 70
 text = "Crafting Tablet"
 
-[node name="ToolButton" type="Button" parent="Background" unique_id=1351645556]
-offset_left = -107.68787
-offset_top = -226.30057
-offset_right = 143.5838
-offset_bottom = 8.0
+[node name="ToolButton" type="Button" parent="Background/TabContainer/CraftingTab" unique_id=1351645556]
+layout_mode = 0
+offset_left = 387.94955
+offset_top = 129.80676
+offset_right = 639.2212
+offset_bottom = 364.10733
 
-[node name="ToolIcon" type="TextureRect" parent="Background/ToolButton" unique_id=1399164697]
+[node name="ToolIcon" type="TextureRect" parent="Background/TabContainer/CraftingTab/ToolButton" unique_id=1399164697]
 layout_mode = 0
 offset_left = -29.653172
 offset_top = -29.653168
@@ -44,73 +66,111 @@ offset_bottom = 284.04623
 texture = ExtResource("4_u4jdv")
 expand_mode = 1
 
-[node name="Tool" type="Sprite2D" parent="Background" unique_id=541836689]
+[node name="Tool" type="Sprite2D" parent="Background/TabContainer/CraftingTab" unique_id=541836689]
 visible = false
 modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
-position = Vector2(-9.364176, -112.36994)
-scale = Vector2(0.46841228, 0.46841228)
+position = Vector2(523, 248)
+scale = Vector2(0.30013084, 0.30013084)
 texture = ExtResource("4_u4jdv")
 
-[node name="ToolClickArea" type="Area2D" parent="Background/Tool" unique_id=844804412]
+[node name="ToolClickArea" type="Area2D" parent="Background/TabContainer/CraftingTab/Tool" unique_id=844804412]
 position = Vector2(19.991333, 239.89532)
 scale = Vector2(2.1348712, 2.1348712)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Tool/ToolClickArea" unique_id=1445276895]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/TabContainer/CraftingTab/Tool/ToolClickArea" unique_id=1445276895]
 position = Vector2(-19.508667, -138.90173)
 shape = SubResource("RectangleShape2D_ygqym")
 
-[node name="WoodSlot" type="Panel" parent="Background" unique_id=879085611]
-offset_left = -377.68784
-offset_top = 32.77455
-offset_right = -167.68784
-offset_bottom = 282.77454
+[node name="WoodSlot" type="Panel" parent="Background/TabContainer/CraftingTab" unique_id=879085611]
+layout_mode = 0
+offset_left = 78.11955
+offset_top = 382.50314
+offset_right = 288.11957
+offset_bottom = 632.5032
 
-[node name="WoodIcon" type="Sprite2D" parent="Background/WoodSlot" unique_id=1776880442]
+[node name="WoodIcon" type="Sprite2D" parent="Background/TabContainer/CraftingTab/WoodSlot" unique_id=1776880442]
 modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
 position = Vector2(112.3699, 121.73411)
 scale = Vector2(0.29581076, 0.29581076)
 texture = ExtResource("5_en07t")
 
-[node name="RopeSlot" type="Panel" parent="Background" unique_id=60282689]
-offset_left = -90.52024
-offset_top = 29.65318
-offset_right = 119.47976
-offset_bottom = 279.65317
+[node name="RopeSlot" type="Panel" parent="Background/TabContainer/CraftingTab" unique_id=60282689]
+layout_mode = 0
+offset_left = 413.10666
+offset_top = 383.93893
+offset_right = 623.1067
+offset_bottom = 633.93896
 
-[node name="RopeIcon" type="Sprite2D" parent="Background/RopeSlot" unique_id=1700779793]
+[node name="RopeIcon" type="Sprite2D" parent="Background/TabContainer/CraftingTab/RopeSlot" unique_id=1700779793]
 modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
 position = Vector2(104.56648, 126.41618)
 scale = Vector2(0.26696402, 0.26696402)
 texture = ExtResource("6_38lwu")
 
-[node name="StoneSlot" type="Panel" parent="Background" unique_id=1816839096]
-offset_left = 201.32948
-offset_top = 32.774567
-offset_right = 411.32947
-offset_bottom = 282.77457
+[node name="StoneSlot" type="Panel" parent="Background/TabContainer/CraftingTab" unique_id=1816839096]
+layout_mode = 0
+offset_left = 717.6404
+offset_top = 382.50314
+offset_right = 927.6404
+offset_bottom = 632.5032
 
-[node name="StoneIcon" type="Sprite2D" parent="Background/StoneSlot" unique_id=1630327661]
+[node name="StoneIcon" type="Sprite2D" parent="Background/TabContainer/CraftingTab/StoneSlot" unique_id=1630327661]
 modulate = Color(0.33333334, 0.33333334, 0.33333334, 1)
 position = Vector2(106.127174, 129.53757)
 scale = Vector2(0.3176363, 0.3176363)
 texture = ExtResource("7_aqk4l")
 
-[node name="StatusLabel" type="Label" parent="Background" unique_id=707588344]
+[node name="StatusLabel" type="Label" parent="Background/TabContainer/CraftingTab" unique_id=707588344]
 visible = false
-offset_left = -550.9248
-offset_top = -95.20231
-offset_right = 523.0752
-offset_bottom = 104.79769
+layout_mode = 0
+offset_left = 176.00003
+offset_top = 259.0
+offset_right = 1250.0
+offset_bottom = 459.0
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
 theme_override_fonts/font = ExtResource("2_jcrdy")
 theme_override_font_sizes/font_size = 200
 text = "Sudah Dimiliki"
 
+[node name="KnowledgeTab" type="Control" parent="Background/TabContainer" unique_id=1792566473]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="KnowledgeCountLabel" type="Label" parent="Background/TabContainer/KnowledgeTab" unique_id=1682143048]
+layout_mode = 0
+offset_left = 156.2391
+offset_top = 71.55463
+offset_right = 334.2391
+offset_bottom = 97.55463
+theme_override_fonts/font = ExtResource("2_jcrdy")
+theme_override_font_sizes/font_size = 25
+text = "Pengetahuan: 0/9"
+
+[node name="KnowledgeProgress" type="ProgressBar" parent="Background/TabContainer/KnowledgeTab" unique_id=168710073]
+layout_mode = 0
+offset_left = 369.4127
+offset_top = 60.068443
+offset_right = 856.4127
+offset_bottom = 102.06844
+theme_override_fonts/font = ExtResource("2_jcrdy")
+theme_override_font_sizes/font_size = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/TabContainer/KnowledgeTab" unique_id=888466925]
+layout_mode = 0
+offset_left = 88.712036
+offset_top = 145.60027
+offset_right = 912.27716
+offset_bottom = 520.6003
+
+[node name="KnowledgeList" type="VBoxContainer" parent="Background/TabContainer/KnowledgeTab/ScrollContainer" unique_id=898703622]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
 [node name="BackButton" type="Button" parent="." unique_id=869804393]
-offset_left = 169.0
-offset_top = 543.0
-offset_right = 257.0
-offset_bottom = 578.0
+offset_left = 106.0
+offset_top = 73.0
+offset_right = 158.0
+offset_bottom = 121.0
 theme_override_fonts/font = ExtResource("2_jcrdy")
 theme_override_font_sizes/font_size = 20
-text = "Kembali"
