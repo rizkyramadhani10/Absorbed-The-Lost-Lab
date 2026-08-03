@@ -198,7 +198,7 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_05_check_time_machine.json.tres",
 "uid": 1127277506218443308,
 "view_state": {
-"scroll_offset": Vector2(-776.8933, -611),
+"scroll_offset": Vector2(-173, -165),
 "zoom": 0.4240975
 }
 }, {
@@ -421,7 +421,7 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/storage/need_craft_axe.tres",
 "uid": 7080791148744571427,
 "view_state": {
-"scroll_offset": Vector2(-213.9049, -186.87904),
+"scroll_offset": Vector2(-173, -165),
 "zoom": 0.38554317
 }
 }, {

@@ -46,7 +46,7 @@ graph_data = {
 "node_index": 1,
 "node_type": "start_node",
 "offset": Vector2(129, 107),
-"size": Vector2(190, 75),
+"size": Vector2(190, 46),
 "start_id": "1",
 "to_dialog": "",
 "to_node": ["dialogue_node_1"]
@@ -55,6 +55,7 @@ graph_data = {
 }
 dialogs = {
 "1_DIALOG_1": {
+"": "",
 "default": "PERINGATAN GAS BERBAHAYA! 
 Konsentrasi Sulfur/Belerang tinggi terdeteksi!
 Peringatan Tambahan: Bongkahan Sulfur murni memiliki suhu tinggi dan senyawa korosif.
@@ -63,10 +64,12 @@ Kamu membutuhkan sesuatu untuk menghancurkan sulfurnya tanpa harus menyentuh sec
 "en": ""
 },
 "1_DIALOG_2": {
+"": "",
 "default": "Di zaman begini tentu tidak ada alat tambang modern... Tapi aku bisa merakit palu darurat!",
 "en": ""
 },
 "1_DIALOG_3": {
+"": "",
 "default": "Aku sepertinya membutuhkan 3 bahan utama, yaitu Kayu untuk gagang palu, Batu untuk kepala palu, dan Tali untuk mengikatnya!",
 "en": ""
 }
