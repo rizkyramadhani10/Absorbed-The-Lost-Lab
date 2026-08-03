@@ -45,11 +45,6 @@ var knowledge_unlocked: Dictionary = {
 	"burette_clamp": false,
 	"aquades_dispenser": false,
 	"safety_shower": false,
-	"chemical_rack": false,
-	"lab_bench": false,
-	"cabinet": false,
-	"sink": false,
-	"time_machine": false,
 	# Tambahkan key lain jika ada alat tambahan
 }
 

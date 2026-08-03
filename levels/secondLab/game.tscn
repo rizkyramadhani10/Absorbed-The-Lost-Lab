@@ -88,6 +88,8 @@ metadata/_edit_lock_ = true
 
 [node name="autoclave" parent="InteractablesProps" unique_id=918846950 instance=ExtResource("5_g64m1")]
 position = Vector2(795, 74)
+required_stage = 1
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "autoclave"
 metadata/_edit_lock_ = true
@@ -103,6 +105,8 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="laboratoryRefrigerator" parent="InteractablesProps" unique_id=1406534579 instance=ExtResource("9_0jv7s")]
 position = Vector2(376, 19)
+required_stage = 1
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "laboratory_refrigerator"
 metadata/_edit_lock_ = true
@@ -119,6 +123,8 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="incubator" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("4_oiucg")]
 position = Vector2(574, 107)
+required_stage = 1
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "incubator"
 metadata/_edit_lock_ = true
@@ -134,6 +140,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="buretteCabinet" parent="InteractablesProps" unique_id=1177742635 instance=ExtResource("6_f02wl")]
 position = Vector2(146, 83)
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "burette_cabinet"
 metadata/_edit_lock_ = true
@@ -149,6 +156,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="microscope" parent="InteractablesProps" unique_id=946652581 instance=ExtResource("10_gm554")]
 position = Vector2(-746, -46)
+required_stage = 1
 gunakan_dialog = true
 knowledge_key = "microscope"
 metadata/_edit_lock_ = true
@@ -164,6 +172,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="pHMeter" parent="InteractablesProps" unique_id=179970093 instance=ExtResource("11_o4l4k")]
 position = Vector2(-895, -24)
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "ph_meter"
 metadata/_edit_lock_ = true
@@ -177,6 +186,8 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="sonicator" parent="InteractablesProps" unique_id=17263967 instance=ExtResource("13_7glu2")]
 position = Vector2(-617, -41)
+required_stage = 1
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "sonicator"
 metadata/_edit_lock_ = true
@@ -190,6 +201,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="spectrophotometer" parent="InteractablesProps" unique_id=487762066 instance=ExtResource("14_uroih")]
 position = Vector2(-375, -37)
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "spectrophotometer"
 metadata/_edit_lock_ = true
@@ -205,6 +217,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="thermoScientific" parent="InteractablesProps" unique_id=341283593 instance=ExtResource("15_b0aiw")]
 position = Vector2(-509, -57)
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "thermo_scientific"
 metadata/_edit_lock_ = true
@@ -219,6 +232,7 @@ offset_bottom = 351.0
 interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="DoorToLab2" parent="InteractablesProps" unique_id=955163524 instance=ExtResource("17_f02wl")]
+visible = false
 position = Vector2(-1219, 27.999998)
 scale = Vector2(1.1, 1.1)
 target_scene_path = "uid://dljufsmrudfbq"

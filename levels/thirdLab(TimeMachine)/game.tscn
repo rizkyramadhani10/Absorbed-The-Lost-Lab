@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bx2vcloeiy16k" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
 [ext_resource type="PackedScene" uid="uid://brfnqssdfhahy" path="res://entities/interactables/chapterTwo/thirdLab/AnalyticalBalance/AnalyticalBalance.tscn" id="6_i8mc3"]
 [ext_resource type="PackedScene" uid="uid://7w36ecxxxocl" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
-[ext_resource type="Texture2D" uid="uid://bt04e03aic7hh" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
+[ext_resource type="Texture2D" uid="uid://b15uvydb6ayqx" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://q3uvh2bli0ur" path="res://entities/interactables/chapterTwo/thirdLab/BuretteClamp/BuretteClamp.tscn" id="8_neng1"]
 [ext_resource type="PackedScene" uid="uid://c1womygdw84lw" path="res://core/components/StoryBarrier.tscn" id="9_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://773gtuxtmlly" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://daetc3ul6065c" path="res://entities/player/player.tscn" id="16_e4qak"]
 [ext_resource type="PackedScene" uid="uid://bi18r0egwryqf" path="res://entities/interactables/chapterTwo/thirdLab/TimeMachineSpiralPortal/TimeMachineSpiralPortal.tscn" id="16_lau1m"]
 [ext_resource type="PackedScene" uid="uid://blwk4swmtmq15" path="res://systems/ui/touch_controls/touch_control.tscn" id="17_v0inv"]
+[ext_resource type="Script" uid="uid://cn3sjrgpjqliv" path="res://core/managers/Interactableitem.gd" id="21_dhfjv"]
 [ext_resource type="Resource" uid="uid://djx2ykry8l2i4" path="res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres" id="22_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://iqs142ppcto1" path="res://systems/ui/hud/Blinkeffect.tscn" id="22_rk8vc"]
 
@@ -122,6 +123,7 @@ region_rect = Rect2(216, 16, 688, 664)
 
 [node name="AnalyticalBalance" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("6_i8mc3")]
 position = Vector2(79, -32)
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "analytical_balance"
 metadata/_edit_lock_ = true
@@ -131,6 +133,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="AquadesDispenser" parent="InteractablesProps" unique_id=1382667527 instance=ExtResource("7_i6bjx")]
 position = Vector2(-81, -55)
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "aquades_dispenser"
 metadata/_edit_lock_ = true
@@ -140,6 +143,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="BuretteClamp" parent="InteractablesProps" unique_id=918866829 instance=ExtResource("8_neng1")]
 position = Vector2(167, -69)
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "burette_clamp"
 metadata/_edit_lock_ = true
@@ -161,7 +165,7 @@ target_spawn = "SpawnFromThirdLab"
 
 [node name="FumeHood" parent="InteractablesProps" unique_id=2049360832 instance=ExtResource("11_yac7y")]
 position = Vector2(-894, -39)
-required_stage = 1
+completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "fume_hood"
 metadata/_edit_lock_ = true
@@ -185,6 +189,11 @@ metadata/_edit_lock_ = true
 
 [node name="SinknVent" parent="InteractablesProps" unique_id=1972405008 instance=ExtResource("14_bok5e")]
 position = Vector2(-583, -122)
+script = ExtResource("21_dhfjv")
+required_stage = 16
+completion_flag = ""
+gunakan_dialog = true
+knowledge_key = ""
 metadata/_edit_lock_ = true
 
 [node name="TimeMachineComputer" parent="InteractablesProps" unique_id=2000579499 instance=ExtResource("15_dhfjv")]

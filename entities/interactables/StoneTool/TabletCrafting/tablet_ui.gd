@@ -81,30 +81,6 @@ var knowledge_data: Dictionary = {
 		"name": "Aquades Dispenser",
 		"description": "Alat untuk mendistribusikan air suling (aquades) dengan volume terkontrol."
 	},
-	"safety_shower": {
-		"name": "Safety Shower",
-		"description": "Pancuran darurat untuk membersihkan tubuh dari percikan bahan kimia berbahaya."
-	},
-	"chemical_rack": {
-		"name": "Chemical Rack",
-		"description": "Rak penyimpanan bahan kimia yang terorganisir berdasarkan golongan dan sifat bahaya."
-	},
-	"lab_bench": {
-		"name": "Lab Bench",
-		"description": "Meja kerja laboratorium untuk melakukan eksperimen dan pengamatan."
-	},
-	"cabinet": {
-		"name": "Cabinet",
-		"description": "Lemari penyimpanan peralatan laboratorium yang aman dan terorganisir."
-	},
-	"sink": {
-		"name": "Sink",
-		"description": "Tempat cuci peralatan laboratorium dan pembuangan limbah cair."
-	},
-	"time_machine": {
-		"name": "Time Machine",
-		"description": "Mesin waktu canggih yang digunakan untuk perjalanan antar dimensi dan waktu."
-	}
 }
 
 func _ready():
