@@ -17,7 +17,7 @@ var volume_asli = 0.0
 var is_shower_active = false 
 
 @export var batas_tarik_bawah = 90.0 
-@export var kecepatan_isi = 500.0 
+@export var kecepatan_isi = 150.0 
 @export var batas_trigger_air = 70.0 
 
 # ==========================================
@@ -36,7 +36,9 @@ func _ready():
 	munculkan_tutorial_langsung()
 	
 	posisi_awal_y = global_position.y
-	if progress_bar: progress_bar.value = 0
+	if progress_bar: 
+		progress_bar.value = 0
+		progress_bar.step = 0.01
 	
 	if video_overlay:
 		video_overlay.visible = true
