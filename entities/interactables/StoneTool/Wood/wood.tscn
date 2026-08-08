@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1qhn3e4bjcw7" path="res://entities/interactables/StoneTool/Wood/asset/bagian depan.png" id="1_8ji8t"]
 [ext_resource type="Script" uid="uid://c5u7tsw2gy2k2" path="res://entities/interactables/StoneTool/Wood/wood.gd" id="1_j5yky"]
+[ext_resource type="AudioStream" uid="uid://3pwklxoa17td" path="res://assets/audio/forest/AmbilRanting.mp3" id="2_fvd6t"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="2_j5yky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvd6t"]
@@ -9,6 +10,8 @@ size = Vector2(215, 26)
 
 [node name="Wood" type="Area2D" unique_id=826715938]
 script = ExtResource("1_j5yky")
+pickup_sound = ExtResource("2_fvd6t")
+pickup_volume_db = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1889249786]
 position = Vector2(754.00006, 307)

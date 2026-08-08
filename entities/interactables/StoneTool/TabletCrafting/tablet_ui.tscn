@@ -32,10 +32,9 @@ grow_vertical = 2
 scale = Vector2(1.1266204, 1.0389599)
 theme_override_fonts/font = ExtResource("2_jcrdy")
 theme_override_font_sizes/font_size = 30
-current_tab = 1
+current_tab = 0
 
 [node name="CraftingTab" type="Control" parent="Background/TabContainer" unique_id=230346840]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -121,18 +120,18 @@ scale = Vector2(0.3176363, 0.3176363)
 texture = ExtResource("7_aqk4l")
 
 [node name="StatusLabel" type="Label" parent="Background/TabContainer/CraftingTab" unique_id=707588344]
-visible = false
 layout_mode = 0
-offset_left = 176.00003
-offset_top = 259.0
-offset_right = 1250.0
-offset_bottom = 459.0
+offset_left = 1.3241081
+offset_top = 179.23776
+offset_right = 1075.3241
+offset_bottom = 379.23773
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
 theme_override_fonts/font = ExtResource("2_jcrdy")
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 185
 text = "Sudah Dimiliki"
 
 [node name="KnowledgeTab" type="Control" parent="Background/TabContainer" unique_id=1792566473]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

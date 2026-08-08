@@ -1,5 +1,11 @@
 extends Area2D
 
+# --- KONFIGURASI INSPECTOR ---
+@export_group("Audio Settings")
+# 🔥 TAMBAHAN: Efek suara saat mining (akan di-loop)
+@export var mining_sound: AudioStream = null  # Isi di Inspector dengan file audio
+@export var mining_volume_db: float = 0.0  # Volume efek suara
+
 # --- REFERENSI NODE ---
 @onready var sulphur_sprite: Sprite2D = $sulphur
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -15,6 +21,9 @@ var hold_time: float = 0.0
 var required_hold_time: float = 3.0  # 3 detik untuk menghancurkan
 var is_destroyed: bool = false
 
+# --- VARIABEL AUDIO ---
+var audio_player: AudioStreamPlayer2D = null
+
 # --- SIGNAL ---
 signal sulfur_destroyed
 
@@ -23,6 +32,9 @@ func _ready():
 	if Global.is_sulfur_destroyed:
 		_destroy_sulfur(true)
 		return
+	
+	# Setup audio
+	_setup_audio()
 	
 	# Hubungkan sinyal area
 	body_entered.connect(_on_body_entered)
@@ -37,6 +49,44 @@ func _ready():
 	
 	# Nonaktifkan interaksi jika tidak ada alat
 	_update_interactable_state()
+
+# --- FUNGSI SETUP AUDIO ---
+func _setup_audio() -> void:
+	# Cek apakah ada audio yang diisi di Inspector
+	if mining_sound == null:
+		print("INFO: Tidak ada mining sound yang di-set untuk Sulphur.")
+		return
+	
+	# Buat AudioStreamPlayer2D
+	audio_player = AudioStreamPlayer2D.new()
+	add_child(audio_player)
+	audio_player.stream = mining_sound
+	audio_player.volume_db = mining_volume_db
+	audio_player.bus = "SFX"  # Gunakan bus SFX jika ada, atau default
+
+# --- FUNGSI PLAY/STOP SOUND ---
+func _play_mining_sound() -> void:
+	if audio_player and mining_sound != null:
+		# Set loop agar terus berulang selama proses mining
+		audio_player.finished.connect(_on_mining_sound_finished)
+		audio_player.play()
+		print("Mining sound started!")
+
+func _stop_mining_sound() -> void:
+	if audio_player and audio_player.playing:
+		audio_player.stop()
+		# Putuskan koneksi signal agar tidak loop lagi
+		if audio_player.finished.is_connected(_on_mining_sound_finished):
+			audio_player.finished.disconnect(_on_mining_sound_finished)
+		print("Mining sound stopped!")
+
+func _on_mining_sound_finished() -> void:
+	# Jika masih dalam proses hold, loop sound
+	if is_holding_interact and not is_destroyed:
+		audio_player.play()
+	else:
+		# Jika tidak, stop
+		_stop_mining_sound()
 
 func _process(delta: float):
 	# Proses hold interaksi
@@ -111,6 +161,10 @@ func interact() -> void:
 		is_holding_interact = true
 		hold_time = 0.0
 		_show_progress()
+		
+		# 🔥 MAIN KAN SUARA MINING (LOOP)
+		_play_mining_sound()
+		
 		print("Mulai menghancurkan sulfur...")
 
 func interact_release() -> void:
@@ -121,6 +175,10 @@ func _cancel_hold():
 	is_holding_interact = false
 	hold_time = 0.0
 	_hide_progress()
+	
+	# 🔥 HENTIKAN SUARA MINING
+	_stop_mining_sound()
+	
 	if interact_label and not is_destroyed:
 		var label_node = interact_label.find_child("Label", true, false)
 		if label_node and label_node is Label:
@@ -151,6 +209,9 @@ func _destroy_sulfur(instant: bool = false):
 	
 	is_destroyed = true
 	Global.is_sulfur_destroyed = true
+	
+	# 🔥 HENTIKAN SUARA MINING
+	_stop_mining_sound()
 	
 	# Sembunyikan sprite dan collision
 	if sulphur_sprite:
@@ -183,3 +244,11 @@ func _update_interactable_state():
 	else:
 		if not is_destroyed and player_ref:
 			show_interact_prompt(true, "[Hold] Hancurkan Sulfur")
+
+# --- CLEANUP ---
+func _exit_tree() -> void:
+	# Hentikan audio saat objek dihapus
+	if audio_player:
+		audio_player.stop()
+		if audio_player.finished.is_connected(_on_mining_sound_finished):
+			audio_player.finished.disconnect(_on_mining_sound_finished)
