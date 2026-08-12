@@ -13,7 +13,9 @@ config_version=5
 config/name="Absorbed: The Lost Lab"
 run/main_scene="uid://bm4lgq3sw8x2h"
 config/features=PackedStringArray("4.6", "Mobile")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+config/show_image=true
 
 [autoload]
 

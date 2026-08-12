@@ -5,7 +5,7 @@ extends Node2D
 
 # --- AUDIO SETTINGS ---
 @export var background_music: AudioStream = null  # Isi di Inspector dengan file audio
-@export var music_volume_db: float = -10.0  # Volume default (lebih pelan)
+@export var music_volume_db: float = -20.0  # Volume default (lebih pelan)
 @export var fade_in_duration: float = 1.5  # Durasi fade in saat mulai
 
 # --- VARIABEL RUNTIME ---

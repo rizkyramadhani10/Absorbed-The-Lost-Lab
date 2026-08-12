@@ -9,15 +9,24 @@ extends Node2D
 # 🚩 Nama unik di Global untuk menandai bahwa trigger ini sudah pernah diselesaikan (Contoh: "storage_dialog_done")
 @export var completion_flag: String = ""
 
+# 🔊 PENGATURAN AMBIENT SOUND
+@export_group("Audio Settings")
+@export var ambient_sound: AudioStream = null # Masukkan file audio ambient di Inspector
+@export var ambient_volume_db: float = -10.0  # Atur volume ambient
+
 @onready var player = $Player
 @onready var dialogue_trigger = $DialogueTrigger if has_node("DialogueTrigger") else null
 
 var is_dialog_playing: bool = false
+var ambient_player: AudioStreamPlayer = null
 
 func _ready() -> void:
 	print("Spawn point yang diterima dari Global di Third Lab: ", Global.spawn_point)
 	
 	add_to_group("game")
+	
+	# 🔥 Setup & Putar Ambient Sound
+	setup_ambient_sound()
 	
 	# 🔥 1. CEK APAKAH TRIGGER INI PERNAH DISELESAIKAN SEBELUMNYA
 	if completion_flag != "" and Global.get(completion_flag) == true:
@@ -34,6 +43,18 @@ func _ready() -> void:
 	
 	# 🔥 Setup koneksi signal untuk DialogueTrigger
 	setup_dialogue_trigger()
+
+# 🔊 FUNGSI MEMUTAR AMBIENT SOUND
+func setup_ambient_sound() -> void:
+	if ambient_sound != null:
+		ambient_player = AudioStreamPlayer.new()
+		add_child(ambient_player)
+		ambient_player.stream = ambient_sound
+		ambient_player.volume_db = ambient_volume_db
+		ambient_player.play()
+		print("Ambient sound berhasil diputar!")
+	else:
+		print("INFO: Tidak ada Ambient Sound yang di-set di Inspector.")
 
 # Fungsi untuk mengatur posisi spawn Player secara aman dan instan di Third Lab
 func setup_meawdow_spawns() -> void:

@@ -1,6 +1,15 @@
 extends Node2D
 
+# ==========================================
+# 🔊 PENGATURAN AMBIENT SOUND (TAMBAHAN BARU)
+# ==========================================
+@export_group("Audio Settings")
+@export var ambient_sound: AudioStream = null # Masukkan file audio ambient di Inspector
+@export var ambient_volume_db: float = -35.0  # Atur volume ambient
+
+# ==========================================
 # 📈 DAFAR MULTIPLE TRIGGERS (Diisi via Inspector)
+# ==========================================
 @export_group("Multiple Trigger Settings")
 @export var triggers: Array[LabTriggerConfig] = []
 
@@ -9,10 +18,14 @@ extends Node2D
 @onready var anim_player = $BlinkBlurEffect/AnimationPlayer if has_node("BlinkBlurEffect/AnimationPlayer") else null
 
 var is_dialog_playing: bool = false
+var ambient_player: AudioStreamPlayer = null # (TAMBAHAN BARU)
 
 func _ready() -> void:
 	print("Spawn point yang diterima dari Global di Third Lab: ", Global.spawn_point)
 	add_to_group("game")
+	
+	# 🔥 Setup & Putar Ambient Sound (TAMBAHAN BARU)
+	setup_ambient_sound()
 	
 	# 1. Atur posisi spawn player
 	setup_third_lab_spawns()
@@ -158,3 +171,17 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			player.set_process_unhandled_input(true)
 			
 		print("Player sadar sepenuhnya dan siap bergerak!")
+
+# ==========================================
+# 🔊 FUNGSI MEMUTAR AMBIENT SOUND (TAMBAHAN BARU)
+# ==========================================
+func setup_ambient_sound() -> void:
+	if ambient_sound != null:
+		ambient_player = AudioStreamPlayer.new()
+		add_child(ambient_player)
+		ambient_player.stream = ambient_sound
+		ambient_player.volume_db = ambient_volume_db
+		ambient_player.play()
+		print("Ambient sound di Third Lab berhasil diputar!")
+	else:
+		print("INFO: Tidak ada Ambient Sound yang di-set di Inspector Third Lab.")

@@ -1,6 +1,15 @@
 extends Node2D
 
+# ==========================================
+# 🔊 PENGATURAN AMBIENT SOUND (TAMBAHAN BARU)
+# ==========================================
+@export_group("Audio Settings")
+@export var ambient_sound: AudioStream = null # Masukkan file audio ambient di Inspector
+@export var ambient_volume_db: float = -10.0  # Atur volume ambient
+
+# ==========================================
 # 📈 PENGATURAN PROGRESS CERITA
+# ==========================================
 @export_group("Trigger Settings")
 # Stage yang akan dituju saat trigger disentuh
 @export var advance_story_to: GameState.StoryStage = GameState.StoryStage.ENTERED_LAB1
@@ -13,11 +22,15 @@ extends Node2D
 @onready var dialogue_trigger = $DialogueTrigger if has_node("DialogueTrigger") else null
 
 var is_dialog_playing: bool = false
+var ambient_player: AudioStreamPlayer = null # (TAMBAHAN BARU)
 
 func _ready() -> void:
 	print("Spawn point yang diterima dari Global di Third Lab: ", Global.spawn_point)
 	
 	add_to_group("game")
+	
+	# 🔥 Setup & Putar Ambient Sound (TAMBAHAN BARU)
+	setup_ambient_sound()
 	
 	# 🔥 CEK APAKAH TRIGGER INI PERNAH DISELESAIKAN SEBELUMNYA
 	if completion_flag != "" and Global.get(completion_flag) == true:
@@ -102,3 +115,17 @@ func _play_trigger_dialog(player_node: Node2D) -> void:
 		player_node.set_process_unhandled_input(true)
 		
 	is_dialog_playing = false
+
+# ==========================================
+# 🔊 FUNGSI MEMUTAR AMBIENT SOUND (TAMBAHAN BARU)
+# ==========================================
+func setup_ambient_sound() -> void:
+	if ambient_sound != null:
+		ambient_player = AudioStreamPlayer.new()
+		add_child(ambient_player)
+		ambient_player.stream = ambient_sound
+		ambient_player.volume_db = ambient_volume_db
+		ambient_player.play()
+		print("Ambient sound berhasil diputar!")
+	else:
+		print("INFO: Tidak ada Ambient Sound yang di-set di Inspector.")
