@@ -31,7 +31,6 @@ graph_data = {
 }
 dialogs = {
 "1_DIALOG_1": {
-"": "",
 "default": "Aku harus mencari kawah di sekitar area ini",
 "en": ""
 }

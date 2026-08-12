@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://doqgwq4yhr8x5" path="res://systems/ui/touch_controls/buttonIcons/rightBtn/silver-!arrowright-pushed.png" id="4_1jqu5"]
 [ext_resource type="Texture2D" uid="uid://c3igkm8jolui7" path="res://systems/ui/touch_controls/buttonIcons/interactBtn/silver-Y.png" id="5_y2r3r"]
 [ext_resource type="Texture2D" uid="uid://jpxq7mpu4ejp" path="res://systems/ui/touch_controls/buttonIcons/interactBtn/silver-Y-pushed.png" id="6_1jqu5"]
-[ext_resource type="Texture2D" uid="uid://c78utnpqsxfjq" path="res://entities/interactables/StoneTool/TabletCrafting/asset/Tablet.png" id="8_outdk"]
+[ext_resource type="Texture2D" uid="uid://1c7smdpsk65c" path="res://systems/ui/touch_controls/Tablet_Objective/4.png" id="8_outdk"]
 [ext_resource type="PackedScene" uid="uid://dv1vt47m0mhyb" path="res://entities/interactables/StoneTool/TabletCrafting/tablet_ui.tscn" id="9_outdk"]
 
 [node name="TouchControl" type="CanvasLayer" unique_id=741419393]
@@ -77,15 +77,19 @@ action = "interact"
 
 [node name="Tablet" type="Control" parent="." unique_id=845443547]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 912.0
-offset_top = 37.0
-offset_right = 1056.0
-offset_bottom = 143.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -247.0
+offset_top = 41.0
+offset_right = -48.0
+offset_bottom = 147.0
+grow_horizontal = 0
 
 [node name="OpenTablet" type="TouchScreenButton" parent="Tablet" unique_id=834610532]
-position = Vector2(6.000001, 8.000001)
-scale = Vector2(0.08333333, 0.083333336)
+texture_filter = 1
+position = Vector2(3, -6)
+scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("8_outdk")
 passby_press = true
 

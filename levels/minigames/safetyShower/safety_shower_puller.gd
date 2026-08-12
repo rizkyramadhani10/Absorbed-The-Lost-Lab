@@ -128,6 +128,8 @@ func game_finished():
 	is_finished = true
 	is_pulling = false 
 	Global.is_shower_completed = true 
+	#Global.is_game_completed = true
+	#get_tree().change_scene_to_file("res://systems/ui/main_menu/main_menu.tscn")
 	
 	# Tunggu sebentar biar efek visual selesai dulu
 	await get_tree().create_timer(1.0).timeout

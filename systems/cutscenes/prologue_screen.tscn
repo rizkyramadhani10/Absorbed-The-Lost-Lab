@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b5bu2nq5xsxxu"]
+
+[ext_resource type="VideoStream" uid="uid://ipbn6vppnubw" path="res://assets/video/lv_0_20260812182547.ogv" id="1_j4dq0"]
+[ext_resource type="Script" uid="uid://dnf6no644fch0" path="res://systems/cutscenes/prologue_screen.gd" id="1_r7v31"]
+[ext_resource type="FontFile" uid="uid://b1u0l0n3ck6v4" path="res://systems/ui/theme/fonts/Easy Pixel.ttf" id="2_adcih"]
+
+[node name="PrologueScreen" type="Control" unique_id=274726681]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r7v31")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1088646428]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_j4dq0")
+autoplay = true
+expand = true
+
+[node name="SkipHintLabel" type="Label" parent="." unique_id=1741679251]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -42.0
+offset_right = -22.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_adcih")
+text = "Tap again to skip"

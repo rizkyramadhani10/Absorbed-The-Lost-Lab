@@ -27,6 +27,7 @@ var is_trigger_volcanic: bool = false
 var is_tablet_open: bool = false
 var is_sulfur_destroyed: bool = false
 var materials_collected: bool = false
+var is_game_completed: bool = false
 # Di Global.gd atau gamestate.gd
 
 # --- VARIABEL PENGETAHUAN LAB ---
