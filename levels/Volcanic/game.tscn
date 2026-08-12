@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dd61uwok65st8" path="res://levels/Volcanic/game.gd" id="1_kky1w"]
 [ext_resource type="Texture2D" uid="uid://bdg7ch6okpwcl" path="res://levels/Volcanic/assets/environment/BatuPijakan.png" id="2_ruy8l"]
 [ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_w6at4"]
+[ext_resource type="AudioStream" uid="uid://cgu02s2dh2hli" path="res://assets/audio/bgm/volcanic.mp3" id="2_yg7a3"]
 [ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_0opir"]
 [ext_resource type="Texture2D" uid="uid://cyru7n51yxlcc" path="res://levels/Volcanic/assets/environment/BatuBesar.png" id="3_kky1w"]
 [ext_resource type="Texture2D" uid="uid://bedxr1rxmrg8s" path="res://levels/Volcanic/assets/environment/DanauKawahVulkanik.png" id="4_5o7ub"]
@@ -36,6 +37,7 @@ size = Vector2(114, 428)
 
 [node name="game" type="Node2D" unique_id=1180724451]
 script = ExtResource("1_kky1w")
+ambient_sound = ExtResource("2_yg7a3")
 advance_story_to = 10
 trigger_dialog_path = "uid://4m63nw3e385j"
 completion_flag = "is_trigger_volcanic"

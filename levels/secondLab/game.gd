@@ -1,5 +1,15 @@
 extends Node2D
 
+# ==========================================
+# 🔊 PENGATURAN AMBIENT SOUND (TAMBAHAN BARU)
+# ==========================================
+@export_group("Audio Settings")
+@export var ambient_sound: AudioStream = null # Masukkan file audio ambient di Inspector
+@export var ambient_volume_db: float = 5.0  # Atur volume ambient
+
+# ==========================================
+# 📈 PENGATURAN PROGRESS CERITA & TRIGGER
+# ==========================================
 # 📄 Path file resource dialog .tres untuk filler dialog di SecondLab
 @export_file("*.tres") var filler_dialog_path: String = ""
 
@@ -10,10 +20,14 @@ extends Node2D
 @onready var trig_middle_lab = $TrigMiddleLab
 
 var is_dialog_playing: bool = false
+var ambient_player: AudioStreamPlayer = null # (TAMBAHAN BARU)
 
 func _ready() -> void:
 	print("Spawn point yang diterima dari Global: ", Global.spawn_point)
 	add_to_group("game")
+	
+	# 🔥 Setup & Putar Ambient Sound (TAMBAHAN BARU)
+	setup_ambient_sound()
 	
 	# 1. Atur posisi spawn player
 	setup_second_lab_spawns()
@@ -100,3 +114,17 @@ func _on_trig_middle_lab_body_entered(body: Node2D) -> void:
 				body.set_process_unhandled_input(true)
 				
 			is_dialog_playing = false
+
+# ==========================================
+# 🔊 FUNGSI MEMUTAR AMBIENT SOUND (TAMBAHAN BARU)
+# ==========================================
+func setup_ambient_sound() -> void:
+	if ambient_sound != null:
+		ambient_player = AudioStreamPlayer.new()
+		add_child(ambient_player)
+		ambient_player.stream = ambient_sound
+		ambient_player.volume_db = ambient_volume_db
+		ambient_player.play()
+		print("Ambient sound di Second Lab berhasil diputar!")
+	else:
+		print("INFO: Tidak ada Ambient Sound yang di-set di Inspector Second Lab.")

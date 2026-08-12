@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7yag4ajp7ggw"]
 
 [ext_resource type="Script" uid="uid://qgbgeit8ung4" path="res://levels/secondLab/game.gd" id="1_f02wl"]
+[ext_resource type="AudioStream" uid="uid://bb61s07e25lkl" path="res://assets/audio/bgm/ambientSecondLab.mp3" id="2_gm554"]
 [ext_resource type="Texture2D" uid="uid://cweinyi6caifi" path="res://levels/secondLab/sprites/environments/bgWallnFloor.png" id="2_oiucg"]
 [ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_rt68v"]
 [ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_38yin"]
@@ -46,6 +47,7 @@ size = Vector2(136, 237)
 
 [node name="Game" type="Node2D" unique_id=248848940]
 script = ExtResource("1_f02wl")
+ambient_sound = ExtResource("2_gm554")
 filler_dialog_path = "uid://bpdp1ks0mgk50"
 metadata/_edit_vertical_guides_ = [1761.0, -780.0]
 
