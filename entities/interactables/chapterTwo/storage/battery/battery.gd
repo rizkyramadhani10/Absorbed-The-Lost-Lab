@@ -37,6 +37,9 @@ func _ready() -> void:
 		if collision_shape:
 			collision_shape.disabled = true
 		show_interact_prompt(false)
+		
+		# 🔥 Baterai langsung dihapus saat player masuk ke scene jika statusnya sudah diambil
+		queue_free()
 		return 
 
 	body_entered.connect(_on_body_entered)
@@ -105,6 +108,9 @@ func interact() -> void:
 			collision_shape.set_deferred("disabled", true)
 		if player_ref and player_ref.get("nearby_interactable") == self:
 			player_ref.nearby_interactable = null
+			
+		# 🔥 Hapus baterai dari scene saat diambil (tanpa dialog)
+		queue_free()
 
 func _on_dialog_ended() -> void:
 	print("Dialog untuk ", name, " telah selesai.")
@@ -123,6 +129,9 @@ func _on_dialog_ended() -> void:
 		collision_shape.set_deferred("disabled", true)
 	if player_ref and player_ref.get("nearby_interactable") == self:
 		player_ref.nearby_interactable = null
+		
+	# 🔥 Hapus baterai dari scene setelah dialog selesai
+	queue_free()
 			
 	if target_scene_path != "":
 		_ganti_ke_scene_minigame()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hratmcei8msm"]
 
 [ext_resource type="Script" uid="uid://bcghsk064l07h" path="res://entities/interactables/chapterTwo/storage/battery/battery.gd" id="1_sw8lo"]
-[ext_resource type="Texture2D" uid="uid://booeeh04u77dc" path="res://icon.svg" id="2_sw8lo"]
+[ext_resource type="Texture2D" uid="uid://djldrale71rh2" path="res://entities/interactables/chapterTwo/storage/battery/aki.png" id="2_sw8lo"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_oo6pm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
@@ -10,7 +10,7 @@ size = Vector2(152.7656, 143.10799)
 [node name="Battery" type="Area2D" unique_id=73848177]
 script = ExtResource("1_sw8lo")
 
-[node name="ChemicalRack" type="Sprite2D" parent="." unique_id=2018969321]
+[node name="Battery" type="Sprite2D" parent="." unique_id=2018969321]
 position = Vector2(780, 399)
 scale = Vector2(0.87362504, 0.87362504)
 texture = ExtResource("2_sw8lo")

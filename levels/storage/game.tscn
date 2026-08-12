@@ -96,12 +96,13 @@ position = Vector2(-175, -69)
 target_scene_path = "uid://bn7p3rh24hvf6"
 
 [node name="Rope" parent="InteractablesProps" unique_id=1156903746 instance=ExtResource("6_23xfd")]
-position = Vector2(378, 184)
+position = Vector2(379, 239)
 required_stage = 12
 advance_story_to = 13
 
 [node name="Battery" parent="InteractablesProps" unique_id=2046877714 instance=ExtResource("8_ljgld")]
-position = Vector2(-1, 208)
+z_index = 5
+position = Vector2(49, 174)
 required_stage = 7
 advance_story_to = 8
 completion_flag = "is_battery_found"

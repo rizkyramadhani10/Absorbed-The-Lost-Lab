@@ -88,7 +88,6 @@ metadata/_edit_lock_ = true
 
 [node name="autoclave" parent="InteractablesProps" unique_id=918846950 instance=ExtResource("5_g64m1")]
 position = Vector2(795, 74)
-required_stage = 1
 completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "autoclave"
@@ -105,7 +104,6 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="laboratoryRefrigerator" parent="InteractablesProps" unique_id=1406534579 instance=ExtResource("9_0jv7s")]
 position = Vector2(376, 19)
-required_stage = 1
 completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "laboratory_refrigerator"
@@ -123,7 +121,6 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="incubator" parent="InteractablesProps" unique_id=73848177 instance=ExtResource("4_oiucg")]
 position = Vector2(574, 107)
-required_stage = 1
 completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "incubator"
@@ -156,7 +153,6 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="microscope" parent="InteractablesProps" unique_id=946652581 instance=ExtResource("10_gm554")]
 position = Vector2(-746, -46)
-required_stage = 1
 gunakan_dialog = true
 knowledge_key = "microscope"
 metadata/_edit_lock_ = true
@@ -180,13 +176,13 @@ metadata/_edit_lock_ = true
 [node name="Anchor" parent="InteractablesProps/pHMeter" index="3" unique_id=1649139814]
 offset_left = 471.0
 offset_right = 471.0
+metadata/_edit_use_anchors_ = true
 
 [node name="DialogPlayer" parent="InteractablesProps/pHMeter" index="4" unique_id=2018201253 node_paths=PackedStringArray("interactableProps_dialog_box_parent")]
 interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="sonicator" parent="InteractablesProps" unique_id=17263967 instance=ExtResource("13_7glu2")]
 position = Vector2(-617, -41)
-required_stage = 1
 completion_flag = ""
 gunakan_dialog = true
 knowledge_key = "sonicator"
@@ -232,7 +228,6 @@ offset_bottom = 351.0
 interactableProps_dialog_box_parent = NodePath("../Anchor")
 
 [node name="DoorToLab2" parent="InteractablesProps" unique_id=955163524 instance=ExtResource("17_f02wl")]
-visible = false
 position = Vector2(-1219, 27.999998)
 scale = Vector2(1.1, 1.1)
 target_scene_path = "uid://dljufsmrudfbq"
