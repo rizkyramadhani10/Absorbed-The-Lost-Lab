@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://c5jjcdibno85s"]
+
+[ext_resource type="Script" uid="uid://2vv1jxtg1tvr" path="res://levels/minigames/destilasi/destilasi.gd" id="1_43sg2"]
+[ext_resource type="Texture2D" uid="uid://ck4m8u5ewqh0o" path="res://levels/minigames/destilasi/asset/BG/background.png" id="1_lkg87"]
+[ext_resource type="Texture2D" uid="uid://dglil1dsu1rin" path="res://levels/minigames/destilasi/asset/alat/labu_ubah.png" id="2_qrw40"]
+[ext_resource type="Texture2D" uid="uid://jdcgydkjfn8f" path="res://levels/minigames/destilasi/asset/alat/labu alas.png" id="3_5uyst"]
+[ext_resource type="Texture2D" uid="uid://bcgvq40cpeuy5" path="res://levels/minigames/destilasi/asset/alat/labu_new.png" id="4_43sg2"]
+[ext_resource type="Texture2D" uid="uid://omwu4burlv6n" path="res://levels/minigames/destilasi/asset/alat/erlenmeyer 250 ml.png" id="4_e45k3"]
+[ext_resource type="Texture2D" uid="uid://3gg15knmubth" path="res://levels/minigames/destilasi/asset/alat/Desain tanpa judul (4).png" id="4_qrw40"]
+[ext_resource type="Texture2D" uid="uid://cbkqdrrovotr3" path="res://levels/minigames/destilasi/asset/alat/sulfur.png" id="5_jvg37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uyst"]
+size = Vector2(65, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3htk2"]
+size = Vector2(105, 154)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43sg2"]
+size = Vector2(60, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrw40"]
+size = Vector2(82, 143.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnt7o"]
+size = Vector2(77.5, 56.5)
+
+[node name="Destilasi" type="Control" unique_id=900702958]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_43sg2")
+next_scene = "uid://dljufsmrudfbq"
+labu_sprite_changed = ExtResource("2_qrw40")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1946291210]
+layout_mode = 0
+offset_left = -88.0
+offset_top = 3.0
+offset_right = 1202.6666
+offset_bottom = 729.0
+texture = ExtResource("1_lkg87")
+expand_mode = 1
+stretch_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1881826451]
+layout_mode = 0
+offset_left = -152.0
+offset_top = -121.0
+offset_right = 1382.2222
+offset_bottom = 742.0
+texture = ExtResource("4_qrw40")
+expand_mode = 1
+
+[node name="labu" type="TextureRect" parent="." unique_id=1318354474]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 423.0
+offset_right = 410.0
+offset_bottom = 648.0
+texture = ExtResource("4_43sg2")
+
+[node name="Area2D" type="Area2D" parent="labu" unique_id=645392117]
+position = Vector2(52.875, 71.875)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="labu/Area2D" unique_id=812742411]
+position = Vector2(28.625, 40.625)
+shape = SubResource("RectangleShape2D_5uyst")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="labu" unique_id=930252224]
+visible = false
+position = Vector2(52, 72)
+scale = Vector2(0.1411345, 0.1411345)
+texture = ExtResource("3_5uyst")
+metadata/_edit_lock_ = true
+
+[node name="Llabu" type="Area2D" parent="." unique_id=744674537]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Llabu" unique_id=541684693]
+position = Vector2(517, 267)
+shape = SubResource("RectangleShape2D_3htk2")
+metadata/_edit_lock_ = true
+
+[node name="erle" type="TextureRect" parent="." unique_id=2106062417]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 298.0
+offset_right = 280.0
+offset_bottom = 506.0
+
+[node name="Area2D" type="Area2D" parent="erle" unique_id=1999979519]
+position = Vector2(71.750015, 105.75)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="erle/Area2D" unique_id=1527085228]
+position = Vector2(6, -0.5)
+shape = SubResource("RectangleShape2D_43sg2")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="erle" unique_id=1160032272]
+position = Vector2(71.750015, 105.75)
+scale = Vector2(0.0935547, 0.0935547)
+texture = ExtResource("4_e45k3")
+metadata/_edit_lock_ = true
+
+[node name="Lerle" type="Area2D" parent="." unique_id=1812512756]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lerle" unique_id=1878163682]
+position = Vector2(955, 489)
+shape = SubResource("RectangleShape2D_qrw40")
+metadata/_edit_lock_ = true
+
+[node name="sulfur" type="TextureRect" parent="." unique_id=60751760]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 566.0
+offset_right = 169.0
+offset_bottom = 630.0
+
+[node name="Area2D" type="Area2D" parent="sulfur" unique_id=1103547170]
+position = Vector2(-102.666626, -551)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sulfur/Area2D" unique_id=1768406765]
+position = Vector2(144.25, 583.75)
+shape = SubResource("RectangleShape2D_nnt7o")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="sulfur" unique_id=290442705]
+position = Vector2(39.33338, 23.000061)
+scale = Vector2(0.5208334, 0.5208334)
+texture = ExtResource("5_jvg37")
+metadata/_edit_lock_ = true
+
+[node name="Plabu" type="Marker2D" parent="." unique_id=2062102290]
+position = Vector2(429, 144)
+
+[node name="Perle" type="Marker2D" parent="." unique_id=1012811039]
+position = Vector2(883, 403)
+
+[node name="Progressbar" type="ProgressBar" parent="." unique_id=1349205266]
+visible = false
+layout_mode = 0
+offset_left = 90.0
+offset_top = 50.0
+offset_right = 1013.0
+offset_bottom = 123.0
+theme_override_font_sizes/font_size = 50
