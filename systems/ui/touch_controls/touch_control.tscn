@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://jpxq7mpu4ejp" path="res://systems/ui/touch_controls/buttonIcons/interactBtn/silver-Y-pushed.png" id="6_1jqu5"]
 [ext_resource type="Texture2D" uid="uid://1c7smdpsk65c" path="res://systems/ui/touch_controls/Tablet_Objective/4.png" id="8_outdk"]
 [ext_resource type="PackedScene" uid="uid://dv1vt47m0mhyb" path="res://entities/interactables/StoneTool/TabletCrafting/tablet_ui.tscn" id="9_outdk"]
+[ext_resource type="PackedScene" uid="uid://bgr7ahg8ll3mj" path="res://systems/ui/objective/objective_ui.tscn" id="10_rkkfx"]
 
 [node name="TouchControl" type="CanvasLayer" unique_id=741419393]
 script = ExtResource("1_a8o5c")
@@ -95,3 +96,5 @@ passby_press = true
 
 [node name="TabletUI" parent="." unique_id=1026792843 instance=ExtResource("9_outdk")]
 visible = false
+
+[node name="ObjectiveUI" parent="." unique_id=1600829041 instance=ExtResource("10_rkkfx")]

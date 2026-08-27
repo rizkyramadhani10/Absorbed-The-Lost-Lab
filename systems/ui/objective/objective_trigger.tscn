@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dgstwakov1kuy"]
+
+[ext_resource type="Script" uid="uid://cc5el6r2hp5q6" path="res://systems/ui/objective/objective_trigger.gd" id="1_inuay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kni7p"]
+size = Vector2(170, 399)
+
+[node name="ObjectiveTrigger" type="Node2D" unique_id=226962568]
+script = ExtResource("1_inuay")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1697868610]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=820020383]
+position = Vector2(75, 189.5)
+shape = SubResource("RectangleShape2D_kni7p")
