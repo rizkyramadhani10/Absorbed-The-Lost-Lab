@@ -82,31 +82,7 @@ func _play_locked_dialog() -> void:
 	if player_ref == null:
 		return
 
-	var dp = player_ref.get_node_or_null("DialogPlayer")
-	if dp == null:
-		dp = player_ref.find_child("DialogPlayer", true, false)
-
-	if dp == null:
-		print("ERROR di Outfits: Node 'DialogPlayer' tidak ditemukan pada " + player_ref.name)
-		return
-
 	is_dialog_playing = true
-
-	# 1. Kunci pergerakan & input player
-	player_ref.set_physics_process(false)
-	if player_ref.has_method("set_process_unhandled_input"):
-		player_ref.set_process_unhandled_input(false)
-
-	# 2. Assign resource & jalankan dialog
-	var dialogue_resource = load(locked_dialog_path)
-	dp._dialog_data = dialogue_resource
-	dp.start()
-
-	await dp.dialog_ended
-
-	# 3. Kembalikan kontrol player
-	player_ref.set_physics_process(true)
-	if player_ref.has_method("set_process_unhandled_input"):
-		player_ref.set_process_unhandled_input(true)
-
+	# Lock dialog + kunci/buka kontrol player ditangani PlayerGate
+	await PlayerGate.play_locked_dialog(player_ref, locked_dialog_path)
 	is_dialog_playing = false

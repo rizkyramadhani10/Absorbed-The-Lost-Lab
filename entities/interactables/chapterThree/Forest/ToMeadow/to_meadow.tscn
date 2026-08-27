@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ipst55s3uw14"]
 
-[ext_resource type="Script" uid="uid://cqvyixbfhp1ro" path="res://entities/interactables/chapterThree/Forest/ToMeadow/to_meadow.gd" id="1_25cbn"]
+[ext_resource type="Script" path="res://core/components/interactable_door.gd" id="1_25cbn"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="1_bgni2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mw4w"]

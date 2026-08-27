@@ -15,10 +15,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 # Step 4: Add the code for each button functionality
 
 func _on_play_button_pressed() -> void:

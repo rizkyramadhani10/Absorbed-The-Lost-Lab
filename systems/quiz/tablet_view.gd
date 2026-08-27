@@ -88,7 +88,8 @@ func close():
 	await slide_tween.finished
 	
 	if game_world: game_world.visible = true
-	if player:
+	# Guard: player bisa saja sudah freed (mis. pindah scene saat animasi tutup)
+	if player and is_instance_valid(player):
 		player.set_process(true)
 		player.set_physics_process(true)
 	

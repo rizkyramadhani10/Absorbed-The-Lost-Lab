@@ -8,6 +8,7 @@ var current_question_index: int = 0
 var current_health: int = 3
 var current_question: QuizQuestion = null
 var typing_speed: float = 0.03
+var type_tween: Tween
 
 @onready var health_hearts = [$HealthDisplay/Heart1, $HealthDisplay/Heart2, $HealthDisplay/Heart3]
 @onready var question_display = $QuestionDisplay
@@ -60,11 +61,23 @@ func show_next_question():
 
 func type_local_question(text_to_type: String):
 	if question_display:
+		# Hentikan tween ketik sebelumnya agar tidak ada dua loop yang saling
+		# merebut visible_characters saat pemain menekan jawaban dengan cepat
+		if type_tween and type_tween.is_valid():
+			type_tween.kill()
+		
 		question_display.text = text_to_type
 		question_display.visible_characters = 0
-		while question_display.visible_characters < text_to_type.length():
-			question_display.visible_characters += 1
-			await get_tree().create_timer(typing_speed).timeout
+		
+		# Satu tween untuk seluruh teks (bukan Timer baru per karakter)
+		var total_chars := text_to_type.length()
+		type_tween = create_tween()
+		type_tween.tween_method(
+			func(value: float): question_display.visible_characters = int(value),
+			0.0,
+			float(total_chars),
+			total_chars * typing_speed
+		)
 
 func _on_answer_pressed(choice_index: int):
 	for button in answer_buttons: button.disabled = true

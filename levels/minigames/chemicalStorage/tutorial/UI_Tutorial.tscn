@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://didhv2de4ch42"]
 
-[ext_resource type="Script" uid="uid://26fm00cyxd1k" path="res://levels/minigames/klasifikasiLimbah/Tutorial/ui_tutorial.gd" id="1_36ip5"]
+[ext_resource type="Script" path="res://core/components/ui_tutorial.gd" id="1_36ip5"]
 [ext_resource type="Texture2D" uid="uid://baucj3xtx8b5q" path="res://assets/images/itemProps/tablet/Tablet Xeno (ATL) (1).png" id="1_wrbm2"]
 [ext_resource type="FontFile" uid="uid://b1u0l0n3ck6v4" path="res://systems/ui/theme/fonts/Easy Pixel.ttf" id="2_36ip5"]
 [ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="3_4vx1h"]

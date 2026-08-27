@@ -250,5 +250,3 @@ grow_vertical = 0
 [node name="ClockLoading" type="AnimatedSprite2D" parent="Animation" unique_id=774857188]
 scale = Vector2(0.120779224, 0.12077921)
 sprite_frames = SubResource("SpriteFrames_atr83")
-autoplay = "default"
-frame_progress = 0.5832447

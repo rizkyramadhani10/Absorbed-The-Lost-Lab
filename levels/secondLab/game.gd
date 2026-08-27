@@ -5,7 +5,7 @@ extends Node2D
 # ==========================================
 @export_group("Audio Settings")
 @export var ambient_sound: AudioStream = null # Masukkan file audio ambient di Inspector
-@export var ambient_volume_db: float = 5.0  # Atur volume ambient
+@export var ambient_volume_db: float = -5.0  # Atur volume ambient
 
 # ==========================================
 # 📈 PENGATURAN PROGRESS CERITA & TRIGGER
@@ -81,12 +81,6 @@ func _on_trig_middle_lab_body_entered(body: Node2D) -> void:
 			if filler_dialog_path == "":
 				print("ERROR di SecondLab: 'Filler Dialog Path' di Inspector masih KOSONG!")
 				return
-				
-			# 🔍 CEK 2: Cari DialogPlayer pada Player
-			var dp = body.find_child("DialogPlayer", true, false)
-			if dp == null:
-				print("ERROR di SecondLab: Node 'DialogPlayer' tidak ditemukan pada " + body.name)
-				return
 			
 			# Matikan pemantauan trigger agar tidak berulang
 			trig_middle_lab.set_deferred("monitoring", false)
@@ -96,22 +90,8 @@ func _on_trig_middle_lab_body_entered(body: Node2D) -> void:
 			# Beri jeda 1 frame agar posisi kamera & UI mereset dulu ke posisi Xeno
 			await get_tree().process_frame
 			
-			# 1. Kunci pergerakan & input player
-			body.set_physics_process(false)
-			if body.has_method("set_process_unhandled_input"):
-				body.set_process_unhandled_input(false)
-				
-			# 2. Assign resource & jalankan dialog
-			var dialogue_resource = load(filler_dialog_path)
-			dp._dialog_data = dialogue_resource
-			dp.start()
-			
-			await dp.dialog_ended
-			
-			# 3. Kembalikan kontrol player
-			body.set_physics_process(true)
-			if body.has_method("set_process_unhandled_input"):
-				body.set_process_unhandled_input(true)
+			# Lock dialog + kunci/buka kontrol player ditangani PlayerGate
+			await PlayerGate.play_locked_dialog(body, filler_dialog_path)
 				
 			is_dialog_playing = false
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxc3kgrkyvlwo"]
 
-[ext_resource type="Script" uid="uid://uiemtjc2vynj" path="res://entities/interactables/chapterTwo/thirdLab/ExitDoor/exit_door.gd" id="1_cd08e"]
+[ext_resource type="Script" path="res://core/components/interactable_door.gd" id="1_cd08e"]
 [ext_resource type="Texture2D" uid="uid://cinkxefvck2rr" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/ExitDoor.png" id="2_ae85j"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_cd08e"]
 [ext_resource type="AudioStream" uid="uid://ce4mr74jg023y" path="res://assets/audio/sfx/soundreality-opening-door-411632.mp3" id="4_4apnj"]

@@ -9,6 +9,10 @@ var fade_tween: Tween
 # Add a variable to track the exact millisecond of the last tap
 var last_tap_time: int = 0 
 
+# Guard agar prologue hanya selesai SEKALI (video end & double-tap tidak dobel)
+var is_finished: bool = false
+var reset_timer: SceneTreeTimer
+
 func _ready():
 	skip_hint.modulate.a = 0.0
 	skip_hint.show() 
@@ -27,6 +31,9 @@ func _input(event):
 			_handle_tap()
 
 func _handle_tap():
+	if is_finished:
+		return
+		
 	tap_count += 1
 	
 	if tap_count == 1:
@@ -43,10 +50,14 @@ func fade_in_hint():
 	fade_tween.tween_property(skip_hint, "modulate:a", 1.0, 0.3)
 
 func _start_reset_timer():
-	var timer = get_tree().create_timer(3.0)
-	timer.timeout.connect(_on_timer_timeout)
+	# Jangan tumpuk timer baru setiap tap — cukup satu yang berjalan
+	if reset_timer != null:
+		return
+	reset_timer = get_tree().create_timer(3.0)
+	reset_timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout():
+	reset_timer = null
 	if tap_count == 1:
 		fade_out_hint()
 		tap_count = 0 
@@ -62,5 +73,8 @@ func _on_video_finished():
 	finish_prologue()
 
 func finish_prologue():
+	if is_finished:
+		return
+	is_finished = true
 	video_player.stop()
 	TransitionScreen.transition_to_scene("res://levels/thirdLab(TimeMachine)/game.tscn")

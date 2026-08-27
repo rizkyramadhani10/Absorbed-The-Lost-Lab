@@ -87,32 +87,13 @@ func _on_dialogue_trigger_body_entered(body: Node2D) -> void:
 
 # 🔥 Fungsi untuk memutar dialog dan mengunci pergerakan pemain
 func _play_trigger_dialog(player_node: Node2D) -> void:
-	var dp = player_node.find_child("DialogPlayer", true, false)
-	if dp == null:
-		print("ERROR: Node 'DialogPlayer' tidak ditemukan pada " + player_node.name)
-		return
-		
 	is_dialog_playing = true
 	
 	# Beri jeda 1 frame agar posisi kamera & UI mereset
 	await get_tree().process_frame
 	
-	# Kunci pergerakan & input player
-	player_node.set_physics_process(false)
-	if player_node.has_method("set_process_unhandled_input"):
-		player_node.set_process_unhandled_input(false)
-		
-	# Assign resource & jalankan dialog
-	var dialogue_resource = load(trigger_dialog_path)
-	dp._dialog_data = dialogue_resource
-	dp.start()
-	
-	await dp.dialog_ended
-	
-	# Kembalikan kontrol player
-	player_node.set_physics_process(true)
-	if player_node.has_method("set_process_unhandled_input"):
-		player_node.set_process_unhandled_input(true)
+	# Lock dialog + kunci/buka kontrol player ditangani PlayerGate
+	await PlayerGate.play_locked_dialog(player_node, trigger_dialog_path)
 		
 	is_dialog_playing = false
 

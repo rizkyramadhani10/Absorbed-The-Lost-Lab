@@ -13,6 +13,8 @@ extends Area2D
 # Perbaiki: Gunakan path yang benar untuk Label (Node2D) dan ProgressBar
 @onready var interact_label: Node2D = $Label  # Ini adalah Node2D, bukan Label Control
 @onready var progress_bar: ProgressBar = $ProgressBar  # Pastikan ProgressBar sudah ditambahkan
+# Cache child Label sekali di awal (hindari find_child rekursif setiap frame)
+@onready var prompt_label: Label = interact_label.find_child("Label", true, false) as Label
 
 # --- VARIABEL ---
 var player_ref: Node2D = null
@@ -49,6 +51,9 @@ func _ready():
 	
 	# Nonaktifkan interaksi jika tidak ada alat
 	_update_interactable_state()
+	
+	# _process hanya dibutuhkan saat hold-mining aktif
+	set_process(false)
 
 # --- FUNGSI SETUP AUDIO ---
 func _setup_audio() -> void:
@@ -68,7 +73,9 @@ func _setup_audio() -> void:
 func _play_mining_sound() -> void:
 	if audio_player and mining_sound != null:
 		# Set loop agar terus berulang selama proses mining
-		audio_player.finished.connect(_on_mining_sound_finished)
+		# Guard agar koneksi tidak menumpuk bila dipanggil berulang kali
+		if not audio_player.finished.is_connected(_on_mining_sound_finished):
+			audio_player.finished.connect(_on_mining_sound_finished)
 		audio_player.play()
 		print("Mining sound started!")
 
@@ -131,14 +138,8 @@ func _on_body_exited(body: Node2D) -> void:
 func show_interact_prompt(show: bool, text: String = ""):
 	if interact_label:
 		interact_label.visible = show
-		if show and text:
-			# Karena interact_label adalah Node2D, kita perlu mencari child Label jika ada
-			var label_node = interact_label.find_child("Label", true, false)
-			if label_node and label_node is Label:
-				label_node.text = text
-			else:
-				# Jika tidak ada child Label, kita bisa menggunakan cara lain
-				print("Prompt: ", text)  # Debug sementara
+		if show and text and prompt_label:
+			prompt_label.text = text
 
 # --- FUNGSI INTERAKSI HOLD ---
 func interact() -> void:
@@ -161,6 +162,7 @@ func interact() -> void:
 		is_holding_interact = true
 		hold_time = 0.0
 		_show_progress()
+		set_process(true)
 		
 		# 🔥 MAIN KAN SUARA MINING (LOOP)
 		_play_mining_sound()
@@ -174,15 +176,14 @@ func interact_release() -> void:
 func _cancel_hold():
 	is_holding_interact = false
 	hold_time = 0.0
+	set_process(false)
 	_hide_progress()
 	
 	# 🔥 HENTIKAN SUARA MINING
 	_stop_mining_sound()
 	
-	if interact_label and not is_destroyed:
-		var label_node = interact_label.find_child("Label", true, false)
-		if label_node and label_node is Label:
-			label_node.text = ""
+	if prompt_label and not is_destroyed:
+		prompt_label.text = ""
 
 func _show_progress():
 	if progress_bar:
@@ -197,11 +198,9 @@ func _hide_progress():
 func _update_progress(progress: float):
 	if progress_bar:
 		progress_bar.value = progress * 100
-		# Update label dengan persentase
-		if interact_label:
-			var label_node = interact_label.find_child("Label", true, false)
-			if label_node and label_node is Label:
-				label_node.text = str(int(progress * 100)) + "%"
+		# Update label dengan persentase (node sudah di-cache)
+		if prompt_label:
+			prompt_label.text = str(int(progress * 100)) + "%"
 
 func _destroy_sulfur(instant: bool = false):
 	if is_destroyed:

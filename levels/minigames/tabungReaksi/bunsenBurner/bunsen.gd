@@ -27,7 +27,9 @@ var heating_rates = {
 func _ready():
 	# 🔥 FIX: Hanya nonaktifkan jika minigame BUNSEN yang selesai, 
 	# bukan minigame lain (seperti Safety Shower)
-	if Global.is_bunsen_completed:
+	# Catatan: flag yang benar adalah is_heating_completed (di-set oleh pencapit.gd).
+	# Sebelumnya memakai "is_bunsen_completed" yang tidak ada di Global -> error runtime.
+	if Global.is_heating_completed:
 		if has_node("CollisionShape2D"):
 			$CollisionShape2D.disabled = true
 		print("Bunsen sudah selesai digunakan, interaksi dikunci.")
@@ -54,10 +56,12 @@ func _ready():
 	_check_textures()
 
 func _on_bunsen_area_entered(area):
-	print("🔥🔥🔥 AREA MASUK BUNSEN! Area yang masuk: ", area.name)
+	if OS.is_debug_build():
+		print("🔥🔥🔥 AREA MASUK BUNSEN! Area yang masuk: ", area.name)
 
 func _on_bunsen_area_exited(area):
-	print("❌ Area keluar dari Bunsen: ", area.name)
+	if OS.is_debug_build():
+		print("❌ Area keluar dari Bunsen: ", area.name)
 
 func _check_textures():
 	if texture_mati == null: print("⚠️ Peringatan: texture_mati belum diisi!")
