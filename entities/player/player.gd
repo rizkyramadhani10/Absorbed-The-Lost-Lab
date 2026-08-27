@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
+const SPEED = 400.0
 
 # --- Menyimpan referensi objek yang bisa diajak interaksi di dekat player ---
 var nearby_interactable = null 
@@ -15,10 +15,15 @@ var is_holding_interact: bool = false # 🔥 Ditambahkan untuk fitur hold intera
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var base_shadow_scale = $shadow.scale
 @onready var walk_sfx = $WalkSFX 
+@onready var shadow_ray: RayCast2D = $ShadowRAY
+@onready var shadow = $shadow
 
 func _ready():
 	add_to_group("player")
 	animated_sprite.animation_finished.connect(_on_animation_finished)
+	
+	# Pengecualian raycast cukup didaftarkan sekali, bukan setiap frame
+	shadow_ray.add_exception(self)
 	
 	# 🔥 FIX 1: Sinkronisasi status APD saat scene dimuat ulang
 	has_apd = Global.has_apd
@@ -164,15 +169,12 @@ func _on_animation_finished():
 		interacting_object = null
 
 func _update_shadow() -> void:
-	if $ShadowRAY.get_collider() == self:
-		$ShadowRAY.add_exception(self)
+	if shadow_ray.is_colliding():
+		shadow.visible = true
+		var ground_y: float = shadow_ray.get_collision_point().y
+		shadow.global_position.y = ground_y
 		
-	if $ShadowRAY.is_colliding():
-		$shadow.visible = true
-		var ground_y: float = $ShadowRAY.get_collision_point().y
-		$shadow.global_position.y = ground_y
-		
-		var ray_start_y: float = $ShadowRAY.global_position.y
+		var ray_start_y: float = shadow_ray.global_position.y
 		var total_distance: float = ground_y - ray_start_y
 		
 		var standing_distance: float = 140.5
@@ -181,11 +183,11 @@ func _update_shadow() -> void:
 		var max_jump_distance: float = 150.0 
 		var height_ratio: float = clamp(1.0 - (air_distance / max_jump_distance), 0.0, 1.0)
 		
-		$shadow.modulate.a = height_ratio
+		shadow.modulate.a = height_ratio
 		var shadow_scale: float = max(height_ratio, 0.5)
-		$shadow.scale = base_shadow_scale * shadow_scale
+		shadow.scale = base_shadow_scale * shadow_scale
 	else:
-		$shadow.visible = false
+		shadow.visible = false
 
 func kembalikan_posisi_setelah_minigame() -> void:
 	if Global.spawn_point != "":

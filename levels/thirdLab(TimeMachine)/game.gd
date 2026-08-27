@@ -117,20 +117,12 @@ func _on_trigger_body_entered(body: Node2D, config: LabTriggerConfig, trigger_ar
 			await get_tree().process_frame
 			
 			# Kunci pergerakan player
-			body.set_physics_process(false)
-			if body.has_method("set_process_unhandled_input"):
-				body.set_process_unhandled_input(false)
+			PlayerGate.lock(body)
 				
 			# Jalankan dialog jika path dialog diisi di Inspector
+			# (lock/unlock + pencarian DialogPlayer ditangani PlayerGate)
 			if config.dialog_path != "":
-				var dp = body.find_child("DialogPlayer", true, false)
-				if dp != null:
-					var dialogue_resource = load(config.dialog_path)
-					dp._dialog_data = dialogue_resource
-					dp.start()
-					await dp.dialog_ended
-				else:
-					print("ERROR: Node 'DialogPlayer' tidak ditemukan pada " + body.name)
+				await PlayerGate.play_locked_dialog(body, config.dialog_path)
 			
 			# Majukan progres cerita secara aman
 			if GameState.current_stage < config.advance_story_to:
@@ -141,9 +133,7 @@ func _on_trigger_body_entered(body: Node2D, config: LabTriggerConfig, trigger_ar
 			trigger_area.queue_free()
 			
 			# Kembalikan kontrol player
-			body.set_physics_process(true)
-			if body.has_method("set_process_unhandled_input"):
-				body.set_process_unhandled_input(true)
+			PlayerGate.unlock(body)
 				
 			is_dialog_playing = false
 
@@ -158,7 +148,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			
 		await get_tree().process_frame
 		
-		var dialogue_resource = load("res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres")
+		# Resource di-cache oleh PlayerGate agar tidak load() berulang
+		var dialogue_resource = PlayerGate.get_dialog_resource("res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres")
 		
 		if player:
 			var dp = player.find_child("DialogPlayer", true, false)
@@ -167,8 +158,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				dp.start()
 				await dp.dialog_ended
 			
-			player.set_physics_process(true)
-			player.set_process_unhandled_input(true)
+			PlayerGate.unlock(player)
 			
 		print("Player sadar sepenuhnya dan siap bergerak!")
 

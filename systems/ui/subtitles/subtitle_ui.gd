@@ -12,8 +12,12 @@ var subtitle_tween: Tween
 var _last_char_index: int = -1 
 var _clean_text: String = "" # Menyimpan teks bersih (tanpa tag BBCode) khusus untuk hitungan audio
 
+# Regex di-compile SEKALI saja, bukan setiap baris dialog
+var _tag_regex: RegEx = RegEx.new()
+
 func _ready():
 	container.hide()
+	_tag_regex.compile("\\[.*?\\]")
 
 func show_typewriter_text(text_to_type: String, character_name: String = "xeno", _duration_after_typing: float = 2.5):
 	if subtitle_tween and subtitle_tween.is_valid():
@@ -28,11 +32,8 @@ func show_typewriter_text(text_to_type: String, character_name: String = "xeno",
 	_last_char_index = -1
 	
 	# ==================== PERUBAHAN UNTUK BBCODE ====================
-	# Kode ini otomatis menghapus semua tag di dalam kurung siku [...] 
-	# sehingga "Sistem [b]Main[/b]" terbaca murni sebagai "Sistem Main" untuk sistem audio.
-	var regex = RegEx.new()
-	regex.compile("\\[.*?\\]")
-	_clean_text = regex.sub(text_to_type, "", true)
+	# Gunakan regex yang sudah di-compile sekali di _ready()
+	_clean_text = _tag_regex.sub(text_to_type, "", true)
 	# ================================================================
 	
 	match character_name.to_lower():

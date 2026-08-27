@@ -4,16 +4,16 @@
 [ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_3s7m7"]
 [ext_resource type="Script" uid="uid://dbn41bn1j3pps" path="res://core/managers/lab_trigger_config.gd" id="2_bok5e"]
 [ext_resource type="Texture2D" uid="uid://c7510230rp4i2" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgWallnFloor.png" id="2_hdadk"]
-[ext_resource type="AudioStream" uid="uid://dom1j5d8afv2r" path="res://assets/audio/bgm/ambientThird.mp3" id="2_lau1m"]
+[ext_resource type="AudioStream" uid="uid://dk3urini7ifsq" path="res://assets/audio/bgm/ambientThird.mp3" id="2_lau1m"]
 [ext_resource type="Texture2D" uid="uid://bjpwerel1jvfa" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgLighting.png" id="3_hdadk"]
 [ext_resource type="Texture2D" uid="uid://cob1frcs33wb0" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/LabBench.png" id="3_i8mc3"]
 [ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_nq5ue"]
-[ext_resource type="Texture2D" uid="uid://d0v5rd8mleejw" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/TimeMachine.png" id="5_hdadk"]
-[ext_resource type="Texture2D" uid="uid://jqogp66geq5w" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
-[ext_resource type="Texture2D" uid="uid://babo1rnjmqgvy" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
+[ext_resource type="Texture2D" uid="uid://c874nbl3ka0o2" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/TimeMachine.png" id="5_hdadk"]
+[ext_resource type="Texture2D" uid="uid://dc8xao51u4nfi" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/FireExtinguisher.png" id="5_neng1"]
+[ext_resource type="Texture2D" uid="uid://bx2vcloeiy16k" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/chair.png" id="6_i6bjx"]
 [ext_resource type="PackedScene" uid="uid://brfnqssdfhahy" path="res://entities/interactables/chapterTwo/thirdLab/AnalyticalBalance/AnalyticalBalance.tscn" id="6_i8mc3"]
 [ext_resource type="PackedScene" uid="uid://7w36ecxxxocl" path="res://entities/interactables/chapterTwo/thirdLab/AquadesDispenser/AquadesDispenser.tscn" id="7_i6bjx"]
-[ext_resource type="Texture2D" uid="uid://bt04e03aic7hh" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
+[ext_resource type="Texture2D" uid="uid://b15uvydb6ayqx" path="res://levels/thirdLab(TimeMachine)/sprites/nonInteractablesProps/Cable.png" id="7_rk8vc"]
 [ext_resource type="PackedScene" uid="uid://q3uvh2bli0ur" path="res://entities/interactables/chapterTwo/thirdLab/BuretteClamp/BuretteClamp.tscn" id="8_neng1"]
 [ext_resource type="PackedScene" uid="uid://c1womygdw84lw" path="res://core/components/StoryBarrier.tscn" id="9_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://773gtuxtmlly" path="res://entities/interactables/chapterTwo/thirdLab/DoorToLab1/DoorToLab1.tscn" id="9_rk8vc"]
@@ -210,7 +210,7 @@ position = Vector2(737, 0)
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("16_e4qak")]
 position = Vector2(-768, 751)
 
-[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("ai_dialog_box_parent", "xeno_dialog_box_parent")]
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_dialog_box_parent", "ai_dialog_box_parent")]
 _dialog_data_uid = 7840125102653571137
 _dialog_file_name = "dialog_01_awake.json"
 _dialog_data = ExtResource("22_3s7m7")
@@ -218,8 +218,8 @@ _start_id = "1"
 _play_on_ready = false
 _destroy_on_end = false
 _print_debug = false
-ai_dialog_box_parent = NodePath("../DialogueAnchor")
 xeno_dialog_box_parent = NodePath("../DialogueAnchor")
+ai_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
 position = Vector2(112, -355)

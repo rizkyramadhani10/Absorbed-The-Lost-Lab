@@ -3,8 +3,6 @@ extends CanvasLayer
 signal interact_pressed
 signal interact_released
 
-@export var tablet_scene: PackedScene  # Tidak digunakan lagi, bisa dihapus
-
 @onready var tablet_ui: CanvasLayer = $TabletUI
 @onready var open_tablet_btn: TouchScreenButton = $Tablet/OpenTablet
 

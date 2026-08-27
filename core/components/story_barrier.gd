@@ -15,17 +15,12 @@ func _ready() -> void:
 	if not trigger_area.body_entered.is_connected(_on_body_entered):
 		trigger_area.body_entered.connect(_on_body_entered)
 		
-	# 🔥 DEBUG LOG: Cek di Console output nilai stage saat ini vs appear stage
-	print("--- STORY BARRIER CHECK ---")
-	print("Current Stage: ", GameState.current_stage)
-	print("Appear Stage : ", appear_stage)
+	# Event-driven: cukup update saat stage berubah, bukan setiap frame
+	GameState.stage_changed.connect(update_barrier_state)
 	
 	update_barrier_state()
 
-func _process(_delta: float) -> void:
-	update_barrier_state()
-
-func update_barrier_state() -> void:
+func update_barrier_state(_new_stage: GameState.StoryStage = GameState.StoryStage.AWAKE) -> void:
 	# 1. Hancurkan barrier jika sudah melewai required_stage
 	if GameState.current_stage >= required_stage:
 		queue_free()
@@ -57,29 +52,10 @@ func _on_body_entered(body: Node2D) -> void:
 
 	if body.name == "Player" or body.is_in_group("player"):
 		if GameState.current_stage < required_stage:
-			if locked_dialog_path == "":
-				print("ERROR StoryBarrier: Path dialog kosong!")
-				return
-			
-			var dp = body.find_child("DialogPlayer", true, false)
-			if dp == null:
-				return
-
 			is_dialog_playing = true
 			await get_tree().process_frame
-
-			body.set_physics_process(false)
-			if body.has_method("set_process_unhandled_input"):
-				body.set_process_unhandled_input(false)
 			
-			var dialogue_resource = load(locked_dialog_path)
-			dp._dialog_data = dialogue_resource
-			dp.start()
-			
-			await dp.dialog_ended
-			
-			body.set_physics_process(true)
-			if body.has_method("set_process_unhandled_input"):
-				body.set_process_unhandled_input(true)
+			# Lock dialog + kunci/buka kontrol player ditangani PlayerGate
+			await PlayerGate.play_locked_dialog(body, locked_dialog_path)
 				
 			is_dialog_playing = false

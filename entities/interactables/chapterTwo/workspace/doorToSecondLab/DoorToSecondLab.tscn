@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://diqjxd10n5qvi"]
 
-[ext_resource type="Script" uid="uid://dc6tb0cfi5x6j" path="res://entities/interactables/chapterTwo/workspace/doorToSecondLab/door_to_second_lab.gd" id="1_nohcq"]
+[ext_resource type="Script" path="res://core/components/interactable_door.gd" id="1_nohcq"]
 [ext_resource type="Texture2D" uid="uid://dwufrrdextgpk" path="res://levels/storage/sprites/Door.png" id="2_ph45e"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_rkt6f"]
 [ext_resource type="AudioStream" uid="uid://ce4mr74jg023y" path="res://assets/audio/sfx/soundreality-opening-door-411632.mp3" id="4_i7a67"]
@@ -10,6 +10,8 @@ size = Vector2(108, 333)
 
 [node name="DoorToSecondLab" type="Area2D" unique_id=73848177]
 script = ExtResource("1_nohcq")
+require_apd = true
+reset_last_position_on_enter = true
 
 [node name="DoorToSecondLab" type="Sprite2D" parent="." unique_id=477680745]
 position = Vector2(1307, 307.00003)

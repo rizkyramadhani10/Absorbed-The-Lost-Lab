@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://plom0ba10qfn"]
 
-[ext_resource type="Script" uid="uid://blsynhag3iq5" path="res://entities/interactables/chapterThree/Forest/ToVolcanic/to_volcanic.gd" id="1_6twpi"]
+[ext_resource type="Script" path="res://core/components/interactable_door.gd" id="1_6twpi"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="1_bgni2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nh8r0"]

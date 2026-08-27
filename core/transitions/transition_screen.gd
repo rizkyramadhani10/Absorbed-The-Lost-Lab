@@ -14,6 +14,8 @@ var spin_speed: float = 5.0
 func _ready() -> void:
 	# Keep the clock hidden when the game first starts up
 	clock_loading.visible = false
+	# _process hanya aktif saat transisi berjalan (hemat callback per frame saat idle)
+	set_process(false)
 
 func _process(delta: float) -> void:
 	# If we are in a transition, continuously rotate the clock over time
@@ -21,6 +23,13 @@ func _process(delta: float) -> void:
 		clock_loading.rotation += spin_speed * delta
 
 func transition_to_scene(target_scene_path: String) -> void:
+	# Guard re-entrancy: abaikan panggilan baru saat transisi masih berjalan
+	if is_loading:
+		return
+	
+	is_loading = true
+	set_process(true)
+	
 	# 1. Block clicks
 	color_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	
@@ -30,7 +39,6 @@ func transition_to_scene(target_scene_path: String) -> void:
 	
 	# 3. Show the clock and start the spinning logic
 	clock_loading.visible = true
-	is_loading = true
 	
 	# (If you are using an AnimatedSprite2D frame animation instead of rotation, uncomment below:)
 	# clock_loading.play("ticking") 
@@ -44,6 +52,7 @@ func transition_to_scene(target_scene_path: String) -> void:
 	
 	# 5. Stop the clock spinning and hide it
 	is_loading = false
+	set_process(false)
 	clock_loading.visible = false
 	
 	# (If using AnimatedSprite2D:)

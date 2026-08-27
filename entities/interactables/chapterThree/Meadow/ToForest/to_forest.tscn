@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bm2epodcaoerf"]
 
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="1_bgni2"]
-[ext_resource type="Script" uid="uid://bdlmjdj8johrs" path="res://entities/interactables/chapterThree/Meadow/ToForest/to_forest.gd" id="1_giluc"]
+[ext_resource type="Script" path="res://core/components/interactable_door.gd" id="1_giluc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_giluc"]
 size = Vector2(358, 333)

@@ -49,17 +49,18 @@ func _process(delta):
 	if is_dragging:
 		global_position = get_global_mouse_position() + drag_offset
 	
+	# Bar hanya tampil saat memegang tabung — tulis properti hanya saat berubah
+	if progress_bar.visible != is_holding_tube:
+		progress_bar.visible = is_holding_tube
+	
 	# 🔥 LOGIKA PEMANASAN: Jika pencapit memegang tabung DAN menyentuh Bunsen
 	if is_holding_tube and !is_heating_complete:
-		progress_bar.visible = true
-		
 		# Cek apakah Bunsen menyala dan pencapit menyentuh area Bunsen
 		if bunsen != null and is_touching_bunsen:
 			var heating_speed = bunsen.get_heating_rate()
 			
 			if heating_speed > 0:
 				progress_bar.value += heating_speed * delta
-				print("📈 Progress: ", round(progress_bar.value), "/", progress_bar.max_value, " | Speed: ", heating_speed)
 				
 				if progress_bar.value >= progress_bar.max_value:
 					progress_bar.value = progress_bar.max_value
@@ -80,10 +81,7 @@ func _process(delta):
 					progress_bar.value = 0
 	
 	elif is_holding_tube and is_heating_complete:
-		progress_bar.visible = true
 		progress_bar.value = progress_bar.max_value
-	else:
-		progress_bar.visible = false
 
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -119,28 +117,33 @@ func eksekusi_gabung_tabung():
 
 # 🔥 FUNGSI BARU: Deteksi collision dengan Bunsen
 func _on_area_entered(area):
-	print("📍 Area entered di pencapit: ", area.name, " (Parent: ", area.get_parent().name, ")")
+	if OS.is_debug_build():
+		print("📍 Area entered di pencapit: ", area.name, " (Parent: ", area.get_parent().name, ")")
 	
 	# Deteksi tabung reaksi (untuk mengambil)
 	if area.name == "Tabung Reaksi":
 		over_tube_area = area
-		print("🧪 Tabung terdeteksi! over_tube_area = ", over_tube_area.name)
+		if OS.is_debug_build():
+			print("🧪 Tabung terdeteksi! over_tube_area = ", over_tube_area.name)
 	
 	# 🔥 DETEKSI BUNSEN: Jika area yang masuk adalah area Bunsen
 	if area.get_parent().name == "Bunsen" and area.name == "Area2D":
 		is_touching_bunsen = true
-		print("🔥🔥🔥 PENCAPIT MENYENTUH BUNSEN! is_touching_bunsen = ", is_touching_bunsen)
+		if OS.is_debug_build():
+			print("🔥🔥🔥 PENCAPIT MENYENTUH BUNSEN! is_touching_bunsen = ", is_touching_bunsen)
 
 func _on_area_exited(area):
 	# Tabung reaksi meninggalkan area
 	if area == over_tube_area:
 		over_tube_area = null
-		print("🧪 Tabung meninggalkan area")
+		if OS.is_debug_build():
+			print("🧪 Tabung meninggalkan area")
 	
 	# 🔥 PENCAPIT MENINGGALKAN BUNSEN
 	if area.get_parent().name == "Bunsen" and area.name == "Area2D":
 		is_touching_bunsen = false
-		print("❌ Pencapit meninggalkan Bunsen! is_touching_bunsen = ", is_touching_bunsen)
+		if OS.is_debug_build():
+			print("❌ Pencapit meninggalkan Bunsen! is_touching_bunsen = ", is_touching_bunsen)
 
 # 🔄 MODIFIKASI FUNGSI: Otomatis pindah scene saat selesai
 func _on_heating_complete():

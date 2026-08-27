@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwuwtpdbrgbuq"]
 
-[ext_resource type="Script" uid="uid://dwk6x4oqcrqie" path="res://core/autoloads/interactable_teleport.gd" id="1_2thwm"]
+[ext_resource type="Script" uid="uid://dwk6x4oqcrqie" path="res://core/components/interactable_teleport.gd" id="1_2thwm"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_kqibe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]

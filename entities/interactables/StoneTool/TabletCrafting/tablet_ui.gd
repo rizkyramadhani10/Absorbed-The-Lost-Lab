@@ -107,6 +107,10 @@ func _ready():
 	_update_knowledge_tab()
 
 func _check_nodes():
+	# Log debug hanya saat berjalan dari editor/debug build
+	if not OS.is_debug_build():
+		return
+	
 	print("=== CHECKING NODES ===")
 	
 	# Cek Background

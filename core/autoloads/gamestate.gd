@@ -26,17 +26,11 @@ enum StoryStage {
 
 var current_stage: StoryStage = StoryStage.AWAKE:
 	set(value):
-		current_stage = value
-		stage_changed.emit(current_stage) # Pancarkan sinyal tiap kali stage berubah
-		
-# Menyimpan status quest/objektif opsional
-var has_empty_battery: bool = false
+		# Hanya emit sinyal jika nilainya benar-benar berubah
+		if current_stage != value:
+			current_stage = value
+			stage_changed.emit(current_stage) # Pancarkan sinyal tiap kali stage berubah
 
-# Variabel untuk crafting
-var has_wood: bool = false
-var has_rope: bool = false
-var has_stone: bool = false
-var has_hammer: bool = false
 func advance_to(new_stage: StoryStage) -> void:
 	# Hanya ubah jika stage baru LEBIH TINGGI dari stage saat ini
 	if current_stage < new_stage:

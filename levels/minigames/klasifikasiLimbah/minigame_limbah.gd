@@ -15,6 +15,7 @@ var tutorial_scene = preload("res://levels/minigames/klasifikasiLimbah/Tutorial/
 @export var batas_waktu: float = 60.0
 var waktu_aktif: bool = false
 var alarm_dipicu: bool = false
+var _last_second: int = -1 # Cache detik terakhir agar Label tidak di-update tiap frame
 
 var daftar_limbah: Array = [
 	{"nama": "Limbah radioaktif cair", "wujud": "cair", "simbol": "beracun", "texture": preload("res://levels/minigames/klasifikasiLimbah/itemLimbah/spriteLimbah/cairBeracun3.png")},
@@ -46,7 +47,10 @@ func _on_tutorial_game_dimulai() -> void:
 func _process(delta: float) -> void:
 	if waktu_aktif:
 		batas_waktu -= delta
-		label_timer.text = "SISA WAKTU: " + str(int(batas_waktu)) + "s"
+		var current_second := int(batas_waktu)
+		if current_second != _last_second:
+			_last_second = current_second
+			label_timer.text = "SISA WAKTU: " + str(current_second) + "s"
 		if batas_waktu <= 10.0 and not alarm_dipicu:
 			alarm_dipicu = true
 			if sfx_timer_warning: sfx_timer_warning.play()
@@ -88,7 +92,7 @@ func pemicu_menang():
 func pindah_ke_scene_tujuan():
 	var tujuan_final = Global.scene_asal_path if Global.scene_asal_path != "" else "res://levels/secondLab/game.tscn"
 	if has_node("/root/TransitionScreen"):
-		TransitionScreen.transition_to_scene(tujuan_final)# Cek variabel secara dinamis
+		TransitionScreen.transition_to_scene(tujuan_final)
 		
 		# 🔥 Tunda 1 frame agar Node lain (seperti LevelManager) selesai _ready()
 		await get_tree().process_frame
@@ -97,10 +101,6 @@ func pindah_ke_scene_tujuan():
 		if GameState.current_stage < advance_story_to:
 			GameState.current_stage = advance_story_to
 			print("Progres cerita diperbarui ke: ", GameState.current_stage)
-			
-		if has_node("CollisionShape2D"):
-			$CollisionShape2D.disabled = true
-		return 
 	else:
 		get_tree().change_scene_to_file(tujuan_final)
 

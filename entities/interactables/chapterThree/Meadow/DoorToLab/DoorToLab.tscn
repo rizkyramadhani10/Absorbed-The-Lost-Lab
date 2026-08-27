@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0bq3ef8dm48"]
 
-[ext_resource type="Script" uid="uid://dhx4vw2mg5tlh" path="res://entities/interactables/chapterThree/Meadow/DoorToLab/door_to_lab.gd" id="1_j6ljn"]
+[ext_resource type="Script" path="res://core/components/interactable_door.gd" id="1_j6ljn"]
 [ext_resource type="Texture2D" uid="uid://cyyaj7n0ofipg" path="res://levels/Meadow/sprites/interactablesProps/Lab.png" id="2_mw0ri"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_cd08e"]
 

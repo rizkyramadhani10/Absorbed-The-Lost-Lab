@@ -31,6 +31,7 @@ graph_data = {
 }
 dialogs = {
 "1_DIALOG_1": {
+"": "",
 "default": "Semua barang sudah kutemukan!
 Sekarang aku perlu membuat Kapak",
 "en": ""
