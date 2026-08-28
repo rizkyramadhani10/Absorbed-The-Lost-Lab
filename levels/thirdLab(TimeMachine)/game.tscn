@@ -158,6 +158,7 @@ interactableProps_dialog_box_parent = NodePath("../Anchor")
 position = Vector2(-1490, -73)
 target_scene_path = "uid://7yag4ajp7ggw"
 target_spawn = "SpawnFromThirdLab"
+required_stage = 1
 locked_dialog_path = "uid://ch81tct5k1a8h"
 change_stage_on_enter = true
 metadata/_edit_lock_ = true
