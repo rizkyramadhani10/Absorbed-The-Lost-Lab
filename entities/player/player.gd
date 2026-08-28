@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+const SPEED = 200.0
+const RUN_SPEED = 500.0 # 🔥 Kecepatan saat lari (bisa disesuaikan)
+const TIME_TO_RUN = 1.1 # 🔥 Waktu (detik) tombol ditahan sebelum mulai lari
 
 # --- Menyimpan referensi objek yang bisa diajak interaksi di dekat player ---
 var nearby_interactable = null 
@@ -10,7 +12,11 @@ var interacting_object = null
 var has_apd: bool = false
 var is_interacting: bool = false
 var pending_apd_suit: bool = false 
-var is_holding_interact: bool = false # 🔥 Ditambahkan untuk fitur hold interaction dari main branch
+var is_holding_interact: bool = false 
+
+# --- Variabel untuk mekanik lari ---
+var walk_timer: float = 0.0
+var is_running: bool = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var base_shadow_scale = $shadow.scale
@@ -25,7 +31,7 @@ func _ready():
 	# Pengecualian raycast cukup didaftarkan sekali, bukan setiap frame
 	shadow_ray.add_exception(self)
 	
-	# 🔥 FIX 1: Sinkronisasi status APD saat scene dimuat ulang
+	# FIX 1: Sinkronisasi status APD saat scene dimuat ulang
 	has_apd = Global.has_apd
 	
 	if has_apd:
@@ -49,32 +55,56 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("move_left", "move_right")
 	
+	# --- LOGIKA ARAH HADAP ---
 	if direction > 0:
 		animated_sprite.flip_h = true
 	elif direction < 0:
 		animated_sprite.flip_h = false
 	
+	# --- LOGIKA TIMER LARI & ANIMASI ---
 	if direction == 0:
+		# Reset timer dan status lari kalau player berhenti
+		walk_timer = 0.0
+		is_running = false
+		
 		if has_apd:
 			animated_sprite.play("apdIdle")
 		else:
 			animated_sprite.play("idle")
 	else:
+		# Tambah timer selama tombol arah ditahan
+		walk_timer += delta
+		if walk_timer >= TIME_TO_RUN:
+			is_running = true
+			
+		# Mainkan animasi jalan atau lari berdasarkan status is_running & has_apd
 		if has_apd:
-			animated_sprite.play("apdWalking")
+			if is_running:
+				animated_sprite.play("apdRun")
+			else:
+				animated_sprite.play("apdWalking")
 		else:
-			animated_sprite.play("walking")
+			if is_running:
+				animated_sprite.play("run")
+			else:
+				animated_sprite.play("walking")
+	
+	# --- TERAPKAN KECEPATAN (Jalan vs Lari) ---
+	var current_speed = RUN_SPEED if is_running else SPEED
 	
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * current_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, current_speed)
 
 	move_and_slide()
 	
+	# --- LOGIKA SFX LANGKAH KAKI ---
 	if direction != 0 and is_on_floor():
 		if not walk_sfx.playing:
 			walk_sfx.play()
+		# Bikin efek suara langkah jadi lebih cepat pas lagi lari
+		walk_sfx.pitch_scale = 1.3 if is_running else 1.0
 	else:
 		if walk_sfx.playing:
 			walk_sfx.stop()
@@ -126,7 +156,7 @@ func _on_interact_released():
 func _do_normal_interaction():
 	# Fungsi utama yang menangani animasi dan memicu aksi objek
 	if nearby_interactable != null and not is_interacting:
-		# 🔥 SIMPAN POSISI & ARAH HADAP SEBELUM INTERAKSI
+		# SIMPAN POSISI & ARAH HADAP SEBELUM INTERAKSI
 		Global.player_last_position = self.global_position
 		Global.player_last_flip = animated_sprite.flip_h
 		

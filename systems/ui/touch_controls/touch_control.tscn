@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bgr7ahg8ll3mj" path="res://systems/ui/objective/objective_ui.tscn" id="10_rkkfx"]
 
 [node name="TouchControl" type="CanvasLayer" unique_id=741419393]
+layer = 100
 script = ExtResource("1_a8o5c")
 
 [node name="LeftAnchor" type="Control" parent="." unique_id=1655190610]
