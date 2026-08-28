@@ -13,8 +13,9 @@ config_version=5
 config/name="Absorbed: The Lost Lab"
 run/main_scene="uid://bm4lgq3sw8x2h"
 config/features=PackedStringArray("4.6", "Mobile")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="uid://c0vo5c65x2exw"
 config/show_image=true
 
 [autoload]
@@ -31,6 +32,7 @@ window/size/viewport_width=1080
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/handheld/orientation=4
 window/vsync/vsync_mode=0
 
 [editor_plugins]

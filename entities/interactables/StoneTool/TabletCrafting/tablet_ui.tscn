@@ -36,6 +36,7 @@ current_tab = 0
 
 [node name="CraftingTab" type="Control" parent="Background/TabContainer" unique_id=230346840]
 layout_mode = 2
+mouse_filter = 1
 metadata/_tab_index = 0
 
 [node name="TitleLabel" type="Label" parent="Background/TabContainer/CraftingTab" unique_id=667932142]
@@ -55,6 +56,7 @@ offset_left = 387.94955
 offset_top = 129.80676
 offset_right = 639.2212
 offset_bottom = 364.10733
+mouse_filter = 1
 
 [node name="ToolIcon" type="TextureRect" parent="Background/TabContainer/CraftingTab/ToolButton" unique_id=1399164697]
 layout_mode = 0
@@ -133,6 +135,7 @@ text = "Sudah Dimiliki"
 [node name="KnowledgeTab" type="Control" parent="Background/TabContainer" unique_id=1792566473]
 visible = false
 layout_mode = 2
+mouse_filter = 1
 metadata/_tab_index = 1
 
 [node name="KnowledgeCountLabel" type="Label" parent="Background/TabContainer/KnowledgeTab" unique_id=1682143048]
