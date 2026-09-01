@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_3s7m7"]
 [ext_resource type="Script" uid="uid://dbn41bn1j3pps" path="res://core/managers/lab_trigger_config.gd" id="2_bok5e"]
 [ext_resource type="Texture2D" uid="uid://c7510230rp4i2" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgWallnFloor.png" id="2_hdadk"]
-[ext_resource type="AudioStream" uid="uid://dk3urini7ifsq" path="res://assets/audio/bgm/ambientThird.mp3" id="2_lau1m"]
+[ext_resource type="AudioStream" uid="uid://dcm1ich82amji" path="res://assets/audio/bgm/ambientThird.mp3" id="2_lau1m"]
 [ext_resource type="Texture2D" uid="uid://bjpwerel1jvfa" path="res://levels/thirdLab(TimeMachine)/sprites/environments/bgLighting.png" id="3_hdadk"]
 [ext_resource type="Texture2D" uid="uid://cob1frcs33wb0" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/LabBench.png" id="3_i8mc3"]
 [ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_nq5ue"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://cn3sjrgpjqliv" path="res://core/managers/Interactableitem.gd" id="21_dhfjv"]
 [ext_resource type="Resource" uid="uid://djx2ykry8l2i4" path="res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres" id="22_3s7m7"]
 [ext_resource type="PackedScene" uid="uid://iqs142ppcto1" path="res://systems/ui/hud/Blinkeffect.tscn" id="22_rk8vc"]
+[ext_resource type="PackedScene" uid="uid://c0riynqiwfhcb" path="res://systems/quiz/tablet_view.tscn" id="25_l7fhu"]
 [ext_resource type="PackedScene" uid="uid://det6g64d180ie" path="res://entities/interactables/chapterTwo/thirdLab/destilasi/destilasi.tscn" id="30_cf5t5"]
 
 [sub_resource type="Resource" id="Resource_dhfjv"]
@@ -55,6 +56,12 @@ target_stage = 1
 dialog_path = "uid://bb3nlvt0frq8m"
 metadata/_custom_type_script = "uid://2w1cu88e6egd"
 
+[sub_resource type="Resource" id="Resource_cf5t5"]
+script = ExtResource("3_nq5ue")
+target_stage = 17
+dialog_path = "uid://c7fqhtlvj8csn"
+metadata/_custom_type_script = "uid://2w1cu88e6egd"
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -149.0
 
@@ -73,7 +80,7 @@ metadata/_edit_vertical_guides_ = [2184.0, -1203.0]
 
 [node name="LevelManager" type="Node2D" parent="." unique_id=862573954 node_paths=PackedStringArray("player")]
 script = ExtResource("2_3s7m7")
-story_dialogs = Array[ExtResource("3_nq5ue")]([SubResource("Resource_bok5e")])
+story_dialogs = Array[ExtResource("3_nq5ue")]([SubResource("Resource_bok5e"), SubResource("Resource_cf5t5")])
 player = NodePath("../Player")
 
 [node name="MainBackground" type="Sprite2D" parent="." unique_id=227776439]
@@ -207,18 +214,24 @@ gunakan_dialog = true
 knowledge_key = ""
 metadata/_edit_lock_ = true
 
-[node name="TimeMachineComputer" parent="InteractablesProps" unique_id=2000579499 instance=ExtResource("15_dhfjv")]
+[node name="TimeMachineComputer" parent="InteractablesProps" unique_id=2000579499 node_paths=PackedStringArray("game_world") instance=ExtResource("15_dhfjv")]
 position = Vector2(1168, 109)
+required_stage = 17
+advance_to_stage = 19
+gunakan_dialog = true
+quiz_scene = ExtResource("25_l7fhu")
+game_world = NodePath("../..")
 metadata/_edit_lock_ = true
 
-[node name="TimeMachineSpiralPortal" parent="InteractablesProps" unique_id=1805250088 instance=ExtResource("16_lau1m")]
+[node name="TimeMachineSpiralPortal" parent="InteractablesProps" unique_id=1805250088 groups=["portal_waktu"] instance=ExtResource("16_lau1m")]
 visible = false
 position = Vector2(737, 0)
+quiz_flag_name = "is_game_completed"
 
 [node name="Player" parent="." unique_id=1835406881 instance=ExtResource("16_e4qak")]
 position = Vector2(-768, 751)
 
-[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("ai_dialog_box_parent", "xeno_dialog_box_parent")]
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_dialog_box_parent", "ai_dialog_box_parent")]
 _dialog_data_uid = 7840125102653571137
 _dialog_file_name = "dialog_01_awake.json"
 _dialog_data = ExtResource("22_3s7m7")
@@ -226,8 +239,8 @@ _start_id = "1"
 _play_on_ready = false
 _destroy_on_end = false
 _print_debug = false
-ai_dialog_box_parent = NodePath("../DialogueAnchor")
 xeno_dialog_box_parent = NodePath("../DialogueAnchor")
+ai_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=152817001]
 position = Vector2(112, -355)
@@ -251,6 +264,13 @@ appear_stage = 1
 required_stage = 4
 locked_dialog_path = "uid://b8eid1q4e2bti"
 
+[node name="StoryBarrier4" parent="." unique_id=2020828184 instance=ExtResource("9_3s7m7")]
+position = Vector2(1943, 710)
+rotation = 3.1415927
+appear_stage = 19
+required_stage = 20
+locked_dialog_path = "uid://b1glo7vpq1ep"
+
 [node name="Ground" type="StaticBody2D" parent="." unique_id=66413061]
 position = Vector2(711, 499)
 metadata/_edit_lock_ = true
@@ -268,9 +288,7 @@ offset_bottom = 40.0
 metadata/_edit_lock_ = true
 
 [node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("17_v0inv")]
-
-[node name="ChapterSplashOverlay" parent="Control/TouchControl" index="6" unique_id=2127503933]
-layer = 100
+layer = 95
 
 [node name="InvisibleWalls" type="StaticBody2D" parent="." unique_id=1896727508]
 metadata/_edit_lock_ = true
@@ -294,6 +312,9 @@ position = Vector2(-768, 722)
 [node name="SpawnFromMeadow" type="Marker2D" parent="." unique_id=805331628]
 position = Vector2(-990, 718)
 
+[node name="Adestilasi" type="Marker2D" parent="." unique_id=1352807366]
+position = Vector2(415, 753)
+
 [node name="TrigTimeMachine" type="Area2D" parent="." unique_id=1016194789]
 position = Vector2(-81, -55)
 
@@ -309,6 +330,7 @@ position = Vector2(1484, 532)
 shape = SubResource("RectangleShape2D_nq5ue")
 
 [node name="BlinkBlurEffect" parent="." unique_id=1240607883 instance=ExtResource("22_rk8vc")]
+layer = 99
 
 [connection signal="animation_finished" from="BlinkBlurEffect/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 

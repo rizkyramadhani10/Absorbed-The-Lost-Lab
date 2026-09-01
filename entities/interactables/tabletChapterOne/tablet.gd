@@ -1,69 +1,127 @@
-extends Area2D
+extends CanvasLayer
 
-@export var is_quiz: bool = false
-# 1. Ubah nama variabel agar lebih umum (bisa untuk tablet, berkas laboratorium, dll)
-@export var tablet_text: String = "Memuat quiz..."
+@export var tablet_text: String = ""
+@export var is_quiz_tablet: bool = false
+# 🔥 Pastikan nama ini sama dengan quiz_completion_flag di Inspector alat/komputer
+@export var quiz_flag_name: String = "is_quiz_completed"
 
-# DRAG AND DROP: Seret scene tablet_view.tscn atau whiteboard_view.tscn ke sini dari FileSystem
-@export var tablet_view_scene: PackedScene = null
+# === NODE REFERENCES VIA @export ===
+@export var background_sprite: Sprite2D
+@export var text_label: Label
+@export var close_button: Button
+@export var quiz_manager: Control
 
-# DRAG AND DROP: Seret node Game / Main scene ke sini dari Scene Tree
-@export var game_world: Node = null
+# === TEXTURE ASSETS ===
+@export var default_tablet_bg: Texture2D
+@export var certificate_tablet_bg: Texture2D
 
-var tablet_view_instance = null
+var game_world: Node = null
+var player: Node = null
+var slide_tween: Tween
 
 func _ready():
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
+	visible = false
+	if quiz_manager:
+		quiz_manager.visible = false
+		if not quiz_manager.quiz_finished.is_connected(_on_quiz_finished):
+			quiz_manager.quiz_finished.connect(_on_quiz_finished)
+			
+	if close_button:
+		close_button.pressed.connect(_on_close_pressed)
 
-func _on_body_entered(body):
-	if body.name == "Player":
-		body.nearby_interactable = self
-		show_interact_prompt(true)
-
-func _on_body_exited(body):
-	if body.name == "Player":
-		if body.nearby_interactable == self:
-			body.nearby_interactable = null
-		show_interact_prompt(false)
-
-func show_interact_prompt(show: bool):
-	var prompt = $InteractPrompt if has_node("InteractPrompt") else null
-	if prompt:
-		prompt.visible = show
-
-func interact():
-	print("Interaksi dengan tablet!")
+func open(world, player_node):
+	game_world = world
+	player = player_node
 	
-	# Cek apakah scene view sudah di-drag ke Inspector
-	if tablet_view_scene == null:
-		print("ERROR: Belum drag tablet_view_scene ke inspector!")
-		return
+	if background_sprite and default_tablet_bg:
+		background_sprite.texture = default_tablet_bg
 	
-	# Cek apakah game_world sudah di-drag
-	if game_world == null:
-		print("ERROR: Belum drag game_world ke inspector!")
-		return
+	if player:
+		player.set_process(false)
+		player.set_physics_process(false)
 	
-	# Cari player dari group
-	var player = get_tree().get_first_node_in_group("player")
-	if player == null:
-		print("ERROR: Player tidak ditemukan! Pastikan player sudah masuk group 'player'")
-		return
+	var screen_height = get_viewport().get_visible_rect().size.y
+	offset.y = screen_height
+	visible = true
 	
-	# Buat instance UI popup untuk tablet
-	if tablet_view_instance == null:
-		tablet_view_instance = tablet_view_scene.instantiate()
-		get_tree().root.add_child(tablet_view_instance)
-	
-	# PENTING: Sesuaikan nama variabel internal pada scene tablet UI kamu.
-	# Jika script UI tablet menggunakan nama variabel 'whiteboard_text', biarkan tetap 'whiteboard_text'.
-	# Di sini kita asumsikan variabel UI-nya fleksibel/bisa menerima string teks:
-	if "whiteboard_text" in tablet_view_instance:
-		tablet_view_instance.whiteboard_text = tablet_text
-	elif "tablet_text" in tablet_view_instance:
-		tablet_view_instance.tablet_text = tablet_text
+	if slide_tween and slide_tween.is_running():
+		slide_tween.kill() 
 		
-	tablet_view_instance.open(game_world, player)
+	slide_tween = create_tween()
+	slide_tween.tween_property(self, "offset:y", 0.0, 0.4)\
+		.set_trans(Tween.TRANS_BACK)\
+		.set_ease(Tween.EASE_OUT)
 	
+	# 📑 LOGIKA PENGECEKAN KUIS
+	if is_quiz_tablet and quiz_manager:
+		# Cek apakah player benar-benar sudah lulus
+		if Global.get(quiz_flag_name) == true:
+			if quiz_manager: quiz_manager.visible = false
+			if text_label:
+				text_label.visible = true
+				SubtitleUi.show_typewriter_text("Kamu sudah menyelesaikan kuis ini dan mendapatkan sertifikat!")
+			if background_sprite and certificate_tablet_bg:
+				background_sprite.texture = certificate_tablet_bg
+		else:
+			if text_label: text_label.visible = false
+			# Pastikan QuizManager dibuat terlihat kembali jika pemain mengulang
+			quiz_manager.visible = true 
+			quiz_manager.start_quiz() 
+	else:
+		if text_label:
+			text_label.visible = true
+			if quiz_manager: quiz_manager.visible = false
+			if tablet_text != null and tablet_text != "":
+				SubtitleUi.show_typewriter_text(tablet_text)
+			else:
+				SubtitleUi.show_typewriter_text("Tablet tidak berisi data.")
+
+func close():
+	var screen_height = get_viewport().get_visible_rect().size.y
+	if slide_tween and slide_tween.is_running():
+		slide_tween.kill()
+		
+	slide_tween = create_tween()
+	slide_tween.tween_property(self, "offset:y", screen_height, 0.3)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_IN)
+		
+	await slide_tween.finished
 	
+	if game_world: game_world.visible = true
+	if player and is_instance_valid(player):
+		player.set_process(true)
+		player.set_physics_process(true)
+	
+	visible = false
+	game_world = null
+	player = null
+
+func _on_close_pressed():
+	close()
+
+func _input(event):
+	if visible and event.is_action_pressed("ui_cancel"):
+		close()
+
+# === SWAP TEXTURE ONCE SIGNAL FIRES ===
+func _on_quiz_finished(passed: bool):
+	print("DEBUG KUIS: Sinyal diterima. Apakah lulus? ", passed)
+	if passed:
+		# Simpan status permanen kalau pemain LULUS kuis
+		Global.set(quiz_flag_name, true)
+		
+		if background_sprite and certificate_tablet_bg:
+			background_sprite.texture = certificate_tablet_bg
+			
+		var main_scene = get_tree().current_scene
+		if main_scene:
+			var portal = main_scene.find_child("TimeMachineSpiralPortal", true, false)
+			if portal:
+				portal.visible = true
+				portal.process_mode = Node.PROCESS_MODE_INHERIT 
+				print("SUKSES: Portal berhasil dibuka!")
+			else:
+				print("ERROR: TimeMachineSpiralPortal tidak ditemukan di dalam struktur Scene aktif!")
+		else:
+			print("ERROR: Scene utama tidak terdeteksi!")

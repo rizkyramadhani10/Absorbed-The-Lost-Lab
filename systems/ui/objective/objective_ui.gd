@@ -1,6 +1,8 @@
 extends CanvasLayer # Atau sesuaikan dengan tipe node ObjectiveUI milikmu
 
 # Ambil referensi ke node RichTextLabel
+# (Pastikan path ini sesuai dengan susunan node-mu yang terbaru, 
+# jika kamu memakai PanelContainer, ubah menjadi $Control/PanelContainer/RichTextLabel)
 @onready var label = $Control/RichTextLabel
 
 var stage_objectives: Dictionary = {
@@ -20,7 +22,12 @@ var stage_objectives: Dictionary = {
 	GameState.StoryStage.FOUND_ROPE: "Semua bahan terkumpul. Buat Kapak sekarang.",
 	GameState.StoryStage.MADE_AXE: "Gunakan Kapak untuk menambang bongkahan.",
 	GameState.StoryStage.OBTAINED_RESOURCE: "Bongkahan didapat! Segera kembali ke Lab.",
-	GameState.StoryStage.BACK_TO_LAB: "Racik resource yang didapat di meja eksperimen."
+	GameState.StoryStage.BACK_TO_LAB: "Ekstrak asam sulfat dari sulfur yang telah ditambang.",
+	
+	# --- TAMBAHAN STAGE BARU ---
+	GameState.StoryStage.DESTILATION: "Isi ulang daya Baterai di komputer sebelah kanan mesin waktu.",
+	GameState.StoryStage.CHARGE_BATTERY: "Jawab kuis verifikasi sistem dengan benar.",
+	GameState.StoryStage.PASSED_QUIZ: "Sistem aktif! Masuk ke dalam Mesin Waktu.",
 }
 
 func _ready() -> void:
@@ -36,5 +43,7 @@ func _on_stage_changed(new_stage: int) -> void:
 	tween.tween_property(label, "modulate", Color(1, 1, 1), 0.6)
 
 func _update_text(stage: int) -> void:
+	# Karena PUT_BATTERY tidak ada di dictionary, pengecekan ini 
+	# akan mengabaikannya secara otomatis dan teks UI tidak akan error/hilang.
 	if stage_objectives.has(stage):
 		label.text = "Misi: " + stage_objectives[stage]

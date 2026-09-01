@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bi18r0egwryqf"]
 
-[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_yuvfo"]
+[ext_resource type="Script" uid="uid://ds1rs6mhxcub5" path="res://entities/interactables/chapterTwo/thirdLab/TimeMachineSpiralPortal/time_machine_spiral_portal.gd" id="1_5d4ua"]
 [ext_resource type="Texture2D" uid="uid://dh5gjrw0n5y1a" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/TimeMachineSpiralPortal.png" id="2_5d4ua"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_5d4ua"]
 
@@ -12,7 +12,7 @@ data = PackedByteArray("//vQxAAAKXGW9nX9gAJukCKfP4AAAAALkMuYI2DCvB2szjFN7NcrZGzZ
 loop = true
 
 [node name="TimeMachineSpiralPortal" type="Area2D" unique_id=73848177]
-script = ExtResource("1_yuvfo")
+script = ExtResource("1_5d4ua")
 
 [node name="TimeMachineSpiralPortal" type="Sprite2D" parent="." unique_id=1728040727]
 position = Vector2(778, 342)

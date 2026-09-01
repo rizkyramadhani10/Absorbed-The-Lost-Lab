@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ckshctjouv0i0"]
 
 [ext_resource type="Script" uid="uid://cw0ahp688lj2u" path="res://levels/Meadow/game.gd" id="1_pt61c"]
-[ext_resource type="AudioStream" uid="uid://c7p87i1a2hnyg" path="res://assets/audio/bgm/Forest 2.mp3" id="2_m1qti"]
+[ext_resource type="AudioStream" uid="uid://bfyy23y43i6b8" path="res://assets/audio/bgm/Forest 2.mp3" id="2_m1qti"]
 [ext_resource type="Script" uid="uid://oxtqbtqdqh43" path="res://core/managers/LevelManager.gd" id="2_m4hrt"]
 [ext_resource type="Script" uid="uid://2w1cu88e6egd" path="res://core/managers/StoryDialogConfig.gd" id="3_27cwk"]
 [ext_resource type="Texture2D" uid="uid://clly24x42uvrt" path="res://levels/Meadow/sprites/environments/SkyandMountain.png" id="3_jiims"]
@@ -90,10 +90,13 @@ locked_dialog_path = "uid://cb65625y2dk86"
 position = Vector2(643, 673)
 metadata/_edit_lock_ = true
 
+[node name="CollisionShape2D" parent="Player" index="1" unique_id=643738085]
+visible = true
+
 [node name="WalkSFX" parent="Player" index="4" unique_id=316212707]
 stream = SubResource("AudioStreamMP3_n8qte")
 
-[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("ai_dialog_box_parent", "xeno_dialog_box_parent")]
+[node name="DialogPlayer" parent="Player" index="6" unique_id=27243135 node_paths=PackedStringArray("xeno_dialog_box_parent", "ai_dialog_box_parent")]
 _dialog_data_uid = 7387262311756266927
 _dialog_file_name = "dialog_07_outside.json"
 _dialog_data = ExtResource("9_27cwk")
@@ -101,8 +104,8 @@ _start_id = "1"
 _play_on_ready = false
 _destroy_on_end = false
 _print_debug = false
-ai_dialog_box_parent = NodePath("../DialogueAnchor")
 xeno_dialog_box_parent = NodePath("../DialogueAnchor")
+ai_dialog_box_parent = NodePath("../DialogueAnchor")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1934978669]
 position = Vector2(112, -357)

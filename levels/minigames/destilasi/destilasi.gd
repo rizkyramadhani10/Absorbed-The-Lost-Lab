@@ -1,18 +1,26 @@
 extends Control
 
 
-# ============================================================
-# INSPECTOR
-# ============================================================
+# ==============================
+# Tutorial
+# ==============================
 
-@export_file("*.tscn") var next_scene: String = ""
+var tutorial_scene = preload("res://levels/minigames/destilasi/tutorial/UI_Tutorial.tscn")
+
+
+# ==============================
+# Export Variables (Inspector)
+# ==============================
+
+@export_file("*.tscn") var scene_tujuan: String = "" # Fallback scene tujuan jika scene asal kosong
 @export var labu_sprite_changed: Texture2D
 @export var waktu_proses: float = 20.0
+@export var durasi_transisi: float = 1.0 # Jeda sebelum loading screen dimulai
+@export var advance_story_to: GameState.StoryStage = GameState.StoryStage.POST_SHOWER
 
-
-# ============================================================
-# NODE
-# ============================================================
+# ==============================
+# Node
+# ==============================
 
 @onready var labu: TextureRect = $labu
 @onready var erle: TextureRect = $erle
@@ -27,18 +35,17 @@ extends Control
 @onready var progress_bar: ProgressBar = $Progressbar
 
 
-# ============================================================
-# DRAG
-# ============================================================
+# ==============================
+# Variable
+# ==============================
 
+var gameplay_aktif := false
+
+# Drag
 var dragging_item: Control = null
 var drag_offset: Vector2 = Vector2.ZERO
 
-
-# ============================================================
-# STATUS
-# ============================================================
-
+# Status
 var sulfur_dropped: bool = false
 var labu_locked: bool = false
 var erle_locked: bool = false
@@ -46,27 +53,30 @@ var erle_locked: bool = false
 var process_started: bool = false
 var timer: float = 0.0
 
-
-# ============================================================
-# POSISI AWAL
-# ============================================================
-
+# Posisi Awal
 var labu_initial_pos: Vector2 = Vector2.ZERO
 var erle_initial_pos: Vector2 = Vector2.ZERO
 var sulfur_initial_pos: Vector2 = Vector2.ZERO
 
 
-# ============================================================
-# READY
-# ============================================================
+# ==============================
+# Ready
+# ==============================
 
 func _ready() -> void:
+	# Pengaman: Jika minigame sudah selesai, pastikan spawn_point kosong lalu kembalikan player
+	if "is_destilasi_completed" in Global and Global.is_destilasi_completed:
+		print("Minigame ini sudah selesai! Mengembalikan player...")
+		if "spawn_point" in Global:
+			Global.spawn_point = ""
+		pindah_ke_scene_tujuan()
+		return
 
 	print("================================")
 	print("DESTILASI READY")
 	print("================================")
 
-	# Simpan posisi awal
+	# Simpan posisi awal UI
 	labu_initial_pos = labu.position
 	erle_initial_pos = erle.position
 	sulfur_initial_pos = sulfur.position
@@ -80,20 +90,38 @@ func _ready() -> void:
 	erle.mouse_filter = Control.MOUSE_FILTER_STOP
 	sulfur.mouse_filter = Control.MOUSE_FILTER_STOP
 
-	print("Labu : ", labu.name)
-	print("Erle  : ", erle.name)
-	print("Sulfur: ", sulfur.name)
-
-	print("Ukuran Labu   : ", labu.size)
-	print("Ukuran Erle   : ", erle.size)
-	print("Ukuran Sulfur : ", sulfur.size)
+	# Tampilkan tutorial saat scene dimuat
+	tampilkan_tutorial()
 
 
-# ============================================================
-# PROCESS
-# ============================================================
+# ==============================
+# Tutorial
+# ==============================
+
+func tampilkan_tutorial() -> void:
+	gameplay_aktif = false
+	
+	var tutorial = tutorial_scene.instantiate()
+	add_child(tutorial)
+	
+	if tutorial is Control:
+		tutorial.set_anchors_preset(Control.PRESET_FULL_RECT)
+		
+	tutorial.tutorial_selesai.connect(_on_tutorial_selesai)
+
+func _on_tutorial_selesai() -> void:
+	gameplay_aktif = true
+	print("Gameplay Destilasi Dimulai")
+
+
+# ==============================
+# Process
+# ==============================
 
 func _process(delta: float) -> void:
+
+	if not gameplay_aktif:
+		return
 
 	# --------------------------------------------------------
 	# DRAG
@@ -141,14 +169,17 @@ func _process(delta: float) -> void:
 			print("DESTILASI SELESAI")
 			print("================================")
 
-			_change_to_next_scene()
+			game_finished()
 
 
-# ============================================================
-# INPUT MOUSE
-# ============================================================
+# ==============================
+# Input Mouse
+# ==============================
 
 func _input(event: InputEvent) -> void:
+
+	if not gameplay_aktif:
+		return
 
 	if not event is InputEventMouseButton:
 		return
@@ -160,10 +191,6 @@ func _input(event: InputEvent) -> void:
 	if mouse_event.button_index != MOUSE_BUTTON_LEFT:
 		return
 
-
-	# --------------------------------------------------------
-	# MOUSE DITEKAN
-	# --------------------------------------------------------
 
 	if mouse_event.pressed:
 
@@ -187,7 +214,6 @@ func _input(event: InputEvent) -> void:
 			print("Tidak boleh di-drag: ", selected_item.name)
 			return
 
-		# Mulai drag
 		dragging_item = selected_item
 
 		drag_offset = (
@@ -201,11 +227,6 @@ func _input(event: InputEvent) -> void:
 		print("DRAG MULAI: ", selected_item.name)
 		print("================================")
 
-
-	# --------------------------------------------------------
-	# MOUSE DILEPAS
-	# --------------------------------------------------------
-
 	else:
 
 		if dragging_item != null:
@@ -215,15 +236,14 @@ func _input(event: InputEvent) -> void:
 			_drop_item()
 
 
-# ============================================================
-# MENCARI ITEM DI BAWAH MOUSE
-# ============================================================
+# ==============================
+# Mencari Item di Bawah Mouse
+# ==============================
 
 func _find_item_under_mouse(
 	mouse_position: Vector2
 ) -> Control:
 
-	# Sulfur
 	if sulfur.visible:
 
 		var sulfur_rect: Rect2 = (
@@ -235,7 +255,6 @@ func _find_item_under_mouse(
 			return sulfur
 
 
-	# Labu
 	if labu.visible:
 
 		var labu_rect: Rect2 = (
@@ -247,7 +266,6 @@ func _find_item_under_mouse(
 			return labu
 
 
-	# Erle
 	if erle.visible:
 
 		var erle_rect: Rect2 = (
@@ -262,15 +280,11 @@ func _find_item_under_mouse(
 	return null
 
 
-# ============================================================
-# CEK BOLEH DRAG
-# ============================================================
+# ==============================
+# Cek Boleh Drag
+# ==============================
 
 func _can_drag_item(item: Control) -> bool:
-
-	# --------------------------------------------------------
-	# SULFUR
-	# --------------------------------------------------------
 
 	if item == sulfur:
 
@@ -279,10 +293,6 @@ func _can_drag_item(item: Control) -> bool:
 
 		return true
 
-
-	# --------------------------------------------------------
-	# LABU
-	# --------------------------------------------------------
 
 	if item == labu:
 
@@ -294,10 +304,6 @@ func _can_drag_item(item: Control) -> bool:
 
 		return true
 
-
-	# --------------------------------------------------------
-	# ERLE
-	# --------------------------------------------------------
 
 	if item == erle:
 
@@ -313,9 +319,9 @@ func _can_drag_item(item: Control) -> bool:
 	return false
 
 
-# ============================================================
-# DROP ITEM
-# ============================================================
+# ==============================
+# Drop Item
+# ==============================
 
 func _drop_item() -> void:
 
@@ -330,10 +336,6 @@ func _drop_item() -> void:
 
 	item.z_index = 0
 
-
-	# --------------------------------------------------------
-	# SULFUR
-	# --------------------------------------------------------
 
 	if item == sulfur:
 
@@ -355,10 +357,6 @@ func _drop_item() -> void:
 			sulfur.position = sulfur_initial_pos
 
 
-	# --------------------------------------------------------
-	# LABU
-	# --------------------------------------------------------
-
 	elif item == labu:
 
 		print("Mencoba drop labu")
@@ -378,10 +376,6 @@ func _drop_item() -> void:
 
 			labu.position = labu_initial_pos
 
-
-	# --------------------------------------------------------
-	# ERLE
-	# --------------------------------------------------------
 
 	elif item == erle:
 
@@ -406,9 +400,9 @@ func _drop_item() -> void:
 	dragging_item = null
 
 
-# ============================================================
-# CEK MOUSE DI TEXTURE RECT
-# ============================================================
+# ==============================
+# Cek Mouse di TextureRect
+# ==============================
 
 func _is_mouse_inside_texture(
 	mouse_position: Vector2,
@@ -422,9 +416,9 @@ func _is_mouse_inside_texture(
 	return rect.has_point(mouse_position)
 
 
-# ============================================================
-# CEK MOUSE DI AREA2D
-# ============================================================
+# ==============================
+# Cek Mouse di Area2D
+# ==============================
 
 func _is_mouse_inside_area(
 	mouse_position: Vector2,
@@ -467,10 +461,6 @@ func _is_mouse_inside_area(
 		return false
 
 
-	# --------------------------------------------------------
-	# RECTANGLE
-	# --------------------------------------------------------
-
 	if collision.shape is RectangleShape2D:
 
 		var rectangle_shape: RectangleShape2D = (
@@ -488,10 +478,6 @@ func _is_mouse_inside_area(
 
 		return rectangle.has_point(local_mouse)
 
-
-	# --------------------------------------------------------
-	# CIRCLE
-	# --------------------------------------------------------
 
 	if collision.shape is CircleShape2D:
 
@@ -517,85 +503,43 @@ func _is_mouse_inside_area(
 	return false
 
 
-# ============================================================
-# SULFUR MASUK LABU
-# ============================================================
+# ==============================
+# Logika Drop
+# ==============================
 
 func _sulfur_dropped_to_labu() -> void:
 
 	sulfur_dropped = true
-
-	# Hilangkan sulfur
 	sulfur.visible = false
 
-	# Ganti gambar labu
 	if labu_sprite_changed != null:
-
 		labu.texture = labu_sprite_changed
-
 		print("Gambar labu berhasil berubah")
-
 	else:
+		print("PERINGATAN: labu_sprite_changed belum diisi")
 
-		print(
-			"PERINGATAN: labu_sprite_changed belum diisi"
-		)
-
-	# Kembalikan sulfur ke posisi awal
 	sulfur.position = sulfur_initial_pos
 
-
-# ============================================================
-# LABU MASUK LLABU
-# ============================================================
 
 func _labu_dropped_to_llabu() -> void:
 
 	labu_locked = true
-
-	# Snap ke Plabu
-	labu.global_position = (
-		plabu.global_position
-	)
-
-	# Tidak bisa di-drag lagi
-	labu.mouse_filter = (
-		Control.MOUSE_FILTER_IGNORE
-	)
+	labu.global_position = plabu.global_position
+	labu.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	print("LABU TERKUNCI")
-
-
 	_check_all_locked()
 
-
-# ============================================================
-# ERLE MASUK LERLE
-# ============================================================
 
 func _erle_dropped_to_lerle() -> void:
 
 	erle_locked = true
-
-	# Snap ke Perle
-	erle.global_position = (
-		perle.global_position
-	)
-
-	# Tidak bisa di-drag lagi
-	erle.mouse_filter = (
-		Control.MOUSE_FILTER_IGNORE
-	)
+	erle.global_position = perle.global_position
+	erle.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	print("ERLE TERKUNCI")
-
-
 	_check_all_locked()
 
-
-# ============================================================
-# CEK SEMUA TERPASANG
-# ============================================================
 
 func _check_all_locked() -> void:
 
@@ -609,17 +553,12 @@ func _check_all_locked() -> void:
 		_start_progress()
 
 
-# ============================================================
-# MULAI PROGRESS BAR
-# ============================================================
-
 func _start_progress() -> void:
 
 	if process_started:
 		return
 
 	process_started = true
-
 	timer = 0.0
 
 	progress_bar.value = 0.0
@@ -628,90 +567,95 @@ func _start_progress() -> void:
 	print("Progress dimulai: 0% -> 100%")
 
 
-# ============================================================
-# PINDAH SCENE
-# ============================================================
+# ==============================
+# Finish & Loading Screen Transisi
+# ==============================
 
-func _change_to_next_scene() -> void:
+func game_finished() -> void:
 
-	if next_scene == "":
+	# KUNCI INPUT & STATUS GAMEPLAY
+	gameplay_aktif = false
+	process_started = false
+	dragging_item = null
 
-		print(
-			"PERINGATAN: next_scene belum diisi!"
-		)
+	# Matikan loop _process dan input handler
+	set_process(false)
+	set_process_input(false)
 
+	print("🏆 MINIGAME DESTILASI SELESAI!")
+
+	# Tandai status di Global Singleton
+	if "is_destilasi_completed" in Global:
+		Global.is_destilasi_completed = true
+
+	# Pastikan spawn_point kosong agar player.gd mengembalikan posisi awal player_last_position
+	if "spawn_point" in Global:
+		Global.spawn_point = ""
+
+	# Tunggu jeda efek sebelum pindah
+	await get_tree().create_timer(durasi_transisi).timeout
+
+	if GameState.current_stage < advance_story_to:
+			GameState.current_stage = advance_story_to
+			print("Progres cerita diperbarui ke: ", GameState.current_stage)
+
+	pindah_ke_scene_tujuan()
+
+
+func pindah_ke_scene_tujuan() -> void:
+
+	var tujuan_final = ""
+
+	# 1. Ambil scene asal player
+	if "scene_asal_path" in Global and Global.scene_asal_path != "":
+		tujuan_final = Global.scene_asal_path
+	# 2. Fallback jika scene_asal_path kosong
+	elif scene_tujuan != "":
+		tujuan_final = scene_tujuan
+	else:
+		print("PERINGATAN: Tidak ada scene tujuan yang terdeteksi!")
 		return
 
+	print("🔄 Memulangkan player ke: ", tujuan_final)
 
-	print(
-		"Pindah ke scene: ",
-		next_scene
-	)
-
-	get_tree().change_scene_to_file(
-		next_scene
-	)
+	# Pindah scene lewat TransitionScreen Autoload
+	if has_node("/root/TransitionScreen"):
+		TransitionScreen.transition_to_scene(tujuan_final)
+	else:
+		get_tree().change_scene_to_file(tujuan_final)
 
 
-# ============================================================
-# RESET GAME
-# ============================================================
+# ==============================
+# Reset Game
+# ==============================
 
 func reset_game() -> void:
 
 	print("RESET DESTILASI")
 
+	set_process(true)
+	set_process_input(true)
 
-	# Status
 	sulfur_dropped = false
 	labu_locked = false
 	erle_locked = false
-
 	process_started = false
 
 	timer = 0.0
-
 	dragging_item = null
-
 	drag_offset = Vector2.ZERO
 
-
-	# Progress
 	progress_bar.value = 0.0
 	progress_bar.visible = false
 
-
-	# Posisi
 	labu.position = labu_initial_pos
 	erle.position = erle_initial_pos
 	sulfur.position = sulfur_initial_pos
 
-
-	# Sulfur muncul
 	sulfur.visible = true
 
-
-	# Aktifkan input
 	labu.mouse_filter = Control.MOUSE_FILTER_STOP
-	erle.mouse_filter = Control.MOUSE_FILTER_STOP
+	erle.mouse_filter = Control.MOUSE_FILTER_STOP	
 	sulfur.mouse_filter = Control.MOUSE_FILTER_STOP
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		var mouse_event: InputEventMouseButton = event as InputEventMouseButton
-		
-		if mouse_event.button_index == MOUSE_BUTTON_LEFT:
-			if mouse_event.pressed:
-				print("========== KLIK MOUSE TERDETEKSI ==========")
-				print("Posisi mouse: ", get_global_mouse_position())
-				
-				var rect: Rect2 = sulfur.get_global_rect()
-				print("Rect sulfur: ", rect)
-				
-				print("Ukuran sulfur: ", sulfur.size)
-				print("Posisi sulfur: ", sulfur.global_position)
-				
-				if rect.has_point(get_global_mouse_position()):
-					print(">>> MOUSE BERADA DI SULFUR <<<")
-				else:
-					print(">>> MOUSE TIDAK BERADA DI SULFUR <<<")
+	tampilkan_tutorial()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bm6jd88mykli4"]
 
 [ext_resource type="Script" uid="uid://cn3sjrgpjqliv" path="res://core/managers/Interactableitem.gd" id="1_8kr1g"]
-[ext_resource type="Texture2D" uid="uid://7f0lddjw6y42" path="res://levels/secondLab/sprites/interactablesProps/ThermoScientific.png" id="2_4naa8"]
+[ext_resource type="Texture2D" uid="uid://moenqo54d2oy" path="res://levels/secondLab/sprites/interactablesProps/ThermoScientific.png" id="2_4naa8"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_nkqli"]
 [ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="4_8kr1g"]
 [ext_resource type="Resource" uid="uid://b8s8x2mb6k6lm" path="res://dialogues/Dialogues/secondLab/interactableProps.tres" id="5_wgcym"]
@@ -40,7 +40,7 @@ offset_bottom = 394.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DialogPlayer" type="Node" parent="." unique_id=339676162 node_paths=PackedStringArray("ai_dialog_box_parent")]
+[node name="DialogPlayer" type="Node" parent="." unique_id=339676162]
 script = ExtResource("4_8kr1g")
 _dialog_data_uid = 4741857494097749598
 _dialog_file_name = "interactableProps"
@@ -49,5 +49,4 @@ _start_id = "THERMOSCIENTIFIC"
 _play_on_ready = false
 _destroy_on_end = true
 _print_debug = false
-ai_dialog_box_parent = NodePath("../Anchor")
 metadata/_custom_type_script = "uid://1mxdpoyob13n"

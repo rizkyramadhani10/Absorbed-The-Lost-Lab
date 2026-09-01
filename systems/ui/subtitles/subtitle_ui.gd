@@ -10,16 +10,15 @@ const SFX_AI = preload("res://assets/audio/sfx/speaking/aiSpeaking.mp3")
 var typing_speed: float = 0.0198
 var subtitle_tween: Tween 
 var _last_char_index: int = -1 
-var _clean_text: String = "" # Menyimpan teks bersih (tanpa tag BBCode) khusus untuk hitungan audio
+var _clean_text: String = "" 
 
-# Regex di-compile SEKALI saja, bukan setiap baris dialog
 var _tag_regex: RegEx = RegEx.new()
 
 func _ready():
 	container.hide()
 	_tag_regex.compile("\\[.*?\\]")
 
-func show_typewriter_text(text_to_type: String, character_name: String = "xeno", _duration_after_typing: float = 2.5):
+func show_typewriter_text(text_to_type: String, character_name: String = "xeno", duration_after_typing: float = 2.5):
 	if subtitle_tween and subtitle_tween.is_valid():
 		subtitle_tween.kill()
 	
@@ -31,10 +30,7 @@ func show_typewriter_text(text_to_type: String, character_name: String = "xeno",
 	container.show()
 	_last_char_index = -1
 	
-	# ==================== PERUBAHAN UNTUK BBCODE ====================
-	# Gunakan regex yang sudah di-compile sekali di _ready()
 	_clean_text = _tag_regex.sub(text_to_type, "", true)
-	# ================================================================
 	
 	match character_name.to_lower():
 		"xeno":
@@ -44,11 +40,9 @@ func show_typewriter_text(text_to_type: String, character_name: String = "xeno",
 		_:
 			sfx_player.stream = SFX_XENO 
 	
-	# Tetap masukkan teks mentah berkode ke RichTextLabel agar formatnya muncul
 	subtitle_label.text = text_to_type
 	subtitle_label.visible_characters = 0
 	
-	# PENTING: Hitung total durasi berdasarkan panjang teks BERSIH (tanpa tag)
 	var total_characters = _clean_text.length()
 	var total_typing_time = total_characters * typing_speed
 	
@@ -60,9 +54,12 @@ func show_typewriter_text(text_to_type: String, character_name: String = "xeno",
 		total_typing_time
 	)
 	
-	subtitle_tween.finished.connect(func(): 
-		sfx_player.stop()
-	)
+	# 🔥 1. Matikan SFX saat teks selesai mengetik
+	subtitle_tween.tween_callback(sfx_player.stop)
+	# 🔥 2. Tunggu beberapa detik (default: 2.5 detik)
+	subtitle_tween.tween_interval(duration_after_typing)
+	# 🔥 3. Sembunyikan panel UI setelah waktu tunggu habis
+	subtitle_tween.tween_callback(container.hide)
 
 func _on_character_typed(value: float):
 	var current_char_count = int(value)
@@ -72,7 +69,6 @@ func _on_character_typed(value: float):
 		_last_char_index = current_char_count
 		
 		if current_char_count > 0 and not sfx_player.playing:
-			# Pengecekan spasi dialihkan ke _clean_text agar sinkron dengan huruf di layar
 			if current_char_count <= _clean_text.length():
 				var char_typed = _clean_text[current_char_count - 1]
 				

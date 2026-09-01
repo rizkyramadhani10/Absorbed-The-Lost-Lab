@@ -86,3 +86,11 @@ offset_bottom = 40.0
 metadata/_edit_lock_ = true
 
 [node name="TouchControl" parent="Control" unique_id=741419393 instance=ExtResource("11_ful07")]
+
+[node name="ObjectiveUI" parent="Control/TouchControl" index="5" unique_id=1600829041]
+visible = false
+
+[node name="ChapterSplashOverlay" parent="Control/TouchControl" index="6" unique_id=2127503933]
+visible = false
+
+[editable path="Control/TouchControl"]

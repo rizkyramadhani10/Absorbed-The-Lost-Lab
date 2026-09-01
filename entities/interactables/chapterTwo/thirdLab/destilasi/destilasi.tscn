@@ -9,6 +9,7 @@ size = Vector2(35.118504, 110.62336)
 
 [node name="destilasi" type="Area2D" unique_id=699519401]
 script = ExtResource("1_r4rl4")
+completion_flag = "is_destilasi_completed"
 
 [node name="ChemicalRack" type="Sprite2D" parent="." unique_id=1734318663]
 position = Vector2(752.00006, 236.00003)

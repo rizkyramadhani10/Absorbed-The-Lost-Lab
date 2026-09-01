@@ -41,7 +41,7 @@ offset_bottom = 314.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DialogPlayer" type="Node" parent="." unique_id=1946377352 node_paths=PackedStringArray("ai_dialog_box_parent")]
+[node name="DialogPlayer" type="Node" parent="." unique_id=1946377352]
 script = ExtResource("4_12ql7")
 _dialog_data_uid = 2631246164867404817
 _dialog_file_name = "InteractableProps(ThirdLab)"
@@ -50,5 +50,4 @@ _start_id = "FUMEHOOD"
 _play_on_ready = false
 _destroy_on_end = true
 _print_debug = false
-ai_dialog_box_parent = NodePath("../Anchor")
 metadata/_custom_type_script = "uid://1mxdpoyob13n"

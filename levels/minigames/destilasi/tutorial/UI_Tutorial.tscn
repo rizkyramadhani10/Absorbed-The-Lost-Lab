@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://xnfxaj8j6n4j"]
+
+[ext_resource type="Script" uid="uid://qh12c55iywl1" path="res://core/components/ui_tutorial.gd" id="1_jbial"]
+[ext_resource type="Texture2D" uid="uid://baucj3xtx8b5q" path="res://assets/images/itemProps/tablet/Tablet Xeno (ATL) (1).png" id="2_5qxtw"]
+[ext_resource type="FontFile" uid="uid://b1u0l0n3ck6v4" path="res://systems/ui/theme/fonts/Easy Pixel.ttf" id="3_4lm5m"]
+[ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="4_5mbn3"]
+[ext_resource type="Texture2D" uid="uid://diog8mo7jpui2" path="res://systems/ui/touch_controls/buttonIcons/rightBtn/silver-!arrowright.png" id="5_8rw0w"]
+[ext_resource type="Texture2D" uid="uid://doqgwq4yhr8x5" path="res://systems/ui/touch_controls/buttonIcons/rightBtn/silver-!arrowright-pushed.png" id="6_8wsnw"]
+
+[node name="UiTutorial" type="ColorRect" unique_id=1662750556]
+custom_minimum_size = Vector2(1280, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.54901963)
+script = ExtResource("1_jbial")
+
+[node name="TabletFrame" type="TextureRect" parent="." unique_id=978454197]
+custom_minimum_size = Vector2(720, 650)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -439.0
+offset_right = 538.0
+offset_bottom = 439.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5qxtw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Judul" type="RichTextLabel" parent="TabletFrame" unique_id=1947161649]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 214.0
+offset_right = 882.0
+offset_bottom = 294.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = ExtResource("3_4lm5m")
+theme_override_fonts/bold_font = ExtResource("4_5mbn3")
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[center][b][font_size=44][color=#1a233a]TUTORIAL MINIGAMES DESTILASI[/color][/font_size][/b]
+[font_size=22][color=#7f8c8d]Proses Pemurnian Belerang[/color][/font_size][/center]"
+
+[node name="KontenTutorial" type="RichTextLabel" parent="TabletFrame" unique_id=630405108]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 291.0
+offset_right = 816.0
+offset_bottom = 703.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 1
+theme_override_fonts/normal_font = ExtResource("3_4lm5m")
+bbcode_enabled = true
+text = "[color=#d35400][b]Step 1: PERSIAPAN BAHAN[/b][/color]
+- [b][color=#2980b9]Masukkan[/color][/b] [b][color=#1a233a]belerang[/color][/b] ke dalam [b]labu erlenmeyer[/b].
+- Pastikan belerang sudah terisi dengan benar di dalam labu.
+
+[color=#d35400][b]Step 2: PENATAAN ALAT[/b][/color]
+- [b][color=#2980b9]Tempatkan[/color][/b] labu erlenmeyer berisi belerang ke atas [b]tempat pemanasan[/b] (sebelah kiri).
+- [b][color=#2980b9]Tempatkan[/color][/b] labu erlenmeyer kosong ke atas [b]kaki tiga[/b] (sebelah kanan).
+
+[color=#d35400][b]Step 3: PROSES DESTILASI[/b][/color]
+- Sistem akan [b][color=#2c3e50]memproses[/color][/b] pemanasan dan destilasi secara otomatis.
+- [color=#27ae60][b]Proses:[/b][/color] [b]Tunggu[/b] hingga indikator pemanasan mencapai [b]100%[/b].
+
+[center][color=#d35400][b]Rangkai alat dan bahan dengan benar untuk menyelesaikan minigame![/b][/color][/center]"
+
+[node name="TombolMulai" type="TextureButton" parent="TabletFrame" unique_id=1194602490]
+texture_filter = 1
+layout_mode = 0
+offset_left = 757.0
+offset_top = 609.0
+offset_right = 844.0
+offset_bottom = 671.0
+texture_normal = ExtResource("5_8rw0w")
+texture_pressed = ExtResource("6_8wsnw")
+stretch_mode = 5

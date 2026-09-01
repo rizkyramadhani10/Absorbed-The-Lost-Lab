@@ -115,7 +115,7 @@ translation/characters/character_names_csv=-1
 translation/localization/default_locale="en"
 translation/localization/locales=["en"]
 internal/variables={}
-internal/play_dialog_path="res://dialogues/Dialogues/thirdLab/amnesia_xeno.tres"
+internal/play_dialog_path="res://dialogues/Dialogues/thirdLab/after_charging_battery.tres"
 internal/play_start_id="1"
 internal/last_opened_files=[{
 "path": "res://dialogues/characters/xeno.tres",
@@ -137,8 +137,8 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/secondLab/interactableProps.tres",
 "uid": 4741857494097749598,
 "view_state": {
-"scroll_offset": Vector2(-1.6512451, -109.41983),
-"zoom": 0.23256795
+"scroll_offset": Vector2(1535.7294, 1458.6941),
+"zoom": 0.97149444
 }
 }, {
 "path": "res://dialogues/characters/ai.tres",
@@ -160,22 +160,22 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/thirdLab/InteractableProps(ThirdLab).tres",
 "uid": 2631246164867404817,
 "view_state": {
-"scroll_offset": Vector2(54.53842, 188.63849),
-"zoom": 0.5644736
+"scroll_offset": Vector2(69.53162, 524.6059),
+"zoom": 1.0999997
 }
 }, {
 "path": "res://dialogues/Dialogues/ChapterOne/ChapterOne.tres",
 "uid": 4251736631831781970,
 "view_state": {
-"scroll_offset": Vector2(-173, -165),
-"zoom": 0.34050277
+"scroll_offset": Vector2(-173, 0),
+"zoom": 0.37455305
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_01_awake.json.tres",
 "uid": 7840125102653571137,
 "view_state": {
-"scroll_offset": Vector2(-86.66727, -165),
-"zoom": 0.35049367
+"scroll_offset": Vector2(-19.218323, -110.70027),
+"zoom": 0.51315784
 }
 }, {
 "path": "res://dialogues/Dialogues/AllDialogues/dialog_02_post_shower.json.tres",
@@ -402,8 +402,8 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/forest/resources_location_rope.tres",
 "uid": 5199606757517876597,
 "view_state": {
-"scroll_offset": Vector2(288.5899, 223.84845),
-"zoom": 1.1
+"scroll_offset": Vector2(84.275604, 68.23584),
+"zoom": 0.75131476
 }
 }, {
 "path": "res://dialogues/characters/storage/xeno.tres",
@@ -432,8 +432,29 @@ internal/last_opened_files=[{
 "path": "res://dialogues/Dialogues/thirdLab/amnesia_xeno.tres",
 "uid": 3353756412423796267,
 "view_state": {
-"scroll_offset": Vector2(448.74353, 54.423416),
+"scroll_offset": Vector2(-142.43286, -70.06969),
+"zoom": 0.62092125
+}
+}, {
+"path": "res://dialogues/Dialogues/AllDialogues/dialog_11_charge_battery.tres",
+"uid": 456151142306114752,
+"view_state": {
+"scroll_offset": Vector2(-150.10083, -32.48625),
+"zoom": 0.82644624
+}
+}, {
+"path": "res://dialogues/Dialogues/thirdLab/after_destilation.tres",
+"uid": 7030191240919107185,
+"view_state": {
+"scroll_offset": Vector2(0, -37),
+"zoom": 1.0
+}
+}, {
+"path": "res://dialogues/Dialogues/thirdLab/after_charging_battery.tres",
+"uid": 124247396668630543,
+"view_state": {
+"scroll_offset": Vector2(37.97101, -11.152573),
 "zoom": 1.1
 }
 }]
-internal/last_selected_file_index=38
+internal/last_selected_file_index=4

@@ -27,6 +27,13 @@ var is_tablet_open: bool = false
 var is_sulfur_destroyed: bool = false
 var materials_collected: bool = false
 var is_game_completed: bool = false
+var is_destilasi_completed: bool = false
+var is_charge_battery_completed: bool = false
+var is_put_battery_completed: bool = false
+var is_passed_quiz_completed: bool = false
+var is_enter_time_machine_completed: bool = false
+
+
 # Di Global.gd atau gamestate.gd
 
 # --- VARIABEL PENGETAHUAN LAB ---
@@ -44,7 +51,6 @@ var knowledge_unlocked: Dictionary = {
 	"fume_hood": false,
 	"burette_clamp": false,
 	"aquades_dispenser": false,
-	"safety_shower": false,
 	# Tambahkan key lain jika ada alat tambahan
 }
 

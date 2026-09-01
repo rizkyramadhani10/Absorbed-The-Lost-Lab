@@ -46,7 +46,7 @@ graph_data = {
 "node_index": 1,
 "node_type": "start_node",
 "offset": Vector2(70, 108),
-"size": Vector2(190, 97),
+"size": Vector2(190, 46),
 "start_id": "1",
 "to_dialog": "",
 "to_node": ["dialogue_node_1"]
@@ -55,15 +55,18 @@ graph_data = {
 }
 dialogs = {
 "1_DIALOG_1": {
+"": "",
 "default": "Loh... Tadi aku mau ngapain ya? Kenapa aku mendadak lupa langkah selanjutnya...
 Duh, efek amnesia ini benar-benar membuat pusing! Aku sudah membawa bahannya tapi malah bingung harus diapakan!",
 "en": ""
 },
 "1_DIALOG_2": {
+"": "",
 "default": "Deteksi Gelombang Otak Abnormal / Amnesia Terdeteksi. Menampilkan kembali panduan pembuatan larutan elektrolit H₂SO₄ 35%",
 "en": ""
 },
 "1_DIALOG_3": {
+"": "",
 "default": "Ah, terima kasih AI! Hampir saja aku tidak tahu harus berbuat apa... 
 Baiklah, sekarang mari kita mulai reaksi kimia ini!",
 "en": ""
