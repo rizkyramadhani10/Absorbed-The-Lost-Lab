@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://uvpsuw7rh21y" path="res://levels/minigames/chemicalStorage/rack/rack.tscn" id="2_1ftqw"]
 [ext_resource type="Texture2D" uid="uid://j6np212xr6b7" path="res://levels/minigames/chemicalStorage/sprites/bgWallnFloor.png" id="2_ij4aq"]
 [ext_resource type="PackedScene" uid="uid://c10ie6ff003nn" path="res://levels/minigames/chemicalStorage/item/bahan.tscn" id="3_ahi2t"]
-[ext_resource type="Texture2D" uid="uid://1ers8ar6vtqk" path="res://levels/minigames/chemicalStorage/sprites/RackContainer.png" id="4_cs0jk"]
+[ext_resource type="Texture2D" uid="uid://bsytkpnwrpwmx" path="res://levels/minigames/chemicalStorage/sprites/RackContainer.png" id="4_cs0jk"]
 [ext_resource type="FontFile" uid="uid://b1u0l0n3ck6v4" path="res://systems/ui/theme/fonts/Easy Pixel.ttf" id="5_ij4aq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ahi2t"]

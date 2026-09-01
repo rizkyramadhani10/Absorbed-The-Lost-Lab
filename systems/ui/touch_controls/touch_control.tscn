@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://cvdrc3syhf5wg" path="res://systems/cutscenes/ChapterSplashOverlay.tscn" id="11_hkccw"]
 
 [node name="TouchControl" type="CanvasLayer" unique_id=741419393]
-layer = 100
 script = ExtResource("1_a8o5c")
 
 [node name="LeftAnchor" type="Control" parent="." unique_id=1655190610]
@@ -102,3 +101,4 @@ visible = false
 [node name="ObjectiveUI" parent="." unique_id=1600829041 instance=ExtResource("10_rkkfx")]
 
 [node name="ChapterSplashOverlay" parent="." unique_id=2127503933 instance=ExtResource("11_hkccw")]
+layer = 100

@@ -21,7 +21,12 @@ enum StoryStage {
 	FOUND_ROPE,             # Menemukan tali
 	MADE_AXE,               # Membuat kapak
 	OBTAINED_RESOURCE,      # Sudah mengambil bongkahan
-	BACK_TO_LAB             # Kembali ke lab untuk meracik
+	BACK_TO_LAB,            # Kembali ke lab untuk meracik
+	DESTILATION,
+	CHARGE_BATTERY,
+	PUT_BATTERY,
+	PASSED_QUIZ,
+	ENTER_TIME_MACHINE
 }
 
 var current_stage: StoryStage = StoryStage.AWAKE:

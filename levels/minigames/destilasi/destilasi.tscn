@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://2vv1jxtg1tvr" path="res://levels/minigames/destilasi/destilasi.gd" id="1_43sg2"]
 [ext_resource type="Texture2D" uid="uid://ck4m8u5ewqh0o" path="res://levels/minigames/destilasi/asset/BG/background.png" id="1_lkg87"]
-[ext_resource type="Texture2D" uid="uid://dglil1dsu1rin" path="res://levels/minigames/destilasi/asset/alat/labu_ubah.png" id="2_qrw40"]
+[ext_resource type="Texture2D" uid="uid://gfqs4vjhy863" path="res://levels/minigames/destilasi/asset/alat/labu_ubah.png" id="2_qrw40"]
 [ext_resource type="Texture2D" uid="uid://jdcgydkjfn8f" path="res://levels/minigames/destilasi/asset/alat/labu alas.png" id="3_5uyst"]
-[ext_resource type="Texture2D" uid="uid://bcgvq40cpeuy5" path="res://levels/minigames/destilasi/asset/alat/labu_new.png" id="4_43sg2"]
+[ext_resource type="Texture2D" uid="uid://baur53ybjk61j" path="res://levels/minigames/destilasi/asset/alat/labu_new.png" id="4_43sg2"]
 [ext_resource type="Texture2D" uid="uid://cp5sg1u2lmg10" path="res://levels/minigames/destilasi/asset/alat/Destilasi alatnya (1).png" id="4_qrw40"]
 [ext_resource type="Texture2D" uid="uid://cbkqdrrovotr3" path="res://levels/minigames/destilasi/asset/alat/sulfur.png" id="5_jvg37"]
 [ext_resource type="Texture2D" uid="uid://dckm4k4wsmoja" path="res://levels/minigames/destilasi/asset/alat/bagian depan alat nyala.png" id="8_qrw40"]
@@ -36,8 +36,9 @@ offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_43sg2")
-next_scene = "uid://dljufsmrudfbq"
+scene_tujuan = "uid://dljufsmrudfbq"
 labu_sprite_changed = ExtResource("2_qrw40")
+advance_story_to = 17
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1946291210]
 layout_mode = 0
@@ -51,6 +52,7 @@ stretch_mode = 2
 metadata/_edit_lock_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1881826451]
+texture_filter = 1
 layout_mode = 0
 offset_left = -4.0
 offset_top = -109.0
@@ -157,6 +159,7 @@ offset_bottom = 123.0
 theme_override_font_sizes/font_size = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=82547]
+texture_filter = 1
 position = Vector2(165.00002, 557)
 scale = Vector2(0.30910322, 0.32269013)
 texture = ExtResource("8_qrw40")

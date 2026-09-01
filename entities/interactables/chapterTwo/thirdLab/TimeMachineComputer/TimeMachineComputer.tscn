@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://dlxkc4hbxft86"]
 
-[ext_resource type="Script" uid="uid://bx8a28j2spngl" path="res://entities/interactables/chemToolsChapterOne/chem_tools.gd" id="1_ghoae"]
+[ext_resource type="Script" uid="uid://b6iij5rt2jnvo" path="res://entities/interactables/chapterTwo/thirdLab/TimeMachineComputer/time_machine_computer.gd" id="1_dva60"]
 [ext_resource type="Texture2D" uid="uid://bvw7a0gsx1kh6" path="res://levels/thirdLab(TimeMachine)/sprites/interactablesProps/TimeMachineComputer.png" id="2_765rf"]
 [ext_resource type="PackedScene" uid="uid://cqmg08lifvkwp" path="res://systems/ui/hud/Label.tscn" id="3_ghoae"]
+[ext_resource type="Script" uid="uid://1mxdpoyob13n" path="res://addons/sprouty_dialogs/nodes/dialog_player.gd" id="4_dva60"]
+[ext_resource type="Resource" uid="uid://gq70ir4w8m3q" path="res://dialogues/Dialogues/AllDialogues/dialog_11_charge_battery.tres" id="5_a60co"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8jgx"]
 size = Vector2(113, 226)
 
 [node name="TimeMachineComputer" type="Area2D" unique_id=73848177]
-script = ExtResource("1_ghoae")
+script = ExtResource("1_dva60")
 
 [node name="TimeMachineComputer" type="Sprite2D" parent="." unique_id=1728040727]
 position = Vector2(752.99994, 413)
@@ -24,3 +26,29 @@ metadata/_edit_lock_ = true
 
 [node name="Label" parent="." unique_id=985866202 instance=ExtResource("3_ghoae")]
 position = Vector2(38, -8)
+
+[node name="Anchor" type="Control" parent="." unique_id=1013383207]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 749.0
+offset_top = 275.0
+offset_right = 749.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogPlayer" type="Node" parent="." unique_id=881586470 node_paths=PackedStringArray("ai_left_dialog_box_parent")]
+script = ExtResource("4_dva60")
+_dialog_data_uid = 456151142306114752
+_dialog_file_name = "dialog_11_charge_battery"
+_dialog_data = ExtResource("5_a60co")
+_start_id = "1"
+_play_on_ready = false
+_destroy_on_end = true
+_print_debug = false
+ai_left_dialog_box_parent = NodePath("../Anchor")
+metadata/_custom_type_script = "uid://1mxdpoyob13n"

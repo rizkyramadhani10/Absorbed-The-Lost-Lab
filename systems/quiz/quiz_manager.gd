@@ -117,6 +117,7 @@ func finish_quiz(passed: bool):
 		if options_container: options_container.visible = false
 		if health_display_container: health_display_container.visible = false
 		if results_panel: results_panel.visible = false
+		get_tree().call_group("portal_waktu", "aktifkan_portal")
 	else:
 		if results_panel: results_panel.visible = true
 		if result_label:

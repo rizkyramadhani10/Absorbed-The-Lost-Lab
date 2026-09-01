@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dy2msovfrxcd8" path="res://systems/ui/theme/fonts/Perfect DOS VGA 437 Win.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://l3dmiw7b00nb" path="res://systems/ui/main_menu/main_menu.gd" id="1_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://dctt3ejlch7ar" path="res://systems/ui/touch_controls/buttonIcons/playBtn/1.png" id="2_oa1go"]
-[ext_resource type="Texture2D" uid="uid://bj3ie5yyxeaf6" path="res://systems/ui/main_menu/mainMenuBg/default_menu_bg.png" id="2_so6jk"]
+[ext_resource type="Texture2D" uid="uid://bk7ikr3pqgc65" path="res://systems/ui/main_menu/mainMenuBg/default_menu_bg.png" id="2_so6jk"]
 [ext_resource type="Texture2D" uid="uid://bpvb0yca47ty8" path="res://systems/ui/touch_controls/buttonIcons/playBtn/2.png" id="3_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://ucfi632r583d" path="res://systems/ui/main_menu/logoImage/Title.png" id="3_xpxev"]
 [ext_resource type="Texture2D" uid="uid://dg57aqyk8x5ty" path="res://systems/ui/touch_controls/buttonIcons/settingBtn/3.png" id="4_jk1qb"]

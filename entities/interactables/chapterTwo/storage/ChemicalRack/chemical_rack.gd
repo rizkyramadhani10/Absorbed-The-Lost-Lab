@@ -55,7 +55,9 @@ func interact():
 	if player_ref:
 		Global.player_last_position = player_ref.global_position
 		Global.player_last_flip = player_ref.animated_sprite.flip_h
-		
+	
+	Global.spawn_point = ""
+	
 	var error_code = get_tree().change_scene_to_file(target_scene_path)
 	if error_code != OK:
 		print("ERROR: Gagal pindah scene. Kode Error: ", error_code)

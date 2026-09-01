@@ -21,7 +21,6 @@ var chemical_data: Dictionary = {}
 
 var dragging := false
 var placed := false
-
 var finger_index := -1
 
 var drag_offset := Vector2.ZERO
@@ -42,11 +41,9 @@ var start_position := Vector2.ZERO
 func _ready() -> void:
 	start_position = global_position
 	
-	# Jika ada texture dari inspector, langsung tampilkan
 	if chemical_texture:
 		sprite.texture = chemical_texture
 	
-	# Jika ada data dari database, gunakan itu
 	if chemical_id != "":
 		load_from_database(chemical_id)
 
@@ -56,7 +53,6 @@ func _ready() -> void:
 # ==============================
 
 func load_from_database(id: String) -> void:
-	"""Memuat data dari database berdasarkan ID"""
 	var db = preload("res://levels/minigames/chemicalStorage/data/chemical_database.gd")
 	var chemicals = db.CHEMICALS
 	
@@ -69,60 +65,50 @@ func load_from_database(id: String) -> void:
 
 
 func set_data(data: Dictionary) -> void:
-	"""Mengatur data bahan dari dictionary"""
 	chemical_data = data
 	
 	if data.has("nama"):
 		chemical_name = data["nama"]
-	
 	if data.has("kategori"):
 		chemical_category = data["kategori"]
-	
 	if data.has("sifat"):
 		chemical_properties = data["sifat"]
-	
 	if data.has("gambar") and data["gambar"] != null:
 		sprite.texture = data["gambar"]
 		chemical_texture = data["gambar"]
-	
 	if data.has("id"):
 		chemical_id = data["id"]
 
 
 # ==============================
-# INPUT HANDLING
+# INPUT HANDLING (UNIFIED PC & MOBILE)
 # ==============================
 
 func _input(event):
 	if placed:
 		return
 	
-	# =============================
-	# ANDROID (Touch)
-	# =============================
+	# 📱 ANDROID / TOUCHSCREEN
 	if event is InputEventScreenTouch:
 		if event.pressed:
-			# Cek apakah touch berada di dalam sprite
-			if is_point_inside_sprite(event.position):
+			if not dragging and is_point_inside_sprite(event.position):
 				dragging = true
 				finger_index = event.index
-				drag_offset = global_position - event.position
+				# Gunakan get_global_mouse_position() atau konversi posisi touch ke canvas transform
+				drag_offset = global_position - get_global_mouse_position()
 				item_pressed.emit(self)
 		else:
 			if dragging and finger_index == event.index:
 				dragging = false
 				finger_index = -1
 				item_dropped.emit(self)
-				get_parent().get_parent().get_parent().drop_item(self)
-	
-	# =============================
-	# EDITOR / PC (Mouse)
-	# =============================
+				_trigger_drop()
+
+	# 💻 PC / MOUSE
 	elif event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				# Cek apakah mouse berada di dalam sprite
-				if is_point_inside_sprite(event.position):
+				if not dragging and is_point_inside_sprite(event.global_position):
 					dragging = true
 					drag_offset = global_position - get_global_mouse_position()
 					item_pressed.emit(self)
@@ -130,52 +116,72 @@ func _input(event):
 				if dragging:
 					dragging = false
 					item_dropped.emit(self)
-					get_parent().get_parent().drop_item(self)
+					_trigger_drop()
+
+	# 🖱️ MOUSE MOTION / SCREEN DRAG (Agar botol mengikuti jari/mouse dengan akurat)
+	elif dragging:
+		if event is InputEventMouseMotion or event is InputEventScreenDrag:
+			if finger_index == -1 or (event is InputEventScreenDrag and event.index == finger_index):
+				global_position = get_global_mouse_position() + drag_offset
 
 
 # ==============================
 # HELPER FUNCTIONS
 # ==============================
 
-func is_point_inside_sprite(point: Vector2) -> bool:
-	"""Cek apakah point berada di dalam area sprite"""
-	# Konversi point ke koordinat lokal Area2D
-	var local_point = to_local(point)
-	
-	# Cek apakah point berada di dalam area sprite
+func is_point_inside_sprite(screen_point: Vector2) -> bool:
+	"""Cek apakah titik sentuh/klik berada di dalam area sprite (Kompatibel Screen & Global)"""
 	if sprite and sprite.texture:
-		var rect = sprite.get_rect()
-		return rect.has_point(local_point)
+		var global_rect = get_sprite_global_rect()
+		return global_rect.has_point(screen_point)
 	
-	# Fallback: cek dengan collision shape
 	if collision_shape and collision_shape.shape:
 		var shape = collision_shape.shape
 		if shape is RectangleShape2D:
-			var rect = Rect2(
-				-collision_shape.position - shape.size / 2,
-				shape.size
-			)
-			return rect.has_point(local_point)
-	
+			var rect = Rect2(collision_shape.global_position - shape.size / 2, shape.size)
+			return rect.has_point(screen_point)
+			
 	return false
 
+func get_sprite_global_rect() -> Rect2:
+	if not sprite or not sprite.texture:
+		return Rect2()
+	var texture_size = sprite.texture.get_size() * sprite.scale
+	var top_left = sprite.global_position - (texture_size / 2.0)
+	return Rect2(top_left, texture_size)
+
 
 # ==============================
-# PROCESS
+# PROCESS (FALLBACK POSISI)
 # ==============================
 
-func _process(delta):
+func _process(_delta):
 	if placed:
 		return
 	
 	if dragging:
-		if DisplayServer.is_touchscreen_available():
-			# Android
-			var mouse_pos = get_viewport().get_mouse_position()
-			global_position = mouse_pos + drag_offset
-		else:
-			# Windows/Linux/Mac Editor
-			global_position = get_global_mouse_position() + drag_offset
+		# Pastikan posisi terus mengunci ke kursor/jari secara real-time
+		global_position = get_global_mouse_position() + drag_offset
+
+
+# ==============================
+# SAFE DROP TRIGGER
+# ==============================
+
+func _trigger_drop() -> void:
+	"""Mencari script utama mini-game secara aman tanpa bergantung struktur parent"""
+	var main_game = get_tree().current_scene
+	# Cari node root yang memiliki method drop_item
+	if main_game.has_method("drop_item"):
+		main_game.drop_item(self)
+	else:
+		# Fallback mencari ke atas
+		var p = get_parent()
+		while p:
+			if p.has_method("drop_item"):
+				p.drop_item(self)
+				return
+			p = p.get_parent()
 
 
 # ==============================
@@ -195,12 +201,10 @@ func place_to(pos: Vector2) -> void:
 	global_position = pos
 	placed = true
 	dragging = false
-	# Nonaktifkan collision agar tidak bisa di-drag lagi
 	collision_shape.disabled = true
 
 
 func get_chemical_info() -> Dictionary:
-	"""Mendapatkan informasi bahan dalam bentuk dictionary"""
 	return {
 		"id": chemical_id,
 		"nama": chemical_name,

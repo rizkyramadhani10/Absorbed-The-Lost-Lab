@@ -159,22 +159,46 @@ func drop_item(item):
 # Cari Slot - DIPERBAIKI
 # ==============================
 
+# ==============================
+# Cari Slot - AMAN UNTUK LAPTOP & HP (DENGAN BOUNDING BOX + MARGIN)
+# ==============================
+
 func get_slot(pos):
 	# Cek semua Area2D di dalam Rack
 	for child in rack.get_children():
 		if child is Area2D:
-			# Cek apakah posisi berada di dalam collision shape
+			
+			# 1. Cek pakai method bawaan slot jika ada (seperti kode aslimu)
 			if child.has_method("is_point_inside"):
 				if child.is_point_inside(pos):
-					print("🎯 Point masuk ke slot: ", child.name)
+					print("🎯 Masuk ke slot (is_point_inside): ", child.name)
 					return child
-			else:
-				# Fallback: cek dengan get_rect jika method tidak ada
-				if child.has_method("get_rect"):
-					if child.get_rect().has_point(pos):
-						print("🎯 Point masuk ke slot (fallback): ", child.name)
-						return child
+			
+			# 2. Cek pakai Bounding Box dari CollisionShape2D dengan tambahan toleransi (margin) untuk HP
+			var rect = get_slot_global_rect(child)
+			# 🔥 Perbesar area kotak deteksi sebesar 40 pixel ke luar agar gampang di-drop di HP
+			if rect.grow(40.0).has_point(pos):
+				print("🎯 Masuk ke slot via Area/Rect toleransi: ", child.name)
+				return child
+				
 	return null
+
+# Fungsi pembantu untuk membaca ukuran kotak Area2D secara otomatis
+func get_slot_global_rect(area: Area2D) -> Rect2:
+	var shape_node = area.get_node_or_null("CollisionShape2D")
+	if shape_node and shape_node.shape:
+		var shape = shape_node.shape
+		var size = Vector2(60, 60) # Default size fallback
+		if shape is RectangleShape2D:
+			size = shape.size
+		elif shape is CircleShape2D:
+			size = Vector2(shape.radius * 2, shape.radius * 2)
+			
+		var top_left = shape_node.global_position - (size / 2.0)
+		return Rect2(top_left, size)
+		
+	# Fallback jika tidak ada collision shape
+	return Rect2(area.global_position - Vector2(30, 30), Vector2(60, 60))
 
 # ==============================
 # Check Win - DIPERBAIKI

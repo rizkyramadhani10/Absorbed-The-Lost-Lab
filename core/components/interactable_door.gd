@@ -5,12 +5,12 @@ class_name InteractableDoor
 ## Menggantikan 12 script pintu duplikat (to_meadow, to_forest, exit_door,
 ## door_to_lab_1/2, door_to_second_lab, dll). Semua fitur menjadi opsional
 ## lewat export di Inspector:
-##   - Teleport biasa            : isi target_scene_path (+ target_spawn)
-##   - Pintu terkunci stage      : set required_stage > AWAKE + locked_dialog_path
-##   - Pintu terkunci APD        : aktifkan require_apd + locked_dialog_path
-##   - Majukan cerita saat lewat : aktifkan change_stage_on_enter + next_stage
-##   - Efek highlight pintu      : isi door_sprite_path / dim_overlay_path
-##   - SFX                       : otomatis jika scene punya child AudioStreamPlayer2D
+##   - Teleport biasa             : isi target_scene_path (+ target_spawn)
+##   - Pintu terkunci stage       : set required_stage > AWAKE + locked_dialog_path
+##   - Pintu terkunci APD         : aktifkan require_apd + locked_dialog_path
+##   - Majukan cerita saat lewat  : aktifkan change_stage_on_enter + next_stage
+##   - Efek highlight pintu       : isi door_sprite_path / dim_overlay_path
+##   - SFX                        : otomatis jika scene punya child AudioStreamPlayer2D
 
 @export_group("Teleport")
 @export_file("*.tscn") var target_scene_path: String
@@ -92,6 +92,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		interaction_hint.visible = false
 	
 	Global.spawn_point = target_spawn
+	
+	# 🔥 FIX UTAMA: Bersihkan posisi terakhir player agar tidak terjadi "kebocoran koordinat" 
+	# yang membuat karakter melayang/tersesat saat masuk ke ruangan baru seperti Workspace!
+	Global.player_last_position = Vector2.ZERO
+	Global.player_last_flip = false
 	
 	if reset_last_position_on_enter:
 		Global.player_last_position = Vector2.ZERO
